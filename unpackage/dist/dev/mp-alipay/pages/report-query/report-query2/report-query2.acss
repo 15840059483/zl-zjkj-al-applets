@@ -1,0 +1,353 @@
+.payment3-center {
+    margin-top: .2rem;
+}
+
+.payment3-option {
+    background: #FFFFFF;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 0.3rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment3-option-font {
+	flex: 1
+}
+
+.payment3-option-font ._div:first-child {
+    color: #777777;
+    font-size: 16px;
+    margin-bottom: 0.2rem;
+}
+
+.payment3-option-font ._div:last-child {
+    color: #e1e1e1;
+    font-size: 0.3rem;
+}
+
+.query2-right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+	width: 2rem;
+}
+
+.query2-right ._i {
+    margin: .05rem 0 0 .2rem;
+}
+
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.visit-number {
+  color: #454545;
+}
+.card-container .change-patient-name {
+  text-align: right;
+}
+.card-container .change-patient-name-btn {
+  height: .8rem;
+  border-radius: .4rem;
+  background: no-repeat;
+  border: 1px solid #008efe;
+  padding: 0 .4rem;
+  color: #008efe;
+  outline: none;
+}
+.no-list {
+  margin-top: 1rem;
+}
+.no-list ._div {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #b8b8b8;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.no-list ._div ._img {
+  width: 60%;
+  height: 60%;
+}
+.no-list ._p {
+  text-align: center;
+  margin-top: .2rem;
+  color: #4d4d4d;
+  font-size: .35rem;
+  letter-spacing: 1px;
+}
+.payment-bot {
+  width: 100%;
+  height: 1.5rem;
+}
+.payment-bot .pay-sel-all {
+  font-size: .5rem;
+  font-weight: bold;
+  padding: .4rem 0;
+}
+.payment-bot .pay-sel-all .pay-check {
+  margin-right: .2rem;
+  width: .4rem;
+}
+.payment-bot .payment-btn {
+  height: 1rem;
+  line-height: 1rem;
+  background-color: #008efe;
+  color: #ffffff;
+  border-radius: 1rem;
+  margin: 0.2rem;
+}
+.payment-container {
+  border-top: 1px solid #008cfe;
+}
+.payment-container ._i {
+  font-size: .5rem;
+}
+.payment-container .payment-row {
+  padding: .3rem .1rem;
+  display: flex;
+  align-items: center;
+}
+.payment-container .prescription-row {
+  padding: .1rem .2rem;
+  display: flex;
+  align-items: center;
+}
+.payment-container .prescription-container {
+  border-top: 1px solid #e1e1e1;
+}
+.switch-patient-bg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+.switch-patient-bg .switch-patient-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.switch-patient-bg .switch-patient-container .border-bottom {
+  border-bottom: 1px solid #e1e1e1;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-title {
+  padding: .3rem 0;
+  position: relative;
+  font-weight: bold;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-title ._i {
+  position: absolute;
+  right: .3rem;
+  top: .4rem;
+  color: #e3e7e6;
+  font-size: .5rem;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-list {
+  padding: .2rem .4rem;
+  position: relative;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-list .patient-name {
+  margin-bottom: .2rem;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-list ._i {
+  position: absolute;
+  right: .3rem;
+  top: .45rem;
+  font-size: .8rem;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-btn {
+  text-align: center;
+  margin: .2rem 0;
+  padding: .2rem 0;
+  color: #008cfe;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-btn-l {
+  border-right: 1px solid #e1e1e1;
+}
+
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.patient-wrapper {
+  margin: .3rem .1rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.patient-wrapper .patient-info-row {
+  font-size: .3rem;
+  padding: .2rem;
+}
+.patient-wrapper .patient-wrapper-button {
+  width: 6rem;
+  margin: 1rem auto;
+  border-radius: 5px;
+  border: 1px solid #008cfe;
+  color: #008cfe;
+  font-size: .35rem;
+  text-align: center;
+  padding: .3rem 0;
+  letter-spacing: 1px;
+}
+.money-container {
+  padding: .3rem .5rem;
+}
+.money-container .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.money-container .money-num {
+  padding: .5rem 0;
+}
+.money-container .money-num ._div {
+  width: 2rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  border: 1px solid #656565;
+  border-radius: 6px;
+}
+.money-container .money-num ._div.bg-blue {
+  background-color: #008cfe;
+  border: 1px solid #008cfe;
+  color: #ffffff;
+}
+.money-container .money-input .el-input__inner {
+  border: 1px solid #656565;
+}
+.recharge {
+  width: 85%;
+  margin: 0 auto;
+}
+.recharge .recharge-btn {
+  width: 100%;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: .5rem;
+  height: 1.3rem;
+  background-color: #008cfe;
+  border: none;
+  margin-top: 1rem;
+  outline: none;
+}
+.add-patient-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2002;
+}
+.add-patient-bg .add-patient-container {
+  width: 90%;
+  margin: 2rem auto 0;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 170rpx;
+}
+.add-patient-bg .add-patient-container .add-patient-title {
+  padding: 16px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.add-patient-bg .add-patient-container .add-patient-title ._i {
+  font-size: .5rem;
+}
+.add-patient-bg .add-patient-container .add-patient-input {
+  width: 90%;
+  margin: 0 auto;
+  padding: .5rem 0 0;
+  display: flex;
+  align-items: center;
+}
+.add-patient-bg .add-patient-container .add-patient-input .el-input__inner {
+  height: .9rem;
+  background-color: #f5f5f5;
+  outline: none;
+}
+.add-patient-bg .add-patient-container .confirm-btn {
+  width: 90%;
+  margin: 0 auto;
+  padding: .4rem 0 .5rem;
+}
+.add-patient-bg .add-patient-container .confirm-btn button {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  height: .7rem;
+  font-size: 16px;
+  line-height: .7rem;
+  color: #ffffff;
+  background-color: #008cfe;
+  outline: none;
+}
+
+
+.zhuti.data-v-50d9b010 .uni-card {
+	padding: 0 !important;
+}
+.change-patient-name-btn.data-v-50d9b010 {
+	width: 80%;
+	height: 0.6rem;
+	line-height: 0.6rem;
+	font-size: 0.22rem;
+	border-radius: 0.4rem;
+	background: no-repeat;
+	border: 1px solid rgb(0, 142, 254);
+	padding: 0 0.4rem;
+	color: rgb(0, 142, 254);
+	outline: none;
+	margin: 0 auto;
+}
+

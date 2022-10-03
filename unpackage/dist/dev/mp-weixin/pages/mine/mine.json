@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "致嘉测试",
+  "usingComponents": {
+    "zg-button": "/uni_modules/zg-button/components/zg-button/zg-button",
+    "header": "/components/header/header",
+    "dacizinavtag": "/components/dacizi-navtag/dacizi-navtag"
+  }
+}

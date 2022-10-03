@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/huanzhe/huanzhe",
+    "pages/patient-management/patient-management",
+    "pages/patient-management/add-patient/add-patient",
+    "pages/barCodeAndQrCode/barCodeAndQrCode",
+    "pages/liuchengtu/liuchengtu",
+    "pages/hesuanjiance/Zizhukaidan/zizhukaidan",
+    "pages/hesuanjiance/Zhifu/zhifu",
+    "pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing",
+    "pages/hesuanjiance/Shenhejieguo/shenhejieguo",
+    "pages/hesuanjiance/fukuan/fukuan",
+    "pages/survey-new-coupons/survey-new-coupons",
+    "pages/survey-new-coupons/survey-results",
+    "pages/satisfaction/satisfaction",
+    "pages/outPatientQueryFeeList/queryOutFeeList",
+    "pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records",
+    "pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details",
+    "pages/departmentList/departmentList",
+    "pages/makeAppointmentRegister/makeAppointmentRegister",
+    "pages/doctorScheduling/doctorScheduling",
+    "pages/registrationConfirmation/registrationConfirmation",
+    "pages/paymentPage/paymentPage",
+    "pages/register-success/register-success"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "致嘉测试",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {}
+}

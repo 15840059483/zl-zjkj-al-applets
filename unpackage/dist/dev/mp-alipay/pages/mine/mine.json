@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "我的",
+  "usingComponents": {
+    "zg-button": "/uni_modules/zg-button/components/zg-button/zg-button",
+    "dacizinavtag": "/components/dacizi-navtag/dacizi-navtag"
+  }
+}

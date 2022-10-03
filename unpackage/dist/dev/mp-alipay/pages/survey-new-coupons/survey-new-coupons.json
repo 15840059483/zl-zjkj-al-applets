@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "新冠疫情调查问卷",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "住院缴费",
+  "usingComponents": {
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
+    "uni-easyinput": "/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "报告列表",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading",
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
+    "uni-easyinput": "/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput"
+  }
+}

@@ -1,0 +1,386 @@
+{
+	// 单页导航样式
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			// 主页
+			// 路径
+			"path": "pages/index/index",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			// 我的
+			// 路径
+			"path": "pages/mine/mine",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			// 智能导诊
+			// 路径
+			"path": "pages/huanzhe/huanzhe",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "智能导诊"
+			}
+		},
+		{
+			// 患者管理
+			// 管理就诊人
+			// 路径
+			"path": "pages/patient-management/patient-management",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "就诊者管理"
+			}
+		},
+		{
+			// 患者管理
+			// 添加就诊人
+			// 路径
+			"path": "pages/patient-management/add-patient/add-patient",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "添加就诊人"
+			}
+		},
+		{
+			// 就诊码
+			// 路径
+			"path": "pages/barCodeAndQrCode/barCodeAndQrCode",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "就诊码"
+			}
+		},
+		{
+			// 流程图
+			// 路径
+			"path": "pages/liuchengtu/liuchengtu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "流程图例"
+			}
+		},
+		{
+			// 核酸检测
+			// 自助开单
+			// 路径
+			"path": "pages/hesuanjiance/Zizhukaidan/zizhukaidan",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "自助开单"
+			}
+		},
+		{
+			// 核酸检测
+			// 支付
+			// 路径
+			"path": "pages/hesuanjiance/Zhifu/zhifu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "申请记录"
+			}
+		},
+		{
+			// 核酸检测
+			// 提交申请
+			// 路径
+			"path": "pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "提交审核"
+			}
+		},
+		{
+			// 核酸检测
+			// 审核结果
+			// 路径
+			"path": "pages/hesuanjiance/Shenhejieguo/shenhejieguo",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "审核结果"
+			}
+		},
+		{
+			// 核酸检测
+			// 付款
+			// 路径
+			"path": "pages/hesuanjiance/fukuan/fukuan",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "缴费页面"
+			}
+		},
+		{
+			// 新冠调查问卷
+			// 路径
+			"path": "pages/survey-new-coupons/survey-new-coupons",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "新冠疫情调查问卷"
+			}
+		},
+		{
+			// 新冠调查问卷结果
+			// 路径
+			"path": "pages/survey-new-coupons/survey-results",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "新冠疫情调查问卷"
+			}
+		},
+		{
+			// 满意度调查问卷
+			// 路径
+			"path": "pages/satisfaction/satisfaction",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "调查问卷"
+			}
+		},
+		{
+			// 门诊缴费记录
+			// 路径
+			"path": "pages/outPatientQueryFeeList/queryOutFeeList",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "缴费列表"
+			}
+		},
+		{
+			// 住院缴费记录
+			// 路径
+			"path": "pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "缴费记录"
+			}
+		},
+		{
+			// 住院缴费记录详情
+			// 路径
+			"path": "pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "缴费详情"
+			}
+		},
+		{
+			// 挂号科室列表
+			// 路径
+			"path": "pages/departmentList/departmentList",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "科室列表"
+			}
+		},
+		{
+			// 挂号眼门路径
+			// 路径
+			"path": "pages/makeAppointmentRegister/makeAppointmentRegister",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "科室"
+			}
+		},
+		{
+			// 挂号医生排班路径
+			// 路径
+			"path": "pages/doctorScheduling/doctorScheduling",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "医生排班"
+			}
+		},
+		{
+			// 挂号确认路径
+			// 路径
+			"path": "pages/registrationConfirmation/registrationConfirmation",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "挂号确认"
+			}
+		},
+		{
+			// 挂号缴费
+			// 路径
+			"path": "pages/paymentPage/paymentPage",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "缴费页面"
+			}
+		},
+		{
+			// 订单详情
+			// 路径
+			"path": "pages/register-success/register-success",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+			// 智能导诊头部
+			// 路径
+			"path": "pages/huanzhe/symptom/toubu/toubukeshi",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "头部"
+			}
+		},
+		{
+			// 智能导诊背部
+			// 路径
+			"path": "pages/huanzhe/symptom/beibu/beibu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "背部"
+			}
+		},
+		{
+			// 智能导诊儿童
+			// 路径
+			"path": "pages/huanzhe/symptom/ertong/ertong",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "儿童"
+			}
+		},
+		{
+			// 智能导诊腹部
+			// 路径
+			"path": "pages/huanzhe/symptom/fubu/fubu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "腹部"
+			}
+		},
+		{
+			// 智能导诊胳膊
+			// 路径
+			"path": "pages/huanzhe/symptom/gebo/gebo",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "手臂"
+			}
+		},
+		{
+			// 智能导诊肩膀
+			// 路径
+			"path": "pages/huanzhe/symptom/jianbang/jianbang",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "肩膀"
+			}
+		},
+		{
+			// 智能导诊颈部
+			// 路径
+			"path": "pages/huanzhe/symptom/jingbu/jingbu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "颈部"
+			}
+		},
+		{
+			// 智能导诊腿部
+			// 路径
+			"path": "pages/huanzhe/symptom/tuibu/tuibu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "腿部"
+			}
+		},
+		{
+			// 智能导诊臀部
+			// 路径
+			"path": "pages/huanzhe/symptom/tunbu/tunbu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "臀部"
+			}
+		},
+		{
+			// 智能导诊下部
+			// 路径
+			"path": "pages/huanzhe/symptom/xiabu/xiabu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "下部"
+			}
+		},
+		{
+			// 智能导诊胸部
+			// 路径
+			"path": "pages/huanzhe/symptom/xiongbu/xiongbu",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "胸部"
+			}
+		},
+		{
+			// 门诊缴费
+			// 路径
+			"path": "pages/outpatientPayment/outpatientPayment",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "待缴费列表"
+			}
+		},
+		{
+			// 住院缴费
+			// 路径
+			"path": "pages/hospitalizationPayment/hospitalizationPayment",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "住院缴费"
+			}
+		},
+		{
+			// 自助打印
+			// 路径
+			"path": "pages/self-service-printing/self-service-printing",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "病例自主打印"
+			}
+		},
+		{
+			// 报告查询
+			// 路径
+			"path": "pages/report-query/report-query2/report-query2",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "报告列表"
+			}
+		},
+		{
+			// 报告查询子路由
+			// 路径
+			"path": "pages/report-query/report-query3/report-query3",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "报告列表"
+			}
+		}
+	],
+	// 全局导航样式
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		// "navigationBarTitleText": "致嘉测试",
+		"navigationBarBackgroundColor": "#409EFF", // 导航栏颜色
+		"backgroundColor": "#F8F8F8", // 页面颜色
+		"navigationStyle": "default" // 描述：导航栏样式，仅支持以下值：default 默认样式；custom 自定义导航栏，只保留右上角胶囊按钮。
+		// "mp-alipay": { //在支付宝小程序中如果不生效 就加上这两行代码 就会生效啦
+		// 	"transparentTitle": "always",
+		// 	"titlePenetrate": "YES"
+		// }
+
+	},
+	"uniIdRouter": {}
+}

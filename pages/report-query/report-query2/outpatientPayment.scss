@@ -1,0 +1,160 @@
+.visit-number {
+  color: #454545;
+}
+
+.card-container {
+  // padding: .3rem .5rem;
+
+  .change-patient-name {
+    text-align: right;
+  }
+
+  .change-patient-name-btn {
+    height: .8rem;
+    border-radius: .4rem;
+    background: no-repeat;
+    border: 1px solid rgb(0, 142, 254);
+    padding: 0 .4rem;
+    color: rgb(0, 142, 254);
+    outline: none;
+  }
+}
+
+.no-list {
+  margin-top: 1rem;
+  div {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #b8b8b8;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      width: 60%;
+	  height: 60%;
+    }
+  }
+
+  p {
+    text-align: center;
+	margin-top: .2rem;
+    color: #4d4d4d;
+    font-size: .35rem;
+    letter-spacing: 1px;
+  }
+}
+
+.payment-bot {
+  //position: fixed;
+  //bottom: 0;
+  width: 100%;
+  height: 1.5rem;
+
+  .pay-sel-all {
+    font-size: .5rem;
+    font-weight: bold;
+    padding: .4rem 0;
+
+    .pay-check {
+      margin-right: .2rem;
+      width: .4rem;
+    }
+  }
+
+  .payment-btn {
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #008efe;
+    color: #ffffff;
+    border-radius: 1rem;
+    margin: 0.2rem;
+  }
+}
+
+.payment-container {
+  border-top: 1px solid #008cfe;
+
+  i {
+    font-size: .5rem;
+  }
+
+  .payment-row {
+    padding: .3rem .1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .prescription-row {
+    padding: .1rem .2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .prescription-container {
+    border-top: 1px solid #e1e1e1;
+  }
+}
+
+.switch-patient-bg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 99;
+
+  .switch-patient-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .border-bottom {
+      border-bottom: 1px solid #e1e1e1;
+    }
+
+    .switch-patient-title {
+      padding: .3rem 0;
+      position: relative;
+      font-weight: bold;
+
+      i {
+        position: absolute;
+        right: .3rem;
+        top: .4rem;
+        color: #e3e7e6;
+        font-size: .5rem;
+      }
+    }
+
+    .switch-patient-list {
+      padding: .2rem .4rem;
+      position: relative;
+
+      .patient-name {
+        margin-bottom: .2rem;
+      }
+
+      i {
+        position: absolute;
+        right: .3rem;
+        top: .45rem;
+        font-size: .8rem;
+      }
+    }
+
+    .switch-patient-btn {
+      text-align: center;
+      margin: .2rem 0;
+      padding: .2rem 0;
+      color: #008cfe;
+    }
+
+    .switch-patient-btn-l {
+      border-right: 1px solid #e1e1e1;
+    }
+  }
+}

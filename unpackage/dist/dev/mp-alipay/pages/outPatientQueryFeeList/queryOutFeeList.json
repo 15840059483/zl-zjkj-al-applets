@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "缴费列表",
+  "usingComponents": {
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
+    "uni-row": "/uni_modules/uni-row/components/uni-row/uni-row"
+  }
+}

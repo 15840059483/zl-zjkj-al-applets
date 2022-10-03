@@ -1,0 +1,126 @@
+.doc-container {
+  padding: 5px;
+
+  .doc-img {
+    width: 65px;
+    height: 85px;
+    margin: 0 auto;
+    background-color: #b4b4b4;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .doc-position, .doc-introduce {
+    font-size: 16px;
+    color: #b4b4b4;
+  }
+
+  .doc-introduce {
+    line-height: 1rem;
+    margin-top: .15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; //行数
+    -webkit-box-orient: vertical;
+  }
+
+  .doc-collection-icon {
+    font-size: 16px;
+  }
+
+  .doc-collection-font {
+    font-size: .3rem;
+    color: #b4b4b4;
+  }
+}
+
+.data-container {
+  margin: .4rem 0;
+
+  .doc-more-date {
+    float: right;
+    font-size: .35rem;
+
+    div {
+      float: left;
+    }
+  }
+}
+
+.select-am-row {
+  padding: 15px;
+  font-size: 16px;
+
+  .doc-money {
+    font-size: 14px;
+    color: #ec6c25;
+    padding-right: .2rem;
+  }
+
+  .doc-remainder {
+    background-color: #008cfe;
+    color: #ffffff;
+    font-size: 12px;
+    padding: .1rem .2rem;
+    border-radius: .2.5rem;
+  }
+}
+
+.select-pm-row {
+  border-top: 1px solid #e1e1e1;
+}
+
+.confirm-div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1000;
+}
+
+.confirm-container {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1001;
+  overflow: hidden;
+
+  .confirm-doc {
+    font-size: 16px;
+    background-color: #008cfe;
+    color: #ffffff;
+    padding: 16px 0;
+  }
+
+  .confirm-time {
+    padding: 16px 10px;
+    display: flex;
+
+    div {
+      color: #888787;
+      padding: .15rem .3rem;
+      border: 1px solid #e1e1e1;
+      margin-right: .5rem;
+    }
+  }
+
+  .confirm-btn-row {
+    border-top: 1px solid #e1e1e1;
+    display: flex;
+
+    .confirm-btn {
+      padding: 16px 0;
+    }
+
+    .confirm-btn-save {
+      border-left: 1px solid #e1e1e1;
+      color: #008cfe;
+    }
+  }
+}

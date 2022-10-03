@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "致嘉测试",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading",
+    "header": "/components/header/header",
+    "m-search": "/components/mehaotian-search/mehaotian-search"
+  }
+}

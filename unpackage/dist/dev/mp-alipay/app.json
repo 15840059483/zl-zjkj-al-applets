@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/huanzhe/huanzhe",
+    "pages/patient-management/patient-management",
+    "pages/patient-management/add-patient/add-patient",
+    "pages/barCodeAndQrCode/barCodeAndQrCode",
+    "pages/liuchengtu/liuchengtu",
+    "pages/hesuanjiance/Zizhukaidan/zizhukaidan",
+    "pages/hesuanjiance/Zhifu/zhifu",
+    "pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing",
+    "pages/hesuanjiance/Shenhejieguo/shenhejieguo",
+    "pages/hesuanjiance/fukuan/fukuan",
+    "pages/survey-new-coupons/survey-new-coupons",
+    "pages/survey-new-coupons/survey-results",
+    "pages/satisfaction/satisfaction",
+    "pages/outPatientQueryFeeList/queryOutFeeList",
+    "pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records",
+    "pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details",
+    "pages/departmentList/departmentList",
+    "pages/makeAppointmentRegister/makeAppointmentRegister",
+    "pages/doctorScheduling/doctorScheduling",
+    "pages/registrationConfirmation/registrationConfirmation",
+    "pages/paymentPage/paymentPage",
+    "pages/register-success/register-success",
+    "pages/huanzhe/symptom/toubu/toubukeshi",
+    "pages/huanzhe/symptom/beibu/beibu",
+    "pages/huanzhe/symptom/ertong/ertong",
+    "pages/huanzhe/symptom/fubu/fubu",
+    "pages/huanzhe/symptom/gebo/gebo",
+    "pages/huanzhe/symptom/jianbang/jianbang",
+    "pages/huanzhe/symptom/jingbu/jingbu",
+    "pages/huanzhe/symptom/tuibu/tuibu",
+    "pages/huanzhe/symptom/tunbu/tunbu",
+    "pages/huanzhe/symptom/xiabu/xiabu",
+    "pages/huanzhe/symptom/xiongbu/xiongbu",
+    "pages/outpatientPayment/outpatientPayment",
+    "pages/hospitalizationPayment/hospitalizationPayment",
+    "pages/self-service-printing/self-service-printing",
+    "pages/report-query/report-query2/report-query2",
+    "pages/report-query/report-query3/report-query3"
+  ],
+  "subPackages": [],
+  "window": {
+    "titleBarColor": "#409EFF",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {
+    "plugin-wrapper": "/plugin-wrapper"
+  }
+}

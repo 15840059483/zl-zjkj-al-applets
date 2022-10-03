@@ -1,0 +1,1 @@
+<view><movable-area class="movable-area"><movable-view class="movable-view" x="{{x}}" y="{{y}}" direction="all"><image src="https://s1.ax1x.com/2022/09/27/xZ4AJO.png"></image></movable-view></movable-area></view>

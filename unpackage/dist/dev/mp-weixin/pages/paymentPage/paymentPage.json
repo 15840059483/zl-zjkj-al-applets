@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "致嘉测试",
+  "usingComponents": {
+    "header": "/components/header/header"
+  }
+}

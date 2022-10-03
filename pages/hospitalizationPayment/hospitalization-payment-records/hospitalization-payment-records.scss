@@ -1,0 +1,156 @@
+.record-wrapper {
+  width: 100%;
+  .record-item {
+    padding: .2rem .3rem;
+    // margin: .7rem .5rem;
+    // border-radius: 5px;
+    // box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+
+    .record-item-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e1e1e1;
+      color: #4a4a4a;
+      padding: 10px;
+    }
+
+    .record-detail-item {
+      border-bottom: none;
+      color: #008cfe;
+    }
+  }
+}
+	.patient-wrapper {
+		margin: .3rem .1rem;
+		border-radius: 5px;
+		overflow: hidden;
+
+		.patient-info-row {
+			font-size: .3rem;
+			padding: .2rem;
+		}
+
+		.patient-wrapper-button {
+			width: 5rem;
+			margin: 1rem auto;
+			border-radius: 5px;
+			border: 1px solid #008cfe;
+			color: #008cfe;
+			font-size: 16px;
+			text-align: center;
+			padding: .3rem 0;
+			letter-spacing: 1px;
+			transform: scale(1.2);
+		}
+	}
+
+	.money-container {
+		padding: .3rem .5rem;
+
+		.flex {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.money-num {
+			padding: .5rem 0;
+
+			div {
+				width: 2rem;
+				height: 1rem;
+				line-height: 1rem;
+				text-align: center;
+				border: 1px solid #656565;
+				border-radius: 6px;
+
+				&.bg-blue {
+					background-color: #008cfe;
+					border: 1px solid #008cfe;
+					color: #ffffff;
+				}
+			}
+		}
+
+		.money-input {
+			.el-input__inner {
+				border: 1px solid #656565;
+			}
+		}
+	}
+
+	.recharge {
+		width: 85%;
+		margin: 0 auto;
+
+		.recharge-btn {
+			width: 100%;
+			color: #ffffff;
+			border-radius: 5px;
+			font-size: .5rem;
+			height: 1.3rem;
+			background-color: #008cfe;
+			border: none;
+			margin-top: 1rem;
+			outline: none;
+		}
+	}
+
+	.add-patient-bg {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		background-color: rgba(0, 0, 0, .5);
+		z-index: 2002;
+
+		.add-patient-container {
+			width: 90%;
+			margin: 2rem auto 0;
+			border-radius: 10px;
+			background-color: #fff;
+			margin-top: 170rpx;
+
+			.add-patient-title {
+				padding: 16px;
+				border-bottom: 1px solid #e1e1e1;
+
+				i {
+					font-size: .5rem;
+				}
+			}
+
+			.add-patient-input {
+				width: 90%;
+				margin: 0 auto;
+				padding: .5rem 0 0;
+				display: flex;
+				align-items: center;
+
+				.el-input__inner {
+					height: .9rem;
+					background-color: #f5f5f5;
+					outline: none;
+				}
+			}
+
+			.confirm-btn {
+				width: 90%;
+				margin: 0 auto;
+				padding: .4rem 0 .5rem;
+
+				button {
+					width: 100%;
+					border-radius: 5px;
+					border: none;
+					height: 1rem;
+					font-size: 16px;
+					line-height: 1rem;
+					color: #ffffff;
+					background-color: #008cfe;
+					outline: none;
+				}
+			}
+		}
+	}

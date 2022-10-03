@@ -1,0 +1,113 @@
+.query3-infocon {
+    background: #FFFFFF;
+    text-align: center;
+    color: #777777;
+    margin-top: .2rem;
+}
+
+.query3-infocon > ._p {
+    color: #414141;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0 0;
+}
+
+.query3-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.query3-info ._div {
+    margin: 20px 0;
+    width: calc(100% / 3);
+}
+
+.query3-info ._div:nth-child(2) {
+    border-left: 1px solid #e9e9e9;
+    border-right: 1px solid #e9e9e9;
+}
+
+.query3-info ._div ._p:first-child {
+    margin-top: -5px;
+    font-size: 0.35rem;
+}
+
+.query3-info ._div ._p:last-child {
+    margin-bottom: -5px;
+    font-size: 0.35rem;
+    margin-top: 5px;
+}
+
+.uni-table {
+    background: #FFFFFF;
+    width: 100%;
+    border-top: 2px solid #008cfe;
+    margin-bottom: 3.5rem;
+}
+
+.query3-theader {
+    color: #939392;
+}
+
+.query3-table ._tr {
+    text-align: center;
+}
+
+.query3-table ._tr:not(:first-child) ._td:first-child {
+    text-align: left;
+}
+
+.query3-table ._tr ._td {
+    border-right: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 5px;
+}
+
+.query3-table ._tr ._td:last-child {
+    border-right: none;
+}
+
+.query3-table ._tr ._td:first-child {
+    width: 40%;
+}
+
+.query3-table ._tr ._td:not(:first-child) {
+    width: 30%;
+}
+
+.center {
+    margin-bottom: 3.5rem;
+}
+
+.center > ._div {
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #777777;
+    background: #FFFFFF;
+    padding: .3rem .5rem;
+}
+
+.doctor7-center {
+    margin-top: 3.125rem;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+}
+
+.doctor7-center > ._div {
+    padding: 15px 20px;
+}
+
+.liebiao>>>.uni-table-td{
+	text-align: center !important;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.liebiao>>>.uni-table-tr{
+	text-align: center !important;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+} 

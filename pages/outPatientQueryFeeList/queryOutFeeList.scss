@@ -1,0 +1,72 @@
+.switch-patient-bg {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, .4);
+		z-index: 2002;
+
+		.switch-patient-container {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			background-color: #fff;
+
+			.border-bottom {
+				border-bottom: 1px solid #e1e1e1;
+			}
+
+			.switch-patient-title {
+				padding: 16px 0;
+				position: relative;
+				font-weight: bold;
+				text-align: center;
+
+				text {
+					position: absolute;
+					right: 25px;
+					top: 16px;
+					color: #e3e7e6;
+					font-size: 20px;
+				}
+			}
+
+			.switch-patient-list {
+				padding: 14px .4rem;
+				position: relative;
+
+				.patient-name {
+					margin-bottom: .4rem;
+					color: rgb(8, 8, 8);
+					font-size: 14px;
+					font-weight: bold;
+				}
+
+				text {
+					position: absolute;
+					right: 40px;
+					top: 30px;
+					font-size: 24px;
+				}
+			}
+
+			.switch-patient-btn {
+				text-align: center;
+				margin: .2rem 0;
+				padding: .2rem 0;
+				color: #008cfe;
+			}
+
+			.switch-patient-btn-l {
+				border-right: 1px solid #e1e1e1;
+			}
+		}
+	}.xianzhi>.card-container {
+		padding: .3rem .5rem;
+		display: flex;
+
+		.change-patient-name {
+			text-align: right;
+		}
+
+	}

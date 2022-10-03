@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "致嘉测试",
+  "usingComponents": {
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
+    "header": "/components/header/header",
+    "pop": "/components/ming-pop/ming-pop"
+  }
+}

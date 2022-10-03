@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "致嘉测试",
+  "usingComponents": {
+    "uni-row": "/uni_modules/uni-row/components/uni-row/uni-row",
+    "header": "/components/header/header"
+  }
+}

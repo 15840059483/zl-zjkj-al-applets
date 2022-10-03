@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "挂号确认",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading",
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
+    "pop": "/components/ming-pop/ming-pop"
+  }
+}

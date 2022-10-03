@@ -1,0 +1,33 @@
+
+.navBarBox{
+	background-color: #409EFF;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	top: 0rpx;
+}
+.navBarBox .navBar {
+	padding: 3rpx 50rpx;
+	padding-bottom: 8rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 10px;
+}
+.title {
+	width: 85%;
+	height: 1.3rem;
+	line-height: 1.3rem;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+}
+.navBarBox .navBar .logo {
+	width: 52rpx;
+	height: 52rpx;
+	margin-right: 10rpx;
+}
+.navBar{
+	height: 60rpx;
+}
+

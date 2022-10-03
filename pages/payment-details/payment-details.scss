@@ -1,0 +1,53 @@
+.payment-success-wrapper {
+  padding: .5rem;
+
+  .payment-success {
+    font-size: .5rem;
+    color: #008cfe;
+    margin-bottom: .2rem;
+  }
+
+  .payment-tip {
+    font-size: .3rem;
+    margin-top: .5rem;
+    line-height: .6rem;
+  }
+}
+
+.payment-ma-wrapper {
+  padding: .5rem;
+  margin: .5rem 0;
+
+  img {
+    width: 60%;
+  }
+}
+
+.payment-list-item {
+  padding: .3rem .5rem;
+  margin-bottom: 1px;
+
+  .payment-item-right {
+    color: #e1e1e1;
+  }
+}
+
+.table-title {
+  padding: 0 0 .3rem .5rem;
+  font-weight: bold;
+}
+
+.cell {
+  text-align: center;
+  color: #c6c6c6;
+}
+
+.payment-total-amount {
+  padding: .3rem .5rem;
+  font-weight: bold;
+
+  span {
+    color: #c6c6c6;
+    font-weight: 400;
+  }
+}

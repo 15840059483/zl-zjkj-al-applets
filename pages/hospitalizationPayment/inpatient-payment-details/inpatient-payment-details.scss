@@ -1,0 +1,58 @@
+.payment-amount {
+  background-color: #409EFF;
+  padding: 1rem 0;
+
+  .payment-amount-yuan {
+    width: 130px;
+    height: 130px;
+    border: 9px solid #6bbbfb;
+    border-radius: 50%;
+    text-align: center;
+    margin: -1px auto 0;
+    color: #ffffff;
+    font-size: 14px;
+
+    .payment-amount-font {
+      font-size: 16px;
+      margin: .6rem 0 .5rem;
+    }
+  }
+}
+
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.people-info-wrapper {
+  padding: 0 .6rem;
+  margin-bottom: .5rem;
+
+  .people-item {
+    border-bottom: 1px solid #e1e1e1;
+    color: #4a4a4a;
+    padding: .3rem;
+
+    .red-font {
+      color: #990000;
+    }
+
+    .green-font {
+      color: #006600;
+    }
+  }
+}
+
+.amount-title {
+  padding: .3rem;
+  border-left: 6px solid #6ea6d9;
+  color: #4a4a4a;
+  background-color: #d9e7f0;
+}
+
+.amount-item {
+  border-bottom: 1px solid #e1e1e1;
+  padding: .4rem;
+  color: #9d9d9d;
+}

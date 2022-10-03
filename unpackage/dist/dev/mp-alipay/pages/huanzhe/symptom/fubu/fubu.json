@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "腹部",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading",
+    "uni-collapse": "/uni_modules/uni-collapse/components/uni-collapse/uni-collapse",
+    "uni-collapse-item": "/uni_modules/uni-collapse/components/uni-collapse-item/uni-collapse-item"
+  }
+}

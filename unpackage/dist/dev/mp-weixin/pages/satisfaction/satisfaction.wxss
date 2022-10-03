@@ -1,0 +1,51 @@
+
+.header.data-v-664b3b86 {
+	position: fixed;
+	top: 0;
+	z-index: 999;
+}
+.zhuti.data-v-664b3b86 {
+	margin-top: 170rpx;
+}
+.satisfaction.data-v-664b3b86 {
+	height: 100%;
+	background: #FFFFFF;
+	overflow-y: auto;
+}
+.info-container.data-v-664b3b86 {
+	background: #eeeeee;
+	padding: .2rem .5rem;
+}
+.info.data-v-664b3b86,
+.question-list.data-v-664b3b86,
+.checkout-item.data-v-664b3b86 {
+	font-size: 16px;
+	line-height: 1.4rem;
+	color: #2b2b2b;
+}
+.list-item.data-v-664b3b86 {
+	padding: .3rem .3rem 0 .3rem;
+	line-height: .6rem;
+}
+.item-num.data-v-664b3b86 {
+	text-align: right;
+	padding-right: .2rem;
+}
+.select-font.data-v-664b3b86 {
+	color: #008cfe;
+}
+.submit-btn.data-v-664b3b86 {
+	width: 80%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #FFFFFF;
+	font-size: 14px;
+	margin: 20px auto 40px;
+	background: #008cfe;
+	border-radius: 5px;
+}
+.question-list.data-v-664b3b86 .uni-row {
+	margin-top: 10px !important;
+}
+

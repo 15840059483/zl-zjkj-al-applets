@@ -1,0 +1,140 @@
+<template>
+	<view>
+		<!-- 使用组件的时候首字母要大写！！！！ -->
+		<!-- view class="header" style="width: 100%;height: 150rpx;">
+			<Header :title="title" :shouye="shouye"></Header>
+		</view> -->
+		<view class="zhuti">
+			<div class="wait text-center" v-if="!isShowResult">
+				<p>请耐心等待不要离开页面</p>
+				<div class="wait-second">{{ second }}s</div>
+				<!--      <div class="wait-btn" :style="{'background': second === 0 ? '#008cfe' : '#b4b4b4'}" @click="clickToView">-->
+				<!--        点击查看-->
+				<!--      </div>-->
+			</div>
+			<div class="result text-center" v-if="isShowResult">
+				<div v-if="isSuccess" style="text-align: center;">
+					<img src="https://s1.ax1x.com/2022/09/13/vjYNLt.png" />
+					<p>缴费成功</p>
+				</div>
+				<div v-if="!isSuccess" style="text-align: center;">
+					<img src="https://s1.ax1x.com/2022/09/13/vjYtsI.png" />
+					<p>缴费失败</p>
+					<p>立即返回待缴费页面</p>
+				</div>
+			</div>
+		</view>
+	</view>
+</template>
+
+<script>
+	// 引入导航栏组件
+	// import header from '@/components/header/header.vue'
+	export default {
+		// 调用头部组件
+		components: {
+			// header
+		},
+		data() {
+			return {
+				title: "缴费页面", // 页面标题
+				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
+
+				orderNo: "",
+				second: 10,
+				isSuccess: true,
+				isShowResult: false,
+				time: null,
+				isTime: true,
+			}
+		},
+		methods: {
+			clickToView() {
+				this.isShowResult = true;
+			},
+
+			getOrderDetail() {
+				this.isShowResult = true;
+				this.isSuccess = true;
+				clearInterval(this.time);
+				setTimeout(() => {
+					// this.$router.push("/shenhejieguo");
+					uni.navigateTo({
+						url: '/pages/register-success/register-success?type=门诊'
+					});
+				}, 1000);
+			},
+
+		},
+		onLoad(e) {
+			this.orderNo = e.orderNo;
+			console.log(this.orderNo);
+		},
+		mounted() {
+			this.time = setInterval(() => {
+				this.second--;
+				if (this.second === 0) {
+					this.isTime = false;
+					this.getOrderDetail();
+					clearInterval(this.time);
+				}
+			}, 1000);
+		},
+	};
+</script>
+
+<style lang="scss" scoped>
+	// .header {
+	// 	position: fixed;
+	// 	top: 0;
+	// 	z-index: 999;
+	// }
+
+	// .zhuti {
+	// 	margin-top: 170rpx;
+	// }
+
+	.wait {
+		padding: 16px 0;
+		text-align: center;
+
+		p {
+			font-size: 20px;
+			color: #888787;
+		}
+
+		.wait-second {
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			border-radius: 50%;
+			margin: 30px auto;
+			background-color: #008cfe;
+			color: #ffffff;
+		}
+
+		.wait-btn {
+			width: 60%;
+			margin: 0 auto;
+			border-radius: 5px;
+			padding: 0.3rem 0;
+			color: #ffffff;
+		}
+	}
+
+	.result {
+		color: #008cfe;
+
+		img {
+			margin-top: 1rem;
+			width: 160px;
+			height: 130px;
+		}
+
+		p {
+			letter-spacing: 3px;
+			text-align: center;
+			margin-top: 10px;
+		}
+	}
+</style>

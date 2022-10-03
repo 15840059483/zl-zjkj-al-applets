@@ -1,0 +1,47 @@
+.red-font {
+  color: #ec6c25;
+}
+
+.patient-container {
+  .patient-container-row:last-child {
+    border-bottom: none;
+  }
+
+  .zoom-patient-container {
+    .patient-container-row:last-child {
+      border-bottom: 1px solid #e1e1e1;
+    }
+  }
+
+  .select-bg {
+    background-color: rgba(0, 140, 254, .1);
+  }
+}
+
+.select-patient-show {
+  width: 1.5rem;
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  i {
+    font-size: .5rem;
+  }
+}
+
+.patient-select {
+  width: 2.5rem;
+  position: absolute !important;
+  right: 0;
+  z-index: 99;
+  opacity: 0;
+}
+
+.submit-btn {
+  width: 5rem;
+  background-color: #008cfe !important;
+  color: #ffffff !important;
+  font-size: .4rem !important;
+  margin-bottom: 1rem;
+}

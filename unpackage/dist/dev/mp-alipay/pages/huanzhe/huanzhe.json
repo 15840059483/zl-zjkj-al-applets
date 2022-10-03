@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "智能导诊",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading",
+    "m-search": "/components/mehaotian-search/mehaotian-search"
+  }
+}

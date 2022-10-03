@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "致嘉测试",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading",
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
+    "uni-row": "/uni_modules/uni-row/components/uni-row/uni-row",
+    "header": "/components/header/header"
+  }
+}

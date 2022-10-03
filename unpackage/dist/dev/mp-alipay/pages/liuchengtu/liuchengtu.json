@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "流程图例",
+  "usingComponents": {
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
+    "pop": "/components/ming-pop/ming-pop"
+  }
+}

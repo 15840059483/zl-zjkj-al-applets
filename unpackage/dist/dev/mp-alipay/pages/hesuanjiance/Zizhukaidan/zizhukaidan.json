@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "自助开单",
+  "usingComponents": {
+    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading",
+    "uni-row": "/uni_modules/uni-row/components/uni-row/uni-row",
+    "pop": "/components/ming-pop/ming-pop",
+    "m-search": "/components/mehaotian-search/mehaotian-search"
+  }
+}

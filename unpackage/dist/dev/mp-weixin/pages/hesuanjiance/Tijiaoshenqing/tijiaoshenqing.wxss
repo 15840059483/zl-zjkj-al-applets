@@ -1,0 +1,272 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.xianzhi > .card-container {
+  padding: .3rem .5rem;
+  display: flex;
+}
+.xianzhi > .card-container .change-patient-name {
+  text-align: right;
+}
+.switch-patient-bg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2002;
+}
+.switch-patient-bg .switch-patient-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+}
+.switch-patient-bg .switch-patient-container .border-bottom {
+  border-bottom: 1px solid #e1e1e1;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-title {
+  padding: 1.0rem 0;
+  position: relative;
+  font-weight: bold;
+  text-align: center;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-title text {
+  position: absolute;
+  right: 1.3rem;
+  top: 1.1rem;
+  color: #e3e7e6;
+  font-size: 20px;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-list {
+  padding: .6rem .4rem;
+  position: relative;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-list .patient-name {
+  margin-bottom: .4rem;
+  color: #080808;
+  font-size: 14px;
+  font-weight: bold;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-list text {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  font-size: 24px;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-btn {
+  text-align: center;
+  margin: .2rem 0;
+  padding: .2rem 0;
+  color: #008cfe;
+}
+.switch-patient-bg .switch-patient-container .switch-patient-btn-l {
+  border-right: 1px solid #e1e1e1;
+}
+
+
+.header.data-v-70e3cd9a {
+		position: fixed;
+		top: 0;
+		z-index: 999;
+}
+.zhuti.data-v-70e3cd9a {
+		margin-top: 190rpx;
+}
+.change-patient-name.data-v-70e3cd9a {
+		text-align: right;
+		width: 30%;
+		height: 50rpx;
+}
+.change-patient-name-btn.data-v-70e3cd9a {
+		width: 100%;
+		height: 50rpx;
+		font-size: 20rpx;
+		border-radius: .4rem;
+		background: no-repeat;
+		border: 1px solid rgb(0, 142, 254);
+		padding: 0 .4rem;
+		color: rgb(0, 142, 254);
+		outline: none;
+		margin: 0;
+}
+.shangceng.data-v-70e3cd9a {
+		width: 70%;
+
+		display: flex;
+}
+.shouji.data-v-70e3cd9a {
+		width: 20%;
+		margin-top: 1px;
+		margin-left: 8px;
+}
+.xiaceng.data-v-70e3cd9a {
+		margin-top: 5px;
+}
+.xingming.data-v-70e3cd9a {
+		width: 35%;
+		/*超出部分就隐藏*/
+
+		overflow: hidden;
+
+		/*不换行设定*/
+
+		white-space: nowrap;
+
+		/*超出部分的文字显示省略号*/
+
+		text-overflow: ellipsis;
+}
+.xingming>._span.data-v-70e3cd9a {
+		color: rgb(8, 8, 8);
+		font-size: 16px;
+		font-weight: bold;
+}
+.shouji>._span.data-v-70e3cd9a {
+		color: rgb(8, 8, 8);
+		font-size: 16px;
+		font-weight: bold;
+}
+.xiaceng>text.data-v-70e3cd9a {
+		font-size: 12px;
+		color: rgb(146, 146, 146);
+		/* margin-left: 1px; */
+}
+.xiangmuxinxikuang.data-v-70e3cd9a {
+		margin: 0px auto;
+		width: 90%;
+		/* margin-top: 40px;
+		border-radius: 15px;
+		height: 215px; */
+		/* background-color: #fff; */
+}
+.xiangmu.data-v-70e3cd9a {
+		width: 100%;
+		display: flex;
+		height: 270rpx;
+		border-bottom: 1px solid #ccc;
+}
+.hejijiner.data-v-70e3cd9a {
+		width: 100%;
+		height: 20%;
+		display: flex;
+}
+.zhong.data-v-70e3cd9a {
+		width: 100%;
+		height: 100%;
+		/* background-color: lawngreen; */
+		margin: 0 auto;
+		display: flex;
+		/* margin-top: 20px; */
+}
+.zuo.data-v-70e3cd9a {
+		width: 78%;
+		height: 100%;
+		/* text-align: center; */
+		/* background-color: saddlebrown; */
+}
+.you.data-v-70e3cd9a {
+		width: 22%;
+		height: 100%;
+		text-align: center;
+		/* background-color: aquamarine; */
+}
+.biaoti.data-v-70e3cd9a,
+	.jiner.data-v-70e3cd9a {
+		height: 30%;
+		text-align: center;
+		/* margin-top: 5px; */
+		/* background-color: khaki; */
+}
+.xiangmuname.data-v-70e3cd9a {
+		height: 20%;
+		margin-top: 5px;
+}
+.yuyueshijian.data-v-70e3cd9a,
+	.quedingshijian.data-v-70e3cd9a {
+		height: 25%;
+		margin-top: 5px;
+		/* background-color: navy; */
+}
+.biaoti.data-v-70e3cd9a {
+		display: flex;
+}
+.wenzi.data-v-70e3cd9a {
+		/* margin-top: 10px; */
+		margin-left: 10px;
+}
+.wenzi>._span.data-v-70e3cd9a {
+		line-height: 30px;
+		font-size: 14px;
+		font-weight: 600;
+}
+.beijing.data-v-70e3cd9a {
+		/* margin-top: 10px;
+  margin-left: 10px; */
+		width: 30px;
+		height: 30px;
+		background-size: 100% 100%;
+		background-image: url(https://s1.ax1x.com/2022/09/09/vqqia6.jpg);
+}
+.yuyueshijian>._span.data-v-70e3cd9a {
+		text-align: left;
+		font-size: 14px;
+		margin-left: 10px;
+}
+.xiangmuname>._span.data-v-70e3cd9a {
+		/* line-height: 50px; */
+		text-align: left;
+		margin-left: 10px;
+		font-size: 14px;
+}
+.zhanwei.data-v-70e3cd9a {
+		width: 50%;
+		height: 50%;
+}
+.hesuanjiner.data-v-70e3cd9a {
+		text-align: center;
+		margin-top: 20px;
+		width: 50%;
+		height: 50%;
+		/* background: seagreen; */
+}
+.xiangmuname.data-v-70e3cd9a {
+		margin-top: 10px;
+}
+.xiangmuxinxikuang.data-v-70e3cd9a .uni-card {
+		margin: 0 !important;
+		padding: 0 !important;
+		/* background-color: salmon; */
+}
+.anniu.data-v-70e3cd9a {
+		width: 65%;
+		height: 40px;
+		margin: 0 auto;
+		margin-top: 30px;
+		display: flex;
+		/* background-color: aqua; */
+}
+

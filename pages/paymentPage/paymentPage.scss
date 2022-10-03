@@ -1,0 +1,39 @@
+.wait {
+  padding: 1rem 0;
+
+  p {
+    font-size: .35rem;
+    color: #888787;
+  }
+
+  .wait-second {
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: 50%;
+    margin: 1rem auto;
+    background-color: #008cfe;
+    color: #ffffff;
+  }
+
+  .wait-btn {
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: .3rem 0;
+    color: #ffffff;
+  }
+}
+
+.result {
+  color: #008cfe;
+
+  img {
+    margin-top: 1rem;
+    width: 3rem;
+  }
+
+  p {
+    letter-spacing: 3px;
+  }
+}

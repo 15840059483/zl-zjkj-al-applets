@@ -1,0 +1,849 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.outpatient-department-container {
+  margin-bottom: .4rem;
+}
+.outpatient-department-container .outpatient-department {
+  color: #4a4a4a;
+}
+.outpatient-department-container .outpatient-department ._img {
+  vertical-align: center;
+  width: 16px;
+  height: 16px;
+  margin-right: .2rem;
+}
+.outpatient-department-container .introduce {
+  color: #b4b4b4;
+  font-size: 16px;
+  line-height: .5rem;
+}
+.data-container {
+  margin-bottom: 2px;
+}
+.data-container .data-change-btn ._div {
+  float: left;
+}
+.data-container .icon-caret-bor {
+  width: 12px;
+  height: 12px;
+  border: 1px solid;
+  border-radius: 50%;
+  text-align: center;
+  color: #b4b4b4;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2px 0 0 16px;
+}
+.data-container .data-change-r {
+  float: right;
+  display: flex;
+  color: #008cfe;
+  font-size: .35rem;
+  border: 1px solid #008cfe;
+}
+.data-container .data-change-r > ._div {
+  padding: .05rem .2rem;
+}
+.data-container .data-change-r .selected-bg {
+  background-color: #008cfe;
+  color: #ffffff;
+}
+.data-container .date-week {
+  width: 14.2%;
+  text-align: center;
+  font-size: 16px;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  padding: .2rem 0;
+}
+.data-container .date-day {
+  width: 100%;
+  text-align: center;
+  margin: .3rem auto;
+  padding: .05rem;
+  font-size: 12px;
+  line-height: 1rem;
+}
+.data-container .date-day .date-have {
+  font-size: .25rem;
+  color: #888787;
+}
+.data-container .select-date {
+  background-color: #409EFF;
+  color: #ffffff;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+.data-container .select-date .date-have {
+  color: #ffffff;
+}
+.doc-row {
+  padding: .3rem;
+}
+.doc-row .doc-img {
+  width: 65px;
+  height: 85px;
+  margin: 0 auto;
+  background-color: #e1e1e1;
+}
+.doc-row .doc-img ._img {
+  width: 100%;
+  height: 100%;
+}
+.doc-row .doc-name {
+  font-size: 16px;
+  line-height: 16px;
+}
+.doc-row .doc-position {
+  font-size: 16px;
+  color: #b4b4b4;
+}
+.doc-row .doc-money {
+  font-size: 16px;
+  line-height: 1.5rem;
+  text-align: center;
+  padding-right: .3rem;
+  color: #ec6c25;
+}
+.doc-row .doc-remainder {
+  background-color: #008cfe;
+  color: #ffffff;
+  font-size: .3rem;
+  padding: .05rem .2rem;
+  line-height: 1.7rem;
+  border-radius: .1rem;
+}
+.doc-row:not(:last-child) {
+  border-bottom: 1px solid #e1e1e1;
+}
+.confirm-div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.confirm-container {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1001;
+  overflow: hidden;
+}
+.confirm-container .confirm-doc {
+  font-size: .4rem;
+  background-color: #008cfe;
+  color: #ffffff;
+  padding: .3rem 0;
+}
+.confirm-container .confirm-time {
+  padding: .4rem .6rem;
+  display: flex;
+}
+.confirm-container .confirm-time ._div {
+  color: #ffffff;
+  padding: .15rem .3rem;
+  background-color: #008cfe;
+  margin-right: .5rem;
+}
+.confirm-container .confirm-btn-row {
+  border-top: 1px solid #e1e1e1;
+}
+.confirm-container .confirm-btn-row .confirm-btn {
+  padding: .5rem 0;
+}
+.confirm-container .confirm-btn-row .confirm-btn-save {
+  border-left: 1px solid #e1e1e1;
+  color: #008cfe;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .header {
+	position: fixed;
+	top: 0;
+	z-index: 999;
+} */
+
+/* .zhuti {
+	margin-top: 170rpx;
+} */
+.outpatient-department-container.data-v-32631430 .uni-card {
+	padding: 0 !important;
+}
+
+/* 动画样式 */
+
+/* 点击更多的样式 */
+.show-more.data-v-32631430 {
+	width: 100%;
+	height: 1px;
+	transition: height 1s;
+	-moz-transition: height 1s;
+	/* Firefox 4 */
+	-webkit-transition: height 1s;
+	/* Safari and Chrome */
+	-o-transition: height 1s;
+	/* Opera */
+}
+
+/* 动画样式 */
+.show-more-click.data-v-32631430 {
+	height: 2rem;
+}
+

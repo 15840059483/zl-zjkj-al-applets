@@ -1,0 +1,119 @@
+.add-people-num {
+  color: #5c5c5c;
+  font-size: 16px;
+  padding: .3rem;
+
+  span {
+    color: #507dff;
+  }
+}
+
+// 按钮样式
+.change-patient-name {
+		text-align: right;
+		// margin:0 auto;
+		margin-left: 68%;
+		margin-top: 10rpx;
+		// float: right;
+		width: 30%;
+		height: 50rpx;
+	}
+
+	.change-patient-name-btn {
+		width: 100%;
+		height: 50rpx;
+		line-height: 50rpx;
+		font-size: 22rpx;
+		border-radius: .4rem;
+		background: no-repeat;
+		border: 1px solid rgb(0, 142, 254);
+		padding: 0 .4rem;
+		color: rgb(0, 142, 254);
+		outline: none;
+		margin: 0;
+	}
+
+.patient-container {
+  margin-bottom: .4rem;
+  padding: .2rem;
+
+  .patient-container-row{
+    border-bottom: 1px solid #e1e1e1;
+    color: #4a4a4a;
+    padding: .3rem;
+  }
+
+  .patient-radio-row {
+    padding: .3rem;
+
+    .patient-radio-col-l {
+      display: flex;
+      align-items: center;
+      color: #008cfe;
+
+      .radio-container {
+        width: .4rem;
+        height: .4rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid #008cfe;
+        margin-right: .3rem;
+
+        .radio-checked {
+          width: 50%;
+          height: 50%;
+          border-radius: 50%;
+          background-color: #008cfe;
+        }
+      }
+    }
+
+    .patient-radio-col-r {
+      i {
+        color: #ff6633;
+        font-size: .5rem;
+      }
+    }
+  }
+}
+
+.confirm-del {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1000;
+}
+
+.del-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  border-radius: .3rem;
+  width: 6rem;
+  font-size: .4rem;
+  letter-spacing: .05rem;
+
+  .del-container-row {
+    border-bottom: 1px solid #cdcdcd;
+    padding: .1rem 0;
+  }
+
+  .del-container-cancel {
+    border-right: 1px solid #cdcdcd;
+  }
+
+  .del-container-col {
+    padding: .3rem 0;
+  }
+
+  .del-container-del {
+    color: #ff6633;
+  }
+}
