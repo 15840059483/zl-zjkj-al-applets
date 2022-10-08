@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" :mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<!-- 使用悬浮球组件 -->
 		<Levitation></Levitation>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
@@ -36,7 +36,11 @@
 
 			<uni-card shadow="never" v-else>
 				<uni-row class="card-row">
-					<div class="patient-wrapper-button" @click="addCardNumber">初次使用，请添加就诊号</div>
+					<div v-if="isToken" class="patient-wrapper-button" @click="addCardNumber">初次使用，请添加就诊号</div>
+					<button v-if="!isToken" open-type="getAuthorize" scope="userInfo" @getAuthorize="onAuthBtn" @error="onAuthError">
+						个人信息授权
+					</button>
+					<!-- <div v-if="!isToken" class="patient-wrapper-button" @click="onAuthBtn">点击授权</div> -->
 				</uni-row>
 			</uni-card>
 
@@ -138,7 +142,7 @@
 	export default {
 		// 注册使用导航栏组件
 		components: {
-		 // header,
+			// header,
 			// dacizinav	tag,
 			levitation
 		},
@@ -153,7 +157,9 @@
 				inpatientFunctionList: [],
 				showAddPatient: false,
 				cardNo: '',
-				loading: true, // 加载动画
+				loading: false, // 加载动画
+
+				isToken: true,
 			}
 		},
 		filters: {
@@ -193,9 +199,9 @@
 					"patientState": "1010"
 				}
 				this.dfltPatientInfo = data
-				
-				
-				
+
+
+
 				/**this.$myRequest({
 					url: "/wechat/user/dfltPtCard/info",
 					data: params,
@@ -236,22 +242,22 @@
 				const params = Object.assign(this.dfltPatientInfo, {
 					cardNo: value ? this.cardNo : ''
 				})
-			
-					this.$myRequest({
-						url: "/wechat/user/addPtCard/info",
-						data: params
-					}).then(data => {
-						this.getDfltPtCardInfo()
-						this.showAddPatient = false
-						uni.showToast({
-							title: '绑定成功！',
-							icon: 'none',
-							duration: 2000
-						});
-						this.loading = false;
-					}).catch(err => {
-						this.loading = false;
-					})
+
+				this.$myRequest({
+					url: "/wechat/user/addPtCard/info",
+					data: params
+				}).then(data => {
+					this.getDfltPtCardInfo()
+					this.showAddPatient = false
+					uni.showToast({
+						title: '绑定成功！',
+						icon: 'none',
+						duration: 2000
+					});
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			switchPatient() {
 				// this.goToPage('/select-patient');
@@ -306,16 +312,27 @@
 						})
 					})
 			},
+			onAuthBtn() {
+				my.getOpenUserInfo({
+					success: (res) => {
+						let userInfo = JSON.parse(res.response).response // 以下方的报文格式解析两层 response
+						console.log('userInfo', userInfo)
+					},
+					fail: (res) => {
+						console.log('fail', res)
+					}
+				});
+			},
 		},
 		created() {
 			this.item_index = 0; // 单页面id
 		},
 		// 这是uni的生命周期
 		onLoad() {
-			this.jiazai()
+			// this.jiazai()
 		},
 		onShow() {
-			this.jiazai()
+			// this.jiazai()
 		},
 		mounted() {
 			// const item = JSON.parse(JSON.stringify(localStorage.getItem('selectPatient')));
@@ -544,18 +561,63 @@
 				},*/
 			]
 
+			let _this = this
+			my.getStorage({
+				key: 'token',
+				success: function(res) {
+					console.log(res)
+					if (!res.data) {
+						_this.isToken = false
+						my.getAuthCode({
+							scopes: 'auth_user',
+							success: res => {
+								console.log(res)
+								_this.$myRequest({
+										// url: `/al/auth/login?code=${res.code}`,
+										url: `/al/auth/login?code=${res.authCode}`,
+										method: 'get'
+									})
+									.then((data) => {
+										console.log(data.data)
+										// _this.user_id = data.user_id;
+										my.setStorageSync({
+											key: 'user_id',
+											data: {
+												'user_id': data.user_id,
+											},
+										});
+										my.removeStorage({
+											key: 'token'
+										})
+										console.log(data.data.reg)
+
+
+										if (!data.data.reg) {
+											// _this.$router.push('/register')
+											uni.showToast({
+												title: '还没有注册哟~',
+												icon: 'none',
+												duration: 2000
+											});
+										} else {
+											_this.getDfltPtCardInfo();
+											my.setStorageSync({
+												key: 'token',
+												data: {
+													token: data.data.token,
+												},
+											});
+										}
+									})
+							},
+						});
+					}
+				}
+			})
+
 			// this.getHostMenu();
-			my.getAuthCode({
-			  scopes: 'auth_base',
-			  success: res => {
-				console.log(res)
-			    my.alert({
-			      content: res.authCode,
-			    });
-			  },
-			});
-			this.getDfltPtCardInfo();
-			this.jiazai();
+			// this.getDfltPtCardInfo();
+			// this.jiazai();
 		}
 	}
 </script>
