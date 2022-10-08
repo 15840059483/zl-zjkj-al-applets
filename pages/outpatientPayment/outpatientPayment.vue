@@ -1,9 +1,7 @@
 <template>
 	<view>
-		<!-- 使用组件的时候首字母要大写！！！！ -->
-		<!-- <view class="header" style="width: 100%;height: 150rpx;">
-			<Header :title="title" :shouye="shouye"></Header>
-		</view> -->
+		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
+		<zero-loading v-if="loading" type="pulse" :mask=true></zero-loading>
 		<view class="zhuti">
 			<uni-card class="xianzhi">
 				<!-- 就诊人信息，如果huanzhexinxi中的患者姓名为空渲染这个div -->
@@ -28,11 +26,6 @@
 							<text style="margin-left:5px;">{{ currentPatient.cardNumber }}</text>
 						</div>
 					</div>
-					<!-- <div class="qiehuananniu">
-						<button class="change-patient-name-btn" @click="switchPatient">
-							切换就诊人
-						</button>
-					</div> -->
 				</div>
 				<!-- 就诊人信息，如果huanzhexinxi中的患者姓名不为空渲染这个div -->
 				<div class="bg-white card-container" v-else>
@@ -53,11 +46,6 @@
 							<text style="margin-left:5px;">{{ huanzhexinxi.cardNumber }}</text>
 						</div>
 					</div>
-					<!-- <div class="qiehuananniu">
-						<button class="change-patient-name-btn" @click="switchPatient">
-							切换就诊人
-						</button>
-					</div> -->
 				</div>
 			</uni-card>
 			<!-- 切换就诊人的弹出框 -->
@@ -74,8 +62,6 @@
 						<div class="patient-name">*{{ item.patientName }}</div>
 						<div class="visit-number" style="font-size: 14px;color: rgb(146, 146, 146);">
 							就诊号：{{ item.cardNumber }}</div>
-						<!-- <i class="el-icon-check" v-if="currentPatient.shenfenID === item.shenfenID"
-							style="color: #008cfe"></i> -->
 						<text class="iconfont icon-duihao" v-if="currentPatient.cardNumber === item.cardNumber"
 							style="color: #008cfe"></text>
 					</div>
@@ -120,7 +106,7 @@
 				</div>
 				<p>暂未获取到您的代缴费信息</p>
 			</div>
-			<view class="neiwaibianju">
+			<view class="neiwaibianju" v-if="paymentList.length > 0">
 				<uni-card>
 					<div v-if="paymentList.length > 0">
 						<div class="bg-white payment-container" v-for="item in paymentList" v-bind:key="item.count">
@@ -168,7 +154,6 @@
 									</view>
 									<view class="prescription-row" v-for="(prescriptionItem, ind) in outFee.feeList"
 										:key="ind" style="display: flex;padding: 5px 0;">
-										<!-- v-for="prescriptionItem in prescription.prescriptionItems" v-bind:key="prescriptionItem.id"-->
 										<view style="width: 5%;">&nbsp;</view>
 										<view style="width: 70%;">{{ prescriptionItem.itemName }}</view>
 										<view class="text-right" style="color: #b8b8b8;width: 25%;text-align: right;">
@@ -241,7 +226,7 @@
 				selectPaymentMoOrderList: [],
 				isSelectAll: false,
 				totalMoney: 0,
-
+				loading: true,
 			}
 		},
 		methods: {
@@ -253,6 +238,7 @@
 			},
 			//就诊人信息的数据
 			getPatientInfo() {
+				this.loading = true;
 				let _this = this;
 				let data = [{
 						"cardId": "1485542028335468546",
@@ -305,7 +291,7 @@
 				// 让currentPatient等于数组data中索引位置为0的信息
 				_this.currentPatient = data[0];
 				this.getOutPayList();
-
+				this.loading = false;
 			},
 			//切换就诊人，这个参数中包含就诊人信息
 			// onSwitchPatientBtn(item) {
@@ -329,279 +315,24 @@
 
 			// 获取缴费信息列表
 			getOutPayList() {
-				let data = {
-					"code": 0,
-					"data": [{
-						"count": "117.40",
-						"outFeeList": [{
-								"feeList": [{
-									"deptId": "0008",
-									"deptName": "眼门",
-									"dosage": "0.0",
-									"dosageSpec": "",
-									"drugFlag": "0",
-									"drugSendWindow": "",
-									"execDeptName": "眼门",
-									"feeDate": "0001/1/1 0:00:00",
-									"feeStatCode": "08",
-									"feeStatName": "检查费",
-									"feeType": "007",
-									"frequency": "ST",
-									"itemId": "F00000016229",
-									"itemName": "复视检查",
-									"itemNum": "1",
-									"itemPrice": "23.70",
-									"itemSpec": "",
-									"moOrder": "62546328",
-									"recipeDrName": "",
-									"recipeFeeSeq": "7911194",
-									"recipeNo": "10756774",
-									"recipeSeq": "1",
-									"regNo": "",
-									"sysType": "UC",
-									"totalCost": 23.7,
-									"usage": ""
-								}],
-								"recipeNo": "10756774"
-							},
-							{
-								"feeList": [{
-									"deptId": "0008",
-									"deptName": "眼门",
-									"dosage": "0.0",
-									"dosageSpec": "",
-									"drugFlag": "0",
-									"drugSendWindow": "",
-									"execDeptName": "眼门",
-									"feeDate": "0001/1/1 0:00:00",
-									"feeStatCode": "10",
-									"feeStatName": "治疗费",
-									"feeType": "006",
-									"frequency": "ST",
-									"itemId": "F00000016123",
-									"itemName": "大换药",
-									"itemNum": "1",
-									"itemPrice": "27.50",
-									"itemSpec": "",
-									"moOrder": "62546313",
-									"recipeDrName": "",
-									"recipeFeeSeq": "7911194",
-									"recipeNo": "10756773",
-									"recipeSeq": "1",
-									"regNo": "",
-									"sysType": "UZ",
-									"totalCost": 27.5,
-									"usage": ""
-								}],
-								"recipeNo": "10756773"
-							},
-							{
-								"feeList": [{
-									"deptId": "0008",
-									"deptName": "眼门",
-									"dosage": "0.0",
-									"dosageSpec": "",
-									"drugFlag": "0",
-									"drugSendWindow": "",
-									"execDeptName": "中检室",
-									"feeDate": "0001/1/1 0:00:00",
-									"feeStatCode": "08",
-									"feeStatName": "检查费",
-									"feeType": "007",
-									"frequency": "ST",
-									"itemId": "F00000015135",
-									"itemName": "色觉检查",
-									"itemNum": "1",
-									"itemPrice": "2.50",
-									"itemSpec": "",
-									"moOrder": "62546312",
-									"recipeDrName": "",
-									"recipeFeeSeq": "7911194",
-									"recipeNo": "10756772",
-									"recipeSeq": "1",
-									"regNo": "",
-									"sysType": "UC",
-									"totalCost": 2.5,
-									"usage": ""
-								}],
-								"recipeNo": "10756772"
-							},
-							{
-								"feeList": [{
-										"deptId": "0008",
-										"deptName": "眼门",
-										"dosage": "0.0",
-										"drugFlag": "0",
-										"drugSendWindow": "",
-										"execDeptName": "检验科",
-										"feeDate": "0001/1/1 0:00:00",
-										"feeStatCode": "06",
-										"feeStatName": "化验费",
-										"feeType": "012",
-										"frequency": "",
-										"itemId": "F00000030275",
-										"itemName": "血清低密度脂蛋白胆固醇测定",
-										"itemNum": "1",
-										"itemPrice": "17.10",
-										"itemSpec": "",
-										"moOrder": "62546314",
-										"recipeDrName": "",
-										"recipeFeeSeq": "7911194",
-										"recipeNo": "10756771",
-										"recipeSeq": "1",
-										"regNo": "F00000030275",
-										"sysType": "UL",
-										"totalCost": 17.1,
-										"usage": ""
-									},
-									{
-										"deptId": "0008",
-										"deptName": "眼门",
-										"dosage": "0.0",
-										"drugFlag": "0",
-										"drugSendWindow": "",
-										"execDeptName": "检验科",
-										"feeDate": "0001/1/1 0:00:00",
-										"feeStatCode": "06",
-										"feeStatName": "化验费",
-										"feeType": "012",
-										"frequency": "",
-										"itemId": "F00000030274",
-										"itemName": "血清高密度脂蛋白胆固醇测定",
-										"itemNum": "1",
-										"itemPrice": "14.30",
-										"itemSpec": "",
-										"moOrder": "62546314",
-										"recipeDrName": "",
-										"recipeFeeSeq": "7911194",
-										"recipeNo": "10756771",
-										"recipeSeq": "2",
-										"regNo": "F00000030274",
-										"sysType": "UL",
-										"totalCost": 14.3,
-										"usage": ""
-									},
-									{
-										"deptId": "0008",
-										"deptName": "眼门",
-										"dosage": "0.0",
-										"drugFlag": "0",
-										"drugSendWindow": "",
-										"execDeptName": "检验科",
-										"feeDate": "0001/1/1 0:00:00",
-										"feeStatCode": "06",
-										"feeStatName": "化验费",
-										"feeType": "012",
-										"frequency": "",
-										"itemId": "F00000015256",
-										"itemName": "血清总胆固醇测定【酶法】",
-										"itemNum": "1",
-										"itemPrice": "5.10",
-										"itemSpec": "",
-										"moOrder": "62546314",
-										"recipeDrName": "",
-										"recipeFeeSeq": "7911194",
-										"recipeNo": "10756771",
-										"recipeSeq": "3",
-										"regNo": "F00000015256",
-										"sysType": "UL",
-										"totalCost": 5.1,
-										"usage": ""
-									},
-									{
-										"deptId": "0008",
-										"deptName": "眼门",
-										"dosage": "0.0",
-										"drugFlag": "0",
-										"drugSendWindow": "",
-										"execDeptName": "检验科",
-										"feeDate": "0001/1/1 0:00:00",
-										"feeStatCode": "06",
-										"feeStatName": "化验费",
-										"feeType": "012",
-										"frequency": "",
-										"itemId": "F00000052484",
-										"itemName": "血清甘油三脂测定（酶法）",
-										"itemNum": "1",
-										"itemPrice": "10.10",
-										"itemSpec": "",
-										"moOrder": "62546314",
-										"recipeDrName": "",
-										"recipeFeeSeq": "7911194",
-										"recipeNo": "10756771",
-										"recipeSeq": "4",
-										"regNo": "F00000052484",
-										"sysType": "UL",
-										"totalCost": 10.1,
-										"usage": ""
-									},
-									{
-										"deptId": "0008",
-										"deptName": "眼门",
-										"dosage": "0.0",
-										"dosageSpec": "",
-										"drugFlag": "0",
-										"drugSendWindow": "",
-										"execDeptName": "检验科",
-										"feeDate": "0001/1/1 0:00:00",
-										"feeStatCode": "06",
-										"feeStatName": "化验费",
-										"feeType": "012",
-										"frequency": "ST",
-										"itemId": "F00000030275",
-										"itemName": "血清低密度脂蛋白胆固醇测定",
-										"itemNum": "1",
-										"itemPrice": "17.10",
-										"itemSpec": "",
-										"moOrder": "62546330",
-										"recipeDrName": "",
-										"recipeFeeSeq": "7911194",
-										"recipeNo": "10756771",
-										"recipeSeq": "1",
-										"regNo": "",
-										"sysType": "UL",
-										"totalCost": 17.1,
-										"usage": ""
-									}
-								],
-								"recipeNo": "10756771"
-							}
-						],
-						"regInfos": {
-							"bookTime": "",
-							"cardNo": "0000000001",
-							"deptId": "0008",
-							"deptName": "眼门",
-							"doctorId": "",
-							"doctorName": "",
-							"inspectFee": "0.0",
-							"isSee": "1",
-							"outTradelNumber": "",
-							"outpatientId": "0000000001",
-							"patientName": "李英明",
-							"paymentStatus": "不可退费",
-							"paymentWay": "",
-							"regDate": "20220618141709",
-							"regFee": "0.0",
-							"regLevelId": "6",
-							"regLevelName": "伤残",
-							"regNo": "2798444",
-							"scheduleId": "",
-							"scheduleName": "下午",
-							"seeBegintime": "20220618000000",
-							"seeEndtime": "20220618000000",
-							"termialID": "",
-							"totalFee": "0.0",
-							"visitTime": ""
-						}
-					}]
-				};
-				this.paymentList = data.data;
-				this.paymentList.forEach(item => {
-					item.isOpen = true;
-					item.totalMoney = 0
-				});
-
+				this.loading = true;
+				const params = {
+				        patientNo: this.currentPatient.cardNumber
+				      }
+				this.$myRequest({
+					url: "/hospt/getOutPayList",
+					data: params,
+					contentType:'application/json;charset=UTF-8',
+				}).then(data => {
+					this.paymentList = data.data;
+					this.paymentList.forEach(item => {
+						item.isOpen = true;
+						item.totalMoney = 0
+					});
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			openList(item) {
 				this.$forceUpdate();

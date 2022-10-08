@@ -240,13 +240,15 @@
 
 
 
-	/* .header {
-		position: fixed;
-		top: 0;
-		z-index: 999;
-	} */
+
+
+/* .header {
+	position: fixed;
+	top: 0;
+	z-index: 999;
+} */
 
 /* 	.zhuti {
-		margin-top: 150rpx;
-	} */
+	margin-top: 150rpx;
+} */
 

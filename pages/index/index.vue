@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" :mask=true></zero-loading>
 		<!-- 使用悬浮球组件 -->
 		<Levitation></Levitation>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
@@ -147,14 +147,12 @@
 				title: "致嘉测试", // 页面标题
 				shouye: "yes", // 是否是首页，不是首页显示返回上一层箭头
 				item_index: 0, // 单页面id
-
 				dfltPatientInfo: {},
 				menuList: [],
 				outpatientFunctionList: [],
 				inpatientFunctionList: [],
 				showAddPatient: false,
 				cardNo: '',
-
 				loading: true, // 加载动画
 			}
 		},
@@ -173,7 +171,7 @@
 				// 定时器，setTimeout只执行一次，setInterval执行多次
 				setTimeout(() => {
 					this.loading = false;
-					console.log(this.loading);
+					//console.log(this.loading);
 				}, 500)
 			},
 
@@ -195,6 +193,18 @@
 					"patientState": "1010"
 				}
 				this.dfltPatientInfo = data
+				
+				
+				
+				/**this.$myRequest({
+					url: "/wechat/user/dfltPtCard/info",
+					data: params,
+				}).then(data => {
+					this.dfltPatientInfo = data.data;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})*/
 
 			},
 			addCardNumber() {
@@ -226,9 +236,11 @@
 				const params = Object.assign(this.dfltPatientInfo, {
 					cardNo: value ? this.cardNo : ''
 				})
-
-				this.$api.indexService.addInfo(params)
-					.then(data => {
+			
+					this.$myRequest({
+						url: "/wechat/user/addPtCard/info",
+						data: params
+					}).then(data => {
 						this.getDfltPtCardInfo()
 						this.showAddPatient = false
 						uni.showToast({
@@ -236,9 +248,9 @@
 							icon: 'none',
 							duration: 2000
 						});
-					})
-					.catch(() => {
-
+						this.loading = false;
+					}).catch(err => {
+						this.loading = false;
 					})
 			},
 			switchPatient() {
@@ -254,7 +266,7 @@
 					});
 					return;
 				}
-				console.log(meta)
+				//console.log(meta)
 				if (!meta) {
 					uni.navigateTo({
 						url: url
@@ -358,7 +370,7 @@
 					routLink: '/pages/report-query/report-query2/report-query2',
 					meta: false
 				},
-				{
+				/*{
 					id: 6,
 					menuName: '智能导诊',
 					twoTitle: 'AI智能服务就医',
@@ -367,7 +379,7 @@
 					//routLink: '/departmentIntroduction'
 					routLink: '/pages/huanzhe/huanzhe',
 					// meta: false
-				},
+				},*/
 				// {
 				//   id: 7,
 				//   menuName: '个人中心-9',
@@ -392,7 +404,7 @@
 				//   imageUrl: '../../static/rili.png',
 				//   routLink: '/addResidents'
 				// },
-				{
+				/*{
 					id: 10,
 					menuName: '自助打印',
 					twoTitle: '自助打印',
@@ -425,7 +437,7 @@
 					routerUrl: '',
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsAHS.png'),
 					routLink: '/pages/survey-new-coupons/survey-new-coupons'
-				},
+				},*/
 				{
 					id: 14,
 					menuName: '核酸检测',
@@ -492,7 +504,7 @@
 					routLink: '',
 					meta: false
 				},
-				{
+				/*{
 					id: 4,
 					menuName: '预约住院',
 					twoTitle: '快速查询不排队',
@@ -511,7 +523,7 @@
 					// routLink: '/hospSubscribeRecord',
 					routLink: '',
 					meta: false
-				},
+				},*/
 				{
 					id: 8,
 					menuName: '住院缴费记录',
@@ -521,7 +533,7 @@
 					routLink: '/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records',
 					meta: false
 				},
-				{
+				/*{
 					id: 6,
 					menuName: '住院一日清',
 					twoTitle: 'AI智能服务就医',
@@ -529,10 +541,19 @@
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsCct.png'),
 					routLink: '',
 					meta: false
-				},
+				},*/
 			]
 
 			// this.getHostMenu();
+			my.getAuthCode({
+			  scopes: 'auth_base',
+			  success: res => {
+				console.log(res)
+			    my.alert({
+			      content: res.authCode,
+			    });
+			  },
+			});
 			this.getDfltPtCardInfo();
 			this.jiazai();
 		}

@@ -217,8 +217,11 @@
 						content: "是否注册卡号?",
 						success: function(res) {
 							if (res.confirm) {
-								this.$api.indexService.addInfo(params)
-									.then(data => {
+								
+									this.$myRequest({
+										url: "/wechat/user/addPtCard/info",
+										data: params
+									}).then(data => {
 										uni.showToast({
 											title: '添加成功！',
 											icon: 'none',
@@ -227,9 +230,9 @@
 
 										// loadingInstance.close();
 										this.$router.back()
-									})
-									.catch(() => {
-										// loadingInstance.close();
+										this.loading = false;
+									}).catch(err => {
+										this.loading = false;
 									})
 							} else {
 								uni.showToast({

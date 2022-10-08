@@ -112,174 +112,37 @@
 					name: "",
 					admissionNumber: undefined
 				},
-				hospInfoList: [{
-					name: "123",
-					deptName: "123"
-				}],
+				hospInfoList: [],
 				showAddPatient: false,
 				showBox: true,
 				showHospInfo: false,
-				recordsList: [{
-					id: 1,
-					zyr: "程淑琴",
-					num: "0000328021",
-					ks: "内一病区",
-					rysj: "2019-06-16",
-					yjze: "1550.00",
-					fyze: "5285.02",
-					qf: "3735.05",
-				}, ],
 			}
 		},
 		methods: {
 			goToDetail(item) {
-				// let loadingInstance = Loading.service({});
-				// const params = {
-				//   inpatientNo: this.hospInfoList[0].inpatientNo,
-				//   inDate: this.hospInfoList[0].inDate,
-				// };
-				// this.$api.outpatientDepartmentService
-				//   .getHosptFeeList(params)
-				//   .then((data) => {
-				//     loadingInstance.close();
-				let hosptFeeList = [{
-						id: 1,
-						feetype: "医疗器具明细",
-						show: true,
-						isShow: true,
-						feeList: [{
-								itemname: "静脉注射（静脉采血）*",
-								itemnum: "6",
-								totalfee: "32.22",
-							},
-							{
-								itemname: "一次性使用真空采血针",
-								itemnum: "3",
-								totalfee: "3.61",
-							},
-							{
-								itemname: "一次性使用真空采血管",
-								itemnum: "3",
-								totalfee: "7.13",
-							},
-							{
-								itemname: "静脉输液*",
-								itemnum: "32",
-								totalfee: "52.35"
-							},
-							{
-								itemname: "一次性使用注射器及针头",
-								itemnum: "15",
-								totalfee: "28.13",
-							},
-							{
-								itemname: "一次性使用输液器",
-								itemnum: "15",
-								totalfee: "15.65"
-							},
-							{
-								itemname: "一次性使用静脉留置针",
-								itemnum: "2",
-								totalfee: "8.57",
-							},
-						],
-					},
-					{
-						id: 2,
-						feetype: "检查治疗明细",
-						show: true,
-						isShow: true,
-						feeList: [{
-								itemname: "阑尾切除手术*",
-								itemnum: "3",
-								totalfee: "8,851.18"
-							},
-							{
-								itemname: "全身麻醉",
-								itemnum: "1",
-								totalfee: "1071.23"
-							},
-							{
-								itemname: "阑尾切除",
-								itemnum: "1",
-								totalfee: "7569.81"
-							},
-							{
-								itemname: "手术用具",
-								itemnum: "1",
-								totalfee: "210.14"
-							},
-						],
-					},
-					{
-						id: 3,
-						feetype: "医疗药品明细",
-						show: true,
-						isShow: true,
-						feeList: [{
-								itemname: "静脉输液*",
-								itemnum: "120",
-								totalfee: "2,471.94"
-							},
-							{
-								itemname: "头孢呋辛",
-								itemnum: "15",
-								totalfee: "230.48"
-							},
-							{
-								itemname: "哌拉西林钠他唑巴坦",
-								itemnum: "15",
-								totalfee: "298.58",
-							},
-							{
-								itemname: "甲硝唑",
-								itemnum: "15",
-								totalfee: "316.43"
-							},
-							{
-								itemname: "奥硝唑",
-								itemnum: "15",
-								totalfee: "390.53"
-							},
-							{
-								itemname: "复方氨基酸",
-								itemnum: "15",
-								totalfee: "288.63"
-							},
-							{
-								itemname: "脂肪乳",
-								itemnum: "15",
-								totalfee: "278.31"
-							},
-							{
-								itemname: "维生素B类",
-								itemnum: "15",
-								totalfee: "348.32"
-							},
-							{
-								itemname: "地佐辛",
-								itemnum: "15",
-								totalfee: "320.66"
-							},
-						],
-					},
-				];
-				uni.navigateTo({
-					url: '/pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details?hosptFeeList=' +
-						JSON.stringify(hosptFeeList) +
-						"&hosptInfo=" +
-						JSON.stringify(item)
-				});
-				// this.$router.push(
-				// 	"/inpatientPaymentDetails?hosptFeeList=" +
-				// 	JSON.stringify(hosptFeeList) +
-				// 	"&hosptInfo=" +
-				// 	JSON.stringify(item)
-				// );
-				// })
-				// .catch(() => {
-				//   loadingInstance.close();
-				// });
+				this.loading = true;
+				let hosptFeeList = [];
+				 const params = {
+				   inpatientNo: this.hospInfoList[0].inpatientNo,
+				   inDate: this.hospInfoList[0].inDate,
+				};
+				this.$myRequest({
+					url: "/hospt/getHosptFeeList",
+					data: params,
+				}).then(data => {
+					hosptFeeList = data.data;
+					uni.navigateTo({
+						url: '/pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details?hosptFeeList=' +
+							JSON.stringify(hosptFeeList) +
+							"&hosptInfo=" +
+							JSON.stringify(item)
+					});
+					
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+				
 			},
 			openAddPatient() {
 				this.showAddPatient = true;
@@ -292,26 +155,31 @@
 				if (!this.patient.name || !this.patient.admissionNumber) {
 					return;
 				}
-
+				this.loading = true;
 				const params = {
 					hosptName: this.patient.name,
 					hosptId: this.patient.admissionNumber,
 					code: "100011",
 				};
-				// let loadingInstance = Loading.service({});
-				// this.$api.outpatientDepartmentService.checkHosptInfo(params)
-				//   .then((data) => {
-				//     console.log(data);
-				//     if (data.code !== 200) {
-				//       this.$message.warning(data.msg);
-				//     } else {
-				this.showAddPatient = false;
-				this.getHosptList();
-				// }
-				//     loadingInstance.close();
-				//   }).catch(() => {
-				//   loadingInstance.close();
-				// })
+				this.$myRequest({
+					url: "/hospt/checkHosptInfo",
+					data: params,
+				}).then(data => {
+					if(data.code !== 200){
+						uni.showToast({
+							title: data.msg,
+							icon: 'none',
+							duration: 2000
+						});
+					}else{
+						this.showAddPatient = false;
+						this.getHosptList();
+					}
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+				
 			},
 			// 获取住院信息
 			getHosptList() {
@@ -319,45 +187,22 @@
 					code: "100011",
 					hosptId: this.patient.admissionNumber,
 				};
-				this.hospInfoList = [];
-				// let loadingInstance = Loading.service({});
-				// this.$api.outpatientDepartmentService.getHosptList(params)
-				//   .then((data) => {
-				//     console.log(data);
-				this.hospInfoList = [
-					// {
-					//   name: "冷夜",
-					//   inpatientNo: 123456,
-					//   deptName: "测试科",
-					//   inDate: "2022-04-12",
-					//   prepayCost: "2112.63",
-					//   totCost: "1357.6",
-					//   freeCost: 0,
-					//   inState: "N",
-					// },
-					{
-						name: "小狐狸",
-						inpatientNo: "12345678",
-						deptName: "内一病区",
-						inDate: "2019-06-16",
-						prepayCost: "3000.00",
-						totCost: "11407.69",
-						freeCost: 8407.69,
-						inState: "O",
-					},
-				];
-				this.showBox =
-					this.hospInfoList != "" &&
-					this.hospInfoList != undefined &&
-					this.hospInfoList != "" ?
-					false :
-					true;
-				// this.hospInfoList = data && data.data ? data.data : [];
-				this.showHospInfo = true;
-				// loadingInstance.close();
-				//   }).catch(() => {
-				//   loadingInstance.close();
-				// })
+				this.$myRequest({
+					url: "/hospt/getHosptList",
+					data: params,
+				}).then(data => {
+					this.hospInfoList = data.data;
+					this.showBox =
+						this.hospInfoList != "" &&
+						this.hospInfoList != undefined &&
+						this.hospInfoList != "" ?
+						false :
+						true;
+					this.showHospInfo = true;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 
 			},
 

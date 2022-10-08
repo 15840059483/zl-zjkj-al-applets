@@ -178,162 +178,55 @@
 					admissionNumber: undefined
 				};
 			},
-			confirmBinding() {
+		confirmBinding() {
 				if (!this.patient.name || !this.patient.admissionNumber) {
 					return;
 				}
-				let data = {
-					"code": 200,
-					"msg": "操作成功！"
-				}
-				console.log(data);
-				if (data.code !== 200) {
-					uni.showToast({
-						title: data.msg,
-						icon: 'none',
-						duration: 2000
-					});
-					// this.$message.warning(data.msg);
-				} else {
-					this.showAddPatient = false;
-					this.getHosptList();
-				}
-
+				this.loading = true;
+				const params = {
+					hosptName: this.patient.name,
+					hosptId: this.patient.admissionNumber,
+					code: "100011",
+				};
+				this.$myRequest({
+					url: "/hospt/checkHosptInfo",
+					data: params,
+				}).then(data => {
+					if (data.code !== 200) {
+						uni.showToast({
+							title: data.msg,
+							icon: 'none',
+							duration: 2000
+						});
+						// this.$message.warning(data.msg);
+					} else {
+						this.showAddPatient = false;
+						this.getHosptList();
+					}
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+				
 			},
 			// 获取住院信息
 			getHosptList() {
-				let data = {
-					"code": 0,
-					"data": [{
-						"airLimit": "0.0",
-						"alterApproveCode": "",
-						"alterApproveDate": "",
-						"alterBegin": "0001-01-01T00:00:00",
-						"alterEnd": "0001-01-01T00:00:00",
-						"alterType": "",
-						"anaphyFlag": "0",
-						"babyFlag": "0",
-						"balanceCost": "0.0",
-						"balanceDate": "0001-01-01T00:00:00",
-						"balanceNo": "0",
-						"balancePrepay": "0.0",
-						"bedLimit": "0.0",
-						"bedNo": "1035031802",
-						"bedoverdeal": "",
-						"birthArea": "",
-						"birthday": "1990-10-10T10:23:36",
-						"bloodCode": "",
-						"bloodDress": "",
-						"bloodLatefee": "0.0",
-						"boardCost": "0.0",
-						"boardPrepay": "0.0",
-						"boardState": "0",
-						"bursaryTotmedfee": "",
-						"cardNo": "0003082305",
-						"caseFlag": "1",
-						"casesendFlag": "0",
-						"changePrepaycost": "0.0",
-						"changeTotcost": "0.0",
-						"chargeDocCode": "200032",
-						"chargeDocName": "贾超",
-						"chiefDocCode": "200096",
-						"chiefDocName": "姜晶",
-						"clinicDiagnose": "",
-						"counCode": "",
-						"criticalFlag": "0",
-						"dayLimit": "0.0",
-						"deptCode": "4035",
-						"deptName": "青光眼科",
-						"diagName": "",
-						"dieteticMark": "",
-						"dist": "",
-						"dutyNurseCode": "200102",
-						"dutyNurseName": "赵凤军",
-						"ecoCost": "0.0",
-						"emplCode": "200623",
-						"extCode": "",
-						"extFlag": "",
-						"extFlag1": "",
-						"extFlag2": "",
-						"extNumber": "",
-						"feeInterval": "1",
-						"freeCost": "-22603.0",
-						"height": "0",
-						"hepatitisFlag": "0",
-						"home": "",
-						"homeTel": "",
-						"homeZip": "",
-						"houseDocCode": "200608",
-						"houseDocName": "王新宇",
-						"idcardtype": "",
-						"idenno": "",
-						"inAvenue": "1",
-						"inCircs": "1",
-						"inDate": "2021-09-24T13:02:02",
-						"inIcu": "1",
-						"inSource": "1",
-						"inState": "I",
-						"inTimes": "3",
-						"inpatientNo": "ZY030000107781",
-						"invoiceno": "",
-						"isEncryptname": "0",
-						"leaveFlag": "0",
-						"limitOvertop": "0.0",
-						"limitTot": "0.0",
-						"linkmanAdd": "",
-						"linkmanName": "",
-						"linkmanTel": "",
-						"localExtFlag1": "",
-						"localExtFlag2": "",
-						"mari": "",
-						"mcardNo": "",
-						"medicalType": "",
-						"memo": "",
-						"moneyAlert": "-2000.0",
-						"name": "狐狸",
-						"nationCode": "HA",
-						"normalname": "",
-						"nurseCellCode": "1035",
-						"nurseCellName": "青光眼护士站",
-						"oldsiNo": "",
-						"operCode": "009999",
-						"operDate": "2021-09-22T13:02:02",
-						"othcost": "0.0",
-						"outDate": "0002-01-01T00:00:00",
-						"outdiagnose": "",
-						"ownCost": "22611.50",
-						"ownRate": "1.0",
-						"pactCode": "0",
-						"pactName": "普通",
-						"patientNo": "0000107781",
-						"payCost": "0.0",
-						"payRate": "0.0",
-						"paykindCode": "01",
-						"prefixfeeDate": "2022-06-21T23:30:00",
-						"prepayCost": 8.5,
-						"prepayOutdate": "0001-01-01T00:00:00",
-						"procreatePcno": "",
-						"profCode": "",
-						"pubCost": "0.0",
-						"relaCode": "",
-						"roomno": "0318",
-						"sexCode": "F",
-						"spellCode": "CS",
-						"status": "0",
-						"stopAcount": "0",
-						"summary": "",
-						"tend": "特殊护理",
-						"totCost": 22611.5,
-						"upperLimit": "0.0",
-						"weight": "0",
-						"workName": "",
-						"workTel": "",
-						"workZip": "",
-						"zg": "02"
-					}]
+				const params = {
+					code: "100011",
+					hosptId: this.patient.admissionNumber,
 				};
-				this.patientInfo = data && data.data ? data.data[0] : {};
-			}
+				this.$myRequest({
+					url: "/hospt/getHosptList",
+					data: params,
+				}).then(data => {
+					this.patientInfo = data && data.data ? data.data[0] : {};
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+		
+			},
+		
 		},
 		mounted() {
 

@@ -229,18 +229,27 @@
 			},
 			// 获取就诊人信息
 			getPatientInfo() {
-				let loadingInstance = Loading.service({});
-				this.$api.patientService.getPatientInfo()
-					.then((data) => {
-						if (data && data.data && data.data && data.data.length > 0) {
-							this.switchPatientList = data.data;
-							this.currentPatient = data.data[0];
-							this.getZjkjList(this.currentPatient.cardNumber)
-						}
-						loadingInstance.close();
-					}).catch(() => {
-						loadingInstance.close();
-					})
+				
+				let _this = this;
+				let data = [{
+						patientName: "冷夜",
+						patientId: 1,
+						cardNumber: "124151231"
+					},
+					{
+						patientName: "小狐狸",
+						patientId: 2,
+						cardNumber: "124124121"
+					},
+					{
+						patientName: "张力",
+						patientId: 3,
+						cardNumber: "124146554"
+					},
+				];
+				_this.switchPatientList = data;
+				// 让currentPatient等于数组data中索引位置为0的信息
+				_this.currentPatient = data[0];
 			},
 			getZjkjList(item) {
 				let parans = {

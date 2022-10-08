@@ -118,9 +118,9 @@
 				<div>
 					<img src="https://s1.ax1x.com/2022/09/28/xe6wLV.png" />
 				</div>
-				<p>暂未获取到您的代缴费信息</p>
+				<p>暂未获取到您的缴费信息</p>
 			</div>
-			<view class="neiwaibianju">
+			<view class="neiwaibianju" v-if="paymentList.length > 0">
 				<uni-card>
 					<div v-if="paymentList.length > 0">
 						<div class="bg-white payment-container" v-for="item in paymentList" v-bind:key="item.count">
@@ -234,8 +234,6 @@
 </template>
 
 <script>
-	// 引入导航栏组件
-	// import header from '@/components/header/header.vue'
 	// 引入scss组件
 	import "./queryOutFeeList.scss";
 	export default {
@@ -262,16 +260,11 @@
 			return {
 				title: "缴费列表", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-
 				//就诊人中的所有值
 				showSwitchPatient: false, //切换就诊人的弹窗值，如果此值为true弹窗会打开
-
-
 				huanzhexinxi: {}, //存放患者信息的值
-
 				isSelectAll: false,
 				paymentList: [],
-
 				switchPatientList: [],
 				currentPatient: {},
 				selectPaymentList: [],
@@ -280,7 +273,6 @@
 			}
 		},
 		methods: {
-
 			// 就诊人中的全部方法
 			//触发切换就诊人的弹窗
 			switchPatient() {
@@ -331,290 +323,18 @@
 			managePatient() {},
 			// 获取缴费信息列表
 			getOutPayList() {
-				// const params = {
-				//   patientNo: this.currentPatient.cardNumber,
-				// };
-				// let loadingInstance = Loading.service({});
-				// this.$api.outpatientDepartmentService
-				//   .queryOutFeeList(params)
-				//   .then((data) => {
-				//     if (data && data.data && data.data && data.data.length > 0) {
-				//       this.paymentList = data.data;
-				//       this.paymentList.forEach((item) => {
-				//         item.isOpen = true;
-				//         item.totalMoney = 0;
-				//       });
-				//     }
-				//     loadingInstance.close();
-				//   })
-				//   .catch(() => {
-				//     loadingInstance.close();
-				//   });
-				if (this.currentPatient.cardNumber === "124151231") {
-					this.paymentList = [{
-						regNo: 1,
-						isOpen: false,
-						regInfos: {
-							deptName: "常规挂号",
-							regNo: 1412313,
-							regDate: "20200610",
-						},
-						outFeeList: [{
-								recipeNo: "124512",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 80.43,
-										itemName: "CT"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 18.31,
-										itemName: "血检"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 54.26,
-										itemName: "胸片"
-									},
-								],
-							},
-							{
-								recipeNo: "151953",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 51.22,
-										itemName: "肝肾功能"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 3.21,
-										itemName: "血糖"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 23.15,
-										itemName: "血脂"
-									},
-								],
-							},
-							{
-								recipeNo: "856765",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 61.66,
-										itemName: "肿瘤指标"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 12.13,
-										itemName: "甲状腺功能"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 15.16,
-										itemName: "心电图"
-									},
-								],
-							},
-							{
-								recipeNo: "968751",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 34.11,
-										itemName: "血尿便常规"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 98.31,
-										itemName: "超声心动图"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 21.0,
-										itemName: "腹部超声"
-									},
-								],
-							},
-						],
-						count: 472.94,
-					}, ];
-				} else if (this.currentPatient.cardNumber === "124124121") {
-					this.paymentList = [{
-						regNo: 2,
-						isOpen: false,
-						regInfos: {
-							deptName: "常规挂号",
-							regNo: 1142315,
-							regDate: "20200609",
-						},
-						outFeeList: [{
-								recipeNo: "615865",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 51.22,
-										itemName: "肝肾功能"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 3.21,
-										itemName: "血糖"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 23.15,
-										itemName: "血脂"
-									},
-								],
-							},
-							{
-								recipeNo: "179132",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 80.43,
-										itemName: "CT"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 18.31,
-										itemName: "血检"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 54.26,
-										itemName: "胸片"
-									},
-								],
-							},
-							{
-								recipeNo: "712463",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 61.66,
-										itemName: "肿瘤指标"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 12.13,
-										itemName: "甲状腺功能"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 15.0,
-										itemName: "心电图"
-									},
-								],
-							},
-							{
-								recipeNo: "179234",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 34.11,
-										itemName: "血尿便常规"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 98.31,
-										itemName: "超声心动图"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 18.31,
-										itemName: "腹部超声"
-									},
-								],
-							},
-						],
-						count: 470.1,
-					}, ];
-				} else if (this.currentPatient.cardNumber === "124146554") {
-					this.paymentList = [{
-						regNo: 3,
-						isOpen: false,
-						regInfos: {
-							deptName: "常规挂号",
-							regNo: 1152325,
-							regDate: "20200511",
-						},
-						outFeeList: [{
-								recipeNo: "167154",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 23.15,
-										itemName: "血脂"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 3.21,
-										itemName: "血糖"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 28.11,
-										itemName: "血小板"
-									},
-								],
-							},
-							{
-								recipeNo: "612753",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 54.26,
-										itemName: "胸片"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 80.43,
-										itemName: "CT"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 15.0,
-										itemName: "心电图"
-									},
-								],
-							},
-							{
-								recipeNo: "824624",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 12.13,
-										itemName: "甲状腺功能"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 18.31,
-										itemName: "腹部超声"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 61.66,
-										itemName: "肿瘤指标"
-									},
-								],
-							},
-							{
-								recipeNo: "412557",
-								feeList: [{
-										itemNum: 1,
-										itemPrice: 34.11,
-										itemName: "血尿便常规"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 98.31,
-										itemName: "超声心动图"
-									},
-									{
-										itemNum: 1,
-										itemPrice: 18.31,
-										itemName: "前列腺检测"
-									},
-								],
-							},
-						],
-						count: 446.98,
-					}, ];
-				}
+				const params = {
+					patientNo: this.currentPatient.cardNumber,
+				};
+				this.$myRequest({
+					url: "/hospt/getOutBillList",
+					data: params,
+				}).then(data => {
+					this.paymentList = data.data;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 				this.paymentList.forEach((item) => {
 					item.isOpen = true;
 					item.totalMoney = 0;
@@ -741,48 +461,51 @@
 					recipeNos: this.selectPaymentMoOrderList,
 				};
 				let loadingInstance = Loading.service({});
-				this.$api.outpatientDepartmentService
-					.outpatientPayment(params)
-					.then((res) => {
-						if (res && res.code === 0) {
-							const data = res.data;
-							if (typeof WeixinJSBridge == "undefined") {
-								if (document.addEventListener) {
-									document.addEventListener(
-										"WeixinJSBridgeReady",
-										onBridgeReady,
-										false
-									);
-								} else if (document.attachEvent) {
-									document.attachEvent("WeixinJSBridgeReady", onBridgeReady);
-									document.attachEvent("onWeixinJSBridgeReady", onBridgeReady);
-								}
-							} else {
-								const _this = this;
-								WeixinJSBridge.invoke(
-									"getBrandWCPayRequest", {
-										appId: data.appId, //公众号名称，由商户传入
-										timeStamp: data.timeStamp, //时间戳，自1970年以来的秒数
-										nonceStr: data.nonceStr, //随机串
-										package: data.package,
-										signType: data.signType, //微信签名方式：
-										paySign: data.paySign, //微信签名
-									},
-									function(res) {
-										if (res.err_msg == "get_brand_wcpay_request:ok") {
-											// 使用以上方式判断前端返回,微信团队郑重提示：
-											//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-											_this.$router.push("/paymentPage?orderNo=" + data.orderNo);
-										}
-									}
+
+				this.$myRequest({
+					url: "/wechat/pay/out",
+					data: params
+				}).then(res => {
+					if (res && res.code === 0) {
+						//TODO: 重新写支付宝支付
+						const data = res.data;
+						if (typeof WeixinJSBridge == "undefined") {
+							if (document.addEventListener) {
+								document.addEventListener(
+									"WeixinJSBridgeReady",
+									onBridgeReady,
+									false
 								);
+							} else if (document.attachEvent) {
+								document.attachEvent("WeixinJSBridgeReady", onBridgeReady);
+								document.attachEvent("onWeixinJSBridgeReady", onBridgeReady);
 							}
+						} else {
+							const _this = this;
+							WeixinJSBridge.invoke(
+								"getBrandWCPayRequest", {
+									appId: data.appId, //公众号名称，由商户传入
+									timeStamp: data.timeStamp, //时间戳，自1970年以来的秒数
+									nonceStr: data.nonceStr, //随机串
+									package: data.package,
+									signType: data.signType, //微信签名方式：
+									paySign: data.paySign, //微信签名
+								},
+								function(res) {
+									if (res.err_msg == "get_brand_wcpay_request:ok") {
+										// 使用以上方式判断前端返回,微信团队郑重提示：
+										//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+										_this.$router.push("/paymentPage?orderNo=" + data.orderNo);
+									}
+								}
+							);
 						}
-						loadingInstance.close();
-					})
-					.catch(() => {
-						loadingInstance.close();
-					});
+					}
+
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 		},
 		mounted() {

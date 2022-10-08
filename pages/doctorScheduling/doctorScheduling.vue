@@ -1,11 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
-		<!-- 使用组件的时候首字母要大写！！！！ -->
-		<!-- <view class="header" style="width: 100%;height: 150rpx;">
-			<Header :title="title" :shouye="shouye"></Header>
-		</view> -->
+		<zero-loading v-if="loading" type="pulse" :mask=true></zero-loading>
 		<view class="zhuti">
 			<uni-card>
 				<div class="bg-white doc-container">
@@ -107,8 +103,6 @@
 </template>
 
 <script>
-	// 引入导航栏组件
-	// import header from '@/components/header/header.vue'
 	// 引入scss文件
 	import '../makeAppointmentRegister/makeAppointmentRegister.scss'
 	import './doctorScheduling.scss';
@@ -127,9 +121,7 @@
 				title: "医生排班", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
 				loading: true,
-
-				baseUrl: base.sq,
-				//doctorInfo: {id: 1, name: '赵春兰', position: '主任医师', introduce: '主任医师，临床工作20年，2005~2007在北京协和医院进行进修，擅长心脑血管疾病，多次获得先进工作者称号，擅长心脑血管疾病，多次获得先进工作者称号。', money: 20, isCollection: false },
+				baseUrl: base.base.sq,
 				doctorInfo: {},
 				doctor: {},
 				feeBill: {},
@@ -177,187 +169,18 @@
 				}, 500)
 			},
 			getDoctorDate() {
-				// let loadingInstance = Loading.service({});
-				let data = {
-					"code": "0",
-					"schemaqueues": [{
-							"iD": "105732",
-							"queue": "22",
-							"seeTime": "2022/6/21 14:28:12",
-							"state": "1"
-						},
-						{
-							"iD": "105733",
-							"queue": "23",
-							"seeTime": "2022/6/21 14:32:24",
-							"state": "1"
-						},
-						{
-							"iD": "105734",
-							"queue": "24",
-							"seeTime": "2022/6/21 14:36:36",
-							"state": "1"
-						},
-						{
-							"iD": "105735",
-							"queue": "25",
-							"seeTime": "2022/6/21 14:40:48",
-							"state": "1"
-						},
-						{
-							"iD": "105736",
-							"queue": "26",
-							"seeTime": "2022/6/21 14:45:00",
-							"state": "1"
-						},
-						{
-							"iD": "105737",
-							"queue": "27",
-							"seeTime": "2022/6/21 14:49:12",
-							"state": "1"
-						},
-						{
-							"iD": "105738",
-							"queue": "28",
-							"seeTime": "2022/6/21 14:53:24",
-							"state": "1"
-						},
-						{
-							"iD": "105739",
-							"queue": "29",
-							"seeTime": "2022/6/21 14:57:36",
-							"state": "1"
-						},
-						{
-							"iD": "105740",
-							"queue": "30",
-							"seeTime": "2022/6/21 15:01:48",
-							"state": "1"
-						},
-						{
-							"iD": "105741",
-							"queue": "31",
-							"seeTime": "2022/6/21 15:06:00",
-							"state": "1"
-						},
-						{
-							"iD": "105742",
-							"queue": "32",
-							"seeTime": "2022/6/21 15:10:12",
-							"state": "1"
-						},
-						{
-							"iD": "105743",
-							"queue": "33",
-							"seeTime": "2022/6/21 15:14:24",
-							"state": "1"
-						},
-						{
-							"iD": "105744",
-							"queue": "34",
-							"seeTime": "2022/6/21 15:18:36",
-							"state": "1"
-						},
-						{
-							"iD": "105745",
-							"queue": "35",
-							"seeTime": "2022/6/21 15:22:48",
-							"state": "1"
-						},
-						{
-							"iD": "105746",
-							"queue": "36",
-							"seeTime": "2022/6/21 15:27:00",
-							"state": "1"
-						},
-						{
-							"iD": "105747",
-							"queue": "37",
-							"seeTime": "2022/6/21 15:31:12",
-							"state": "1"
-						},
-						{
-							"iD": "105748",
-							"queue": "38",
-							"seeTime": "2022/6/21 15:35:24",
-							"state": "1"
-						},
-						{
-							"iD": "105749",
-							"queue": "39",
-							"seeTime": "2022/6/21 15:39:36",
-							"state": "1"
-						},
-						{
-							"iD": "105750",
-							"queue": "40",
-							"seeTime": "2022/6/21 15:43:48",
-							"state": "1"
-						},
-						{
-							"iD": "105751",
-							"queue": "41",
-							"seeTime": "2022/6/21 15:48:00",
-							"state": "1"
-						},
-						{
-							"iD": "105752",
-							"queue": "42",
-							"seeTime": "2022/6/21 15:52:12",
-							"state": "1"
-						},
-						{
-							"iD": "105753",
-							"queue": "43",
-							"seeTime": "2022/6/21 15:56:24",
-							"state": "1"
-						},
-						{
-							"iD": "105754",
-							"queue": "44",
-							"seeTime": "2022/6/21 16:00:36",
-							"state": "1"
-						},
-						{
-							"iD": "105755",
-							"queue": "45",
-							"seeTime": "2022/6/21 16:04:48",
-							"state": "1"
-						},
-						{
-							"iD": "105756",
-							"queue": "46",
-							"seeTime": "2022/6/21 16:09:00",
-							"state": "1"
-						},
-						{
-							"iD": "105757",
-							"queue": "47",
-							"seeTime": "2022/6/21 16:13:12",
-							"state": "1"
-						},
-						{
-							"iD": "105758",
-							"queue": "48",
-							"seeTime": "2022/6/21 16:17:24",
-							"state": "1"
-						},
-						{
-							"iD": "105759",
-							"queue": "49",
-							"seeTime": "2022/6/21 16:21:36",
-							"state": "1"
-						},
-						{
-							"iD": "105760",
-							"queue": "50",
-							"seeTime": "2022/6/21 16:25:48",
-							"state": "1"
-						}
-					]
-				}
-				this.seeDate = data.schemaqueues
-				// loadingInstance.close();
+				const params = {
+				  SchemaID:this.doctor.iD,
+				};
+				this.$myRequest({
+					url: "/hospt/getDoctorDate",
+					data: params,
+				}).then(data => {
+					this.seeDate = data.data.schemaqueues;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			onSelectDayBtn(day, index) {
 				if (index > 0) {
@@ -369,29 +192,38 @@
 				this.getDetDoctorInfo();
 			},
 			getDoctorInfo() {
-				// let loadingInstance = Loading.service({});
-				const datas = {
+				const params = {
 					doctorId: this.doctor.docID,
 				};
-				this.$api.registerService.getDoctorInfo(datas)
-					.then(data => {
-						const doctorInfo = data.data;
-						this.doctorInfo = doctorInfo.records[0];
-						// loadingInstance.close();
-					}).catch(() => {
-						// loadingInstance.close();
-					})
+				this.$myRequest({
+					url: "/hospt/getDoctorPage",
+					data: params,
+				}).then(data => {
+					const doctorInfo = data.data;
+					this.doctorInfo = doctorInfo.records[0];
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			getDoctorFeeInfo() {
-				console.log(this.doctor)
-				// let loadingInstance = Loading.service({});
+				//console.log(this.doctor)
 				const params = {
-					RegLevelID: this.regLevelID,
+					RegLevelID: this.RegLevelID,
 				};
-				this.doctor.totalFee = 12;
-				this.totalFee = 12;
-				// loadingInstance.close();
-
+				
+				this.$myRequest({
+					url: "/hospt/getDoctorFeeBill",
+					data: params,
+				}).then(data => {
+					const feeBill = data.data;
+					this.feeBill = feeBill;
+					this.doctor.totalFee = this.feeBill.DigFee;
+					this.totalFee = this.feeBill.DigFee;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			getDays(day, month) {
 				let currentDay = day;

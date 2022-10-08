@@ -118,25 +118,24 @@
 		methods: {
 			// 由于无接口，所以控制台报错关于无patientService的问题
 			getDfltPtCardInfo() {
-				0.
-				// let loadingInstance = Loading.service({});
-				this.$api.patientService.getDfltPtCardInfo()
-					.then((data) => {
-						this.currentSelectPatient = data.data;
-						// loadingInstance.close();
-					}).catch(() => {
-						// loadingInstance.close();
-					})
+				this.$myRequest({
+					url: "/wechat/user/dfltPtCard/info"
+				}).then(data => {
+					this.currentSelectPatient = data.data;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			getPatientInfo() {
-				// let loadingInstance = Loading.service({});
-				this.$api.patientService.getPatientInfo()
-					.then((data) => {
-						this.patientList = data.data;
-						// loadingInstance.close();
-					}).catch(() => {
-						// loadingInstance.close();
-					})
+				this.$myRequest({
+					url: "/wechat/user/patientcard/info"
+				}).then(data => {
+					this.patientList = data.data;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			addPatient() {
 				uni.navigateTo({
@@ -150,14 +149,15 @@
 				const params = {
 					patientId: item.patientId
 				}
-				// let loadingInstance = Loading.service({});
-				this.$api.patientService.updatePatientInfo(params)
-					.then((data) => {
-						this.getDfltPtCardInfo();
-						// loadingInstance.close();
-					}).catch(() => {
-						// loadingInstance.close();
-					})
+				this.$myRequest({
+					url: "/wechat/user/update/patientinfo",
+					data: params
+				}).then(data => {
+					this.getDfltPtCardInfo();
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			deletePatient(item) {
 				if (!item.patientId) {
@@ -167,19 +167,20 @@
 				this.currentDelSelectPatient = item;
 			},
 			closeConfirm() {
-				// let loadingInstance = Loading.service({});
-				this.$api.patientService.deletePtCardInfo({
+				this.$myRequest({
+					url: "/wechat/user/deletePtCard/info",
+					data: {
 						patientId: this.currentDelSelectPatient.patientId
-					})
-					.then(data => {
-						this.$message.success('删除成功')
-						this.getDfltPtCardInfo()
-						this.getPatientInfo()
-						this.isShowDelConfirm = false;
-						// loadingInstance.close();
-					}).catch(() => {
-						// loadingInstance.close();
-					})
+					}
+				}).then(data => {
+					this.$message.success('删除成功')
+					this.getDfltPtCardInfo()
+					this.getPatientInfo()
+					this.isShowDelConfirm = false;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			confirmDel() {
 				this.closeConfirm();
@@ -193,13 +194,13 @@
 </script>
 
 <style scoped>
-/* 	.header {
+	/* 	.header {
 		position: fixed;
 		top: 0;
 		z-index: 999;
 	} */
 
-/* 	.zhuti {
+	/* 	.zhuti {
 		margin-top: 190rpx;
 	} */
 </style>

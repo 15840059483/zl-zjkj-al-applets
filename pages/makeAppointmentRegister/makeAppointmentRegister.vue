@@ -1,11 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
-		<!-- 使用组件的时候首字母要大写！！！！ -->
-		<!-- <view class="header" style="width: 100%;height: 150rpx;">
-			<Header :title="title" :shouye="shouye"></Header>
-		</view> -->
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<view class="zhuti">
 			<div class="bg-white outpatient-department-container" v-if="keshiname!=''">
 				<uni-card>
@@ -152,8 +148,6 @@
 </template>
 
 <script>
-	// 引入导航栏组件
-	// import header from '@/components/header/header.vue'
 	// 引入scss文件
 	import './makeAppointmentRegister.scss'
 	import base from "../../request/base";
@@ -170,9 +164,8 @@
 				loading: true,
 				// 这里是控制点击速度的变量
 				lastTime: 0, //默认上一次点击时间为0
-
 				checkday: "",
-				baseUrl: base.sq,
+				baseUrl: base.base.sq,
 				deptInfo: {},
 				isShowDate: true,
 				today: new Date(),
@@ -202,16 +195,15 @@
 				},
 				showSwitchPatient: true,
 				deptId: "",
-
 				isShowText: true, // 控制内容显示
 				keshiname: '', //科室名称
 			}
 		},
 		// 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
 		onLoad(e) {
-			console.log(e);
+			//console.log(e);
 			this.deptId = e.id;
-			console.log(this.deptId)
+			//console.log(this.deptId)
 			this.jiazai()
 		},
 		methods: {
@@ -221,7 +213,7 @@
 				// 定时器，setTimeout只执行一次，setInterval执行多次
 				setTimeout(() => {
 					this.loading = false;
-					console.log(this.loading);
+					//console.log(this.loading);
 				}, 500)
 			},
 
@@ -235,7 +227,7 @@
 				// 控制两秒内点击多次只触发一次方法
 				if (this.lastTime == 0) {
 
-					console.log('触发事件');
+					//console.log('触发事件');
 					// 控制显示
 					this.isShowDate = !this.isShowDate
 
@@ -271,7 +263,7 @@
 						}
 						this.lastTime = now;
 
-						console.log('间隔大于2秒，触发方法');
+						//console.log('间隔大于2秒，触发方法');
 
 						//添加自己要调用的方法
 
@@ -281,7 +273,7 @@
 							icon: 'none',
 							duration: 2000
 						});
-						console.log('不触发');
+						//console.log('不触发');
 
 					}
 
@@ -326,123 +318,21 @@
 					deptId: this.deptId,
 					//endDay: this.today.getFullYear() + (this.today.getMonth() < 10 ? '0'+(this.today.getMonth() + 1) : (this.today.getMonth() + 1)) + this.selectDay
 				};
-				console.log(params);
-
-				const dataInfo = {
-					inParams: '{"NoonCode":"2","DeptID":"0008","Date":"2022-06-21"}',
-					doctorInfo: [{
-							begin: "2022/6/21 11:15:00",
-							deptID: "0008",
-							deptName: "眼门",
-							docID: "200092",
-							docName: "唐麟",
-							end: "2022/6/21 14:40:00",
-							iD: "222044",
-							noonID: "2",
-							regLevelID: "1",
-							regLevelName: "普诊",
-							seeNO: "0",
-						},
-						{
-							begin: "2022/6/21 12:50:00",
-							deptID: "0008",
-							deptName: "眼门",
-							docID: "200099",
-							docName: "董翠翠",
-							end: "2022/6/21 16:30:00",
-							iD: "222046",
-							noonID: "2",
-							regLevelID: "1",
-							regLevelName: "普诊",
-							seeNO: "0",
-						},
-						{
-							begin: "2022/6/21 12:50:00",
-							deptID: "0008",
-							deptName: "眼门",
-							docID: "200328",
-							docName: "曲建军",
-							end: "2022/6/21 16:30:00",
-							iD: "221959",
-							noonID: "2",
-							regLevelID: "8",
-							regLevelName: "专家诊(副主任医师)",
-							seeNO: "0",
-						},
-						{
-							begin: "2022/6/21 12:50:00",
-							deptID: "0008",
-							deptName: "眼门",
-							docID: "200404",
-							docName: "付莹",
-							end: "2022/6/21 16:30:00",
-							iD: "221963",
-							noonID: "2",
-							regLevelID: "1",
-							regLevelName: "普诊",
-							seeNO: "0",
-						},
-						{
-							begin: "2022/6/21 12:50:00",
-							deptID: "0008",
-							deptName: "眼门",
-							docID: "200411",
-							docName: "薄加春",
-							end: "2022/6/21 16:30:00",
-							iD: "221965",
-							noonID: "2",
-							regLevelID: "1",
-							regLevelName: "普诊",
-							seeNO: "0",
-						},
-						{
-							begin: "2022/6/21 11:15:00",
-							deptID: "0008",
-							deptName: "眼门",
-							docID: "200482",
-							docName: "曹扩军",
-							end: "2022/6/21 14:40:00",
-							iD: "221967",
-							noonID: "2",
-							regLevelID: "1",
-							regLevelName: "普诊",
-							seeNO: "0",
-						},
-						{
-							begin: "2022/6/21 12:50:00",
-							deptID: "0008",
-							deptName: "眼门",
-							docID: "200541",
-							docName: "于娇",
-							end: "2022/6/21 16:30:00",
-							iD: "222048",
-							noonID: "2",
-							regLevelID: "1",
-							regLevelName: "普诊",
-							seeNO: "0",
-						},
-					],
-					deptInfo: {
-						createTime: "2022-05-17T11:09:22",
-						delFlag: "0",
-						deptImgType: "jpg",
-						deptMobile: "1",
-						deptName: "眼门",
-						deptType: "1",
-						deptTypeName: "门诊",
-						hospId: "2",
-						id: "1526399449983148033",
-						introduce: "抚顺市眼病医院是东三省唯一的眼病专科医院，承接我市及周边地区眼部疾病的诊治及防盲治盲、疾病预防等工作。我院门诊拥有优秀的眼科医师团队，出诊医生中省级名医1人，主任医师6人，副主任医师15人，主治医师5人。我院门诊年门诊量逾15万人次，不但为本地区群众提供就医需求，每年还吸引大量的外地患者。我院门诊拥有各类高端专科检查设备，如：血流Oct、断层Oct、maia微视野计、蔡司Humphrey850视野计、海德堡广角照相机、蔡司Master700生物测量仪、海德堡HRA血管照影仪、OCULUS眼表分析仪以及多种不同治疗功能的激光机，为临床诊疗提供强大支撑和保障。同时，我院还设立了干眼门诊，视光门诊，美容门诊等特色专科门诊为病人提供更加细致专业的医疗服务。我院门诊以便捷的服务，精湛的技术为八方患者防病治病，获得了良好的社会效益，得到了病人的充分认可，在业内及患者中获得良好的口碑",
-					},
-				};
-				this.deptInfo = dataInfo.deptInfo;
-				this.doctors = dataInfo.doctorInfo;
-
+				this.$myRequest({
+					url: "/hospt/getDetDoctorInfo",
+					data: params,
+				}).then(data => {
+					this.deptInfo = data.data.deptInfo;
+					this.doctors = data.data.doctorInfo;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			onSelectDayBtn(day, index) {
 				this.jiazai();
 				//this.checkday = day
-				console.log(day);
+				//console.log(day);
 				//if(index>0){
 				//this.$message.warning('暂不支持预约挂号');
 				//return false;
@@ -454,12 +344,12 @@
 				}
 				this.selectDay = day.day;
 				this.selectDayInfo = day;
-				console.log(this.selectDayInfo);
+				//console.log(this.selectDayInfo);
 				this.selectDayIndex = index;
 				this.getDetDoctorInfo();
 			},
 			clickDoctor(doctor) {
-				console.log(doctor)
+				//console.log(doctor)
 				this.doctor = doctor;
 				if (doctor.docName != null) {
 					this.goToPage(doctor);
@@ -469,26 +359,25 @@
 			},
 			openConfirm(doctor) {
 				this.isShowConfirm = true;
-				console.log(this.doctor);
+				//console.log(this.doctor);
 
 				const params = {
 					RegLevelID: doctor.regLevelID,
 				};
 				if (doctor.regLevelID != "1") {
-					this.$api.registerService
-						.getDoctorFeeInfo(params)
-						.then((data) => {
-							const feeBill = data.data;
-							this.feeBill = feeBill;
-							this.doctor.totalFee = this.feeBill.DigFee;
-
-						})
-						.catch(() => {
-
-						});
+					this.$myRequest({
+						url: "/hospt/getDoctorFeeBill",
+						data: params
+					}).then(data => {
+						const feeBill = data.data;
+						this.feeBill = feeBill;
+						this.doctor.totalFee = this.feeBill.DigFee;
+						this.loading = false;
+					}).catch(err => {
+						this.loading = false;
+					})
 				}
 				this.feeBill.DigFee = this.deptbill.totalFee;
-
 			},
 			closeConfirm() {
 				this.isShowConfirm = false;
@@ -525,7 +414,7 @@
 					this.days.push(info);
 					this.selectDay = this.days[0].day;
 					this.selectDayInfo = this.days[0];
-					console.log(date.getDate());
+					//console.log(date.getDate());
 				}
 			},
 			getWeeks(week) {
@@ -557,7 +446,7 @@
 				}
 			},
 			goToPage(item) {
-				console.log(this.selectDayInfo);
+				//console.log(this.selectDayInfo);
 
 				uni.navigateTo({
 					url: '/pages/doctorScheduling/doctorScheduling?regLevelID=' +
@@ -612,16 +501,18 @@
 			this.jiazai()
 		},
 		mounted() {
+			console.log(this.baseUrl)
+			console.log(base)
 			this.getDays(this.today.getDate(), this.today.getMonth());
 			this.getWeeks(this.today.getDay());
 			this.getDetDoctorInfo();
 			let a = "12:00:00".replace(/-/g, "/");
 			let b = new Date(a);
-			console.log(new Date().getHours());
+			//console.log(new Date().getHours());
 			this.jiazai();
 			// 这里让keshiname等于vuex中的keshiname
 			this.keshiname = store.state.keshiname;
-			console.log(this.keshiname);
+			//console.log(this.keshiname);
 		},
 	};
 </script>

@@ -72,7 +72,7 @@
 			clear() {
 				this.inputVal = '';
 				this.active = false;
-				// this.$emit('search', '');
+				this.$emit('search', '');
 			},
 			getFocus() {
 				this.isFocus = true;
