@@ -293,19 +293,23 @@
 							realname: userInfo.user_name,
 							//mobile: userInfo.mobile,
 							mobile: '110',
-							userIdCard: userInfo.cert_no,
+							userIdCard: '208831298288742033',
 							/* 两个userid 从缓存中取 */
 							aliUserId: '2088312982887420',
 							alipayUserId: '20880034933095029415612911016942',
 							/* M男 F女 */
 							gender: userInfo.gender === 'M' ? 1 : 2,
-							birthday: userInfo.person_birthday,
+							birthday: '2022-09-08',
 						}
+						const _this = this;
 
 						this.$myRequest({
 							url: "/wechat/register/normal",
 							data: params,
 						}).then(data => {
+							
+							console.log(data)
+							
 							if (data.code !== 200) {
 								uni.showToast({
 									title: data.msg,
@@ -323,7 +327,10 @@
 									key: 'token',
 									data: data.data
 								})
-								this.getDfltPtCardInfo();
+								
+								_this.isToken = true;
+								
+								_this.getDfltPtCardInfo();
 							}
 							this.loading = false;
 						}).catch(err => {
