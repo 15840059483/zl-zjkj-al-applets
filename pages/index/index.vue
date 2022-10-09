@@ -292,14 +292,14 @@
 						const params = {
 							realname: userInfo.user_name,
 							//mobile: userInfo.mobile,
-							mobile: '110',
-							userIdCard: userInfo.cert_no,
+							mobile: '112',
+							userIdCard: '208831298288742022',
 							/* 两个userid 从缓存中取 */
 							aliUserId: '2088312982887420',
 							alipayUserId: '20880034933095029415612911016942',
 							/* M男 F女 */
 							gender: userInfo.gender === 'M' ? 1 : 2,
-							birthday: userInfo.person_birthday,
+							birthday: '2022-02-03',
 						}
 
 						this.$myRequest({
