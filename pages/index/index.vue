@@ -47,9 +47,6 @@
 			<div class="image-container">
 				<image src="https://s1.ax1x.com/2022/09/02/vImkjK.jpg">
 			</div>
-			<div class="image-container">
-				<image src="https://s1.ax1x.com/2022/09/02/vImkjK.jpg">
-			</div>
 
 			<uni-card shadow="never">
 				<view class="card-row">
