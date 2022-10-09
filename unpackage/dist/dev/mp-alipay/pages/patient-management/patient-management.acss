@@ -60,6 +60,8 @@
   border-bottom: 1px solid #e1e1e1;
   color: #4a4a4a;
   padding: .3rem;
+  display: flex;
+  justify-content: space-between;
 }
 .patient-container .patient-radio-row {
   padding: .3rem;

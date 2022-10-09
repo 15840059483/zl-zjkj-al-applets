@@ -319,13 +319,16 @@
 									icon: 'none',
 									duration: 2000
 								});
+								my.setStorageSync({
+									key: 'token',
+									data: data.data
+								})
 								this.getDfltPtCardInfo();
 							}
 							this.loading = false;
 						}).catch(err => {
 							this.loading = false;
 						})
-
 						console.log('userInfo', userInfo)
 					},
 					fail: (res) => {

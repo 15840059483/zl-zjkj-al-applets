@@ -8,64 +8,64 @@
 			<view :span="12" class="change-patient-name">
 				<button class="change-patient-name-btn" @click="addPatient">添加就诊人</button>
 			</view>
-			<div class="add-people-num">
+			<view class="add-people-num">
 				您已添加<span>{{patientList.length}}</span>人，还可添加<span>{{5 - patientList.length}}</span>人
-			</div>
-			<div class="bg-white patient-container" v-for="item in patientList" v-bind:key="item.id">
-				<el-row class="patient-container-row">
-					<el-col :span="10">姓名</el-col>
-					<el-col :span="14" class="text-right">{{item.patientName}}</el-col>
-				</el-row>
-				<el-row class="patient-container-row">
-					<el-col :span="10">年龄</el-col>
-					<el-col :span="14" class="text-right">{{item.patientAge}}</el-col>
-				</el-row>
-				<el-row class="patient-container-row">
-					<el-col :span="10">身份证号</el-col>
-					<el-col :span="14" class="text-right">{{item.patientCardId}}</el-col>
-				</el-row>
-				<el-row class="patient-container-row">
-					<el-col :span="10">就诊卡号</el-col>
-					<el-col :span="14" class="text-right">{{item.cardNumber}}</el-col>
-				</el-row>
-				<el-row class="patient-container-row">
-					<el-col :span="10">与就诊者关系</el-col>
-					<el-col :span="14" class="text-right">{{item.patientRelationship | patientRelationship}}</el-col>
-				</el-row>
-				<el-row class="patient-radio-row">
-					<el-col :span="10">
-						<div @click="selectPatient(item)" class="patient-radio-col-l">
-							<div class="radio-container">
-								<div class="radio-checked" v-if="item.patientId === currentSelectPatient.patientId">
-								</div>
-							</div>
+			</view>
+			<view class="bg-white patient-container" v-for="item in patientList" v-bind:key="item.id">
+				<view class="patient-container-row">
+					<view>姓名</view>
+					<view class="text-right">{{item.patientName}}</view>
+				</view>
+				<view class="patient-container-row">
+					<view>年龄</view>
+					<view class="text-right">{{item.patientAge}}</view>
+				</view>
+				<view class="patient-container-row">
+					<view>身份证号</view>
+					<view class="text-right">{{item.patientCardId}}</view>
+				</view>
+				<view class="patient-container-row">
+					<view>就诊卡号</view>
+					<view class="text-right">{{item.cardNumber}}</view>
+				</view>
+				<view class="patient-container-row">
+					<view>与就诊者关系</view>
+					<view class="text-right">{{item.patientRelationship | patientRelationship}}</view>
+				</view>
+				<view class="patient-radio-row">
+					<view>
+						<view @click="selectPatient(item)" class="patient-radio-col-l">
+							<view class="radio-container">
+								<view class="radio-checked" v-if="item.patientId === currentSelectPatient.patientId">
+								</view>
+							</view>
 							当前就诊人
-						</div>
-					</el-col>
-					<el-col :span="14" class="text-right patient-radio-col-r">
+						</view>
+					</view>
+					<view class="text-right patient-radio-col-r">
 						<i class="el-icon-delete" @click="deletePatient(item)"></i>
-					</el-col>
-				</el-row>
-			</div>
+					</view>
+				</view>
+			</view>
 
 			<view name="el-fade-in-linear">
-				<div class="confirm-del" v-if="isShowDelConfirm"></div>
+				<view class="confirm-del" v-if="isShowDelConfirm"></view>
 			</view>
 			<view name="el-fade-in-linear">
-				<div class="del-container bg-white" v-if="isShowDelConfirm">
-					<el-row class="del-container-row">
-						<el-col class="text-center del-container-col">确定要删除该患者吗？</el-col>
-					</el-row>
-					<el-row>
-						<el-col :span="12" class="text-center del-container-col del-container-cancel"
+				<view class="del-container bg-white" v-if="isShowDelConfirm">
+					<view class="del-container-row">
+						<view class="text-center del-container-col">确定要删除该患者吗？</view>
+					</view>
+					<view>
+						<view :span="12" class="text-center del-container-col del-container-cancel"
 							@click.native="closeConfirm">取消
-						</el-col>
-						<el-col :span="12" class="text-center del-container-col del-container-del"
-							@click.native="confirmDel">删除</el-col>
-					</el-row>
-				</div>
+						</view>
+						<view :span="12" class="text-center del-container-col del-container-del"
+							@click.native="confirmDel">删除</view>
+					</view>
+				</view>
 			</view>
-			</div>
+			</view>
 		</view>
 	</view>
 </template>

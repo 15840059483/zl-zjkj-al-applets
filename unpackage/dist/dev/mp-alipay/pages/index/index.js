@@ -503,13 +503,16 @@ var _default = {
                 icon: 'none',
                 duration: 2000 });
 
+              my.setStorageSync({
+                key: 'token',
+                data: data.data });
+
               _this6.getDfltPtCardInfo();
             }
             _this6.loading = false;
           }).catch(function (err) {
             _this6.loading = false;
           });
-
           console.log('userInfo', userInfo);
         },
         fail: function fail(res) {

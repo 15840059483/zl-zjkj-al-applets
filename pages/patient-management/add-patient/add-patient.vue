@@ -210,15 +210,14 @@
 				console.log(this.formData)
 				// let loadingInstance = Loading.service({});
 				const params = Object.assign(this.formData)
-
+				const _this = this
 				if (this.formData.cardNo == null || this.formData.cardNo == '') {
 					uni.showModal({
 						title: "提示",
 						content: "是否注册卡号?",
 						success: function(res) {
 							if (res.confirm) {
-								
-									this.$myRequest({
+									_this.$myRequest({
 										url: "/wechat/user/addPtCard/info",
 										data: params
 									}).then(data => {
@@ -229,10 +228,10 @@
 										});
 
 										// loadingInstance.close();
-										this.$router.back()
-										this.loading = false;
+										_this..$router.back()
+										_this..loading = false;
 									}).catch(err => {
-										this.loading = false;
+										_this..loading = false;
 									})
 							} else {
 								uni.showToast({
@@ -245,37 +244,11 @@
 							}
 						}
 					});
-					// this.$confirm('是否注册卡号', '提示', {
-					// 	confirmButtonText: '确定',
-					// 	cancelButtonText: '取消',
-					// 	type: 'warning'
-					// }).then(() => {
-					// 	this.$api.indexService.addInfo(params)
-					// 		.then(data => {
-					// 			uni.showToast({
-					// 				title: '添加成功！',
-					// 				icon: 'none',
-					// 				duration: 2000
-					// 			});
-
-					// 			// loadingInstance.close();
-					// 			this.$router.back()
-					// 		})
-					// 		.catch(() => {
-					// 			// loadingInstance.close();
-					// 		})
-					// }).catch(() => {
-					// 	uni.showToast({
-					// 		title: '已取消添加就诊人！',
-					// 		icon: 'none',
-					// 		duration: 2000
-					// 	});
-
-					// 	// loadingInstance.close();
-					// })
 				} else {
-					this.$api.indexService.addInfo(params)
-						.then(data => {
+					this.$myRequest({
+						url: '/wechat/user/addPtCard/info',
+						data: params
+					}).then(data => {
 							uni.showToast({
 								title: '添加成功！',
 								icon: 'none',
