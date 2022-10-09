@@ -5,11 +5,14 @@ const BASE_URL = "http://192.168.1.7:9088"
 
 export const myRequest = (options) => {
 	let token = ''
-	my.getStorageInfo({
-	  success: function(res) {
-	    console.log(res)
-	  }
-	})
+	console.log("开始")
+	var res = my.getStorageSync({ key: 'token' });
+	
+	console.log(res)
+	
+	if(res.data){
+		token = res.data.token;
+	}
 	return new Promise((resolve, reject) => {
 		uni.request({
 			url: BASE_URL + options.url,

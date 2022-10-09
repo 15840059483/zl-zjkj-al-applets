@@ -46,7 +46,7 @@
 						<uni-td>结果</uni-td>
 						<uni-td>参考值</uni-td>
 					</uni-tr>
-					<uni-tr v-for="item in resultList">
+					<uni-tr v-for="(item,index) in resultList" :key="index">
 						<uni-td>{{item.itemname}}</uni-td>
 						<uni-td>{{item.rangeinfo}}</uni-td>
 						<uni-td v-if="item.Color=='blue'" style="color: rgb(0,142,254)">
@@ -76,7 +76,7 @@
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
 
 				sampleList: {},
-				resultList: {},
+				resultList: [],
 			}
 		},
 		methods: {

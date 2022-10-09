@@ -2053,7 +2053,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3420,9 +3420,9 @@ uni$1;exports.default = _default;
 /***/ }),
 
 /***/ 102:
-/*!*******************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/patient-management/add-patient/add-patient.scss ***!
-  \*******************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/patient-management/add-patient/add-patient.scss ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3562,9 +3562,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 111:
-/*!**********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/register-success/register-success.scss ***!
-  \**********************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.scss ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3575,9 +3575,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 112:
-/*!********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/payment-details/payment-details.scss ***!
-  \********************************************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/payment-details/payment-details.scss ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3588,9 +3588,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 12:
-/*!**************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/static/icon/iconfont.css ***!
-  \**************************************************************************/
+/*!****************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/static/icon/iconfont.css ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3601,9 +3601,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 129:
-/*!*************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.scss ***!
-  \*************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.scss ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3614,9 +3614,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 13:
-/*!****************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/store/index.js ***!
-  \****************************************************************/
+/*!******************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/store/index.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3677,9 +3677,9 @@ store;exports.default = _default;
 /***/ }),
 
 /***/ 138:
-/*!*************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.scss ***!
-  \*************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.scss ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4947,9 +4947,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 147:
-/*!*******************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing.scss ***!
-  \*******************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing.scss ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4960,9 +4960,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 15:
-/*!******************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/store/getters.js ***!
-  \******************************************************************/
+/*!********************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/store/getters.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4979,9 +4979,9 @@ getters;exports.default = _default;
 /***/ }),
 
 /***/ 156:
-/*!***************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hesuanjiance/Shenhejieguo/shenhejieguo.scss ***!
-  \***************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Shenhejieguo/shenhejieguo.scss ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4992,9 +4992,9 @@ getters;exports.default = _default;
 /***/ }),
 
 /***/ 16:
-/*!****************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/request/api.js ***!
-  \****************************************************************/
+/*!******************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/request/api.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5186,9 +5186,9 @@ var ceshi = {
 /***/ }),
 
 /***/ 17:
-/*!*****************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/request/http.js ***!
-  \*****************************************************************/
+/*!*******************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/request/http.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5369,9 +5369,9 @@ instance;exports.default = _default;
 /***/ }),
 
 /***/ 173:
-/*!**************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/survey-new-coupons/survey-new-coupons.scss ***!
-  \**************************************************************************************************/
+/*!****************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/survey-new-coupons/survey-new-coupons.scss ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5382,9 +5382,9 @@ instance;exports.default = _default;
 /***/ }),
 
 /***/ 18:
-/*!*****************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/index.js ***!
-  \*****************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/index.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5393,9 +5393,9 @@ module.exports = __webpack_require__(/*! ./lib/axios */ 19);
 /***/ }),
 
 /***/ 19:
-/*!*********************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/axios.js ***!
-  \*********************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/axios.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5468,9 +5468,9 @@ module.exports.default = axios;
 /***/ }),
 
 /***/ 198:
-/*!***************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outPatientQueryFeeList/queryOutFeeList.scss ***!
-  \***************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/outPatientQueryFeeList/queryOutFeeList.scss ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5512,9 +5512,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 20:
-/*!*********************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/utils.js ***!
-  \*********************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/utils.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5992,9 +5992,9 @@ module.exports = {
 /***/ }),
 
 /***/ 207:
-/*!***************************************************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records.scss ***!
-  \***************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records.scss ***!
+  \*****************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6005,9 +6005,9 @@ module.exports = {
 /***/ }),
 
 /***/ 21:
-/*!****************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/bind.js ***!
-  \****************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/bind.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6027,9 +6027,9 @@ module.exports = function bind(fn, thisArg) {
 /***/ }),
 
 /***/ 216:
-/*!***************************************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details.scss ***!
-  \***************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details.scss ***!
+  \*****************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6040,9 +6040,9 @@ module.exports = function bind(fn, thisArg) {
 /***/ }),
 
 /***/ 22:
-/*!**************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/Axios.js ***!
-  \**************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/Axios.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6211,9 +6211,9 @@ module.exports = Axios;
 /***/ }),
 
 /***/ 225:
-/*!******************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/departmentList/departmentList.scss ***!
-  \******************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/departmentList/departmentList.scss ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6224,9 +6224,9 @@ module.exports = Axios;
 /***/ }),
 
 /***/ 23:
-/*!********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/buildURL.js ***!
-  \********************************************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/buildURL.js ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6305,9 +6305,9 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 /***/ }),
 
 /***/ 232:
-/*!************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.scss ***!
-  \************************************************************************************************************/
+/*!**************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.scss ***!
+  \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6318,9 +6318,9 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 /***/ }),
 
 /***/ 24:
-/*!***************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/InterceptorManager.js ***!
-  \***************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/InterceptorManager.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6383,9 +6383,9 @@ module.exports = InterceptorManager;
 /***/ }),
 
 /***/ 241:
-/*!**********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/doctorScheduling/doctorScheduling.scss ***!
-  \**********************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/doctorScheduling/doctorScheduling.scss ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6396,9 +6396,9 @@ module.exports = InterceptorManager;
 /***/ }),
 
 /***/ 242:
-/*!*****************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outPatientFeeListIndex/outpatientPayment.scss ***!
-  \*****************************************************************************************************/
+/*!*******************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/outPatientFeeListIndex/outpatientPayment.scss ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6409,9 +6409,9 @@ module.exports = InterceptorManager;
 /***/ }),
 
 /***/ 25:
-/*!************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/dispatchRequest.js ***!
-  \************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/dispatchRequest.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6507,9 +6507,9 @@ module.exports = function dispatchRequest(config) {
 /***/ }),
 
 /***/ 251:
-/*!**************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.scss ***!
-  \**************************************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.scss ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6520,9 +6520,9 @@ module.exports = function dispatchRequest(config) {
 /***/ }),
 
 /***/ 26:
-/*!**********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/transformData.js ***!
-  \**********************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/transformData.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6553,9 +6553,9 @@ module.exports = function transformData(data, headers, fns) {
 /***/ }),
 
 /***/ 27:
-/*!******************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/defaults/index.js ***!
-  \******************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/defaults/index.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6706,14 +6706,14 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../projectNeed/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 28)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 28)))
 
 /***/ }),
 
 /***/ 276:
-/*!*********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/huanzhe/symptom/toubu/toubukeshi.scss ***!
-  \*********************************************************************************************/
+/*!***********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/huanzhe/symptom/toubu/toubukeshi.scss ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7547,9 +7547,9 @@ function resolveLocaleChain(locale) {
 /***/ }),
 
 /***/ 30:
-/*!*******************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
-  \*******************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7570,9 +7570,9 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 /***/ }),
 
 /***/ 31:
-/*!*******************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/AxiosError.js ***!
-  \*******************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/AxiosError.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7667,9 +7667,9 @@ module.exports = AxiosError;
 /***/ }),
 
 /***/ 32:
-/*!*************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/defaults/transitional.js ***!
-  \*************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/defaults/transitional.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7684,9 +7684,9 @@ module.exports = {
 /***/ }),
 
 /***/ 33:
-/*!**********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/toFormData.js ***!
-  \**********************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/toFormData.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7763,7 +7763,7 @@ function toFormData(obj, formData) {
 }
 
 module.exports = toFormData;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../projectNeed/HBuilderX/plugins/uniapp-cli/node_modules/buffer/index.js */ 34).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/buffer/index.js */ 34).Buffer))
 
 /***/ }),
 
@@ -9829,9 +9829,9 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 /***/ }),
 
 /***/ 365:
-/*!************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outpatientPayment/outpatientPayment.scss ***!
-  \************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/outpatientPayment/outpatientPayment.scss ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9858,9 +9858,9 @@ module.exports = Array.isArray || function (arr) {
 /***/ }),
 
 /***/ 374:
-/*!**********************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hospitalizationPayment/hospitalizationPayment.scss ***!
-  \**********************************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hospitalizationPayment/hospitalizationPayment.scss ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9871,9 +9871,9 @@ module.exports = Array.isArray || function (arr) {
 /***/ }),
 
 /***/ 38:
-/*!****************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/adapters/xhr.js ***!
-  \****************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/adapters/xhr.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10104,9 +10104,9 @@ module.exports = function xhrAdapter(config) {
 /***/ }),
 
 /***/ 39:
-/*!***************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/settle.js ***!
-  \***************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/settle.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10140,9 +10140,9 @@ module.exports = function settle(resolve, reject, response) {
 /***/ }),
 
 /***/ 391:
-/*!****************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/report-query2.css ***!
-  \****************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query2/report-query2.css ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10153,9 +10153,9 @@ module.exports = function settle(resolve, reject, response) {
 /***/ }),
 
 /***/ 392:
-/*!*********************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/outpatientPayment.scss ***!
-  \*********************************************************************************************************/
+/*!***********************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query2/outpatientPayment.scss ***!
+  \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10166,9 +10166,9 @@ module.exports = function settle(resolve, reject, response) {
 /***/ }),
 
 /***/ 393:
-/*!**************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/hospitalizationPayment.scss ***!
-  \**************************************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query2/hospitalizationPayment.scss ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15704,7 +15704,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -15725,14 +15725,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -15818,7 +15818,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"zjkj-demo","VUE_APP_PLATFORM":"mp-alipay","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -16233,9 +16233,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 40:
-/*!*******************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/cookies.js ***!
-  \*******************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/cookies.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16296,9 +16296,9 @@ function nonStandardBrowserEnv() {
 /***/ }),
 
 /***/ 402:
-/*!****************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query3/report-query3.css ***!
-  \****************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query3/report-query3.css ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16309,9 +16309,9 @@ function nonStandardBrowserEnv() {
 /***/ }),
 
 /***/ 41:
-/*!**********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/buildFullPath.js ***!
-  \**********************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/buildFullPath.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16340,9 +16340,9 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 /***/ }),
 
 /***/ 42:
-/*!*************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
-  \*************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16365,9 +16365,9 @@ module.exports = function isAbsoluteURL(url) {
 /***/ }),
 
 /***/ 43:
-/*!***********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/combineURLs.js ***!
-  \***********************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/combineURLs.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16390,9 +16390,9 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 /***/ }),
 
 /***/ 44:
-/*!************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/parseHeaders.js ***!
-  \************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16454,9 +16454,9 @@ module.exports = function parseHeaders(headers) {
 /***/ }),
 
 /***/ 45:
-/*!***************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-  \***************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16532,9 +16532,9 @@ function nonStandardBrowserEnv() {
 /***/ }),
 
 /***/ 46:
-/*!************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/cancel/CanceledError.js ***!
-  \************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/cancel/CanceledError.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16565,9 +16565,9 @@ module.exports = CanceledError;
 /***/ }),
 
 /***/ 47:
-/*!*************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/parseProtocol.js ***!
-  \*************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/parseProtocol.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16582,9 +16582,9 @@ module.exports = function parseProtocol(url) {
 /***/ }),
 
 /***/ 48:
-/*!****************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/null.js ***!
-  \****************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/null.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -16594,9 +16594,9 @@ module.exports = null;
 /***/ }),
 
 /***/ 49:
-/*!*******************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/cancel/isCancel.js ***!
-  \*******************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/cancel/isCancel.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16610,9 +16610,9 @@ module.exports = function isCancel(value) {
 /***/ }),
 
 /***/ 5:
-/*!************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages.json ***!
-  \************************************************************/
+/*!**************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages.json ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -16621,9 +16621,9 @@ module.exports = function isCancel(value) {
 /***/ }),
 
 /***/ 50:
-/*!********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/mergeConfig.js ***!
-  \********************************************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/core/mergeConfig.js ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16732,9 +16732,9 @@ module.exports = function mergeConfig(config1, config2) {
 /***/ }),
 
 /***/ 51:
-/*!*********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/validator.js ***!
-  \*********************************************************************************************/
+/*!***********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/validator.js ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16828,9 +16828,9 @@ module.exports = {
 /***/ }),
 
 /***/ 52:
-/*!************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/env/data.js ***!
-  \************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/env/data.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -16840,9 +16840,9 @@ module.exports = {
 /***/ }),
 
 /***/ 53:
-/*!**********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/cancel/CancelToken.js ***!
-  \**********************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/cancel/CancelToken.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16970,9 +16970,9 @@ module.exports = CancelToken;
 /***/ }),
 
 /***/ 54:
-/*!******************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/spread.js ***!
-  \******************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/spread.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17008,9 +17008,9 @@ module.exports = function spread(callback) {
 /***/ }),
 
 /***/ 55:
-/*!************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/isAxiosError.js ***!
-  \************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17032,9 +17032,9 @@ module.exports = function isAxiosError(payload) {
 /***/ }),
 
 /***/ 56:
-/*!*****************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/request/base.js ***!
-  \*****************************************************************/
+/*!*******************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/request/base.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17077,232 +17077,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 58:
-/*!******************************************!*\
-  !*** ./node_modules/qs/lib/stringify.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(/*! ./utils */ 59);
-var formats = __webpack_require__(/*! ./formats */ 60);
-
-var arrayPrefixGenerators = {
-    brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
-        return prefix + '[]';
-    },
-    indices: function indices(prefix, key) { // eslint-disable-line func-name-matching
-        return prefix + '[' + key + ']';
-    },
-    repeat: function repeat(prefix) { // eslint-disable-line func-name-matching
-        return prefix;
-    }
-};
-
-var toISO = Date.prototype.toISOString;
-
-var defaults = {
-    delimiter: '&',
-    encode: true,
-    encoder: utils.encode,
-    encodeValuesOnly: false,
-    serializeDate: function serializeDate(date) { // eslint-disable-line func-name-matching
-        return toISO.call(date);
-    },
-    skipNulls: false,
-    strictNullHandling: false
-};
-
-var stringify = function stringify( // eslint-disable-line func-name-matching
-    object,
-    prefix,
-    generateArrayPrefix,
-    strictNullHandling,
-    skipNulls,
-    encoder,
-    filter,
-    sort,
-    allowDots,
-    serializeDate,
-    formatter,
-    encodeValuesOnly
-) {
-    var obj = object;
-    if (typeof filter === 'function') {
-        obj = filter(prefix, obj);
-    } else if (obj instanceof Date) {
-        obj = serializeDate(obj);
-    } else if (obj === null) {
-        if (strictNullHandling) {
-            return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder) : prefix;
-        }
-
-        obj = '';
-    }
-
-    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || utils.isBuffer(obj)) {
-        if (encoder) {
-            var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder);
-            return [formatter(keyValue) + '=' + formatter(encoder(obj, defaults.encoder))];
-        }
-        return [formatter(prefix) + '=' + formatter(String(obj))];
-    }
-
-    var values = [];
-
-    if (typeof obj === 'undefined') {
-        return values;
-    }
-
-    var objKeys;
-    if (Array.isArray(filter)) {
-        objKeys = filter;
-    } else {
-        var keys = Object.keys(obj);
-        objKeys = sort ? keys.sort(sort) : keys;
-    }
-
-    for (var i = 0; i < objKeys.length; ++i) {
-        var key = objKeys[i];
-
-        if (skipNulls && obj[key] === null) {
-            continue;
-        }
-
-        if (Array.isArray(obj)) {
-            values = values.concat(stringify(
-                obj[key],
-                generateArrayPrefix(prefix, key),
-                generateArrayPrefix,
-                strictNullHandling,
-                skipNulls,
-                encoder,
-                filter,
-                sort,
-                allowDots,
-                serializeDate,
-                formatter,
-                encodeValuesOnly
-            ));
-        } else {
-            values = values.concat(stringify(
-                obj[key],
-                prefix + (allowDots ? '.' + key : '[' + key + ']'),
-                generateArrayPrefix,
-                strictNullHandling,
-                skipNulls,
-                encoder,
-                filter,
-                sort,
-                allowDots,
-                serializeDate,
-                formatter,
-                encodeValuesOnly
-            ));
-        }
-    }
-
-    return values;
-};
-
-module.exports = function (object, opts) {
-    var obj = object;
-    var options = opts ? utils.assign({}, opts) : {};
-
-    if (options.encoder !== null && options.encoder !== undefined && typeof options.encoder !== 'function') {
-        throw new TypeError('Encoder has to be a function.');
-    }
-
-    var delimiter = typeof options.delimiter === 'undefined' ? defaults.delimiter : options.delimiter;
-    var strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults.strictNullHandling;
-    var skipNulls = typeof options.skipNulls === 'boolean' ? options.skipNulls : defaults.skipNulls;
-    var encode = typeof options.encode === 'boolean' ? options.encode : defaults.encode;
-    var encoder = typeof options.encoder === 'function' ? options.encoder : defaults.encoder;
-    var sort = typeof options.sort === 'function' ? options.sort : null;
-    var allowDots = typeof options.allowDots === 'undefined' ? false : options.allowDots;
-    var serializeDate = typeof options.serializeDate === 'function' ? options.serializeDate : defaults.serializeDate;
-    var encodeValuesOnly = typeof options.encodeValuesOnly === 'boolean' ? options.encodeValuesOnly : defaults.encodeValuesOnly;
-    if (typeof options.format === 'undefined') {
-        options.format = formats['default'];
-    } else if (!Object.prototype.hasOwnProperty.call(formats.formatters, options.format)) {
-        throw new TypeError('Unknown format option provided.');
-    }
-    var formatter = formats.formatters[options.format];
-    var objKeys;
-    var filter;
-
-    if (typeof options.filter === 'function') {
-        filter = options.filter;
-        obj = filter('', obj);
-    } else if (Array.isArray(options.filter)) {
-        filter = options.filter;
-        objKeys = filter;
-    }
-
-    var keys = [];
-
-    if (typeof obj !== 'object' || obj === null) {
-        return '';
-    }
-
-    var arrayFormat;
-    if (options.arrayFormat in arrayPrefixGenerators) {
-        arrayFormat = options.arrayFormat;
-    } else if ('indices' in options) {
-        arrayFormat = options.indices ? 'indices' : 'repeat';
-    } else {
-        arrayFormat = 'indices';
-    }
-
-    var generateArrayPrefix = arrayPrefixGenerators[arrayFormat];
-
-    if (!objKeys) {
-        objKeys = Object.keys(obj);
-    }
-
-    if (sort) {
-        objKeys.sort(sort);
-    }
-
-    for (var i = 0; i < objKeys.length; ++i) {
-        var key = objKeys[i];
-
-        if (skipNulls && obj[key] === null) {
-            continue;
-        }
-
-        keys = keys.concat(stringify(
-            obj[key],
-            key,
-            generateArrayPrefix,
-            strictNullHandling,
-            skipNulls,
-            encode ? encoder : null,
-            filter,
-            sort,
-            allowDots,
-            serializeDate,
-            formatter,
-            encodeValuesOnly
-        ));
-    }
-
-    var joined = keys.join(delimiter);
-    var prefix = options.addQueryPrefix === true ? '?' : '';
-
-    return joined.length > 0 ? prefix + joined : '';
-};
-
-
-/***/ }),
-
-/***/ 583:
-/*!*****************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \*****************************************************************************************************/
+/***/ 576:
+/*!*******************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18476,6 +18254,228 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
+/***/ 58:
+/*!******************************************!*\
+  !*** ./node_modules/qs/lib/stringify.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./utils */ 59);
+var formats = __webpack_require__(/*! ./formats */ 60);
+
+var arrayPrefixGenerators = {
+    brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
+        return prefix + '[]';
+    },
+    indices: function indices(prefix, key) { // eslint-disable-line func-name-matching
+        return prefix + '[' + key + ']';
+    },
+    repeat: function repeat(prefix) { // eslint-disable-line func-name-matching
+        return prefix;
+    }
+};
+
+var toISO = Date.prototype.toISOString;
+
+var defaults = {
+    delimiter: '&',
+    encode: true,
+    encoder: utils.encode,
+    encodeValuesOnly: false,
+    serializeDate: function serializeDate(date) { // eslint-disable-line func-name-matching
+        return toISO.call(date);
+    },
+    skipNulls: false,
+    strictNullHandling: false
+};
+
+var stringify = function stringify( // eslint-disable-line func-name-matching
+    object,
+    prefix,
+    generateArrayPrefix,
+    strictNullHandling,
+    skipNulls,
+    encoder,
+    filter,
+    sort,
+    allowDots,
+    serializeDate,
+    formatter,
+    encodeValuesOnly
+) {
+    var obj = object;
+    if (typeof filter === 'function') {
+        obj = filter(prefix, obj);
+    } else if (obj instanceof Date) {
+        obj = serializeDate(obj);
+    } else if (obj === null) {
+        if (strictNullHandling) {
+            return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder) : prefix;
+        }
+
+        obj = '';
+    }
+
+    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || utils.isBuffer(obj)) {
+        if (encoder) {
+            var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder);
+            return [formatter(keyValue) + '=' + formatter(encoder(obj, defaults.encoder))];
+        }
+        return [formatter(prefix) + '=' + formatter(String(obj))];
+    }
+
+    var values = [];
+
+    if (typeof obj === 'undefined') {
+        return values;
+    }
+
+    var objKeys;
+    if (Array.isArray(filter)) {
+        objKeys = filter;
+    } else {
+        var keys = Object.keys(obj);
+        objKeys = sort ? keys.sort(sort) : keys;
+    }
+
+    for (var i = 0; i < objKeys.length; ++i) {
+        var key = objKeys[i];
+
+        if (skipNulls && obj[key] === null) {
+            continue;
+        }
+
+        if (Array.isArray(obj)) {
+            values = values.concat(stringify(
+                obj[key],
+                generateArrayPrefix(prefix, key),
+                generateArrayPrefix,
+                strictNullHandling,
+                skipNulls,
+                encoder,
+                filter,
+                sort,
+                allowDots,
+                serializeDate,
+                formatter,
+                encodeValuesOnly
+            ));
+        } else {
+            values = values.concat(stringify(
+                obj[key],
+                prefix + (allowDots ? '.' + key : '[' + key + ']'),
+                generateArrayPrefix,
+                strictNullHandling,
+                skipNulls,
+                encoder,
+                filter,
+                sort,
+                allowDots,
+                serializeDate,
+                formatter,
+                encodeValuesOnly
+            ));
+        }
+    }
+
+    return values;
+};
+
+module.exports = function (object, opts) {
+    var obj = object;
+    var options = opts ? utils.assign({}, opts) : {};
+
+    if (options.encoder !== null && options.encoder !== undefined && typeof options.encoder !== 'function') {
+        throw new TypeError('Encoder has to be a function.');
+    }
+
+    var delimiter = typeof options.delimiter === 'undefined' ? defaults.delimiter : options.delimiter;
+    var strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults.strictNullHandling;
+    var skipNulls = typeof options.skipNulls === 'boolean' ? options.skipNulls : defaults.skipNulls;
+    var encode = typeof options.encode === 'boolean' ? options.encode : defaults.encode;
+    var encoder = typeof options.encoder === 'function' ? options.encoder : defaults.encoder;
+    var sort = typeof options.sort === 'function' ? options.sort : null;
+    var allowDots = typeof options.allowDots === 'undefined' ? false : options.allowDots;
+    var serializeDate = typeof options.serializeDate === 'function' ? options.serializeDate : defaults.serializeDate;
+    var encodeValuesOnly = typeof options.encodeValuesOnly === 'boolean' ? options.encodeValuesOnly : defaults.encodeValuesOnly;
+    if (typeof options.format === 'undefined') {
+        options.format = formats['default'];
+    } else if (!Object.prototype.hasOwnProperty.call(formats.formatters, options.format)) {
+        throw new TypeError('Unknown format option provided.');
+    }
+    var formatter = formats.formatters[options.format];
+    var objKeys;
+    var filter;
+
+    if (typeof options.filter === 'function') {
+        filter = options.filter;
+        obj = filter('', obj);
+    } else if (Array.isArray(options.filter)) {
+        filter = options.filter;
+        objKeys = filter;
+    }
+
+    var keys = [];
+
+    if (typeof obj !== 'object' || obj === null) {
+        return '';
+    }
+
+    var arrayFormat;
+    if (options.arrayFormat in arrayPrefixGenerators) {
+        arrayFormat = options.arrayFormat;
+    } else if ('indices' in options) {
+        arrayFormat = options.indices ? 'indices' : 'repeat';
+    } else {
+        arrayFormat = 'indices';
+    }
+
+    var generateArrayPrefix = arrayPrefixGenerators[arrayFormat];
+
+    if (!objKeys) {
+        objKeys = Object.keys(obj);
+    }
+
+    if (sort) {
+        objKeys.sort(sort);
+    }
+
+    for (var i = 0; i < objKeys.length; ++i) {
+        var key = objKeys[i];
+
+        if (skipNulls && obj[key] === null) {
+            continue;
+        }
+
+        keys = keys.concat(stringify(
+            obj[key],
+            key,
+            generateArrayPrefix,
+            strictNullHandling,
+            skipNulls,
+            encode ? encoder : null,
+            filter,
+            sort,
+            allowDots,
+            serializeDate,
+            formatter,
+            encodeValuesOnly
+        ));
+    }
+
+    var joined = keys.join(delimiter);
+    var prefix = options.addQueryPrefix === true ? '?' : '';
+
+    return joined.length > 0 ? prefix + joined : '';
+};
+
+
+/***/ }),
+
 /***/ 59:
 /*!**************************************!*\
   !*** ./node_modules/qs/lib/utils.js ***!
@@ -18918,9 +18918,9 @@ module.exports = function (str, opts) {
 /***/ }),
 
 /***/ 62:
-/*!*************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/http/api.js ***!
-  \*************************************************************/
+/*!***************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/http/api.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18932,11 +18932,14 @@ var BASE_URL = "http://192.168.1.7:9088";
 
 var myRequest = function myRequest(options) {
   var token = '';
-  my.getStorageInfo({
-    success: function success(res) {
-      console.log(res);
-    } });
+  console.log("开始");
+  var res = my.getStorageSync({ key: 'token' });
 
+  console.log(res);
+
+  if (res.data) {
+    token = res.data.token;
+  }
   return new Promise(function (resolve, reject) {
     uni.request({
       url: BASE_URL + options.url,
@@ -18974,9 +18977,9 @@ var myRequest = function myRequest(options) {
 /***/ }),
 
 /***/ 93:
-/*!**************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/patient-management/patient-management.scss ***!
-  \**************************************************************************************************/
+/*!****************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/patient-management/patient-management.scss ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

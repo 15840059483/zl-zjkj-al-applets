@@ -47,6 +47,9 @@
 			<div class="image-container">
 				<image src="https://s1.ax1x.com/2022/09/02/vImkjK.jpg">
 			</div>
+			<div class="image-container">
+				<image src="https://s1.ax1x.com/2022/09/02/vImkjK.jpg">
+			</div>
 
 			<uni-card shadow="never">
 				<view class="card-row">
@@ -182,52 +185,35 @@
 			},
 
 			getDfltPtCardInfo() {
-				let data = {
-					"cardId": "1517390116221976578",
-					"cardNumber": "0000000001",
-					"cardState": "1020",
-					"dataSourdces": "json",
-					"patientAge": "24",
-					"patientBirthday": "1997-10-10",
-					"patientCardId": "210281199710102056",
-					"patientCardType": "11001",
-					"patientId": "1517390115580248066",
-					"patientName": "伶俐的狐狸",
-					"patientPhone": "15840059483",
-					"patientRelationship": "1033",
-					"patientSex": "男",
-					"patientState": "1010"
-				}
-				this.dfltPatientInfo = data
-
-
-
-				/**this.$myRequest({
+				this.$myRequest({
 					url: "/wechat/user/dfltPtCard/info",
-					data: params,
 				}).then(data => {
 					this.dfltPatientInfo = data.data;
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
-				})*/
+				})
 
 			},
 			addCardNumber() {
-				uni.showToast({
-					title: '该功能正在开发中！',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-				if (this.dfltPatientInfo) {
-					this.cardNo = ''
-					this.showAddPatient = true
-				} else {
-					this.$router.push({
-						name: 'addPatient'
-					})
-				}
+				const params = Object.assign(this.dfltPatientInfo, {cardNo:''})
+				
+				this.$myRequest({
+					url: "/wechat/user/addPtCard/info",
+					contentType:'application/json;charset=UTF-8',
+					data: params
+				}).then(data => {
+					this.getDfltPtCardInfo()
+					this.showAddPatient = false
+					uni.showToast({
+						title: '绑定成功！',
+						icon: 'none',
+						duration: 2000
+					});
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			addCard(value) {
 				if (value && !/^[A-Za-z0-9]{10}$/.test(this.cardNo)) {
@@ -243,21 +229,7 @@
 					cardNo: value ? this.cardNo : ''
 				})
 
-				this.$myRequest({
-					url: "/wechat/user/addPtCard/info",
-					data: params
-				}).then(data => {
-					this.getDfltPtCardInfo()
-					this.showAddPatient = false
-					uni.showToast({
-						title: '绑定成功！',
-						icon: 'none',
-						duration: 2000
-					});
-					this.loading = false;
-				}).catch(err => {
-					this.loading = false;
-				})
+				
 			},
 			switchPatient() {
 				// this.goToPage('/select-patient');
@@ -316,6 +288,44 @@
 				my.getOpenUserInfo({
 					success: (res) => {
 						let userInfo = JSON.parse(res.response).response // 以下方的报文格式解析两层 response
+						
+						const params = {
+						        realname: userInfo.user_name,
+						        //mobile: userInfo.mobile,
+								mobile: '110',
+						        userIdCard: userInfo.cert_no,
+								/* 两个userid 从缓存中取 */
+						        aliUserId: '2088312982887420',
+						        alipayUserId: '20880034933095029415612911016942',
+						        /* M男 F女 */
+						        gender: userInfo.gender === 'M' ? 1 : 2,
+						        birthday: userInfo.person_birthday,
+						      }
+						
+						this.$myRequest({
+							url: "/wechat/register/normal",
+							data: params,
+						}).then(data => {
+							if (data.code !== 200) {
+								uni.showToast({
+									title: data.msg,
+									icon: 'none',
+									duration: 2000
+								});
+								// this.$message.warning(data.msg);
+							} else {
+								uni.showToast({
+									title: '注册成功',
+									icon: 'none',
+									duration: 2000
+								});
+								this.getDfltPtCardInfo();
+							}
+							this.loading = false;
+						}).catch(err => {
+							this.loading = false;
+						})
+						
 						console.log('userInfo', userInfo)
 					},
 					fail: (res) => {
@@ -568,7 +578,7 @@
 					console.log(res)
 					if (!res.data) {
 						_this.isToken = false
-						my.getAuthCode({
+						my.getAuthCode({ 
 							scopes: 'auth_user',
 							success: res => {
 								console.log(res)
@@ -607,10 +617,13 @@
 													token: data.data.token,
 												},
 											});
+											_this.isToken = true;
 										}
 									})
 							},
 						});
+					}else{
+						_this.getDfltPtCardInfo();
 					}
 				}
 			})
