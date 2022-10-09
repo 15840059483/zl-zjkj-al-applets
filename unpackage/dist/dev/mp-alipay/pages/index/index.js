@@ -179,9 +179,650 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/projectCode/al/yanbing/zjkj-al-applets/pages/index/index.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js):\nSyntaxError: Unexpected token (295:0)\n    at Object._raise (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:746:17)\n    at Object.raiseWithData (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:739:17)\n    at Object.raise (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:733:17)\n    at Object.unexpected (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:8807:16)\n    at Object.parseIdentifierName (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10823:18)\n    at Object.parseIdentifier (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10800:23)\n    at Object.parseMaybePrivateName (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10157:19)\n    at Object.parsePropertyName (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10624:126)\n    at Object.parseObjectMember (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10525:10)\n    at Object.parseObj (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10448:25)\n    at Object.parseExprAtom (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10055:28)\n    at Object.parseExprSubscripts (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9656:23)\n    at Object.parseMaybeUnary (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9636:21)\n    at Object.parseMaybeUnary (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6877:20)\n    at Object.parseExprOps (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9506:23)\n    at Object.parseMaybeConditional (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9479:23)");
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var levitation = function levitation() {__webpack_require__.e(/*! require.ensure | components/levitation/levitation */ "components/levitation/levitation").then((function () {return resolve(__webpack_require__(/*! @/components/levitation/levitation.vue */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 引入底部导航栏组件
+// import dacizinavtag from '../../components/dacizi-navtag/dacizi-navtag.vue'
+var _default = {
+  // 注册使用导航栏组件
+  components: {
+    // header,
+    // dacizinav	tag,
+    levitation: levitation },
+
+  data: function data() {
+    return {
+      title: "致嘉测试", // 页面标题
+      shouye: "yes", // 是否是首页，不是首页显示返回上一层箭头
+      item_index: 0, // 单页面id
+      dfltPatientInfo: {},
+      menuList: [],
+      outpatientFunctionList: [],
+      inpatientFunctionList: [],
+      showAddPatient: false,
+      cardNo: '',
+      loading: false, // 加载动画
+
+      isToken: true };
+
+  },
+  filters: {
+    processingName: function processingName(str) {
+      if (!str) {
+        return '-';
+      }
+      return '*' + str.substr(1);
+    } },
+
+  methods: {
+    // 加载框
+    jiazai: function jiazai() {var _this2 = this;
+      this.loading = true;
+      // 定时器，setTimeout只执行一次，setInterval执行多次
+      setTimeout(function () {
+        _this2.loading = false;
+        //console.log(this.loading);
+      }, 500);
+    },
+
+    getDfltPtCardInfo: function getDfltPtCardInfo() {var _this3 = this;
+      this.$myRequest({
+        url: "/wechat/user/dfltPtCard/info" }).
+      then(function (data) {
+        _this3.dfltPatientInfo = data.data;
+        _this3.loading = false;
+      }).catch(function (err) {
+        _this3.loading = false;
+      });
+
+    },
+    addCardNumber: function addCardNumber() {var _this4 = this;
+      var params = Object.assign(this.dfltPatientInfo, {
+        cardNo: '' });
+
+
+      this.$myRequest({
+        url: "/wechat/user/addPtCard/info",
+        contentType: 'application/json;charset=UTF-8',
+        data: params }).
+      then(function (data) {
+        _this4.getDfltPtCardInfo();
+        _this4.showAddPatient = false;
+        uni.showToast({
+          title: '绑定成功！',
+          icon: 'none',
+          duration: 2000 });
+
+        _this4.loading = false;
+      }).catch(function (err) {
+        _this4.loading = false;
+      });
+    },
+    addCard: function addCard(value) {
+      if (value && !/^[A-Za-z0-9]{10}$/.test(this.cardNo)) {
+        uni.showToast({
+          title: '请输入正确的就诊卡号！',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
+
+      var params = Object.assign(this.dfltPatientInfo, {
+        cardNo: value ? this.cardNo : '' });
+
+
+
+    },
+    switchPatient: function switchPatient() {
+      // this.goToPage('/select-patient');
+      this.goToPage('/pages/patient-management/patient-management');
+    },
+    goToPage: function goToPage(url, meta) {
+      if (!url) {
+        uni.showToast({
+          title: '该功能正在开发中！',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
+      //console.log(meta)
+      if (!meta) {
+        uni.navigateTo({
+          url: url });
+
+        return;
+      }
+      if (this.dfltPatientInfo) {
+        if (!this.dfltPatientInfo.cardNumber) {
+          this.cardNo = '';
+          this.showAddPatient = true;
+        } else {
+          // this.$router.push(url);
+          uni.navigateTo({
+            url: url });
+
+        }
+      } else {
+        this.$router.push({
+          name: 'addPatient' });
+
+      }
+    },
+    getHostMenu: function getHostMenu() {var _this5 = this;
+      var params = {
+        hospId: '1' };
+
+      this.$api.indexService.getHospMenu(params).
+      then(function (data) {
+        var menuList = data.data;
+        _this5.menuList = menuList.hospMenu.menu1;
+        menuList.hospMenu.menu2.forEach(function (item) {
+          if (item.menuType === '1') {
+            _this5.outpatientFunctionList.push(item);
+          } else {
+            _this5.inpatientFunctionList.push(item);
+          }
+        });
+      });
+    },
+    onAuthBtn: function onAuthBtn() {var _this6 = this;
+      my.getOpenUserInfo({
+        success: function success(res) {
+          var userInfo = JSON.parse(res.response).response; // 以下方的报文格式解析两层 response
+
+          var params = {
+            realname: userInfo.user_name,
+            //mobile: userInfo.mobile,
+            mobile: '112',
+            userIdCard: '208831298288742022',
+            /* 两个userid 从缓存中取 */
+            aliUserId: '2088312982887420',
+            alipayUserId: '20880034933095029415612911016942',
+            /* M男 F女 */
+            gender: userInfo.gender === 'M' ? 1 : 2,
+            birthday: '2022-02-03' };
+
+          var _this = _this6;
+
+          _this6.$myRequest({
+            url: "/wechat/register/normal",
+            data: params }).
+          then(function (data) {
+
+            console.log(data);
+
+            if (data.code !== 200) {
+              uni.showToast({
+                title: data.msg,
+                icon: 'none',
+                duration: 2000 });
+
+              // this.$message.warning(data.msg);
+            } else {
+              uni.showToast({
+                title: '注册成功',
+                icon: 'none',
+                duration: 2000 });
+
+              my.setStorageSync({
+                key: 'token',
+                data: data.data });
+
+
+              _this.isToken = true;
+
+              _this.getDfltPtCardInfo();
+            }
+            _this6.loading = false;
+          }).catch(function (err) {
+            _this6.loading = false;
+          });
+          console.log('userInfo', userInfo);
+        },
+        fail: function fail(res) {
+          console.log('fail', res);
+        } });
+
+    } },
+
+  created: function created() {
+    this.item_index = 0; // 单页面id
+  },
+  // 这是uni的生命周期
+  onLoad: function onLoad() {
+    // this.jiazai()
+  },
+  onShow: function onShow() {
+    // this.jiazai()
+  },
+  mounted: function mounted() {
+    // const item = JSON.parse(JSON.stringify(localStorage.getItem('selectPatient')));
+    // console.log(item);
+    // if (item) {
+    //   this.patientName = item.name;
+    //   this.visitNumber = item.visitNumber;
+    //   localStorage.setItem('selectPatient', '');
+    // }
+
+    this.menuList = [{
+      id: 1,
+      menuName: '预约挂号',
+      twoTitle: '实时查看医生情况',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIm4v6.jpg',
+      routLink: '/pages/departmentList/departmentList',
+      meta: true },
+
+    {
+      id: 2,
+      menuName: '门诊缴费',
+      twoTitle: '快速缴费不排队',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIr711.jpg',
+      routLink: '/pages/outpatientPayment/outpatientPayment',
+      meta: true },
+
+    {
+      id: 3,
+      menuName: '住院缴费',
+      twoTitle: '快速查询不排队',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIrX7D.jpg',
+      routLink: '/pages/hospitalizationPayment/hospitalizationPayment',
+      meta: false },
+
+    // {
+    //   id: 4,
+    //   menuName: '住院缴费记录',
+    //   twoTitle: '快速查询不排队',
+    //   routerUrl: '',
+    //   imageUrl: '../../static/rili.png',
+    //   routLink: '/hospitalizationPaymentRecords'
+    // },
+    {
+      id: 5,
+      menuName: '报告查询',
+      twoTitle: '线上预约节省时间',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIrvAe.jpg',
+      routLink: '/pages/report-query/report-query2/report-query2',
+      meta: false },
+
+    /*{
+                     	id: 6,
+                     	menuName: '智能导诊',
+                     	twoTitle: 'AI智能服务就医',
+                     	routerUrl: '',
+                     	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrO0O.jpg'),
+                     	//routLink: '/departmentIntroduction'
+                     	routLink: '/pages/huanzhe/huanzhe',
+                     	// meta: false
+                     },*/
+    // {
+    //   id: 7,
+    //   menuName: '个人中心-9',
+    //   twoTitle: '即时推送排队情况',
+    //   routerUrl: '',
+    //   imageUrl: '../../static/rili.png',
+    //   routLink: '/registerSuccess'
+    // },
+    // {
+    //   id: 8,
+    //   menuName: '个人中心',
+    //   twoTitle: '个人中心',
+    //   routerUrl: '',
+    //   imageUrl: '../../static/rili.png',
+    //   routLink: '/patient-management'
+    // },
+    // {
+    //   id: 9,
+    //   menuName: '办理住院',
+    //   twoTitle: '办理住院',
+    //   routerUrl: '',
+    //   imageUrl: '../../static/rili.png',
+    //   routLink: '/addResidents'
+    // },
+    /*{
+    	id: 10,
+    	menuName: '自助打印',
+    	twoTitle: '自助打印',
+    	routerUrl: '',
+    	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsAHS.png'),
+    	routLink: '/pages/self-service-printing/self-service-printing'
+    },
+    {
+    	id: 11,
+    	menuName: '满意度调查问卷',
+    	twoTitle: '满意度调查问卷',
+    	routerUrl: '',
+    	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsAHS.png'),
+    	routLink: '/pages/satisfaction/satisfaction'
+    },
+    {
+    	id: 12,
+    	menuName: '排队查询',
+    	twoTitle: '排队查询',
+    	routerUrl: '',
+    	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrbX6.png'),
+    	//routLink: '/queuingQuery'
+    	routLink: '',
+    	meta: true
+    },
+    {
+    	id: 13,
+    	menuName: '疫情调查问卷',
+    	twoTitle: '疫情调查问卷',
+    	routerUrl: '',
+    	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsAHS.png'),
+    	routLink: '/pages/survey-new-coupons/survey-new-coupons'
+    },*/
+    {
+      id: 14,
+      menuName: '核酸检测',
+      twoTitle: '自助快速的挂号核酸检测',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIsCct.png',
+      routLink: '/pages/hesuanjiance/Zizhukaidan/zizhukaidan' },
+
+    {
+      id: 15,
+      menuName: '预约信息',
+      twoTitle: '查看核酸检测挂号预约信息',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIsp9A.jpg',
+      routLink: '/pages/hesuanjiance/Shenhejieguo/shenhejieguo' },
+
+    {
+      id: 16,
+      menuName: '流程图',
+      twoTitle: '查看流程图',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIsp9A.jpg',
+      routLink: '/pages/liuchengtu/liuchengtu' }];
+
+
+
+    this.outpatientFunctionList = [{
+      id: 1,
+      menuName: '添加就诊人',
+      twoTitle: '',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIrH6x.jpg',
+      //routLink: '/addPatient',
+      routLink: '',
+      meta: true },
+
+    {
+      id: 2,
+      menuName: '挂号记录',
+      twoTitle: '快速缴费不排队',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIrLnK.jpg',
+      routLink: '',
+      meta: true },
+
+    {
+      id: 5,
+      menuName: '门诊缴费记录',
+      twoTitle: '快速缴费不排队',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIrxtH.jpg',
+      routLink: '/pages/outPatientQueryFeeList/queryOutFeeList',
+      meta: true }];
+
+
+
+    this.inpatientFunctionList = [{
+      id: 3,
+      menuName: '住院缴费',
+      twoTitle: '快速查询不排队',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIrzhd.jpg',
+      //routLink: '/hospitalizationPayment',
+      routLink: '',
+      meta: false },
+
+    /*{
+                     	id: 4,
+                     	menuName: '预约住院',
+                     	twoTitle: '快速查询不排队',
+                     	routerUrl: '',
+                     	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIskB8.jpg'),
+                     	//routLink: '/hospSubscribeHome',
+                     	routLink: '',
+                     	meta: false
+                     },
+                     {
+                     	id: 7,
+                     	menuName: '预约住院记录',
+                     	twoTitle: '快速查询不排队',
+                     	routerUrl: '',
+                     	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIs91I.jpg'),
+                     	// routLink: '/hospSubscribeRecord',
+                     	routLink: '',
+                     	meta: false
+                     },*/
+    {
+      id: 8,
+      menuName: '住院缴费记录',
+      twoTitle: '快速查询不排队',
+      routerUrl: '',
+      imageUrl: 'https://s1.ax1x.com/2022/09/02/vIsAHS.png',
+      routLink: '/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records',
+      meta: false }
+
+    /*{
+                    	id: 6,
+                    	menuName: '住院一日清',
+                    	twoTitle: 'AI智能服务就医',
+                    	routerUrl: '',
+                    	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsCct.png'),
+                    	routLink: '',
+                    	meta: false
+                    },*/];
+
+
+    var _this = this;
+    my.getStorage({
+      key: 'token',
+      success: function success(res) {
+        console.log(res);
+        if (!res.data) {
+          _this.isToken = false;
+          my.getAuthCode({
+            scopes: 'auth_user',
+            success: function success(res) {
+              console.log(res);
+              _this.$myRequest({
+                // url: `/al/auth/login?code=${res.code}`,
+                url: "/al/auth/login?code=".concat(res.authCode),
+                method: 'get' }).
+
+              then(function (data) {
+                console.log(data.data);
+                // _this.user_id = data.user_id;
+                my.setStorageSync({
+                  key: 'user_id',
+                  data: data.user_id });
+
+                my.removeStorage({
+                  key: 'token' });
+
+                console.log(data.data.reg);
+
+
+                if (!data.data.reg) {
+                  // _this.$router.push('/register')
+                  uni.showToast({
+                    title: '还没有注册哟~',
+                    icon: 'none',
+                    duration: 2000 });
+
+                } else {
+                  my.setStorageSync({
+                    key: 'token',
+                    data: data.data.token });
+
+                  _this.getDfltPtCardInfo();
+                  _this.isToken = true;
+                }
+              });
+            } });
+
+        } else {
+          _this.getDfltPtCardInfo();
+        }
+      } });
+
+
+    // this.getHostMenu();
+    // this.getDfltPtCardInfo();
+    // this.jiazai();
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

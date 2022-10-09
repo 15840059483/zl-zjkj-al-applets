@@ -20,6 +20,15 @@
 			}
 		},
 		{
+			// 缴费记录
+			// 路径
+			"path": "pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "缴费记录"
+			}
+		},
+		{
 			// 智能导诊
 			// 路径
 			"path": "pages/huanzhe/huanzhe",

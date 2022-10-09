@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/mine/mine",
+    "pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records",
     "pages/huanzhe/huanzhe",
     "pages/patient-management/patient-management",
     "pages/patient-management/add-patient/add-patient",

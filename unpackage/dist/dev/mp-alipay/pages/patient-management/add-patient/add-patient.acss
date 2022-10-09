@@ -467,29 +467,33 @@
 
 
 
+
+
+
+
 /* 	.header {
-		position: fixed;
-		top: 0;
-		z-index: 999;
-	} */
+	position: fixed;
+	top: 0;
+	z-index: 999;
+} */
 /* 
-	.zhuti {
-		margin-top: 150rpx;
-	} */
+.zhuti {
+	margin-top: 150rpx;
+} */
 .confirm-btn button.data-v-38d31350 {
-		height: 45px !important;
+	height: 45px !important;
 }
 .nei-title.data-v-38d31350 {
-		width: 42%;
-		font-size: 14px;
+	width: 42%;
+	font-size: 14px;
 }
 .nei-input.data-v-38d31350 {
-		width: 58%;
+	width: 58%;
 }
 .nei-input.data-v-38d31350 .is-input-border {
-		border: none;
+	border: none;
 }
 .nei-input.data-v-38d31350 .uni-easyinput__content-input {
-		font-size: 14px;
+	font-size: 14px;
 }
 

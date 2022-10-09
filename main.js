@@ -12,6 +12,8 @@ import {
 	myRequest
 } from './http/api.js' // 封装好的Request接口
 
+import '@/style/style.scss'
+
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
