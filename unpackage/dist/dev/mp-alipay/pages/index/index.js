@@ -182,7 +182,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var levitation = function levitation() {__webpack_require__.e(/*! require.ensure | components/levitation/levitation */ "components/levitation/levitation").then((function () {return resolve(__webpack_require__(/*! @/components/levitation/levitation.vue */ 654));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var levitation = function levitation() {__webpack_require__.e(/*! require.ensure | components/levitation/levitation */ "components/levitation/levitation").then((function () {return resolve(__webpack_require__(/*! @/components/levitation/levitation.vue */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
 
 
 
@@ -377,7 +378,9 @@ var _default = {
 
     },
     addCardNumber: function addCardNumber() {var _this4 = this;
-      var params = Object.assign(this.dfltPatientInfo, { cardNo: '' });
+      var params = Object.assign(this.dfltPatientInfo, {
+        cardNo: '' });
+
 
       this.$myRequest({
         url: "/wechat/user/addPtCard/info",
@@ -773,9 +776,7 @@ var _default = {
                 // _this.user_id = data.user_id;
                 my.setStorageSync({
                   key: 'user_id',
-                  data: {
-                    'user_id': data.user_id } });
-
+                  data: data.user_id });
 
                 my.removeStorage({
                   key: 'token' });
@@ -791,13 +792,11 @@ var _default = {
                     duration: 2000 });
 
                 } else {
-                  _this.getDfltPtCardInfo();
                   my.setStorageSync({
                     key: 'token',
-                    data: {
-                      token: data.data.token } });
+                    data: data.data.token });
 
-
+                  _this.getDfltPtCardInfo();
                   _this.isToken = true;
                 }
               });

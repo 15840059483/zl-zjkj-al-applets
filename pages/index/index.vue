@@ -37,7 +37,8 @@
 			<uni-card shadow="never" v-else>
 				<uni-row class="card-row">
 					<div v-if="isToken" class="patient-wrapper-button" @click="addCardNumber">初次使用，请添加就诊号</div>
-					<button v-if="!isToken" open-type="getAuthorize" scope="userInfo" @getAuthorize="onAuthBtn" @error="onAuthError">
+					<button v-if="!isToken" open-type="getAuthorize" scope="userInfo" @getAuthorize="onAuthBtn"
+						@error="onAuthError">
 						个人信息授权
 					</button>
 					<!-- <div v-if="!isToken" class="patient-wrapper-button" @click="onAuthBtn">点击授权</div> -->
@@ -193,11 +194,13 @@
 
 			},
 			addCardNumber() {
-				const params = Object.assign(this.dfltPatientInfo, {cardNo:''})
-				
+				const params = Object.assign(this.dfltPatientInfo, {
+					cardNo: ''
+				})
+
 				this.$myRequest({
 					url: "/wechat/user/addPtCard/info",
-					contentType:'application/json;charset=UTF-8',
+					contentType: 'application/json;charset=UTF-8',
 					data: params
 				}).then(data => {
 					this.getDfltPtCardInfo()
@@ -226,7 +229,7 @@
 					cardNo: value ? this.cardNo : ''
 				})
 
-				
+
 			},
 			switchPatient() {
 				// this.goToPage('/select-patient');
@@ -285,20 +288,20 @@
 				my.getOpenUserInfo({
 					success: (res) => {
 						let userInfo = JSON.parse(res.response).response // 以下方的报文格式解析两层 response
-						
+
 						const params = {
-						        realname: userInfo.user_name,
-						        //mobile: userInfo.mobile,
-								mobile: '110',
-						        userIdCard: userInfo.cert_no,
-								/* 两个userid 从缓存中取 */
-						        aliUserId: '2088312982887420',
-						        alipayUserId: '20880034933095029415612911016942',
-						        /* M男 F女 */
-						        gender: userInfo.gender === 'M' ? 1 : 2,
-						        birthday: userInfo.person_birthday,
-						      }
-						
+							realname: userInfo.user_name,
+							//mobile: userInfo.mobile,
+							mobile: '110',
+							userIdCard: userInfo.cert_no,
+							/* 两个userid 从缓存中取 */
+							aliUserId: '2088312982887420',
+							alipayUserId: '20880034933095029415612911016942',
+							/* M男 F女 */
+							gender: userInfo.gender === 'M' ? 1 : 2,
+							birthday: userInfo.person_birthday,
+						}
+
 						this.$myRequest({
 							url: "/wechat/register/normal",
 							data: params,
@@ -322,7 +325,7 @@
 						}).catch(err => {
 							this.loading = false;
 						})
-						
+
 						console.log('userInfo', userInfo)
 					},
 					fail: (res) => {
@@ -575,7 +578,7 @@
 					console.log(res)
 					if (!res.data) {
 						_this.isToken = false
-						my.getAuthCode({ 
+						my.getAuthCode({
 							scopes: 'auth_user',
 							success: res => {
 								console.log(res)
@@ -589,10 +592,8 @@
 										// _this.user_id = data.user_id;
 										my.setStorageSync({
 											key: 'user_id',
-											data: {
-												'user_id': data.user_id,
-											},
-										});
+											data: data.user_id
+										})
 										my.removeStorage({
 											key: 'token'
 										})
@@ -607,19 +608,17 @@
 												duration: 2000
 											});
 										} else {
-											_this.getDfltPtCardInfo();
 											my.setStorageSync({
 												key: 'token',
-												data: {
-													token: data.data.token,
-												},
-											});
+												data: data.data.token
+											})
+											_this.getDfltPtCardInfo();
 											_this.isToken = true;
 										}
 									})
 							},
 						});
-					}else{
+					} else {
 						_this.getDfltPtCardInfo();
 					}
 				}

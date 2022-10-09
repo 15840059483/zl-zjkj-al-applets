@@ -11,7 +11,7 @@ export const myRequest = (options) => {
 	console.log(res)
 	
 	if(res.data){
-		token = res.data.token;
+		token = res.data;
 	}
 	return new Promise((resolve, reject) => {
 		uni.request({
