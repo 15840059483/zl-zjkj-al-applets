@@ -228,10 +228,10 @@
 										});
 
 										// loadingInstance.close();
-										_this..$router.back()
-										_this..loading = false;
+										_this.$router.back()
+										_this.loading = false;
 									}).catch(err => {
-										_this..loading = false;
+										_this.loading = false;
 									})
 							} else {
 								uni.showToast({

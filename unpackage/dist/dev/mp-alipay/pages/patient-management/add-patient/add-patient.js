@@ -21,9 +21,276 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/projectCode/al/yanbing/zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js):\nSyntaxError: Unexpected token (231:15)\n    at Object._raise (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:746:17)\n    at Object.raiseWithData (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:739:17)\n    at Object.raise (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:733:17)\n    at Object.unexpected (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:8807:16)\n    at Object.parseIdentifierName (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10823:18)\n    at Object.parseIdentifier (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10800:23)\n    at Object.parseMaybePrivateName (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10157:19)\n    at Object.parseSubscript (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9714:64)\n    at Object.parseSubscript (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6447:18)\n    at Object.parseSubscripts (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9679:19)\n    at Object.parseExprSubscripts (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9662:17)\n    at Object.parseMaybeUnary (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9636:21)\n    at Object.parseMaybeUnary (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6877:20)\n    at Object.parseExprOps (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9506:23)\n    at Object.parseMaybeConditional (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9479:23)\n    at Object.parseMaybeAssign (F:\\projectNeed\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9434:21)");
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+__webpack_require__(/*! ../patient-management.scss */ 93);
+__webpack_require__(/*! ./add-patient.scss */ 102); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// 引入导航栏组件
+// import header from '@/components/header/header.vue'
+// 引入scss样式
+var _default = { // 注册使用导航栏组件
+  components: {// header,
+  }, data: function data() {return { title: "添加就诊人", // 页面标题
+      shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
+      patientRelationshipList: [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }], formData: { patientName: '', patientCardId: '', patientBirthday: '', patientRelationship: '1030', patientPhone: '', cardNo: '' } };}, filters: { patientRelationship: function patientRelationship(val) {if (!val) return '';var arr = [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }];var obj = arr.filter(function (item) {return item.value === val;});return obj[0].label;} }, methods: { // Picker选择器的方法
+    listPicker: function listPicker(e) {this.formData.patientRelationship = this.patientRelationshipList[e.target.value].value;}, idCardBlur: function idCardBlur() {var _IDRe18 = /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;if (_IDRe18.test(this.formData.patientCardId)) {this.formData.patientBirthday = this.formData.patientCardId.slice(6, 10) + '-' + this.formData.patientCardId.slice(10, 12) + '-' + this.formData.patientCardId.slice(12, 14);} else {uni.showToast({ title: '请输入正确的身份证号！', icon: 'none', duration: 2000 });}}, submitBtn: function submitBtn() {var _this2 = this;if (!this.formData.patientName) {uni.showToast({ title: '请输入就诊人姓名！', icon: 'none', duration: 2000 });
+
+
+        return;
+      }
+      if (!this.formData.patientCardId) {
+        uni.showToast({
+          title: '请输入就诊人身份证号！',
+          icon: 'none',
+          duration: 2000 });
+
+
+        return;
+      }
+      if (!this.formData.patientRelationship) {
+        uni.showToast({
+          title: '请选择与就诊人关系！',
+          icon: 'none',
+          duration: 2000 });
+
+
+        return;
+      }
+      if (!this.formData.patientPhone) {
+        uni.showToast({
+          title: '请输入就诊人手机号码！',
+          icon: 'none',
+          duration: 2000 });
+
+
+        return;
+      }
+      console.log(this.formData);
+      // let loadingInstance = Loading.service({});
+      var params = Object.assign(this.formData);
+      var _this = this;
+      if (this.formData.cardNo == null || this.formData.cardNo == '') {
+        uni.showModal({
+          title: "提示",
+          content: "是否注册卡号?",
+          success: function success(res) {
+            if (res.confirm) {
+              _this.$myRequest({
+                url: "/wechat/user/addPtCard/info",
+                data: params }).
+              then(function (data) {
+                uni.showToast({
+                  title: '添加成功！',
+                  icon: 'none',
+                  duration: 2000 });
+
+
+                // loadingInstance.close();
+                _this.$router.back();
+                _this.loading = false;
+              }).catch(function (err) {
+                _this.loading = false;
+              });
+            } else {
+              uni.showToast({
+                title: '已取消添加就诊人！',
+                icon: 'none',
+                duration: 2000 });
+
+
+              // loadingInstance.close();
+            }
+          } });
+
+      } else {
+        this.$myRequest({
+          url: '/wechat/user/addPtCard/info',
+          data: params }).
+        then(function (data) {
+          uni.showToast({
+            title: '添加成功！',
+            icon: 'none',
+            duration: 2000 });
+
+
+          // loadingInstance.close();
+          _this2.$router.back();
+        }).
+        catch(function () {
+          // loadingInstance.close();
+        });
+      }
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
