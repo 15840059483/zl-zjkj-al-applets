@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" :mask=true></zero-loading>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
 		<!-- <view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
@@ -167,6 +167,7 @@
 				noonID: '',
 				noonName: '',
 				seeDateInfo: {},
+				schemaId:'',
 				keshiname: '', //获取vuex中的科室名称
 			}
 		},
@@ -251,7 +252,7 @@
 			//获取就诊人
 			getPatientInfo() {
 				this.$myRequest({
-					url: "/wechat/user/dfltPtCard/info",
+					url: "/wechat/user/patientcard/info",
 				}).then(data => {
 					this.patients = data.data;
 					this.selectPatient = data.data[0];
@@ -261,38 +262,52 @@
 				})
 			},
 			payRegister() {
-				
 				const params = {
-				          dateBegin: this.doctorInfo.begin,
-				          dateEnd: this.doctorInfo.end,
-				          deptId: this.doctorInfo.deptID,
-				          deptName: this.doctorInfo.deptName,
-				          doctorName: this.doctorInfo.regLevelID!='1'?this.doctorInfo.docName:'',
-				          doctorId: this.doctorInfo.regLevelID!='1'?this.doctorInfo.docID:'',
-				          doctorTitle: this.doctorInfo.regLevelName,
-				          doctorTitleId: this.doctorInfo.regLevelID,
-				          patientName: this.selectPatient.patientName,
-				          patientNo: this.selectPatient.cardNumber,
-				          payMount: this.doctorInfo.totalFee,
-				          noonId:this.doctorInfo.noonID,
-						  regPeriod:this.noonName,
-						  pay_type:'AL'
-				        }
+				  schemaId: this.schemaId,
+				  dateBegin: this.seeDateInfo.seeTime,
+				  dateEnd: this.seeDateInfo.seeTime,
+				  deptId: this.doctorInfo.deptID,
+				  deptName: this.doctorInfo.deptName,
+				  doctorName: this.doctorInfo.docName,
+				  doctorId: this.doctorInfo.docID,
+				  doctorTitle: this.doctorInfo.regLevelName,
+				  doctorTitleId: this.doctorInfo.regLevelID,
+				  idEnNo:this.selectPatient.patientCardId,
+				  iPhone:this.selectPatient.patientPhone,
+				  patientName: this.selectPatient.patientName,
+				  patientNo: this.selectPatient.cardNumber,
+				  payMount: this.doctorInfo.totalFee,
+				  noonId:this.doctorInfo.noonID,
+				  regPeriod:this.noonName,
+				  'regSeeData.ID':this.seeDateInfo.iD,
+				  'regSeeData.queue':this.seeDateInfo.queue,
+				 'regSeeData.seeTime':this.seeDateInfo.seeTime,
+				  'regSeeData.state':this.seeDateInfo.state,
+				  pay_Type:'AL'
+				}
 				
 				this.$myRequest({
 					url: "/wechat/pay/reg",
 					data: params
 				}).then(data => {
-					if(data.code==200){
+					if(data.code==0){
 						my.tradePay({
 						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
 						  tradeNO: data.data.tradeNO,
 						  success: (res) => {
 							  // 关闭弹窗
-							  this.$refs.popo.close();
-							  uni.navigateTo({
-							  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
-							  });
+							  if(!res.resultCode=='9000'){
+								  this.$refs.popo.close();
+								  uni.navigateTo({
+								  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
+								  });
+							  }else{
+								  uni.showToast({
+								  	title: '支付失败',
+								  	icon: 'none',
+								  	duration: 2000
+								  });
+							  }
 						  },
 						  fail: (res) => {
 						    my.alert({
@@ -318,6 +333,7 @@
 			this.registrationDate = e.date;
 			this.noonName = e.noonName;
 			this.seeDateInfo = JSON.parse(decodeURIComponent(e.seeInfo));
+			this.schemaId = e.schemaId;
 			this.jiazai()
 		},
 		onShow() {

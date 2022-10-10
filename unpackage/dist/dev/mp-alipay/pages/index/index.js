@@ -474,7 +474,7 @@ var _default = {
           var userInfo = JSON.parse(res.response).response; // 以下方的报文格式解析两层 response
 
           var params = {
-            realname: userInfo.user_name,
+            realname: '测试',
             //mobile: userInfo.mobile,
             mobile: '112',
             userIdCard: '208831298288742022',

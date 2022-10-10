@@ -457,7 +457,7 @@ var pop = function pop() {__webpack_require__.e(/*! require.ensure | components/
       loading: true, isShowText: true, // 控制内容显示
       // 这里是控制点击速度的变量
       lastTime: 0, //默认上一次点击时间为0
-      doctorInfo: {}, registrationDate: '', patients: [], selectPatient: {}, showOtherPatient: true, centerDialogVisible: false, noonID: '', noonName: '', seeDateInfo: {}, keshiname: '' //获取vuex中的科室名称
+      doctorInfo: {}, registrationDate: '', patients: [], selectPatient: {}, showOtherPatient: true, centerDialogVisible: false, noonID: '', noonName: '', seeDateInfo: {}, schemaId: '', keshiname: '' //获取vuex中的科室名称
     };}, methods: { // 开启弹窗的方法
     dialog: function dialog() {this.$refs.popo.show();}, // 控制动画的方法
     showMore: function showMore() {var _this = this; //获取当前时间的时间戳
@@ -472,9 +472,24 @@ var pop = function pop() {__webpack_require__.e(/*! require.ensure | components/
         } else {uni.showToast({ title: '点的太快啦！QAQ', icon: 'none', duration: 2000 });console.log('不触发');}}}, // 加载框
     jiazai: function jiazai() {var _this2 = this;this.loading = true; // 定时器，setTimeout只执行一次，setInterval执行多次
       setTimeout(function () {_this2.loading = false;console.log(_this2.loading);}, 500);}, //获取就诊人
-    getPatientInfo: function getPatientInfo() {var _this3 = this;this.$myRequest({ url: "/wechat/user/dfltPtCard/info" }).then(function (data) {_this3.patients = data.data;_this3.selectPatient = data.data[0];_this3.loading = false;}).catch(function (err) {_this3.loading = false;});}, payRegister: function payRegister() {var _this4 = this;var params = { dateBegin: this.doctorInfo.begin, dateEnd: this.doctorInfo.end, deptId: this.doctorInfo.deptID, deptName: this.doctorInfo.deptName, doctorName: this.doctorInfo.regLevelID != '1' ? this.doctorInfo.docName : '', doctorId: this.doctorInfo.regLevelID != '1' ? this.doctorInfo.docID : '', doctorTitle: this.doctorInfo.regLevelName, doctorTitleId: this.doctorInfo.regLevelID, patientName: this.selectPatient.patientName, patientNo: this.selectPatient.cardNumber, payMount: this.doctorInfo.totalFee, noonId: this.doctorInfo.noonID, regPeriod: this.noonName, pay_type: 'AL' };this.$myRequest({ url: "/wechat/pay/reg", data: params }).then(function (data) {if (data.code == 200) {my.tradePay({ // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+    getPatientInfo: function getPatientInfo() {var _this3 = this;this.$myRequest({ url: "/wechat/user/patientcard/info" }).then(function (data) {_this3.patients = data.data;_this3.selectPatient = data.data[0];_this3.loading = false;}).catch(function (err) {_this3.loading = false;});}, payRegister: function payRegister() {var _this4 = this;var params = { schemaId: this.schemaId, dateBegin: this.seeDateInfo.seeTime, dateEnd: this.seeDateInfo.seeTime, deptId: this.doctorInfo.deptID, deptName: this.doctorInfo.deptName, doctorName: this.doctorInfo.docName, doctorId: this.doctorInfo.docID, doctorTitle: this.doctorInfo.regLevelName, doctorTitleId: this.doctorInfo.regLevelID, idEnNo: this.selectPatient.patientCardId, iPhone: this.selectPatient.patientPhone, patientName: this.selectPatient.patientName, patientNo: this.selectPatient.cardNumber, payMount: this.doctorInfo.totalFee, noonId: this.doctorInfo.noonID, regPeriod: this.noonName, 'regSeeData.ID': this.seeDateInfo.iD, 'regSeeData.queue': this.seeDateInfo.queue, 'regSeeData.seeTime': this.seeDateInfo.seeTime, 'regSeeData.state': this.seeDateInfo.state, pay_Type: 'AL' };this.$myRequest({ url: "/wechat/pay/reg", data: params }).then(function (data) {if (data.code == 0) {my.tradePay({ // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
             tradeNO: data.data.tradeNO, success: function success(res) {// 关闭弹窗
-              _this4.$refs.popo.close();uni.navigateTo({ url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo });}, fail: function fail(res) {my.alert({ content: '已取消支付' });} });}}).catch(function (err) {_this4.loading = false;});
+              if (!res.resultCode == '9000') {_this4.$refs.popo.close();uni.navigateTo({ url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo });} else {uni.showToast({ title: '支付失败',
+                  icon: 'none',
+                  duration: 2000 });
+
+              }
+            },
+            fail: function fail(res) {
+              my.alert({
+                content: '已取消支付' });
+
+            } });
+
+        }
+      }).catch(function (err) {
+        _this4.loading = false;
+      });
 
       // _this.$router.push('/paymentPage?orderNo=' + 1);
 
@@ -489,6 +504,7 @@ var pop = function pop() {__webpack_require__.e(/*! require.ensure | components/
     this.registrationDate = e.date;
     this.noonName = e.noonName;
     this.seeDateInfo = JSON.parse(decodeURIComponent(e.seeInfo));
+    this.schemaId = e.schemaId;
     this.jiazai();
   },
   onShow: function onShow() {
