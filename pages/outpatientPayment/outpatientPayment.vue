@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" :mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<view class="zhuti">
 			<uni-card class="xianzhi">
 				<!-- 就诊人信息，如果huanzhexinxi中的患者姓名为空渲染这个div -->

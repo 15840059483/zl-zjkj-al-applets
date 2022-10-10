@@ -110,8 +110,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 __webpack_require__(/*! ../patient-management.scss */ 93);
 __webpack_require__(/*! ./add-patient.scss */ 102); //
+//
+//
 //
 //
 //
@@ -200,8 +204,8 @@ var _default = { // 注册使用导航栏组件
   components: {// header,
   }, data: function data() {return { title: "添加就诊人", // 页面标题
       shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-      patientRelationshipList: [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }], formData: { patientName: '', patientCardId: '', patientBirthday: '', patientRelationship: '1030', patientPhone: '', cardNo: '' } };}, filters: { patientRelationship: function patientRelationship(val) {if (!val) return '';var arr = [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }];var obj = arr.filter(function (item) {return item.value === val;});return obj[0].label;} }, methods: { // Picker选择器的方法
-    listPicker: function listPicker(e) {this.formData.patientRelationship = this.patientRelationshipList[e.target.value].value;}, idCardBlur: function idCardBlur() {var _IDRe18 = /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;if (_IDRe18.test(this.formData.patientCardId)) {this.formData.patientBirthday = this.formData.patientCardId.slice(6, 10) + '-' + this.formData.patientCardId.slice(10, 12) + '-' + this.formData.patientCardId.slice(12, 14);} else {uni.showToast({ title: '请输入正确的身份证号！', icon: 'none', duration: 2000 });}}, submitBtn: function submitBtn() {var _this2 = this;if (!this.formData.patientName) {uni.showToast({ title: '请输入就诊人姓名！', icon: 'none', duration: 2000 });
+      loading: false, patientRelationshipList: [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }], formData: { patientName: '', patientCardId: '', patientBirthday: '', patientRelationship: '1030', patientPhone: '', cardNo: '' } };}, filters: { patientRelationship: function patientRelationship(val) {if (!val) return '';var arr = [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }];var obj = arr.filter(function (item) {return item.value === val;});return obj[0].label;} }, methods: { // Picker选择器的方法
+    listPicker: function listPicker(e) {this.formData.patientRelationship = this.patientRelationshipList[e.target.value].value;}, idCardBlur: function idCardBlur() {var _IDRe18 = /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;if (_IDRe18.test(this.formData.patientCardId)) {this.formData.patientBirthday = this.formData.patientCardId.slice(6, 10) + '-' + this.formData.patientCardId.slice(10, 12) + '-' + this.formData.patientCardId.slice(12, 14);} else {uni.showToast({ title: '请输入正确的身份证号！', icon: 'none', duration: 2000 });}}, submitBtn: function submitBtn() {if (!this.formData.patientName) {uni.showToast({ title: '请输入就诊人姓名！', icon: 'none', duration: 2000 });
 
 
         return;
@@ -233,8 +237,7 @@ var _default = { // 注册使用导航栏组件
 
         return;
       }
-      console.log(this.formData);
-      // let loadingInstance = Loading.service({});
+      this.loading = true;
       var params = Object.assign(this.formData);
       var _this = this;
       if (this.formData.cardNo == null || this.formData.cardNo == '') {
@@ -245,7 +248,8 @@ var _default = { // 注册使用导航栏组件
             if (res.confirm) {
               _this.$myRequest({
                 url: "/wechat/user/addPtCard/info",
-                data: params }).
+                data: _this.formData,
+                contentType: 'application/json;charset=UTF-8' }).
               then(function (data) {
                 uni.showToast({
                   title: '添加成功！',
@@ -254,7 +258,7 @@ var _default = { // 注册使用导航栏组件
 
 
                 // loadingInstance.close();
-                _this.$router.back();
+                uni.navigateBack();
                 _this.loading = false;
               }).catch(function (err) {
                 _this.loading = false;
@@ -273,7 +277,7 @@ var _default = { // 注册使用导航栏组件
       } else {
         this.$myRequest({
           url: '/wechat/user/addPtCard/info',
-          data: params }).
+          data: this.formData }).
         then(function (data) {
           uni.showToast({
             title: '添加成功！',
@@ -282,7 +286,7 @@ var _default = { // 注册使用导航栏组件
 
 
           // loadingInstance.close();
-          _this2.$router.back();
+          uni.navigateBack();
         }).
         catch(function () {
           // loadingInstance.close();
@@ -420,6 +424,9 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    zeroLoading: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/zero-loading/components/zero-loading/zero-loading */ "uni_modules/zero-loading/components/zero-loading/zero-loading").then(__webpack_require__.bind(null, /*! @/uni_modules/zero-loading/components/zero-loading/zero-loading.vue */ 403))
+    },
     uniCard: function() {
       return __webpack_require__.e(/*! import() | uni_modules/uni-card/components/uni-card/uni-card */ "uni_modules/uni-card/components/uni-card/uni-card").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-card/components/uni-card/uni-card.vue */ 410))
     },

@@ -1,5 +1,7 @@
 <template>
 	<view>
+		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
 		<!-- <view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
@@ -95,6 +97,8 @@
 			return {
 				title: "添加就诊人", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
+				
+				loading: false,
 
 				patientRelationshipList: [{
 						label: '本人',
@@ -207,8 +211,7 @@
 
 					return
 				}
-				console.log(this.formData)
-				// let loadingInstance = Loading.service({});
+				this.loading = true
 				const params = Object.assign(this.formData)
 				const _this = this
 				if (this.formData.cardNo == null || this.formData.cardNo == '') {
@@ -217,22 +220,23 @@
 						content: "是否注册卡号?",
 						success: function(res) {
 							if (res.confirm) {
-									_this.$myRequest({
-										url: "/wechat/user/addPtCard/info",
-										data: params
-									}).then(data => {
-										uni.showToast({
-											title: '添加成功！',
-											icon: 'none',
-											duration: 2000
-										});
+								_this.$myRequest({
+									url: "/wechat/user/addPtCard/info",
+									data: _this.formData,
+									contentType: 'application/json;charset=UTF-8'
+								}).then(data => {
+									uni.showToast({
+										title: '添加成功！',
+										icon: 'none',
+										duration: 2000
+									});
 
-										// loadingInstance.close();
-										_this.$router.back()
-										_this.loading = false;
-									}).catch(err => {
-										_this.loading = false;
-									})
+									// loadingInstance.close();
+									uni.navigateBack()
+									_this.loading = false;
+								}).catch(err => {
+									_this.loading = false;
+								})
 							} else {
 								uni.showToast({
 									title: '已取消添加就诊人！',
@@ -246,9 +250,9 @@
 					});
 				} else {
 					this.$myRequest({
-						url: '/wechat/user/addPtCard/info',
-						data: params
-					}).then(data => {
+							url: '/wechat/user/addPtCard/info',
+							data: this.formData
+						}).then(data => {
 							uni.showToast({
 								title: '添加成功！',
 								icon: 'none',
@@ -256,7 +260,7 @@
 							});
 
 							// loadingInstance.close();
-							this.$router.back()
+							uni.navigateBack()
 						})
 						.catch(() => {
 							// loadingInstance.close();
@@ -269,12 +273,12 @@
 </script>
 
 <style scoped>
-/* 	.header {
+	/* 	.header {
 		position: fixed;
 		top: 0;
 		z-index: 999;
 	} */
-/* 
+	/* 
 	.zhuti {
 		margin-top: 150rpx;
 	} */

@@ -476,14 +476,14 @@ var _default = {
           var params = {
             realname: userInfo.user_name,
             //mobile: userInfo.mobile,
-            mobile: '110',
-            userIdCard: '208831298288742033',
+            mobile: '112',
+            userIdCard: '208831298288742022',
             /* 两个userid 从缓存中取 */
             aliUserId: '2088312982887420',
             alipayUserId: '20880034933095029415612911016942',
             /* M男 F女 */
             gender: userInfo.gender === 'M' ? 1 : 2,
-            birthday: '2022-09-08' };
+            birthday: '2022-02-03' };
 
           var _this = _this6;
 

@@ -25,8 +25,8 @@
 				</uni-row>
 				<view class="card-row card-row-border">
 					<view :span="8">挂号记录</view>
-					<view :span="8" class="border-l-r" @click.native="goToPage('/paymentRecord',true)">缴费记录</view>
-					<view :span="8" @click.native="goToPage('/pages/barCodeAndQrCode/barCodeAndQrCode',true)">
+					<view :span="8" class="border-l-r" @click.native="goToPage('/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records', true)">缴费记录</view>
+					<view :span="8" @click.native="goToPage('/pages/barCodeAndQrCode/barCodeAndQrCode', true)">
 						<image src="https://s1.ax1x.com/2022/09/02/vIr5tJ.png"
 							style="width: 10px;height: 10px;margin-right: 3px;">
 							就诊码
@@ -292,14 +292,14 @@
 						const params = {
 							realname: userInfo.user_name,
 							//mobile: userInfo.mobile,
-							mobile: '110',
-							userIdCard: '208831298288742033',
+							mobile: '112',
+							userIdCard: '208831298288742022',
 							/* 两个userid 从缓存中取 */
 							aliUserId: '2088312982887420',
 							alipayUserId: '20880034933095029415612911016942',
 							/* M男 F女 */
 							gender: userInfo.gender === 'M' ? 1 : 2,
-							birthday: '2022-09-08',
+							birthday: '2022-02-03',
 						}
 						const _this = this;
 
@@ -307,9 +307,9 @@
 							url: "/wechat/register/normal",
 							data: params,
 						}).then(data => {
-							
+
 							console.log(data)
-							
+
 							if (data.code !== 200) {
 								uni.showToast({
 									title: data.msg,
@@ -327,9 +327,9 @@
 									key: 'token',
 									data: data.data
 								})
-								
+
 								_this.isToken = true;
-								
+
 								_this.getDfltPtCardInfo();
 							}
 							this.loading = false;

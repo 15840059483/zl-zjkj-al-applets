@@ -1,5 +1,7 @@
 <template>
 	<view>
+		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
 		<!-- <view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
@@ -78,10 +80,7 @@
 						</view>
 					</view>
 					<div class="confirm-btn">
-						<button @click="confirmBinding" :style="{
-              background:
-                patient.name && patient.admissionNumber ? '#008cfe' : '#b0d0f9',
-            }">
+						<button @click="confirmBinding" :style="{background: patient.name && patient.admissionNumber ? '#008cfe' : '#b0d0f9'}">
 							确认绑定
 						</button>
 					</div>
@@ -106,6 +105,8 @@
 			return {
 				title: "缴费记录", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
+				
+				loading: false,
 
 				patientInfo: {},
 				patient: {
@@ -122,9 +123,9 @@
 			goToDetail(item) {
 				this.loading = true;
 				let hosptFeeList = [];
-				 const params = {
-				   inpatientNo: this.hospInfoList[0].inpatientNo,
-				   inDate: this.hospInfoList[0].inDate,
+				const params = {
+					inpatientNo: this.hospInfoList[0].inpatientNo,
+					inDate: this.hospInfoList[0].inDate,
 				};
 				this.$myRequest({
 					url: "/hospt/getHosptFeeList",
@@ -137,12 +138,12 @@
 							"&hosptInfo=" +
 							JSON.stringify(item)
 					});
-					
+
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
 				})
-				
+
 			},
 			openAddPatient() {
 				this.showAddPatient = true;
@@ -165,13 +166,13 @@
 					url: "/hospt/checkHosptInfo",
 					data: params,
 				}).then(data => {
-					if(data.code !== 200){
+					if (data.code !== 200) {
 						uni.showToast({
 							title: data.msg,
 							icon: 'none',
 							duration: 2000
 						});
-					}else{
+					} else {
 						this.showAddPatient = false;
 						this.getHosptList();
 					}
@@ -179,7 +180,7 @@
 				}).catch(err => {
 					this.loading = false;
 				})
-				
+
 			},
 			// 获取住院信息
 			getHosptList() {
@@ -219,7 +220,7 @@
 		top: 0;
 		z-index: 999;
 	} */
-/* 
+	/* 
 	.zhuti {
 		margin-top: 190rpx;
 	} */

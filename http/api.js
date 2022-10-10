@@ -21,7 +21,8 @@ export const myRequest = (options) => {
 			header: {
 				// 'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODA1NjkzNTQsInVzZXJhY2NvdW50IjoiMTg4NDAwNjk0ODMifQ.0goK06Q3ST3k_amC_Lwq3uL83BsHCTJXBKL_Kzfr7DM',
 				'Authorization': token,
-				'Content-Type': options.contentType || 'application/x-www-form-urlencoded'
+				// 'Content-Type': options.contentType || 'application/x-www-form-urlencoded'
+				'Content-Type': options.contentType || 'application/json;charset=UTF-8'
 			},
 			success: (res) => {
 				switch(res.data.code) {

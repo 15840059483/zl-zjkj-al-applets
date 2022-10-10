@@ -373,16 +373,17 @@
 
 
 
-	/* .header {
-		position: fixed;
-		top: 0;
-		z-index: 999;
-	} */
+
+/* .header {
+	position: fixed;
+	top: 0;
+	z-index: 999;
+} */
 /* 
-	.zhuti {
-		margin-top: 190rpx;
-	} */
+.zhuti {
+	margin-top: 190rpx;
+} */
 .record-wrapper.data-v-3c755387 .uni-card {
-		padding: 0 !important;
+	padding: 0 !important;
 }
 
