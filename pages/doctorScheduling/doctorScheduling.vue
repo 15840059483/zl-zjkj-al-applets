@@ -302,6 +302,7 @@
 						encodeURIComponent(JSON.stringify(this.doctor)) +
 						'&seeInfo=' + encodeURIComponent(JSON.stringify(this.seeDateInfo)) + '&date=' + this.date +
 						'&noonName=' + noonName +
+						'&schemaId=' + this.doctor.iD +
 						'&noonID=' + this.doctor.noonID,
 				});
 				// this.$router.push({
