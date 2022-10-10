@@ -132,7 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -187,16 +187,43 @@ var _default = {
       this.isShowResult = true;
     },
 
-    getOrderDetail: function getOrderDetail() {
+    getOrderDetail: function getOrderDetail() {var _this = this;
       this.isShowResult = true;
       this.isSuccess = true;
       clearInterval(this.time);
-      setTimeout(function () {
-        // this.$router.push("/shenhejieguo");
-        uni.navigateTo({
-          url: '/pages/register-success/register-success?type=门诊' });
 
-      }, 1000);
+      this.$myRequest({
+        url: "/wechat/user/dfltPtCard/info" }).
+      then(function (res) {
+        if (res.data.length === 0) {
+          _this.isShowResult = true;
+          _this.isSuccess = false;
+          clearInterval(_this.time);
+        } else {
+          var paymentstatusId = res.data[0].paymentstatusId;
+          if (paymentstatusId == 3010) {
+            _this.isShowResult = true;
+            _this.isSuccess = true;
+            clearInterval(_this.time);
+            setTimeout(function () {
+              url: '/pages/register-success/register-success?type=门诊&&' + JSON.stringify(res.data[0]);
+            }, 1000);
+          } else if (paymentstatusId == 3011 && !_this.isTime) {
+            _this.isShowResult = true;
+            _this.isSuccess = false;
+          } else if (paymentstatusId == 3011) {
+            setTimeout(function () {
+              _this.getOrderDetail();
+            }, 1000);
+          } else if (paymentstatusId == 3014) {
+            _this.isShowResult = true;
+            _this.isSuccess = false;
+            clearInterval(_this.time);
+          }
+        }
+      }).catch(function (err) {
+        _this.loading = false;
+      });
     } },
 
 
@@ -204,17 +231,16 @@ var _default = {
     this.orderNo = e.orderNo;
     console.log(this.orderNo);
   },
-  mounted: function mounted() {var _this = this;
+  mounted: function mounted() {var _this2 = this;
     this.time = setInterval(function () {
-      _this.second--;
-      if (_this.second === 0) {
-        _this.isTime = false;
-        _this.getOrderDetail();
-        clearInterval(_this.time);
+      _this2.second--;
+      if (_this2.second === 0) {
+        _this2.isTime = false;
+        _this2.getOrderDetail();
+        clearInterval(_this2.time);
       }
     }, 1000);
   } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

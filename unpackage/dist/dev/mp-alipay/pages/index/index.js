@@ -765,6 +765,7 @@ var _default = {
                     },*/];
 
 
+    // .js
     var _this = this;
     my.getStorage({
       key: 'token',

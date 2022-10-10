@@ -388,17 +388,51 @@ __webpack_require__(/*! ./hospitalizationPayment.scss */ 374); //
 //
 // 引入scss组件
 var _default = { components: {}, // 计算属性
-  computed: {}, data: function data() {return { selectMoney: "", moneyNum: undefined, paymentMoney: 0, showAddPatient: false, patient: { name: '', admissionNumber: undefined }, patientInfo: {} };}, methods: { moneyChange: function moneyChange() {if (this.moneyNum) {this.selectMoney = null;}}, clickMoney: function clickMoney(num) {this.selectMoney = num;this.moneyNum = null;}, onRechargeBtn: function onRechargeBtn() {if (!this.patientInfo.inpatientNo) {uni.showToast({ title: '请绑定住院人', icon: 'none', duration: 2000 }); // this.$message.error('请绑定住院人')
+  computed: {}, data: function data() {return { selectMoney: "", moneyNum: undefined, paymentMoney: 0, showAddPatient: false, patient: { name: '', admissionNumber: undefined }, patientInfo: {} };}, methods: { moneyChange: function moneyChange() {if (this.moneyNum) {this.selectMoney = null;}}, clickMoney: function clickMoney(num) {this.selectMoney = num;this.moneyNum = null;}, onRechargeBtn: function onRechargeBtn() {var _this = this;if (!this.patientInfo.inpatientNo) {uni.showToast({ title: '请绑定住院人', icon: 'none', duration: 2000 }); // this.$message.error('请绑定住院人')
         return;}if (!this.moneyNum && !this.selectMoney) {uni.showToast({ title: '请选择或输入充值金额', icon: 'none', duration: 2000 }); // this.$message.error('请选择或输入充值金额')
         return;}if (this.moneyNum && (this.moneyNum < 1000 || this.moneyNum % 100 !== 0)) {uni.showToast({ title: '请输入大于一千元的整百金额', icon: 'none', duration: 2000 }); // this.$message.error('请输入大于一千元的整百金额')
-        return;}uni.navigateTo({ url: '/pages/paymentPage/paymentPage' }); // this.$router.push('/paymentPage');
-    }, openAddPatient: function openAddPatient() {this.showAddPatient = true;this.patient = { name: '', admissionNumber: undefined };}, confirmBinding: function confirmBinding() {var _this = this;if (!this.patient.name || !this.patient.admissionNumber) {return;}this.loading = true;var params = { hosptName: this.patient.name, hosptId: this.patient.admissionNumber, code: "100011" };this.$myRequest({ url: "/hospt/checkHosptInfo", data: params }).then(function (data) {if (data.code !== 200) {uni.showToast({ title: data.msg, icon: 'none', duration: 2000 }); // this.$message.warning(data.msg);
-        } else {_this.showAddPatient = false;_this.getHosptList();}_this.loading = false;}).catch(function (err) {_this.loading = false;});}, // 获取住院信息
-    getHosptList: function getHosptList() {var _this2 = this;var params = { code: "100011", hosptId: this.patient.admissionNumber };this.$myRequest({ url: "/hospt/getHosptList", data: params }).then(function (data) {
-        _this2.patientInfo = data && data.data ? data.data[0] : {};
+        return;}var params = { deptId: this.patientInfo.deptCode, deptName: this.patientInfo.deptName, doctorName: this.patientInfo.chargeDocName, patientName: this.patientInfo.name, patientNo: this.patientInfo.patientNo, patientSeq: this.patientInfo.inpatientNo, payMount: this.moneyNum || this.selectMoney, totCost: this.patientInfo.totCost, pay_type: 'AL' };this.$myRequest({ url: "/wechat/pay/hosp", data: params }).then(function (data) {if (data.code == 200) {my.tradePay({ // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+            tradeNO: data.data.tradeNO, success: function success(res) {// 关闭弹窗
+              _this.$refs.popo.close();uni.navigateTo({ url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo });}, fail: function fail(res) {my.alert({ content: '已取消支付' });} });}}).catch(function (err) {_this.loading = false;});}, openAddPatient: function openAddPatient() {this.showAddPatient = true;this.patient = { name: '', admissionNumber: undefined };}, confirmBinding: function confirmBinding() {var _this2 = this;if (!this.patient.name || !this.patient.admissionNumber) {return;}this.loading = true;var params = {
+        hosptName: this.patient.name,
+        hosptId: this.patient.admissionNumber,
+        code: "100011" };
+
+      this.$myRequest({
+        url: "/hospt/checkHosptInfo",
+        data: params }).
+      then(function (data) {
+        if (data.code !== 200) {
+          uni.showToast({
+            title: data.msg,
+            icon: 'none',
+            duration: 2000 });
+
+          // this.$message.warning(data.msg);
+        } else {
+          _this2.showAddPatient = false;
+          _this2.getHosptList();
+        }
         _this2.loading = false;
       }).catch(function (err) {
         _this2.loading = false;
+      });
+
+    },
+    // 获取住院信息
+    getHosptList: function getHosptList() {var _this3 = this;
+      var params = {
+        code: "100011",
+        hosptId: this.patient.admissionNumber };
+
+      this.$myRequest({
+        url: "/hospt/getHosptList",
+        data: params }).
+      then(function (data) {
+        _this3.patientInfo = data && data.data ? data.data[0] : {};
+        _this3.loading = false;
+      }).catch(function (err) {
+        _this3.loading = false;
       });
 
     } },

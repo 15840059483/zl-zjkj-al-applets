@@ -57,12 +57,39 @@
 				this.isShowResult = true;
 				this.isSuccess = true;
 				clearInterval(this.time);
-				setTimeout(() => {
-					// this.$router.push("/shenhejieguo");
-					uni.navigateTo({
-						url: '/pages/register-success/register-success?type=门诊'
-					});
-				}, 1000);
+				
+				this.$myRequest({
+					url: "/wechat/user/dfltPtCard/info",
+				}).then(res => {
+					if (res.data.length === 0) {
+						this.isShowResult = true;
+						this.isSuccess = false
+						clearInterval(this.time);
+					  } else {
+						const paymentstatusId = res.data[0].paymentstatusId
+						if (paymentstatusId == 3010) {
+						  this.isShowResult = true;
+						  this.isSuccess = true
+						  clearInterval(this.time);
+						  setTimeout(() => {
+							url: '/pages/register-success/register-success?type=门诊&&'+JSON.stringify(res.data[0])
+						  }, 1000)
+						} else if (paymentstatusId == 3011 && !this.isTime) {
+						  this.isShowResult = true;
+						  this.isSuccess = false
+						} else if (paymentstatusId == 3011) {
+						  setTimeout(() => {
+							this.getOrderDetail();
+						  }, 1000)
+						} else if (paymentstatusId == 3014) {
+						  this.isShowResult = true;
+						  this.isSuccess = false
+						  clearInterval(this.time);
+						}
+					  }
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 
 		},

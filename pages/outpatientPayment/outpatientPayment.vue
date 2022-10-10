@@ -440,9 +440,46 @@
 					// this.$message.info('请选择缴费项目')
 					return
 				}
-				uni.navigateTo({
-					url: '/pages/paymentPage/paymentPage?orderNo'
-				});
+				
+				const params = {
+				        deptId: item.regInfos.deptId,
+				        deptName: item.regInfos.deptName,
+				        doctorName: item.regInfos.doctorName,
+				        regLevelName: item.regInfos.regLevelName,
+				        doctorTitleId: item.regInfos.regLevelId,
+				        patientName: item.regInfos.patientName,
+				        patientNo: item.regInfos.cardNo,
+				        patientSeq: item.regInfos.regNo,
+				        payMount: item.totalMoney,
+				        recipeNos: this.selectPaymentMoOrderList,
+						pay_type:'AL'
+				      }
+				
+				this.$myRequest({
+					url: "/wechat/pay/out",
+					data: params
+				}).then(data => {
+					if(data.code==200){
+						my.tradePay({
+						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+						  tradeNO: data.data.tradeNO,
+						  success: (res) => {
+							  // 关闭弹窗
+							  this.$refs.popo.close();
+							  uni.navigateTo({
+							  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
+							  });
+						  },
+						  fail: (res) => {
+						    my.alert({
+						      content: '已取消支付',
+						    });
+						  }
+						});
+					}
+				}).catch(err => {
+					this.loading = false;
+				})
 				// this.$router.push('/paymentPage?orderNo');
 			}
 		},

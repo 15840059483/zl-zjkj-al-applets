@@ -166,10 +166,44 @@
 					// this.$message.error('请输入大于一千元的整百金额')
 					return;
 				}
-				uni.navigateTo({
-					url: '/pages/paymentPage/paymentPage'
-				});
-				// this.$router.push('/paymentPage');
+				
+				const params = {
+				        deptId: this.patientInfo.deptCode,
+				        deptName: this.patientInfo.deptName,
+				        doctorName: this.patientInfo.chargeDocName,
+				        patientName: this.patientInfo.name,
+				        patientNo: this.patientInfo.patientNo,
+				        patientSeq: this.patientInfo.inpatientNo,
+				        payMount: this.moneyNum || this.selectMoney,
+				        totCost:this.patientInfo.totCost,
+						pay_type:'AL'
+				      }
+					  
+				this.$myRequest({
+					url: "/wechat/pay/hosp",
+					data: params
+				}).then(data => {
+					if(data.code==200){
+						my.tradePay({
+						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+						  tradeNO: data.data.tradeNO,
+						  success: (res) => {
+							  // 关闭弹窗
+							  this.$refs.popo.close();
+							  uni.navigateTo({
+							  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
+							  });
+						  },
+						  fail: (res) => {
+						    my.alert({
+						      content: '已取消支付',
+						    });
+						  }
+						});
+					}
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			openAddPatient() {
 				this.showAddPatient = true;

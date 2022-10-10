@@ -248,65 +248,63 @@
 					console.log(this.loading);
 				}, 500)
 			},
-
+			//获取就诊人
 			getPatientInfo() {
-				let data = [{
-						"cardId": "1485542028335468546",
-						"cardNumber": "A000009644",
-						"cardState": "1021",
-						"patientAge": "26",
-						"patientBirthday": "1996-10-10",
-						"patientCardId": "210281199610101025",
-						"patientId": "1485541535202758657",
-						"patientName": "狐狸",
-						"patientPhone": "18840069483",
-						"patientRelationship": "1030",
-						"patientSex": "男",
-						"patientState": "1011"
-					},
-					{
-						"cardId": "1513338116588986369",
-						"cardNumber": "A000010865",
-						"cardState": "1021",
-						"dataSourdces": "json",
-						"patientAge": "24",
-						"patientBirthday": "1997-10-10",
-						"patientCardId": "210281199710102024",
-						"patientCardType": "11001",
-						"patientId": "1513338114705743874",
-						"patientName": "蚯蚓",
-						"patientPhone": "15840059481",
-						"patientRelationship": "1031",
-						"patientSex": "女",
-						"patientState": "1011"
-					},
-					{
-						"cardId": "1517390116221976578",
-						"cardNumber": "0000000001",
-						"cardState": "1020",
-						"dataSourdces": "json",
-						"patientAge": "24",
-						"patientBirthday": "1997-10-10",
-						"patientCardId": "210281199710102056",
-						"patientCardType": "11001",
-						"patientId": "1517390115580248066",
-						"patientName": "青蛙",
-						"patientPhone": "15840059483",
-						"patientRelationship": "1033",
-						"patientSex": "男",
-						"patientState": "1010"
-					}
-				]
-				this.patients = data;
-				this.selectPatient = data[0];
+				this.$myRequest({
+					url: "/wechat/user/dfltPtCard/info",
+				}).then(data => {
+					this.patients = data.data;
+					this.selectPatient = data.data[0];
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			payRegister() {
-				// 关闭弹窗
-				this.$refs.popo.close();
-				uni.navigateTo({
-					url: '/pages/paymentPage/paymentPage?orderNo=' + 1
-				});
-
+				
+				const params = {
+				          dateBegin: this.doctorInfo.begin,
+				          dateEnd: this.doctorInfo.end,
+				          deptId: this.doctorInfo.deptID,
+				          deptName: this.doctorInfo.deptName,
+				          doctorName: this.doctorInfo.regLevelID!='1'?this.doctorInfo.docName:'',
+				          doctorId: this.doctorInfo.regLevelID!='1'?this.doctorInfo.docID:'',
+				          doctorTitle: this.doctorInfo.regLevelName,
+				          doctorTitleId: this.doctorInfo.regLevelID,
+				          patientName: this.selectPatient.patientName,
+				          patientNo: this.selectPatient.cardNumber,
+				          payMount: this.doctorInfo.totalFee,
+				          noonId:this.doctorInfo.noonID,
+						  regPeriod:this.noonName,
+						  pay_type:'AL'
+				        }
+				
+				this.$myRequest({
+					url: "/wechat/pay/reg",
+					data: params
+				}).then(data => {
+					if(data.code==200){
+						my.tradePay({
+						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+						  tradeNO: data.data.tradeNO,
+						  success: (res) => {
+							  // 关闭弹窗
+							  this.$refs.popo.close();
+							  uni.navigateTo({
+							  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
+							  });
+						  },
+						  fail: (res) => {
+						    my.alert({
+						      content: '已取消支付',
+						    });
+						  }
+						});
+					}
+				}).catch(err => {
+					this.loading = false;
+				})
+				
 				// _this.$router.push('/paymentPage?orderNo=' + 1);
 
 			}

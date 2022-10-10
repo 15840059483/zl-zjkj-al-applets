@@ -235,10 +235,32 @@
 			...mapMutations(["Add_huanzhejibenxinxi"]),
 			// 确认项目信息与就诊人的信息后触发方法跳转到支付页面
 			tijiao() {
-				// this.$router.push("/zhifu");
-				uni.navigateTo({
-					url: '/pages/hesuanjiance/Zhifu/zhifu'
-				});
+				this.$myRequest({
+					url: "/wechat/pay/reg",
+					data: params
+				}).then(data => {
+					if(data.code==200){
+						my.tradePay({
+						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+						  tradeNO: data.data.tradeNO,
+						  success: (res) => {
+							  // 关闭弹窗
+							  this.$refs.popo.close();
+							  uni.navigateTo({
+							  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
+							  });
+						  },
+						  fail: (res) => {
+						    my.alert({
+						      content: '已取消支付',
+						    });
+						  }
+						});
+					}
+				}).catch(err => {
+					this.loading = false;
+				})
+
 			},
 
 			// 加载框

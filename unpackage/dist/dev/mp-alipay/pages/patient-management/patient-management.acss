@@ -322,6 +322,183 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 	.header {
 	position: fixed;
 	top: 0;
@@ -331,4 +508,54 @@
 /* 	.zhuti {
 	margin-top: 190rpx;
 } */
+.biaoti.data-v-01944f34 {
+	font-size: 18px;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.neirong-wai.data-v-01944f34 {
+	border-top: 1px solid rgb(212, 212, 212);
+	border-bottom: 1px solid rgb(212, 212, 212);
+}
+.wai.data-v-01944f34 {
+	width: 100%;
+	height: 35px;
+	margin-top: 10px;
+	display: flex;
+}
+.quxiao.data-v-01944f34,
+.queren.data-v-01944f34 {
+	width: 50%;
+	height: 30px;
+}
+.quxiao.data-v-01944f34 {
+	border-right: 1px solid rgb(212, 212, 212);
+}
+.quxiao>view.data-v-01944f34,
+.queren>view.data-v-01944f34 {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.quxiao>view.data-v-01944f34 {
+	color: rgb(165, 165, 165) !important;
+}
+.confirm-btn button.data-v-01944f34 {
+	height: 45px !important;
+}
+.nei-title.data-v-01944f34 {
+	width: 42%;
+	font-size: 14px;
+}
+.nei-input.data-v-01944f34 {
+	width: 58%;
+}
+.nei-input.data-v-01944f34 .is-input-border {
+	border: none;
+}
+.nei-input.data-v-01944f34 .uni-easyinput__content-input {
+	font-size: 14px;
+}
 

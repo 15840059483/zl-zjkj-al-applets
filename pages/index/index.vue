@@ -581,6 +581,7 @@
 				},*/
 			]
 
+			// .js
 			let _this = this
 			my.getStorage({
 				key: 'token',

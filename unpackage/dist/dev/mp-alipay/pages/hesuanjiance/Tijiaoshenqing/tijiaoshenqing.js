@@ -420,20 +420,42 @@ var _vuex = __webpack_require__(/*! vuex */ 14);function _interopRequireDefault(
   methods: _objectSpread(_objectSpread({},
   (0, _vuex.mapMutations)(["Add_huanzhejibenxinxi"])), {}, {
     // 确认项目信息与就诊人的信息后触发方法跳转到支付页面
-    tijiao: function tijiao() {
-      // this.$router.push("/zhifu");
-      uni.navigateTo({
-        url: '/pages/hesuanjiance/Zhifu/zhifu' });
+    tijiao: function tijiao() {var _this2 = this;
+      this.$myRequest({
+        url: "/wechat/pay/reg",
+        data: params }).
+      then(function (data) {
+        if (data.code == 200) {
+          my.tradePay({
+            // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+            tradeNO: data.data.tradeNO,
+            success: function success(res) {
+              // 关闭弹窗
+              _this2.$refs.popo.close();
+              uni.navigateTo({
+                url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo });
+
+            },
+            fail: function fail(res) {
+              my.alert({
+                content: '已取消支付' });
+
+            } });
+
+        }
+      }).catch(function (err) {
+        _this2.loading = false;
+      });
 
     },
 
     // 加载框
-    jiazai: function jiazai() {var _this2 = this;
+    jiazai: function jiazai() {var _this3 = this;
       this.loading = true;
       // 定时器，setTimeout只执行一次，setInterval执行多次
       setTimeout(function () {
-        _this2.loading = false;
-        console.log(_this2.loading);
+        _this3.loading = false;
+        console.log(_this3.loading);
       }, 500);
     },
 

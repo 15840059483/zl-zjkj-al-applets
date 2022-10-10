@@ -647,7 +647,7 @@ var _default = { // 调用头部组件
       }
       this.$router.push(url);
     },
-    goToPayment: function goToPayment(item) {
+    goToPayment: function goToPayment(item) {var _this5 = this;
       if (this.selectPaymentMoOrderList.length === 0 || this.selectPaymentList[0].regNo !== item.regInfos.
       regNo) {
         uni.showToast({
@@ -658,9 +658,46 @@ var _default = { // 调用头部组件
         // this.$message.info('请选择缴费项目')
         return;
       }
-      uni.navigateTo({
-        url: '/pages/paymentPage/paymentPage?orderNo' });
 
+      var params = {
+        deptId: item.regInfos.deptId,
+        deptName: item.regInfos.deptName,
+        doctorName: item.regInfos.doctorName,
+        regLevelName: item.regInfos.regLevelName,
+        doctorTitleId: item.regInfos.regLevelId,
+        patientName: item.regInfos.patientName,
+        patientNo: item.regInfos.cardNo,
+        patientSeq: item.regInfos.regNo,
+        payMount: item.totalMoney,
+        recipeNos: this.selectPaymentMoOrderList,
+        pay_type: 'AL' };
+
+
+      this.$myRequest({
+        url: "/wechat/pay/out",
+        data: params }).
+      then(function (data) {
+        if (data.code == 200) {
+          my.tradePay({
+            // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+            tradeNO: data.data.tradeNO,
+            success: function success(res) {
+              // 关闭弹窗
+              _this5.$refs.popo.close();
+              uni.navigateTo({
+                url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo });
+
+            },
+            fail: function fail(res) {
+              my.alert({
+                content: '已取消支付' });
+
+            } });
+
+        }
+      }).catch(function (err) {
+        _this5.loading = false;
+      });
       // this.$router.push('/paymentPage?orderNo');
     } },
 
