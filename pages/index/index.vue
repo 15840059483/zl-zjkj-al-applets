@@ -25,7 +25,9 @@
 				</uni-row>
 				<view class="card-row card-row-border">
 					<view :span="8">挂号记录</view>
-					<view :span="8" class="border-l-r" @click.native="goToPage('/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records', true)">缴费记录</view>
+					<view :span="8" class="border-l-r"
+						@click.native="goToPage('/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records', true)">
+						缴费记录</view>
 					<view :span="8" @click.native="goToPage('/pages/barCodeAndQrCode/barCodeAndQrCode', true)">
 						<image src="https://s1.ax1x.com/2022/09/02/vIr5tJ.png"
 							style="width: 10px;height: 10px;margin-right: 3px;">
@@ -186,34 +188,42 @@
 				this.$myRequest({
 					url: "/wechat/user/dfltPtCard/info",
 				}).then(data => {
-					this.dfltPatientInfo = data.data;
+					this.dfltPatientInfo = data.data || {};
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
 				})
 
 			},
-			addCardNumber() {
-				const params = Object.assign(this.dfltPatientInfo, {
-					cardNo: ''
-				})
 
-				this.$myRequest({
-					url: "/wechat/user/addPtCard/info",
-					contentType: 'application/json;charset=UTF-8',
-					data: params
-				}).then(data => {
-					this.getDfltPtCardInfo()
-					this.showAddPatient = false
-					uni.showToast({
-						title: '绑定成功！',
-						icon: 'none',
-						duration: 2000
-					});
-					this.loading = false;
-				}).catch(err => {
-					this.loading = false;
+			addCardNumber() {
+				console.log(this.dfltPatientInfo)
+				if (this.dfltPatientInfo.cardNumber) {
+					const params = Object.assign(this.dfltPatientInfo, {
+						cardNo: ''
+					})
+
+					this.$myRequest({
+						url: "/wechat/user/addPtCard/info",
+						contentType: 'application/json;charset=UTF-8',
+						data: params
+					}).then(data => {
+						this.getDfltPtCardInfo()
+						this.showAddPatient = false
+						uni.showToast({
+							title: '绑定成功！',
+							icon: 'none',
+							duration: 2000
+						});
+						this.loading = false;
+					}).catch(err => {
+						this.loading = false;
+					})
+				} else {
+				uni.navigateTo({
+					url: '/pages/patient-management/add-patient/add-patient'
 				})
+				}
 			},
 			addCard(value) {
 				if (value && !/^[A-Za-z0-9]{10}$/.test(this.cardNo)) {
@@ -295,7 +305,7 @@
 							mobile: '112',
 							userIdCard: '208831298288742022',
 							/* 两个userid 从缓存中取 */
-							aliUserId: '2088312982887420',
+							aliUserId: '2088612402035373',
 							alipayUserId: '20880034933095029415612911016942',
 							/* M男 F女 */
 							gender: userInfo.gender === 'M' ? 1 : 2,
@@ -353,6 +363,58 @@
 		},
 		onShow() {
 			// this.jiazai()
+			let _this = this
+			my.getStorage({
+				key: 'token',
+				success: function(res) {
+					console.log(res)
+					if (!res.data) {
+						_this.isToken = false
+						my.getAuthCode({
+							scopes: 'auth_user',
+							success: res => {
+								console.log(res)
+								_this.$myRequest({
+										// url: `/al/auth/login?code=${res.code}`,
+										url: `/al/auth/login?code=${res.authCode}`,
+										method: 'get'
+									})
+									.then((data) => {
+										console.log(data.data)
+										// _this.user_id = data.user_id;
+										my.setStorageSync({
+											key: 'user_id',
+											data: data.user_id
+										})
+										my.removeStorage({
+											key: 'token'
+										})
+										console.log(data.data.reg)
+
+
+										if (!data.data.reg) {
+											// _this.$router.push('/register')
+											uni.showToast({
+												title: '还没有注册哟~',
+												icon: 'none',
+												duration: 2000
+											});
+										} else {
+											my.setStorageSync({
+												key: 'token',
+												data: data.data.token
+											})
+											_this.getDfltPtCardInfo();
+											_this.isToken = true;
+										}
+									})
+							},
+						});
+					} else {
+						_this.getDfltPtCardInfo();
+					}
+				}
+			})
 		},
 		mounted() {
 			// const item = JSON.parse(JSON.stringify(localStorage.getItem('selectPatient')));
@@ -582,59 +644,6 @@
 			]
 
 			// .js
-			let _this = this
-			my.getStorage({
-				key: 'token',
-				success: function(res) {
-					console.log(res)
-					if (!res.data) {
-						_this.isToken = false
-						my.getAuthCode({
-							scopes: 'auth_user',
-							success: res => {
-								console.log(res)
-								_this.$myRequest({
-										// url: `/al/auth/login?code=${res.code}`,
-										url: `/al/auth/login?code=${res.authCode}`,
-										method: 'get'
-									})
-									.then((data) => {
-										console.log(data.data)
-										// _this.user_id = data.user_id;
-										my.setStorageSync({
-											key: 'user_id',
-											data: data.user_id
-										})
-										my.removeStorage({
-											key: 'token'
-										})
-										console.log(data.data.reg)
-
-
-										if (!data.data.reg) {
-											// _this.$router.push('/register')
-											uni.showToast({
-												title: '还没有注册哟~',
-												icon: 'none',
-												duration: 2000
-											});
-										} else {
-											my.setStorageSync({
-												key: 'token',
-												data: data.data.token
-											})
-											_this.getDfltPtCardInfo();
-											_this.isToken = true;
-										}
-									})
-							},
-						});
-					} else {
-						_this.getDfltPtCardInfo();
-					}
-				}
-			})
-
 			// this.getHostMenu();
 			// this.getDfltPtCardInfo();
 			// this.jiazai();

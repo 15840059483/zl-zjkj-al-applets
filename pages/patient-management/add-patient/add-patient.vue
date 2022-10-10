@@ -97,7 +97,7 @@
 			return {
 				title: "添加就诊人", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-				
+
 				loading: false,
 
 				patientRelationshipList: [{
@@ -225,16 +225,20 @@
 									data: _this.formData,
 									contentType: 'application/json;charset=UTF-8'
 								}).then(data => {
-									uni.showToast({
-										title: '添加成功！',
-										icon: 'none',
-										duration: 2000
-									});
+									if (data.code === 200) {
+										uni.showToast({
+											title: '添加成功！',
+											icon: 'none',
+											duration: 2000
+										});
 
-									// loadingInstance.close();
-									uni.navigateBack()
+										// loadingInstance.close();
+										uni.navigateBack()
+									}
 									_this.loading = false;
 								}).catch(err => {
+									_this.loading = false;
+								}).finally(f => {
 									_this.loading = false;
 								})
 							} else {
@@ -243,8 +247,6 @@
 									icon: 'none',
 									duration: 2000
 								});
-
-								// loadingInstance.close();
 							}
 						}
 					});
@@ -259,11 +261,13 @@
 								duration: 2000
 							});
 
-							// loadingInstance.close();
 							uni.navigateBack()
+							_this.loading = false;
 						})
 						.catch(() => {
-							// loadingInstance.close();
+							_this.loading = false;
+						}).finally(f => {
+							_this.loading = false;
 						})
 				}
 

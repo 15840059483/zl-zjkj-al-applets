@@ -12,8 +12,6 @@
 					修改就诊人信息
 				</view>
 				<view class="neirong-wai">
-
-
 					<view class="patient-container-row"
 						style="display: flex;border-bottom: solid 1px #C0C4CC;width: 100%;text-align: left;">
 						<view class="nei-title" style="width: 30%;line-height: .7rem;">姓名：</view>
@@ -96,8 +94,7 @@
 			<view class="add-people-num">
 				您已添加<span>{{patientList.length}}</span>人，还可添加<span>{{5 - patientList.length}}</span>人
 			</view>
-			<view class="bg-white patient-container" v-for="item in patientList" v-bind:key="item.id">
-
+			<view class="bg-white patient-container" v-for="item in patientList" v-bind:key="item.cardId">
 				<uni-card>
 					<view class="patient-container-row">
 						<view>姓名</view>
@@ -120,22 +117,24 @@
 						<view class="text-right">{{item.patientRelationship | patientRelationship}}</view>
 					</view>
 
-					<view class="patient-radio-row" style="display: flex;">
-						<view style="width: 50%;">
-							<view @click="selectPatient(item)" class="patient-radio-col-l">
-								<view class="radio-container">
-									<view class="radio-checked"
-										v-if="item.patientId === currentSelectPatient.patientId">
-									</view>
+					<view class="patient-radio-row" style="display: flex;justify-content: space-between;">
+						<!-- <view> -->
+						<view @click="selectPatient(item)" class="patient-radio-col-l">
+							<view class="radio-container">
+								<view class="radio-checked" v-if="item.patientId === currentSelectPatient.patientId">
 								</view>
-								当前就诊人
 							</view>
-							<view class="text-right patient-radio-col-r">
-								<i class="el-icon-delete" @click="deletePatient(item)"></i>
-							</view>
+							当前就诊人
 						</view>
 
-						<view style="width: 23%;margin-left: 2%;">
+						<view class="text-right patient-radio-col-r" style="color: #F56C6C;padding: 0 10px;"
+							@click="deletePatient(item)">
+							删除
+							<!-- <i class="el-icon-delete" ></i> -->
+						</view>
+						<!-- </view> -->
+
+						<!-- <view style="width: 23%;margin-left: 2%;">
 							<button
 								style="background-color: #409EFF;color: #fff;border-radius:10%;height: 50rpx;font-size: .3rem;line-height: .4rem;"
 								@click="Update(item)">修改</button>
@@ -145,7 +144,7 @@
 							<button
 								style="background-color: #F56C6C;color: #fff;border-radius:10%;height: 50rpx;font-size: .3rem;line-height: .4rem;"
 								@click="open()">删除</button>
-						</view>
+						</view> -->
 					</view>
 				</uni-card>
 			</view>
@@ -268,6 +267,14 @@
 			},
 
 			queren() {
+				this.$myRequest({
+					url: "/wechat/user/dfltPtCard/info"
+				}).then(data => {
+					this.currentSelectPatient = data.data;
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 				this.$refs.pop.close();
 				console.log(this.formData)
 			},
@@ -320,6 +327,7 @@
 				})
 			},
 			selectPatient(item) {
+				console.log(item)
 				if (!item || !item.patientId) {
 					return;
 				}
@@ -340,7 +348,21 @@
 				if (!item.patientId) {
 					return;
 				}
-				this.isShowDelConfirm = true;
+				
+				const _this = this
+
+				uni.showModal({
+					title: '提示',
+					content: '确定要删除该患者吗?',
+					success: function(res) {
+						if (res.confirm) {
+							_this.closeConfirm();
+						} else if (res.cancel) {
+							console.log("取消");
+						}
+					}
+				});
+				// this.isShowDelConfirm = true;
 				this.currentDelSelectPatient = item;
 			},
 			closeConfirm() {
@@ -350,12 +372,16 @@
 						patientId: this.currentDelSelectPatient.patientId
 					}
 				}).then(data => {
-					this.$message.success('删除成功')
+					uni.showToast({
+						title: data.msg || '删除成功'
+					})
 					this.getDfltPtCardInfo()
 					this.getPatientInfo()
-					this.isShowDelConfirm = false;
+					// this.isShowDelConfirm = false;
 					this.loading = false;
 				}).catch(err => {
+					this.loading = false;
+				}).final( _ => {
 					this.loading = false;
 				})
 			},
@@ -363,7 +389,7 @@
 				this.closeConfirm();
 			}
 		},
-		mounted() {
+		onShow() {
 			this.getDfltPtCardInfo()
 			this.getPatientInfo()
 		},
