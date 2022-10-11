@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
 		<!-- <view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
@@ -26,7 +26,7 @@
 					</view>
 				</div>
 			</uni-card>
-			<div class="payment3-center">
+			<!-- <div class="payment3-center">
 				<div class="payment3-option" v-for="item1 in list"
 					@click="goToInspectionReport(item1.resultList,item1.sampleList)">
 					<template v-for="item2 in item1.sampleList" >
@@ -48,6 +48,19 @@
 						</div>
 					</template>
 
+				</div>
+			</div> -->
+			<div class="payment3-center">
+				<div class="payment3-option" v-for="item1 in list"
+					@click="goToInspectionReport(item1,item1)">
+						<div class="payment3-option-font" style="width: 80%;">
+							<div>{{item1.hisitemName}}</div>
+							<div>{{item2.sampleTime}}</div>
+						</div>
+						<div class="query2-right" style="width: 20%;">
+							<div style="color: rgb(0,142,254)">已发布</div>
+							<text class="iconfont icon-youjiantou"></text>
+						</div>
 				</div>
 			</div>
 			<div class="no-list" v-if="list.length === 0">
@@ -258,17 +271,17 @@
 				this.jiazai();
 
 				this.$myRequest({
-					url: "/zjkj/list",
+					url: "/zjkj/itemInfo",
 					method: "POST",
 					data: parans,
 				}).then(res => {
-					console.log(res.data.data)
+					console.log(res.data)
 					this.jiazai();
-					if (res && res.data && res.data.data && res.data.data.length > 0) {
-						this.list = res.data.data
-						this.showAddPatient = false;
+					if (res && res.data && res.data.length > 0) {
+						this.list = res.data;
 						console.log(this.list)
 					}
+					this.showAddPatient = false;
 				}).catch(err => {
 					this.loading = true;
 				})

@@ -238,60 +238,15 @@
 			},
 			//就诊人信息的数据
 			getPatientInfo() {
-				this.loading = true;
-				let _this = this;
-				let data = [{
-						"cardId": "1485542028335468546",
-						"cardNumber": "A000009644",
-						"cardState": "1021",
-						"patientAge": "26",
-						"patientBirthday": "1996-10-10",
-						"patientCardId": "210281199610101025",
-						"patientId": "1485541535202758657",
-						"patientName": "狐狸",
-						"patientPhone": "18840069483",
-						"patientRelationship": "1030",
-						"patientSex": "男",
-						"patientState": "1011"
-					},
-					{
-						"cardId": "1513338116588986369",
-						"cardNumber": "A000010865",
-						"cardState": "1021",
-						"dataSourdces": "json",
-						"patientAge": "24",
-						"patientBirthday": "1997-10-10",
-						"patientCardId": "210281199710102024",
-						"patientCardType": "11001",
-						"patientId": "1513338114705743874",
-						"patientName": "蚯蚓",
-						"patientPhone": "15840059481",
-						"patientRelationship": "1031",
-						"patientSex": "女",
-						"patientState": "1011"
-					},
-					{
-						"cardId": "1517390116221976578",
-						"cardNumber": "0000000001",
-						"cardState": "1020",
-						"dataSourdces": "json",
-						"patientAge": "24",
-						"patientBirthday": "1997-10-10",
-						"patientCardId": "210281199710102056",
-						"patientCardType": "11001",
-						"patientId": "1517390115580248066",
-						"patientName": "青蛙",
-						"patientPhone": "15840059483",
-						"patientRelationship": "1033",
-						"patientSex": "男",
-						"patientState": "1010"
-					},
-				];
-				_this.switchPatientList = data;
-				// 让currentPatient等于数组data中索引位置为0的信息
-				_this.currentPatient = data[0];
-				this.getOutPayList();
-				this.loading = false;
+				this.$myRequest({
+					url: "/wechat/user/patientcard/info",
+				}).then(data => {
+					this.switchPatientList = data.data;
+					this.currentPatient = data.data[0];
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			//切换就诊人，这个参数中包含就诊人信息
 			// onSwitchPatientBtn(item) {
@@ -324,11 +279,13 @@
 					data: params,
 					contentType:'application/json;charset=UTF-8',
 				}).then(data => {
-					this.paymentList = data.data;
-					this.paymentList.forEach(item => {
-						item.isOpen = true;
-						item.totalMoney = 0
-					});
+					if(data.data){
+						this.paymentList = data.data;
+						this.paymentList.forEach(item => {
+							item.isOpen = true;
+							item.totalMoney = 0
+						});
+					}
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
@@ -451,8 +408,7 @@
 				        patientNo: item.regInfos.cardNo,
 				        patientSeq: item.regInfos.regNo,
 				        payMount: item.totalMoney,
-				        recipeNos: this.selectPaymentMoOrderList,
-						pay_type:'AL'
+				        recipeNos: this.selectPaymentMoOrderList
 				      }
 				
 				this.$myRequest({
@@ -472,7 +428,7 @@
 						  },
 						  fail: (res) => {
 						    my.alert({
-						      content: '已取消支付',
+						      content: JSON.stringify(res),
 						    });
 						  }
 						});

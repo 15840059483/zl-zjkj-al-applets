@@ -2,7 +2,7 @@
 
 // const BASE_URL = "http://fsybzzj.natapp1.cc"
 // const BASE_URL = "http://679gtw.natappfree.cc"
-const BASE_URL = "http://192.168.1.7:9088"
+const BASE_URL = "http://679gtw.natappfree.cc"
 
 export const myRequest = (options) => {
 	let token = ''
