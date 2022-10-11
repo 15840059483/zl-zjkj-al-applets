@@ -324,6 +324,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 // 引入底部导航栏组件
 // import dacizinavtag from '../../components/dacizi-navtag/dacizi-navtag.vue'
 var _default = {
@@ -616,7 +619,8 @@ var _default = {
       routerUrl: '',
       imageUrl: 'https://s1.ax1x.com/2022/09/02/vIm4v6.jpg',
       routLink: '/pages/departmentList/departmentList',
-      meta: true },
+      meta: true,
+      energy: true },
 
     {
       id: 2,
@@ -651,18 +655,19 @@ var _default = {
       routerUrl: '',
       imageUrl: 'https://s1.ax1x.com/2022/09/02/vIrvAe.jpg',
       routLink: '/pages/report-query/report-query2/report-query2',
-      meta: false },
+      meta: false,
+      energy: true },
 
     /*{
-                     	id: 6,
-                     	menuName: '智能导诊',
-                     	twoTitle: 'AI智能服务就医',
-                     	routerUrl: '',
-                     	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrO0O.jpg'),
-                     	//routLink: '/departmentIntroduction'
-                     	routLink: '/pages/huanzhe/huanzhe',
-                     	// meta: false
-                     },*/
+                      	id: 6,
+                      	menuName: '智能导诊',
+                      	twoTitle: 'AI智能服务就医',
+                      	routerUrl: '',
+                      	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrO0O.jpg'),
+                      	//routLink: '/departmentIntroduction'
+                      	routLink: '/pages/huanzhe/huanzhe',
+                      	// meta: false
+                      },*/
     // {
     //   id: 7,
     //   menuName: '个人中心-9',
