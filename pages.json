@@ -225,6 +225,24 @@
 			}
 		},
 		{
+			// 挂号记录
+			// 路径
+			"path": "pages/registration-record/registration-record",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "挂号记录"
+			}
+		},
+		{
+			// 挂号记录详情
+			// 路径
+			"path": "pages/registration-record/registration-details",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "挂号记录详情"
+			}
+		},
+		{
 			// 订单详情
 			// 路径
 			"path": "pages/register-success/register-success",

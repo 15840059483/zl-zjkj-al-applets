@@ -24,6 +24,8 @@
     "pages/doctorScheduling/doctorScheduling",
     "pages/registrationConfirmation/registrationConfirmation",
     "pages/paymentPage/paymentPage",
+    "pages/registration-record/registration-record",
+    "pages/registration-record/registration-details",
     "pages/register-success/register-success",
     "pages/huanzhe/symptom/toubu/toubukeshi",
     "pages/huanzhe/symptom/beibu/beibu",

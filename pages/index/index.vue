@@ -10,7 +10,7 @@
 			<Header :title="title" :shouye="shouye"></Header>
 		</view> -->
 		<div style="padding: .2rem;">
-			<uni-card shadow="never" v-if="dfltPatientInfo.cardNumber">
+			<uni-card shadow="never" v-if="dfltPatientInfo.patientName">
 				<view class="jiuzhenren">
 					<view :span="12" class="patient-name">
 						<span>{{ dfltPatientInfo.patientName | processingName }}</span>
@@ -24,7 +24,7 @@
 					<view class="visit-number">就诊号：{{ dfltPatientInfo.cardNumber || '-' }}</view>
 				</uni-row>
 				<view class="card-row card-row-border">
-					<view :span="8">挂号记录</view>
+					<view :span="8" @click.native="goToPage('/pages/registration-record/registration-record')">挂号记录</view>
 					<view :span="8" class="border-l-r"
 						@click.native="goToPage('/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records', true)">
 						缴费记录</view>

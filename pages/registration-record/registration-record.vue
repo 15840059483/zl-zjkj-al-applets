@@ -1,0 +1,208 @@
+<template>
+	<view>
+		<!-- <Header title="缴费记录" isBack="yes"></Header> -->
+		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
+		<view shadow="never" v-if="currentPatient.cardNumber"
+			style="padding: .2rem;margin-bottom: .2rem;background-color: #fff;">
+			<view class="card-row">
+				<view class="patient-name">
+					<span>{{ currentPatient.patientName | processingName }}</span>
+				</view>
+				<view class="change-patient-name">
+					<button class="change-patient-name-btn" @click="switchPatient">切换就诊人</button>
+				</view>
+			</view>
+			<view class="card-row">
+				<view class="visit-number">就诊号：{{ currentPatient.cardNumber || '-' }}</view>
+			</view>
+		</view>
+		<view class="record-container">
+			<view class="record-item" v-for="item in listData" @click="goToDetail(item)">
+				<img class="icon-success" src="../../static/icon-success.png">
+				<view class="record-right">
+					<view>
+						<view>{{ item.deptName || '-'}}</view>
+						<view class="item-bot">{{ item.patientName || '-' }}</view>
+					</view>
+					<view style="text-align: right">
+						<view style="color: #EB7C00">￥{{ item.totalFee || 0 }}</view>
+						<view class="item-bot">{{item.regDate | dateStr}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view v-if="showSwitchPatient" class="switch-patient-bg">
+			<view class="switch-patient-container bg-white">
+				<view class="switch-patient-title text-center border-bottom">
+					切换就诊人
+					<i class="el-icon-error" @click="showSwitchPatient = false"></i>
+				</view>
+				<view class="border-bottom switch-patient-list" v-for="item in switchPatientList"
+					v-bind:key="item.patientId" @click="onSwitchPatientBtn(item)">
+					<view class="patient-name">*{{ item.patientName }}</view>
+					<view class="visit-number">就诊号：{{ item.cardNumber }}</view>
+					<i class="el-icon-check" v-if="currentPatient.patientId === item.patientId"
+						style="color: #008cfe"></i>
+				</view>
+				<view>
+					<view :span="12" class="switch-patient-btn switch-patient-btn-l" @click.native="addPatient">添加就诊人
+					</view>
+					<view :span="12" class="switch-patient-btn" @click.native="managePatient">管理就诊人</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		name: "registration-record",
+		data() {
+			return {
+				listData: [{
+					deptName: '脑外科',
+					patientName: '*sw',
+					totalFee: 100
+				}],
+				dfltPatientInfo: [],
+				switchPatientList: [],
+				currentPatient: {},
+				showSwitchPatient: false,
+				isSelectAll: false,
+				loading: false,
+			}
+		},
+		filters: {
+			processingName(str) {
+				if (!str) {
+					return '-';
+				}
+				return '*' + str.substr(1);
+			},
+			dateStr(val) {
+				if (!val) {
+					return '-'
+				}
+				return val.slice(0, 4) + '-' + val.slice(4, 6) + '-' + val.slice(6, 8)
+			}
+		},
+		mounted() {
+			this.getPatientInfo()
+		},
+		methods: {
+			// 切换就诊人
+			onSwitchPatientBtn(item) {
+				this.currentPatient = item;
+				this.isSelectAll = false;
+				this.listData = [];
+				this.getList();
+			},
+			switchPatient() {
+				this.showSwitchPatient = true;
+			},
+			getPatientInfo() {
+				this.loading = true
+				this.$myRequest({
+					url: "/wechat/user/patientcard/info"
+				}).then(data => {
+					if (data && data.data && data.data && data.data.length > 0) {
+						this.switchPatientList = data.data;
+						this.currentPatient = data.data[0];
+						this.getList();
+					}
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+			},
+			getList() {
+				const params = {
+					patientNo: this.currentPatient.cardNumber
+				}
+				this.loading = true
+				this.$myRequest({
+					url: "/hospt/getRegList",
+					data: params
+				}).then(data => {
+					this.listData = res.data
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+			},
+			goToDetail(item) {
+				const params = {
+					regNo: item.regNo,
+					patientNo: item.outpatientId,
+				}
+
+				this.loading = true
+				this.$myRequest({
+					url: "/hospt/getRegList",
+					data: params
+				}).then(res => {
+					uni.navigateTo({
+						url: '/pages/registration-record/registration-details?orderDetail=' + JSON
+							.stringify(res.data[0])
+					})
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+			}
+		}
+	}
+</script>
+
+<style scoped lang="scss">
+	.card-row {
+		display: flex;
+		justify-content: space-between;
+		padding: .1rem;
+		background-color: #FFFFFF;
+	}
+
+	.change-patient-name-btn {
+		width: 100%;
+		height: 50rpx;
+		line-height: 50rpx;
+		font-size: 20rpx;
+		border-radius: .4rem;
+		background: no-repeat;
+		border: 1px solid rgb(0, 142, 254);
+		padding: 0 .4rem;
+		color: rgb(0, 142, 254);
+		outline: none;
+		margin: 0;
+	}
+
+	.record-container {
+		.record-item {
+			background: #FFFFFF;
+			border-bottom: 1px solid #E2E3E4;
+			padding: .3rem .5rem;
+			display: flex;
+			align-items: center;
+
+			.icon-success {
+				width: 1rem;
+				height: 1rem;
+				margin-right: .5rem;
+			}
+
+			.record-right {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: .4rem;
+
+				.item-bot {
+					color: #DFE0E1;
+					margin-top: .2rem;
+				}
+			}
+		}
+	}
+</style>

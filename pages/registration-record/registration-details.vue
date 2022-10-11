@@ -1,0 +1,96 @@
+<template>
+  <div style="padding-bottom: 1rem">
+    <el-row class="payment-success-wrapper bg-white">
+      <el-col :span="5">
+        <img style="width: 1.5rem;" src="../../static/icon-success.png">
+      </el-col>
+      <el-col :span="19">
+        <div class="payment-success">{{ '缴费成功' }}</div>
+        <div>{{ orderDetail.regDate | dateStr }}</div>
+      </el-col>
+      <el-col :span="24" class="payment-tip">
+        <span>预约挂号成功，请在预约当天提前15分钟前往医院挂号克式排队候诊</span>
+      </el-col>
+    </el-row>
+
+    <div class="payment-ma-wrapper bg-white text-center">
+      <p class="payment-ma-ping">就诊凭条（凭以下凭条进行就诊）</p>
+      <img :src="baseUrl + '/hospt/getBarCode?body=' + orderDetail.outpatientId" class="doctor8-ma-img"/>
+      <p class="payment-ma-num">{{ orderDetail.outpatientId }}</p>
+    </div>
+
+    <div class="payment-list-item bg-white" v-if="">
+      <div>就诊时间</div>
+      <div class="text-right">{{ orderDetail.regDate | dateStr }}{{'['+orderDetail.scheduleName+']'}}</div>
+    </div>
+    <div class="payment-list-item bg-white margin-top">
+      <div :span="12">费用类型</div>
+      <div :span="12" class="text-right">挂号缴费</div>
+    </div>
+    <div class="payment-list-item bg-white">
+      <div :span="12">医院名称</div>
+      <div :span="12" class="text-right">{{ '抚顺市眼病医院' }}</div>
+    </div>
+    <div class="payment-list-item bg-white">
+      <div :span="12">就诊科室</div>
+      <div :span="12" class="text-right">{{ orderDetail.deptName || '-' }}</div>
+    </div>
+    <div class="payment-list-item bg-white">
+      <div :span="12">医生名称</div>
+      <div :span="12" class="text-right">{{ orderDetail.doctorName || '-' }}</div>
+    </div>
+    <div class="payment-list-item bg-white">
+      <div :span="12">医生职称</div>
+      <div :span="12" class="text-right">{{ orderDetail.regLevelName || '-' }}</div>
+    </div>
+    <div class="payment-list-item bg-white margin-top">
+      <div :span="12">就诊人</div>
+      <div :span="12" class="text-right">{{ orderDetail.patientName || '-' }}</div>
+    </div>
+    <div class="payment-list-item bg-white" v-if="orderDetail.costType == 4010">
+      <div :span="12">诊查费</div>
+      <div :span="12" class="text-right">￥{{ orderDetail.regFee }}</div>
+    </div>
+    <!--    <div class="payment-list-item bg-white" v-if="orderDetail.costType != 4011">-->
+    <!--      <div :span="12">工本费</div>-->
+    <!--      <div :span="12" class="text-right">￥1.00</div>-->
+    <!--    </div>-->
+    <div class="payment-list-item bg-white">
+      <div :span="12">合计金额</div>
+      <div :span="12" class="text-right">￥{{ orderDetail.totalFee || 0 }}</div>
+    </div>
+  </div>
+</template>
+
+<script>
+import {BASE_URL} from "../../http/api.js";
+
+export default {
+  name: "registration-details",
+  filters: {
+    dateStr(val) {
+      if (!val) {
+        return '-'
+      }
+      return val.slice(0, 4) + '-' + val.slice(4, 6) + '-' + val.slice(6, 8)
+    }
+  },
+  data() {
+    return {
+      orderDetail: '',
+      baseUrl: BASE_URL,
+    }
+  },
+  mounted() {
+  	console.log(this.BASE_URL)
+  },
+  onLoad(query){
+       console.log("接收参数",query);      // query 就是传递过来的参数
+	  this.orderDetail = JSON.parse(query.orderDetail)
+   },
+}
+</script>
+
+<style scoped>
+
+</style>
