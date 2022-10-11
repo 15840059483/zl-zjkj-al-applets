@@ -58,11 +58,14 @@
 				<view class="card-row fast-row" v-for="item in menuList" v-bind:key="item.id"
 					@click.native="goToPage(item.routLink,item.meta)"
 					style="border-bottom: 1px solid rgb(224, 224, 224);">
-					<view :span="4">
+					<view :span="4" style="position: relative;">
 						<image :src="item.imageUrl" class="menu-image">
+						<image v-if="item.energy" class="menu_icon" src="https://s1.ax1x.com/2022/10/11/xt5C6g.png"></image>
 					</view>
 					<view style="width: 78%;margin-left: 7%;height: 40px;">
-						<div class="menu-title">{{ item.menuName }}</div>
+						<div class="menu-title">
+						{{ item.menuName }}
+						</div>
 						<div class="menu-title2">{{ item.twoTitle }}</div>
 					</view>
 					<view :span="3">
@@ -432,7 +435,8 @@
 					routerUrl: '',
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIm4v6.jpg'),
 					routLink: '/pages/departmentList/departmentList',
-					meta: true
+					meta: true,
+					energy: true,
 				},
 				{
 					id: 2,
@@ -467,7 +471,8 @@
 					routerUrl: '',
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrvAe.jpg'),
 					routLink: '/pages/report-query/report-query2/report-query2',
-					meta: false
+					meta: false,
+					energy: true,
 				},
 				/*{
 					id: 6,
@@ -776,11 +781,21 @@
 		margin-left: 50%;
 		transform: translate(-50%, 0);
 	}
+	
+	.menu_icon {
+		position: absolute;
+		top: -.2rem;
+		right: -80%;
+		width: .7rem;
+		height: .3rem;
+	}
 
 	.menu-title {
 		font-weight: 500;
 		font-size: 16px;
 		margin-bottom: .1rem;
+		display: flex;
+		align-items: center;
 	}
 
 	.menu-title2 {
