@@ -610,8 +610,7 @@ var _default = { // 调用头部组件
       paymentList: [], switchPatientList: [], currentPatient: {}, selectPaymentList: [], selectPaymentMoOrderList: [], isSelectAll: false, totalMoney: 0, loading: true };}, methods: { // 就诊人中的全部方法
     //触发切换就诊人的弹窗
     switchPatient: function switchPatient() {this.showSwitchPatient = true;}, //就诊人信息的数据
-    getPatientInfo: function getPatientInfo() {this.loading = true;var _this = this;var data = [{ "cardId": "1485542028335468546", "cardNumber": "A000009644", "cardState": "1021", "patientAge": "26", "patientBirthday": "1996-10-10", "patientCardId": "210281199610101025", "patientId": "1485541535202758657", "patientName": "狐狸", "patientPhone": "18840069483", "patientRelationship": "1030", "patientSex": "男", "patientState": "1011" }, { "cardId": "1513338116588986369", "cardNumber": "A000010865", "cardState": "1021", "dataSourdces": "json", "patientAge": "24", "patientBirthday": "1997-10-10", "patientCardId": "210281199710102024", "patientCardType": "11001", "patientId": "1513338114705743874", "patientName": "蚯蚓", "patientPhone": "15840059481", "patientRelationship": "1031", "patientSex": "女", "patientState": "1011" }, { "cardId": "1517390116221976578", "cardNumber": "0000000001", "cardState": "1020", "dataSourdces": "json", "patientAge": "24", "patientBirthday": "1997-10-10", "patientCardId": "210281199710102056", "patientCardType": "11001", "patientId": "1517390115580248066", "patientName": "青蛙", "patientPhone": "15840059483", "patientRelationship": "1033", "patientSex": "男", "patientState": "1010" }];_this.switchPatientList = data; // 让currentPatient等于数组data中索引位置为0的信息
-      _this.currentPatient = data[0];this.getOutPayList();this.loading = false;}, //切换就诊人，这个参数中包含就诊人信息
+    getPatientInfo: function getPatientInfo() {var _this = this;this.$myRequest({ url: "/wechat/user/patientcard/info" }).then(function (data) {_this.switchPatientList = data.data;_this.currentPatient = data.data[0];_this.loading = false;}).catch(function (err) {_this.loading = false;});}, //切换就诊人，这个参数中包含就诊人信息
     // onSwitchPatientBtn(item) {
     // 	this.currentPatient = item;
     // 	// 让huanzhexinxi等于就诊人信息
@@ -621,57 +620,14 @@ var _default = { // 调用头部组件
     onSwitchPatientBtn: function onSwitchPatientBtn(item) {this.currentPatient = item;this.isSelectAll = false;this.selectPaymentList = [];this.selectPaymentMoOrderList = [];this.paymentList = [];this.getOutPayList();}, // 添加就诊人
     addPatient: function addPatient() {}, // 管理就诊人
     managePatient: function managePatient() {}, // 获取缴费信息列表
-    getOutPayList: function getOutPayList() {var _this2 = this;this.loading = true;var params = { patientNo: this.currentPatient.cardNumber };this.$myRequest({ url: "/hospt/getOutPayList", data: params, contentType: 'application/json;charset=UTF-8' }).then(function (data) {_this2.paymentList = data.data;_this2.paymentList.forEach(function (item) {item.isOpen = true;item.totalMoney = 0;});_this2.loading = false;}).catch(function (err) {_this2.loading = false;});}, openList: function openList(item) {this.$forceUpdate();this.$set(item, "isOpen", !item.isOpen);}, isChecked: function isChecked(item) {var selectNum = 0;this.selectPaymentList.forEach(function (pay) {if (pay.regNo === item.regInfos.regNo) {selectNum++;}});return selectNum === item.outFeeList.length;}, paymentCheck: function paymentCheck(item) {var _this3 = this;if (this.selectPaymentList.length && this.selectPaymentList[0].regNo != item.regInfos.regNo) {this.selectPaymentList = [];this.selectPaymentMoOrderList = [];}if (this.isChecked(item)) {for (var i = this.selectPaymentList.length - 1; i >= 0; i--) {if (this.selectPaymentList[i].regNo === item.regInfos.regNo) {this.selectPaymentList.splice(i, 1);this.selectPaymentMoOrderList.splice(i, 1);}}} else {item.outFeeList.forEach(function (outFee) {var recipe = _this3.selectPaymentList.map(function (list) {return list.recipeNo;});if (recipe.indexOf(outFee.recipeNo) === -1) {outFee.regNo = item.regInfos.regNo;_this3.selectPaymentList.push(outFee);_this3.selectPaymentMoOrderList.push(outFee.recipeNo);}});}this.calculationTotalMoney(item); // this.judgeWhetherSelectAll();
+    getOutPayList: function getOutPayList() {var _this2 = this;this.loading = true;var params = { patientNo: this.currentPatient.cardNumber };this.$myRequest({ url: "/hospt/getOutPayList", data: params, contentType: 'application/json;charset=UTF-8' }).then(function (data) {if (data.data) {_this2.paymentList = data.data;_this2.paymentList.forEach(function (item) {item.isOpen = true;item.totalMoney = 0;});}_this2.loading = false;}).catch(function (err) {_this2.loading = false;});}, openList: function openList(item) {this.$forceUpdate();this.$set(item, "isOpen", !item.isOpen);}, isChecked: function isChecked(item) {var selectNum = 0;this.selectPaymentList.forEach(function (pay) {if (pay.regNo === item.regInfos.regNo) {selectNum++;}});return selectNum === item.outFeeList.length;}, paymentCheck: function paymentCheck(item) {var _this3 = this;if (this.selectPaymentList.length && this.selectPaymentList[0].regNo != item.regInfos.regNo) {this.selectPaymentList = [];this.selectPaymentMoOrderList = [];}if (this.isChecked(item)) {for (var i = this.selectPaymentList.length - 1; i >= 0; i--) {if (this.selectPaymentList[i].regNo === item.regInfos.regNo) {this.selectPaymentList.splice(i, 1);this.selectPaymentMoOrderList.splice(i, 1);}}} else {item.outFeeList.forEach(function (outFee) {var recipe = _this3.selectPaymentList.map(function (list) {return list.recipeNo;});if (recipe.indexOf(outFee.recipeNo) === -1) {outFee.regNo = item.regInfos.regNo;_this3.selectPaymentList.push(outFee);_this3.selectPaymentMoOrderList.push(outFee.recipeNo);}});}this.calculationTotalMoney(item); // this.judgeWhetherSelectAll();
     }, // 选择处方
     selectOutFee: function selectOutFee(item, outFee) {var index = this.selectPaymentMoOrderList.indexOf(outFee.recipeNo);if (index > -1) {this.selectPaymentList.splice(index, 1);this.selectPaymentMoOrderList.splice(index, 1);} else {outFee.regNo = item.regInfos.regNo;this.selectPaymentList.push(outFee);this.selectPaymentMoOrderList.push(outFee.recipeNo);}this.calculationTotalMoney(item); // this.judgeWhetherSelectAll();
     }, // 全选
     onSelectAllBtn: function onSelectAllBtn() {var _this4 = this;this.selectPaymentList = [];this.selectPaymentMoOrderList = [];if (this.isSelectAll) {this.paymentList.forEach(function (item) {item.outFeeList.forEach(function (outFee) {outFee.regNo = item.regInfos.regNo;_this4.selectPaymentList.push(outFee);_this4.selectPaymentMoOrderList.push(outFee.recipeNo);});});}this.calculationTotalMoney();}, // 是否全选
-    judgeWhetherSelectAll: function judgeWhetherSelectAll() {var len = 0;this.paymentList.forEach(function (item) {len += item.outFeeList.length;});this.isSelectAll = this.selectPaymentMoOrderList.length === len;},
-    // 计算金额
-    calculationTotalMoney: function calculationTotalMoney(item) {
-      var money = 0;
-      this.selectPaymentList.forEach(function (item) {
-        item.feeList.forEach(function (outFee) {
-          money += Number((outFee.itemPrice * outFee.itemNum).toFixed(2));
-        });
-      });
-      item.totalMoney = Number(money).toFixed(2);
-    },
-    handRegDate: function handRegDate(str) {
-      var date = str.substr(4, 2) + '月' + str.substr(6, 2) + '日';
-      return date;
-    },
-    goToPage: function goToPage(url) {
-      if (!url) {
-        return;
-      }
-      this.$router.push(url);
-    },
-    goToPayment: function goToPayment(item) {var _this5 = this;
-      if (this.selectPaymentMoOrderList.length === 0 || this.selectPaymentList[0].regNo !== item.regInfos.
-      regNo) {
-        uni.showToast({
-          title: '请选择缴费项目',
-          icon: 'none',
-          duration: 2000 });
-
-        // this.$message.info('请选择缴费项目')
-        return;
-      }
-
-      var params = {
-        deptId: item.regInfos.deptId,
-        deptName: item.regInfos.deptName,
-        doctorName: item.regInfos.doctorName,
-        regLevelName: item.regInfos.regLevelName,
-        doctorTitleId: item.regInfos.regLevelId,
-        patientName: item.regInfos.patientName,
-        patientNo: item.regInfos.cardNo,
-        patientSeq: item.regInfos.regNo,
-        payMount: item.totalMoney,
-        recipeNos: this.selectPaymentMoOrderList,
-        pay_type: 'AL' };
-
+    judgeWhetherSelectAll: function judgeWhetherSelectAll() {var len = 0;this.paymentList.forEach(function (item) {len += item.outFeeList.length;});this.isSelectAll = this.selectPaymentMoOrderList.length === len;}, // 计算金额
+    calculationTotalMoney: function calculationTotalMoney(item) {var money = 0;this.selectPaymentList.forEach(function (item) {item.feeList.forEach(function (outFee) {money += Number((outFee.itemPrice * outFee.itemNum).toFixed(2));});});item.totalMoney = Number(money).toFixed(2);}, handRegDate: function handRegDate(str) {var date = str.substr(4, 2) + '月' + str.substr(6, 2) + '日';return date;}, goToPage: function goToPage(url) {if (!url) {return;}this.$router.push(url);}, goToPayment: function goToPayment(item) {var _this5 = this;if (this.selectPaymentMoOrderList.length === 0 || this.selectPaymentList[0].regNo !== item.regInfos.regNo) {uni.showToast({ title: '请选择缴费项目', icon: 'none', duration: 2000 }); // this.$message.info('请选择缴费项目')
+        return;}var params = { deptId: item.regInfos.deptId, deptName: item.regInfos.deptName, doctorName: item.regInfos.doctorName, regLevelName: item.regInfos.regLevelName, doctorTitleId: item.regInfos.regLevelId, patientName: item.regInfos.patientName, patientNo: item.regInfos.cardNo, patientSeq: item.regInfos.regNo, payMount: item.totalMoney, recipeNos: this.selectPaymentMoOrderList };
 
       this.$myRequest({
         url: "/wechat/pay/out",
@@ -690,7 +646,7 @@ var _default = { // 调用头部组件
             },
             fail: function fail(res) {
               my.alert({
-                content: '已取消支付' });
+                content: JSON.stringify(res) });
 
             } });
 

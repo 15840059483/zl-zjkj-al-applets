@@ -332,9 +332,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 __webpack_require__(/*! ./report-query2.css */ 400);
 __webpack_require__(/*! ./outpatientPayment.scss */ 401);
 __webpack_require__(/*! ./hospitalizationPayment.scss */ 402); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -500,7 +526,7 @@ var _default = { // 调用头部组件
       // })
     }, switchPatient: function switchPatient() {this.showSwitchPatient = true;}, // 获取就诊人信息
     getPatientInfo: function getPatientInfo() {var _this = this;var data = [{ patientName: "冷夜", patientId: 1, cardNumber: "124151231" }, { patientName: "小狐狸", patientId: 2, cardNumber: "124124121" }, { patientName: "张力", patientId: 3, cardNumber: "124146554" }];_this.switchPatientList = data; // 让currentPatient等于数组data中索引位置为0的信息
-      _this.currentPatient = data[0];}, getZjkjList: function getZjkjList(item) {var _this3 = this;var parans = { patientId: this.patient.admissionNumber };this.jiazai();this.$myRequest({ url: "/zjkj/list", method: "POST", data: parans }).then(function (res) {console.log(res.data.data);_this3.jiazai();if (res && res.data && res.data.data && res.data.data.length > 0) {_this3.list = res.data.data;_this3.showAddPatient = false;console.log(_this3.list);}}).catch(function (err) {_this3.loading = true;}); // this.$api.outpatientDepartmentService.getZjkjList(parans)
+      _this.currentPatient = data[0];}, getZjkjList: function getZjkjList(item) {var _this3 = this;var parans = { patientId: this.patient.admissionNumber };this.jiazai();this.$myRequest({ url: "/zjkj/itemInfo", method: "POST", data: parans }).then(function (res) {console.log(res.data);_this3.jiazai();if (res && res.data && res.data.length > 0) {_this3.list = res.data;console.log(_this3.list);}_this3.showAddPatient = false;}).catch(function (err) {_this3.loading = true;}); // this.$api.outpatientDepartmentService.getZjkjList(parans)
       // 	.then((data) => {
       // 		if (data && data.data && data.data && data.data.length > 0) {
       // 			this.list = data.data

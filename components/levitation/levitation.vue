@@ -2,7 +2,11 @@
 	<view>
 		<movable-area class="movable-area">
 			<movable-view class="movable-view" :x="x" :y="y" direction="all">
-				<image src="https://s1.ax1x.com/2022/09/27/xZ4AJO.png"></image>
+				<!-- <contact-button tnt-inst-id="v3J_3KJ7" scene="SCE01229090"/>
+				<image src="https://s1.ax1x.com/2022/09/27/xZ4AJO.png"></image> -->
+				<view class="btn">
+					<contact-button tnt-inst-id="v3J_3KJ7" scene="SCE01229090" icon="https://s1.ax1x.com/2022/09/27/xZ4AJO.png"/>
+				</view>
 			</movable-view>
 		</movable-area>
 	</view>
@@ -37,7 +41,7 @@
 			width: $all_width;
 			height: $all_height;
 			border-radius: 50%;
-			box-shadow: inset 0px 15px 10px -15px #000;
+			//box-shadow: inset 0px 15px 10px -15px #000;
 			background-color: #fff;
 			pointer-events: auto; //恢复鼠标事件
 

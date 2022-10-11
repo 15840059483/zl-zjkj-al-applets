@@ -225,7 +225,141 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 __webpack_require__(/*! ./report-query3.css */ 411); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -293,9 +427,10 @@ __webpack_require__(/*! ./report-query3.css */ 411); //
 var _default = { // 调用头部组件
   components: {}, data: function data() {return { title: "挂号确认", // 页面标题
       shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-      sampleList: {}, resultList: [] };}, methods: {}, // 这是uni的生命周期
+      list: {}, sampleList: {}, resultList: [] };}, methods: { jiazai: function jiazai() {var _this = this;this.loading = true; // 定时器，setTimeout只执行一次，setInterval执行多次
+      setTimeout(function () {_this.loading = false;console.log(_this.loading);}, 500);}, getSample: function getSample() {var _this2 = this;var parans = { sampleId: this.sampleList.sampleId, machineId: this.sampleList.machineId, testDate: this.sampleList.testDate };this.$myRequest({ url: "/zjkj/itemResult", method: "GET", data: parans }).then(function (res) {console.log(res.data);_this2.jiazai();if (res && res.data && res.data.length > 0) {_this2.resultList = res.data;console.log(_this2.list);}}).catch(function (err) {_this2.loading = true;});} }, // 这是uni的生命周期
   // 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
-  onLoad: function onLoad(e) {console.log(e);this.sampleList = JSON.parse(decodeURIComponent(e.sampleList));this.resultList = JSON.parse(decodeURIComponent(e.resultList));console.log(this.sampleList, this.resultList);}, mounted: function mounted() {} };exports.default = _default;
+  onLoad: function onLoad(e) {console.log(e);this.sampleList = JSON.parse(decodeURIComponent(e.sampleList));this.resultList = JSON.parse(decodeURIComponent(e.resultList));console.log(this.sampleList, this.resultList);}, mounted: function mounted() {this.getSample();} };exports.default = _default;
 
 /***/ })
 
