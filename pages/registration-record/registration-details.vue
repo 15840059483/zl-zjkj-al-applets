@@ -18,7 +18,7 @@
     <div class="payment-ma-wrapper bg-white text-center">
       <p class="payment-ma-ping">就诊凭条（凭以下凭条进行就诊）</p>
       <img :src="baseUrl + '/hospt/getBarCode?body=' + orderDetail.outpatientId" class="doctor8-ma-img"/>
-      <p class="payment-ma-num">{{ orderDetail.outpatientId }}</p>
+      <p class="payment-ma-num">{{ orderDetail.outpatientId | processingcardNumber}}</p>
     </div>
 
     <div class="payment-list-item bg-white">
@@ -47,7 +47,7 @@
     </div>
     <div class="payment-list-item bg-white margin-top">
       <div :span="12">就诊人</div>
-      <div :span="12" class="text-right">{{ orderDetail.patientName || '-' }}</div>
+      <div :span="12" class="text-right">{{ orderDetail.patientName | processingName }}</div>
     </div>
     <div class="payment-list-item bg-white" v-if="orderDetail.costType == 4010">
       <div :span="12">诊查费</div>
@@ -71,6 +71,18 @@ import '../payment-details/payment-details.scss'
 export default {
   name: "registration-details",
   filters: {
+	  processingName(str) {
+	  	if (!str) {
+	  		return '-';
+	  	}
+	  	return '*' + str.substr(1);
+	  },
+	  processingcardNumber(str){
+	  	if (!str) {
+	  		return '-';
+	  	}
+	  	return '****' + str.substr(4);
+	  },
     dateStr(val) {
       if (!val) {
         return '-'

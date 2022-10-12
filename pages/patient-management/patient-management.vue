@@ -97,24 +97,76 @@
 			<view class="bg-white patient-container" v-for="item in patientList" v-bind:key="item.cardId">
 				<uni-card>
 					<view class="patient-container-row">
-						<view>姓名</view>
-						<view class="text-right">{{item.patientName}}</view>
+						<view style="width: 30%;">姓名</view>
+						<view style="width: 60%;text-align: right;">
+							<view class="text-right" v-if="isShow.isShowName===false">
+								{{item.patientName|processingName}}
+							</view>
+							<view class="text-right" v-else>
+								{{item.patientName}}
+							</view>
+						</view>
+						<view style="width: 10%;text-align: right;">
+							<text class="iconfont icon-biyanjing" v-if="isShow.isShowName===false"
+								style="color: #008cfe" @click="isShowNameClick()"></text>
+							<text class="iconfont icon-icon-eye-open" v-if="isShow.isShowName===true"
+								style="color: #008cfe" @click="isShowNameClick()"></text>
+						</view>
+
 					</view>
 					<view class="patient-container-row">
-						<view>年龄</view>
-						<view class="text-right">{{item.patientAge}}</view>
+						<view style="width: 30%;">年龄</view>
+						<view style="width: 60%;text-align: right;">
+							<view class="text-right">{{item.patientAge}}</view>
+						</view>
+						<view style="width: 10%;text-align: right;">
+
+						</view>
 					</view>
 					<view class="patient-container-row">
-						<view>身份证号</view>
-						<view class="text-right">{{item.patientCardId}}</view>
+						<view style="width: 30%;">身份证号</view>
+						<view style="width: 60%;text-align: right;">
+							<view class="text-right" v-if="isShow.isShowCardId===false">
+								{{item.patientCardId|processingcardNumber}}
+							</view>
+							<view class="text-right" v-else>
+								{{item.patientCardId}}
+							</view>
+						</view>
+						<view style="width: 10%;text-align: right;">
+							<text class="iconfont icon-biyanjing" v-if="isShow.isShowCardId===false"
+								style="color: #008cfe" @click="isShowCardIdClick()"></text>
+							<text class="iconfont icon-icon-eye-open" v-if="isShow.isShowCardId===true"
+								style="color: #008cfe" @click="isShowCardIdClick()"></text>
+						</view>
+
 					</view>
 					<view class="patient-container-row">
-						<view>就诊卡号</view>
-						<view class="text-right">{{item.cardNumber}}</view>
+						<view style="width: 30%;">就诊卡号</view>
+						<view style="width: 60%;text-align: right;">
+							<view class="text-right" v-if="isShow.isShowNumber===false">
+								{{item.cardNumber|processingcardNumber}}
+							</view>
+							<view class="text-right" v-else>
+								{{item.cardNumber}}
+							</view>
+						</view>
+						<view style="width: 10%;text-align: right;">
+							<text class="iconfont icon-biyanjing" v-if="isShow.isShowNumber===false"
+								style="color: #008cfe" @click="isShowNumberClick()"></text>
+							<text class="iconfont icon-icon-eye-open" v-if="isShow.isShowNumber===true"
+								style="color: #008cfe" @click="isShowNumberClick()"></text>
+						</view>
+
 					</view>
 					<view class="patient-container-row">
-						<view>与就诊者关系</view>
-						<view class="text-right">{{item.patientRelationship | patientRelationship}}</view>
+						<view style="width: 30%;">与就诊者关系</view>
+						<view style="width: 60%;text-align: right;">
+							<view class="text-right">{{item.patientRelationship | patientRelationship}}</view>
+						</view>
+						<view style="width: 10%;text-align: right;">
+
+						</view>
 					</view>
 
 					<view class="patient-radio-row" style="display: flex;justify-content: space-between;">
@@ -190,6 +242,11 @@
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
 
 				isShowDelConfirm: false,
+				isShow: {
+					isShowName: false,
+					isShowCardId: false,
+					isShowNumber: false
+				},
 				patientList: [],
 				currentSelectPatient: {},
 				currentDelSelectPatient: {},
@@ -235,7 +292,19 @@
 				]
 				const obj = arr.filter(item => item.value === val)
 				return obj[0].label
-			}
+			},
+			processingName(str) {
+				if (!str) {
+					return '-';
+				}
+				return '*' + str.substr(1);
+			},
+			processingcardNumber(str) {
+				if (!str) {
+					return '-';
+				}
+				return '****' + str.substr(4);
+			},
 		},
 		methods: {
 			// 提示框
@@ -264,6 +333,28 @@
 			// 取消的方法，触发就会返回首页
 			quxiao() {
 				this.$refs.pop.close();
+			},
+
+			isShowNameClick() {
+				if (this.isShow.isShowName === false) {
+					this.isShow.isShowName = true;
+				} else {
+					this.isShow.isShowName = false;
+				}
+			},
+			isShowCardIdClick() {
+				if (this.isShow.isShowCardId === false) {
+					this.isShow.isShowCardId = true;
+				} else {
+					this.isShow.isShowCardId = false;
+				}
+			},
+			isShowNumberClick() {
+				if (this.isShow.isShowNumber === false) {
+					this.isShow.isShowNumber = true;
+				} else {
+					this.isShow.isShowNumber = false;
+				}
 			},
 
 			queren() {
@@ -348,7 +439,7 @@
 				if (!item.patientId) {
 					return;
 				}
-				
+
 				const _this = this
 
 				uni.showModal({
@@ -381,7 +472,7 @@
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
-				}).final( _ => {
+				}).final(_ => {
 					this.loading = false;
 				})
 			},

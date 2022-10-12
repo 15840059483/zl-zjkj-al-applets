@@ -23,7 +23,7 @@
 						<div class="xiaceng">
 							<text>就诊号</text>
 							<text style="margin-left:5px;">：</text>
-							<text style="margin-left:5px;">{{ currentPatient.cardNumber }}</text>
+							<text style="margin-left:5px;">{{ processingcardNumber(currentPatient.cardNumber) }}</text>
 						</div>
 					</div>
 				</div>
@@ -43,7 +43,7 @@
 						<div class="xiaceng">
 							<text>就诊号</text>
 							<text style="margin-left:5px;">：</text>
-							<text style="margin-left:5px;">{{ huanzhexinxi.cardNumber }}</text>
+							<text style="margin-left:5px;">{{ processingcardNumber(huanzhexinxi.cardNumber) }}</text>
 						</div>
 					</div>
 				</div>
@@ -61,7 +61,7 @@
 						v-bind:key="item.cardNumber" @click="onSwitchPatientBtn(item)">
 						<div class="patient-name">*{{ item.patientName }}</div>
 						<div class="visit-number" style="font-size: 14px;color: rgb(146, 146, 146);">
-							就诊号：{{ item.cardNumber }}</div>
+							就诊号：*{{ processingcardNumber(item.cardNumber )}}</div>
 						<text class="iconfont icon-duihao" v-if="currentPatient.cardNumber === item.cardNumber"
 							style="color: #008cfe"></text>
 					</div>
@@ -83,9 +83,9 @@
 					</div>
 					<div class="border-bottom switch-patient-list" v-for="item in switchPatientList"
 						v-bind:key="item.cardNumber" @click="onSwitchPatientBtn(item)">
-						<div class="patient-name">{{ item.patientName }}</div>
+						<div class="patient-name">*{{ item.patientName }}</div>
 						<div class="visit-number" style="font-size: 14px;color: rgb(146, 146, 146);">
-							就诊号：{{ item.cardNumber }}</div>
+							就诊号：{{ processingcardNumber(item.cardNumber) }}</div>
 						<!-- <i class="el-icon-check" v-if="huanzhexinxi.shenfenID === item.shenfenID" style="color: #008cfe"></i> -->
 						<text class="iconfont icon-duihao" v-if="huanzhexinxi.cardNumber === item.cardNumber"
 							style="color: #008cfe"></text>
@@ -204,6 +204,14 @@
 						return "-";
 					}
 					return "*" + val.substr(1);
+				}
+			},
+			processingcardNumber(){
+				return function(val) {
+					if (!val) {
+						return "-";
+					}
+					return "'****'" + val.substr(4);
 				}
 			},
 			zongjiner(xiangmujiner, xiangmucishu) {

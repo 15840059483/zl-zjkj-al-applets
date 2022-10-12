@@ -85,3 +85,9 @@
 .icon-check:before {
   content: "\e7fc";
 }
+.icon-biyanjing:before {
+  content: "\e901";
+}
+.icon-icon-eye-open:before {
+  content: "\e60c";
+}

@@ -21,7 +21,7 @@
 					</view>
 					<view class="card-row">
 						<view class="visit-number" v-if="patient.admissionNumber">
-							病例号/手机号/身份证号：{{ patient.admissionNumber }}</view>
+							病例号/手机号/身份证号：{{ patient.admissionNumber | processingcardNumber }}</view>
 						<view class="visit-number" v-else>病例号/手机号/身份证号：</view>
 					</view>
 				</div>
@@ -179,6 +179,12 @@
 					return '-';
 				}
 				return '*' + str.substr(1);
+			},
+			processingcardNumber(str){
+				if (!str) {
+					return '-';
+				}
+				return '****' + str.substr(4);
 			},
 		},
 		data() {

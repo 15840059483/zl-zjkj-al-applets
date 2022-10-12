@@ -13,10 +13,10 @@
 					<div style="display: flex; width: 100%;">
 						<div class="shangceng">
 							<div class="xingming">
-								<span>{{ currentPatient.name }}</span>
+								<span>{{ processingName(currentPatient.name) }}</span>
 							</div>
 							<div class="shouji">
-								<span>{{ currentPatient.shouji }}</span>
+								<span>{{ processingcardNumber(currentPatient.shouji)}}</span>
 							</div>
 						</div>
 						<view :span="12" class="change-patient-name">
@@ -31,7 +31,7 @@
 							<text>{{ currentPatient.sex }}</text>
 							<text style="margin-left:5px;">/</text>
 							<text style="margin-left:5px;">{{ currentPatient.age }}岁</text>
-							<text style="margin-left:5px;">身份证：{{ currentPatient.shenfenID }}</text>
+							<text style="margin-left:5px;">身份证：{{ processingcardNumber(currentPatient.shenfenID) }}</text>
 						</div>
 					</div>
 					<!-- <div class="qiehuananniu">
@@ -45,10 +45,10 @@
 					<div style="display: flex; width: 100%;">
 						<div class="shangceng">
 							<div class="xingming">
-								<span>{{ huanzhexinxi.name }}</span>
+								<span>{{ processingName(huanzhexinxi.name)}}</span>
 							</div>
 							<div class="shouji">
-								<span>{{ huanzhexinxi.shouji }}</span>
+								<span>{{ processingcardNumber(huanzhexinxi.shouji) }}</span>
 							</div>
 						</div>
 						<view :span="12" class="change-patient-name">
@@ -62,7 +62,7 @@
 							<text>{{ huanzhexinxi.sex }}</text>
 							<text style="margin-left:5px;">/</text>
 							<text style="margin-left:5px;">{{ huanzhexinxi.age }}岁</text>
-							<text style="margin-left:5px;">身份证：{{ huanzhexinxi.shenfenID }}</text>
+							<text style="margin-left:5px;">身份证：{{ processingcardNumber(huanzhexinxi.shenfenID) }}</text>
 						</div>
 					</div>
 					<!-- <div class="qiehuananniu">
@@ -83,9 +83,9 @@
 					</div>
 					<div class="border-bottom switch-patient-list" v-for="item in switchPatientList"
 						v-bind:key="item.shenfenID" @click="onSwitchPatientBtn(item)">
-						<div class="patient-name">{{ item.name }}</div>
+						<div class="patient-name">*{{ item.name }}</div>
 						<div class="visit-number" style="font-size: 14px;color: rgb(146, 146, 146);">
-							身份证：{{ item.shenfenID }}</div>
+							身份证：{{ processingcardNumber(item.shenfenID) }}</div>
 						<!-- <i class="el-icon-check" v-if="currentPatient.shenfenID === item.shenfenID"
 							style="color: #008cfe"></i> -->
 						<text class="iconfont icon-duihao" v-if="currentPatient.shenfenID === item.shenfenID"
@@ -109,9 +109,9 @@
 					</div>
 					<div class="border-bottom switch-patient-list" v-for="item in switchPatientList"
 						v-bind:key="item.shenfenID" @click="onSwitchPatientBtn(item)">
-						<div class="patient-name">{{ item.name }}</div>
+						<div class="patient-name">*{{ item.name }}</div>
 						<div class="visit-number" style="font-size: 14px;color: rgb(146, 146, 146);">
-							身份证：{{ item.shenfenID }}</div>
+							身份证：{{ processingcardNumber(item.shenfenID) }}</div>
 						<!-- <i class="el-icon-check" v-if="huanzhexinxi.shenfenID === item.shenfenID" style="color: #008cfe"></i> -->
 						<text class="iconfont icon-duihao" v-if="huanzhexinxi.shenfenID === item.shenfenID"
 							style="color: #008cfe"></text>
@@ -309,6 +309,22 @@
 					// 返回下列形式
 					return color;
 				};
+			},
+			processingName() {
+				return function(val) {
+					if (!val) {
+						return '-';
+					}
+					return '*' + val.substr(1);
+				}
+			},
+			processingcardNumber() {
+				return function(val) {
+					if (!val) {
+						return '-';
+					}
+					return '*****' + val.substr(5);
+				}
 			}
 		},
 		data() {
@@ -429,21 +445,21 @@
 				let _this = this;
 				let data = [{
 						name: "张春花",
-						shouji: 11111111111,
+						shouji: '11111111111',
 						sex: "女",
 						age: 28,
 						shenfenID: "11111111111111111X",
 					},
 					{
 						name: "胡尔西代姆·阿卜拉",
-						shouji: 17614245415,
+						shouji: '17614245415',
 						sex: "女",
 						age: 22,
 						shenfenID: "22222222222222222X",
 					},
 					{
 						name: "测试同学2",
-						shouji: 33333333333,
+						shouji: '33333333333',
 						sex: "女",
 						age: 20,
 						shenfenID: "210111111111",

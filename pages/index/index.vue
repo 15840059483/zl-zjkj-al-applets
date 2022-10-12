@@ -21,7 +21,7 @@
 					</view>
 				</view>
 				<uni-row class="card-row">
-					<view class="visit-number">就诊号：{{ dfltPatientInfo.cardNumber || '-' }}</view>
+					<view class="visit-number">就诊号：{{ dfltPatientInfo.cardNumber | processingcardNumber }}</view>
 				</uni-row>
 				<view class="card-row card-row-border">
 					<view :span="8" @click.native="goToPage('/pages/registration-record/registration-record')">挂号记录</view>
@@ -174,6 +174,12 @@
 					return '-';
 				}
 				return '*' + str.substr(1);
+			},
+			processingcardNumber(str){
+				if (!str) {
+					return '-';
+				}
+				return '****' + str.substr(4);
 			},
 		},
 		methods: {

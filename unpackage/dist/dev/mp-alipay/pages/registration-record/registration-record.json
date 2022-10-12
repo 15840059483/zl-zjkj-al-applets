@@ -1,6 +1,4 @@
 {
   "defaultTitle": "挂号记录",
-  "usingComponents": {
-    "zero-loading": "/uni_modules/zero-loading/components/zero-loading/zero-loading"
-  }
+  "usingComponents": {}
 }

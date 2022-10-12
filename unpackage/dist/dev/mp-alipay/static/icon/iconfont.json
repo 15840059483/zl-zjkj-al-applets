@@ -6,6 +6,20 @@
   "description": "小程序内的图标",
   "glyphs": [
     {
+      "icon_id": "3207723",
+      "name": "睁眼",
+      "font_class": "icon-eye-open",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "4354835",
+      "name": "闭眼睛",
+      "font_class": "biyanjing",
+      "unicode": "e901",
+      "unicode_decimal": 59649
+    },
+    {
       "icon_id": "4767093",
       "name": "check",
       "font_class": "check",

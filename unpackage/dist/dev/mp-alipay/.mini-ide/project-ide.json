@@ -1,4 +1,5 @@
 {
   "enableLegacyRemoteDebug": false,
+  "disableSimulatorPermissionCheck": true,
   "ignoreHttpDomainCheck": true
 }

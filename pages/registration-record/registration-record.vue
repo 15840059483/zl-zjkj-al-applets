@@ -2,7 +2,7 @@
 	<view>
 		<!-- <Header title="缴费记录" isBack="yes"></Header> -->
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
+		<!-- <zero-loading v-if="loading" type="pulse" mask></zero-loading> -->
 		<view shadow="never" v-if="currentPatient.cardNumber"
 			style="padding: .2rem;margin-bottom: .2rem;background-color: #fff;">
 			<view class="card-row">
@@ -14,7 +14,7 @@
 				</view>
 			</view>
 			<view class="card-row">
-				<view class="visit-number">就诊号：{{ currentPatient.cardNumber || '-' }}</view>
+				<view class="visit-number">就诊号：{{ currentPatient.cardNumber | processingcardNumber }}</view>
 			</view>
 		</view>
 		<view class="record-container">
@@ -37,19 +37,22 @@
 			<view class="switch-patient-container bg-white">
 				<view class="switch-patient-title text-center border-bottom">
 					切换就诊人
-					<i class="el-icon-error" @click="showSwitchPatient = false"></i>
+					<!-- <i class="el-icon-error" @click="showSwitchPatient = false"></i> -->
+					<text class="iconfont icon-guanbi" @click="showSwitchPatient = false"></text>
 				</view>
 				<view class="border-bottom switch-patient-list" v-for="item in switchPatientList"
 					v-bind:key="item.patientId" @click="onSwitchPatientBtn(item)">
 					<view class="patient-name">*{{ item.patientName }}</view>
-					<view class="visit-number">就诊号：{{ item.cardNumber }}</view>
-					<i class="el-icon-check" v-if="currentPatient.patientId === item.patientId"
-						style="color: #008cfe"></i>
+					<view class="visit-number">就诊号：{{ item.cardNumber | processingcardNumber }}</view>
+					<!-- <i class="el-icon-check" v-if="currentPatient.patientId === item.patientId"
+						style="color: #008cfe"></i> -->
+						<text class="iconfont icon-duihao" v-if="currentPatient.patientId === item.patientId"
+							style="color: #008cfe"></text>
 				</view>
-				<view>
-					<view :span="12" class="switch-patient-btn switch-patient-btn-l" @click.native="addPatient">添加就诊人
+				<view style="display: flex;padding: 10px 0;">
+					<view style="width: 50%;" class="switch-patient-btn switch-patient-btn-l" @click.native="addPatient">添加就诊人
 					</view>
-					<view :span="12" class="switch-patient-btn" @click.native="managePatient">管理就诊人</view>
+					<view style="width: 50%;" class="switch-patient-btn" @click.native="managePatient">管理就诊人</view>
 				</view>
 			</view>
 		</view>
@@ -57,6 +60,7 @@
 </template>
 
 <script>
+	import '@/pages/outpatientPayment/outpatientPayment.scss'
 	export default {
 		name: "registration-record",
 		data() {
@@ -82,7 +86,13 @@
 					return '-'
 				}
 				return val.slice(0, 4) + '-' + val.slice(4, 6) + '-' + val.slice(6, 8)
-			}
+			},
+			processingcardNumber(str){
+				if (!str) {
+					return '-';
+				}
+				return '****' + str.substr(4);
+			},
 		},
 		mounted() {
 			this.getPatientInfo()
@@ -193,7 +203,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				font-size: .4rem;
+				font-size: .25rem;
 
 				.item-bot {
 					color: #DFE0E1;

@@ -33,6 +33,7 @@
 }
 .record-container .record-item .icon-success.data-v-048cfc74 {
   width: 1rem;
+  height: 1rem;
   margin-right: .5rem;
 }
 .record-container .record-item .record-right.data-v-048cfc74 {
@@ -40,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: .4rem;
+  font-size: .25srem;
 }
 .record-container .record-item .record-right .item-bot.data-v-048cfc74 {
   color: #DFE0E1;
