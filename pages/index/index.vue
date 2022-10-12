@@ -26,7 +26,7 @@
 				<view class="card-row card-row-border">
 					<view :span="8" @click.native="goToPage('/pages/registration-record/registration-record')">挂号记录</view>
 					<view :span="8" class="border-l-r"
-						@click.native="goToPage('/pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records', true)">
+						@click.native="goToPage('/pages/payment-record/payment-record', true)">
 						缴费记录</view>
 					<view :span="8" @click.native="goToPage('/pages/barCodeAndQrCode/barCodeAndQrCode', true)">
 						<image src="https://s1.ax1x.com/2022/09/02/vIr5tJ.png"

@@ -16,6 +16,7 @@
     "pages/survey-new-coupons/survey-new-coupons",
     "pages/survey-new-coupons/survey-results",
     "pages/satisfaction/satisfaction",
+    "pages/payment-record/payment-record",
     "pages/outPatientQueryFeeList/queryOutFeeList",
     "pages/hospitalizationPayment/hospitalization-payment-records/hospitalization-payment-records",
     "pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details",

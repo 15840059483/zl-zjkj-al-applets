@@ -153,6 +153,15 @@
 			}
 		},
 		{
+			// 缴费记录
+			// 路径
+			"path": "pages/payment-record/payment-record",
+			"style": {
+				// 导肮标题
+				"navigationBarTitleText": "缴费记录"
+			}
+		},
+		{
 			// 门诊缴费记录
 			// 路径
 			"path": "pages/outPatientQueryFeeList/queryOutFeeList",

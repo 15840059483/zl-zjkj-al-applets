@@ -1,7 +1,7 @@
 // 封装的request
 
 // const BASE_URL = "http://fsybzzj.natapp1.cc"
-export const BASE_URL = "http://679gtw.natappfree.cc"
+export const BASE_URL = "http://xhbgec.natappfree.cc"
 // const BASE_URL = "http://192.168.1.7:9088"
 
 export const myRequest = (options) => {

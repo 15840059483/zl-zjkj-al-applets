@@ -1,16 +1,15 @@
 <template>
 	<view>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
-	<!-- 	<view class="header" style="width: 100%;height: 150rpx;">
+		<!-- 	<view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
 		</view> -->
 		<view class="zhuti">
 			<uni-card>
-				<view class="payment-success-wrapper bg-white" style="padding: 10px 0.5rem;"> 
+				<view class="payment-success-wrapper bg-white" style="padding: 10px 0.5rem;">
 					<view style="width: 100%; display: flex;">
 						<view style="width: 25%;text-align: center;">
-							<img style="width: 70px;height: 70px;"
-								src="https://s1.ax1x.com/2022/09/23/xkliHH.png" />
+							<img style="width: 70px;height: 70px;" src="https://s1.ax1x.com/2022/09/23/xkliHH.png" />
 						</view>
 						<view style="width: 75%;padding: 9px .3rem 9px .3rem;">
 							<div style="font-size: 16px;" class="payment-success">{{ "缴费成功" }}</div>
@@ -18,7 +17,8 @@
 						</view>
 					</view>
 
-					<view style="width: 100%;text-align: left;font-size: 14px;line-height: 1rem;margin-top: 10px;" class="payment-tip">
+					<view style="width: 100%;text-align: left;font-size: 14px;line-height: 1rem;margin-top: 10px;"
+						class="payment-tip">
 						<span>缴费成功，请在当天提前15分钟前往医院候诊</span>
 					</view>
 				</view>
@@ -32,49 +32,49 @@
 			<uni-card>
 				<div class="payment-list-item bg-white margin-top biankuang">
 					<div :span="12">费用类型</div>
-					<div :span="12" class="text-right">{{ "挂号缴费" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.costName }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang">
 					<div :span="12">医院名称</div>
-					<div :span="12" class="text-right">{{ "医科大附属医院" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.hospitalName || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang">
 					<div :span="12">就诊科室</div>
-					<div :span="12" class="text-right">{{ "外科" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.hospitalName || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang">
 					<div :span="12">科室位置</div>
-					<div :span="12" class="text-right">{{ "三楼一诊室" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.hospitalName || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang">
 					<div :span="12">医生名称</div>
-					<div :span="12" class="text-right">{{ "老中医" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.hospitalName || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang">
 					<div :span="12">医生职称</div>
-					<div :span="12" class="text-right">{{ "教授" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.hospitalName || '-' }}</div>
 				</div>
 			</uni-card>
 			<uni-card>
 				<div class="payment-list-item bg-white margin-top biankuang">
 					<div :span="12">就诊人</div>
-					<div :span="12" class="text-right">{{ "狐狸" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.hospitalName || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang" style="color: #3a8ee6">
 					<div :span="12">平台单号</div>
-					<div :span="12" class="text-right">{{ "888888" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.hospitalName || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang" style="color: #5daf34">
 					<div :span="12">发票号</div>
-					<div :span="12" class="text-right">{{ "000999" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.invoiceNo || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang">
 					<div :span="12">支付流水号</div>
-					<div :span="12" class="text-right">{{ "222222" }}</div>
+					<div :span="12" class="text-right">{{ orderDetail.patientSeq || '-' }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang" style="color: #ff4d51">
 					<div :span="12">诊查费</div>
-					<div :span="12" class="text-right">￥{{ "12" }}</div>
+					<div :span="12" class="text-right">￥{{ orderDetail.payMount }}</div>
 				</div>
 				<!--    <div class="payment-list-item bg-white" v-if="orderDetail.costType != 4011">-->
 				<!--      <div :span="12">工本费</div>-->
@@ -82,15 +82,15 @@
 				<!--    </div>-->
 				<div class="payment-list-item bg-white biankuang" style="color: #ff4d51">
 					<div :span="12">合计金额</div>
-					<div :span="12" class="text-right">￥{{ "12" }}</div>
+					<div :span="12" class="text-right">￥{{ orderDetail.balanceFee || 0 }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang" style="color: #ff4d51">
 					<div :span="12">总金额</div>
-					<div :span="12" class="text-right">￥{{ "12" }}</div>
+					<div :span="12" class="text-right">￥{{ orderDetail.payMount || 0 }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang" style="color: #ff4d51">
 					<div :span="12">退费金额</div>
-					<div :span="12" class="text-right">￥{{ "0" }}</div>
+					<div :span="12" class="text-right">￥{{ orderDetail.refundFee || 0 }}</div>
 				</div>
 				<div class="payment-list-item bg-white biankuang"
 					style="flex-wrap: wrap; height: auto;margin-bottom: 30px;">
@@ -100,7 +100,13 @@
 					<!--      </div>-->
 					<!--      <div class="text-right" style="color: red;font-size: .4rem">{{ orderDetail.description | descriptionError }}</div>-->
 
-					<div style="color: green">{{ "缴费正常" }}</div>
+					<div v-if="orderDetail.description === '缴费正常'" style="color: green">{{ orderDetail.description }}
+					</div>
+					<div v-else v-for="(value, key) in JSON.parse(orderDetail.description)"
+						style="width: 100%;display: flex;justify-content: space-between;margin-top: .2rem;">
+						<span style="color: red;font-size: .4rem">{{ key }}</span>
+						<span style="color: red;font-size: .4rem">{{ value }}</span>
+					</div>
 				</div>
 			</uni-card>
 
@@ -118,16 +124,9 @@
 </template>
 
 <script>
-	// 引入导航栏组件
-	// import header from '@/components/header/header.vue'
 	import "./register-success.scss";
 	import "../payment-details/payment-details.scss";
-	import base from "../../request/base";
 	export default {
-		// 调用头部组件
-		components: {
-			// header
-		},
 		filters: {
 			dateStr(val) {
 				if (!val) {
@@ -259,7 +258,7 @@
 </script>
 
 <style scoped>
-/* 	.header {
+	/* 	.header {
 		position: fixed;
 		top: 0;
 		z-index: 999;

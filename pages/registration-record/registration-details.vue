@@ -1,17 +1,19 @@
 <template>
   <div style="padding-bottom: 1rem">
-    <el-row class="payment-success-wrapper bg-white">
-      <el-col :span="5">
-        <img style="width: 1.5rem;" src="../../static/icon-success.png">
-      </el-col>
-      <el-col :span="19">
-        <div class="payment-success">{{ '缴费成功' }}</div>
-        <div>{{ orderDetail.regDate | dateStr }}</div>
-      </el-col>
-      <el-col :span="24" class="payment-tip">
+    <view class="payment-success-wrapper bg-white">
+      <view style="display: flex;align-items: center;">
+		  <view :span="5">
+		    <img style="width: 1.5rem;height: 1.5rem;margin-right: .2rem;" src="../../static/icon-success.png">
+		  </view>
+		  <view :span="19">
+		    <div class="payment-success">{{ '缴费成功' }}</div>
+		    <div>{{ orderDetail.regDate | dateStr }}</div>
+		  </view>
+	  </view>
+      <view :span="24" class="payment-tip">
         <span>预约挂号成功，请在预约当天提前15分钟前往医院挂号克式排队候诊</span>
-      </el-col>
-    </el-row>
+      </view>
+    </view>
 
     <div class="payment-ma-wrapper bg-white text-center">
       <p class="payment-ma-ping">就诊凭条（凭以下凭条进行就诊）</p>
@@ -19,7 +21,7 @@
       <p class="payment-ma-num">{{ orderDetail.outpatientId }}</p>
     </div>
 
-    <div class="payment-list-item bg-white" v-if="">
+    <div class="payment-list-item bg-white">
       <div>就诊时间</div>
       <div class="text-right">{{ orderDetail.regDate | dateStr }}{{'['+orderDetail.scheduleName+']'}}</div>
     </div>
@@ -64,6 +66,7 @@
 
 <script>
 import {BASE_URL} from "../../http/api.js";
+import '../payment-details/payment-details.scss'
 
 export default {
   name: "registration-details",

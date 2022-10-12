@@ -31,6 +31,7 @@
 					</view>
 				</view>
 			</view>
+			<view v-if="listData.length === 0" style="text-align: center;color: #999;">暂无记录</view>
 		</view>
 		<view v-if="showSwitchPatient" class="switch-patient-bg">
 			<view class="switch-patient-container bg-white">
@@ -60,11 +61,7 @@
 		name: "registration-record",
 		data() {
 			return {
-				listData: [{
-					deptName: '脑外科',
-					patientName: '*sw',
-					totalFee: 100
-				}],
+				listData: [],
 				dfltPatientInfo: [],
 				switchPatientList: [],
 				currentPatient: {},
@@ -118,14 +115,15 @@
 			},
 			getList() {
 				const params = {
-					patientNo: this.currentPatient.cardNumber
+					// patientNo: this.currentPatient.cardNumber
+					patientNo: '0000000001'
 				}
 				this.loading = true
 				this.$myRequest({
 					url: "/hospt/getRegList",
 					data: params
 				}).then(data => {
-					this.listData = res.data
+					this.listData = data.data
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
@@ -143,8 +141,7 @@
 					data: params
 				}).then(res => {
 					uni.navigateTo({
-						url: '/pages/registration-record/registration-details?orderDetail=' + JSON
-							.stringify(res.data[0])
+						url: '/pages/registration-record/registration-details?orderDetail=' + JSON.stringify(res.data[0])
 					})
 					this.loading = false;
 				}).catch(err => {

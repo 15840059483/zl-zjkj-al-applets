@@ -5991,19 +5991,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 208:
-/*!***************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outPatientQueryFeeList/queryOutFeeList.scss ***!
-  \***************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
-
-/***/ }),
-
 /***/ 21:
 /*!****************************************************************************************!*\
   !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/helpers/bind.js ***!
@@ -6026,10 +6013,10 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 
-/***/ 217:
-/*!***************************************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details.scss ***!
-  \***************************************************************************************************************************************/
+/***/ 216:
+/*!***************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outPatientQueryFeeList/queryOutFeeList.scss ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6210,10 +6197,10 @@ module.exports = Axios;
 
 /***/ }),
 
-/***/ 226:
-/*!******************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/departmentList/departmentList.scss ***!
-  \******************************************************************************************/
+/***/ 225:
+/*!***************************************************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hospitalizationPayment/inpatient-payment-details/inpatient-payment-details.scss ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6304,10 +6291,10 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ }),
 
-/***/ 233:
-/*!************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.scss ***!
-  \************************************************************************************************************/
+/***/ 234:
+/*!******************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/departmentList/departmentList.scss ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6382,23 +6369,10 @@ module.exports = InterceptorManager;
 
 /***/ }),
 
-/***/ 242:
-/*!**********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/doctorScheduling/doctorScheduling.scss ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
-
-/***/ }),
-
-/***/ 243:
-/*!*****************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outPatientFeeListIndex/outpatientPayment.scss ***!
-  \*****************************************************************************************************/
+/***/ 241:
+/*!************************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.scss ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6506,10 +6480,23 @@ module.exports = function dispatchRequest(config) {
 
 /***/ }),
 
-/***/ 252:
-/*!**************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.scss ***!
-  \**************************************************************************************************************/
+/***/ 250:
+/*!**********************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/doctorScheduling/doctorScheduling.scss ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
+/***/ 251:
+/*!*****************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outPatientFeeListIndex/outpatientPayment.scss ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6549,6 +6536,19 @@ module.exports = function transformData(data, headers, fns) {
 
   return data;
 };
+
+/***/ }),
+
+/***/ 260:
+/*!**************************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.scss ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
 
 /***/ }),
 
@@ -6710,6 +6710,17 @@ module.exports = defaults;
 
 /***/ }),
 
+/***/ 275:
+/*!*************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/static/icon-success.png ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/icon-success.png";
+
+/***/ }),
+
 /***/ 28:
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
@@ -6752,19 +6763,6 @@ exports.uptime = exports.memoryUsage =
 exports.uvCounters = function() {};
 exports.features = {};
 
-
-/***/ }),
-
-/***/ 285:
-/*!*********************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/huanzhe/symptom/toubu/toubukeshi.scss ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
 
 /***/ }),
 
@@ -7566,6 +7564,19 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
     }
   });
 };
+
+/***/ }),
+
+/***/ 300:
+/*!*********************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/huanzhe/symptom/toubu/toubukeshi.scss ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
 
 /***/ }),
 
@@ -9844,19 +9855,6 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
-/***/ 374:
-/*!************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outpatientPayment/outpatientPayment.scss ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
-
-/***/ }),
-
 /***/ 38:
 /*!****************************************************************************************!*\
   !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/adapters/xhr.js ***!
@@ -10090,10 +10088,10 @@ module.exports = function xhrAdapter(config) {
 
 /***/ }),
 
-/***/ 383:
-/*!**********************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hospitalizationPayment/hospitalizationPayment.scss ***!
-  \**********************************************************************************************************/
+/***/ 389:
+/*!************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/outpatientPayment/outpatientPayment.scss ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10136,6 +10134,19 @@ module.exports = function settle(resolve, reject, response) {
 
   }
 };
+
+/***/ }),
+
+/***/ 398:
+/*!**********************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/hospitalizationPayment/hospitalizationPayment.scss ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
 
 /***/ }),
 
@@ -16256,45 +16267,6 @@ function nonStandardBrowserEnv() {
 
 /***/ }),
 
-/***/ 400:
-/*!****************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/report-query2.css ***!
-  \****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
-
-/***/ }),
-
-/***/ 401:
-/*!*********************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/outpatientPayment.scss ***!
-  \*********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
-
-/***/ }),
-
-/***/ 402:
-/*!**************************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/hospitalizationPayment.scss ***!
-  \**************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
-
-/***/ }),
-
 /***/ 41:
 /*!**********************************************************************************************!*\
   !*** F:/projectCode/al/yanbing/zjkj-al-applets/node_modules/axios/lib/core/buildFullPath.js ***!
@@ -16326,10 +16298,36 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 
 /***/ }),
 
-/***/ 411:
+/***/ 415:
 /*!****************************************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query3/report-query3.css ***!
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/report-query2.css ***!
   \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
+/***/ 416:
+/*!*********************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/outpatientPayment.scss ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
+/***/ 417:
+/*!**************************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query2/hospitalizationPayment.scss ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16361,6 +16359,19 @@ module.exports = function isAbsoluteURL(url) {
   // by any combination of letters, digits, plus, period, or hyphen.
   return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 };
+
+/***/ }),
+
+/***/ 426:
+/*!****************************************************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/pages/report-query/report-query3/report-query3.css ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
 
 /***/ }),
 
@@ -17524,7 +17535,37 @@ module.exports = {
 
 /***/ }),
 
-/***/ 592:
+/***/ 60:
+/*!****************************************!*\
+  !*** ./node_modules/qs/lib/formats.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var replace = String.prototype.replace;
+var percentTwenties = /%20/g;
+
+module.exports = {
+    'default': 'RFC3986',
+    formatters: {
+        RFC1738: function (value) {
+            return replace.call(value, percentTwenties, '+');
+        },
+        RFC3986: function (value) {
+            return value;
+        }
+    },
+    RFC1738: 'RFC1738',
+    RFC3986: 'RFC3986'
+};
+
+
+/***/ }),
+
+/***/ 607:
 /*!*****************************************************************************************************!*\
   !*** F:/projectCode/al/yanbing/zjkj-al-applets/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \*****************************************************************************************************/
@@ -18701,36 +18742,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 60:
-/*!****************************************!*\
-  !*** ./node_modules/qs/lib/formats.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var replace = String.prototype.replace;
-var percentTwenties = /%20/g;
-
-module.exports = {
-    'default': 'RFC3986',
-    formatters: {
-        RFC1738: function (value) {
-            return replace.call(value, percentTwenties, '+');
-        },
-        RFC3986: function (value) {
-            return value;
-        }
-    },
-    RFC1738: 'RFC1738',
-    RFC3986: 'RFC3986'
-};
-
-
-/***/ }),
-
 /***/ 61:
 /*!**************************************!*\
   !*** ./node_modules/qs/lib/parse.js ***!
@@ -18928,7 +18939,7 @@ module.exports = function (str, opts) {
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.myRequest = exports.BASE_URL = void 0; // 封装的request
 
 // const BASE_URL = "http://fsybzzj.natapp1.cc"
-var BASE_URL = "http://679gtw.natappfree.cc";
+var BASE_URL = "http://xhbgec.natappfree.cc";
 // const BASE_URL = "http://192.168.1.7:9088"
 exports.BASE_URL = BASE_URL;
 var myRequest = function myRequest(options) {
@@ -18994,14 +19005,14 @@ var myRequest = function myRequest(options) {
 
 /***/ }),
 
-/***/ 695:
-/*!*************************************************************************!*\
-  !*** F:/projectCode/al/yanbing/zjkj-al-applets/static/icon-success.png ***!
-  \*************************************************************************/
+/***/ 646:
+/*!*******************************************************************!*\
+  !*** F:/projectCode/al/yanbing/zjkj-al-applets/static/yes-yi.png ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/static/icon-success.png";
+module.exports = "/static/yes-yi.png";
 
 /***/ }),
 
