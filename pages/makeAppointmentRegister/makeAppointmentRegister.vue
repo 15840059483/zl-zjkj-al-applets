@@ -24,7 +24,7 @@
 				<uni-card>
 					<div class="outpatient-department" style="font-size: 16px;margin-bottom: .2rem;">
 						<img src="https://s1.ax1x.com/2022/09/20/xCDS5F.png" />
-						{{ deptInfo.deptName }}
+						{{ deptName }}
 					</div>
 					<p class="introduce" style="
 			          overflow: hidden;
@@ -33,7 +33,7 @@
 			          -webkit-line-clamp: 6;
 			          -webkit-box-orient: vertical;
 			        ">
-						{{ deptInfo.introduce }}
+						{{ '无' }}
 					</p>
 				</uni-card>
 			</div>
@@ -91,25 +91,24 @@
 			</view>
 
 			<div class="bg-white">
-				<view v-for="(item,index) in doctors" v-bind:key="index" class="doc-row" @click="clickDoctor(item)"
+				<view class="doc-row" @click="clickDoctor(null)"
 					style="display: flex;">
 					<view style="width: 25%;">
 						<div class="doc-img">
-							<img v-if="item.docID" :src="baseUrl + '/hospt/doctorsImg/' + item.docID" />
-							<img v-if="!item.docID" :src="baseUrl + '/hospt/doctorsImg/' + '0'" />
+							<img src="https://s1.ax1x.com/2022/10/13/xaGuDJ.jpg" />
 						</div>
 					</view>
 					<view style="width: 60%;padding: .1rem .2rem .1rem .2rem;">
 						<view>
 							<view class="doc-name">{{
-			              item.docName ? item.docName : item.deptName
+			              deptName
 			            }}</view>
-							<view class="doc-position" style="margin-top: 40px;">{{ item.regLevelName }}</view>
+							<view class="doc-position" style="margin-top: 40px;">{{ '普诊' }}</view>
 						</view>
 					</view>
 					<!--          <view :span="7" class="text-right doc-money">￥{{item.totalFee}}</view>-->
 					<view style="width: 15%;" class="text-right doc-money">{{
-			          item.noonID == "1" ? "上午" : "下午"
+			          "全天"
 			        }}</view>
 					<view :span="5" class="text-center">
 						<!--            <span class="doc-remainder">余号：{{item.remainingNum}}</span>-->
@@ -123,23 +122,23 @@
 
 			<div class="confirm-container bg-white" v-if="isShowConfirm">
 				<div class="text-center confirm-doc">
-					<div style="margin-bottom: 0.2rem">
-						{{ doctor.deptName }}&nbsp;&nbsp;&nbsp;&nbsp;
-						<span style="font-size: 0.35rem">{{ doctor.regLevelName }}</span>
+					<div style="margin-bottom: 0.2rem;text-align: center;">
+						{{ deptName }}
+						<span style="font-size: 0.35rem;margin-left: .2rem;">{{ '普诊' }}</span>
 					</div>
-					<div>
-						{{ "￥" + feeBill.DigFee }}&nbsp;&nbsp;&nbsp;&nbsp;
+					<div style="text-align: center;">
+						{{ "￥" + '8' }}&nbsp;&nbsp;&nbsp;&nbsp;
 						{{
 			              today.getMonth() + 1 + " - " + selectDay
 			            }}&nbsp;&nbsp;&nbsp;&nbsp; 星期{{ weeks[selectDayIndex] }}
 					</div>
 				</div>
 				<div class="confirm-time">
-					<div>{{ doctor.noonID == "1" ? "上午" : "下午" }}</div>
+					<div>{{ '全天' }}</div>
 				</div>
-				<view class="text-center confirm-btn-row">
-					<view :span="12" class="confirm-btn" @click.native="closeConfirm">取消</view>
-					<view :span="12" class="confirm-btn confirm-btn-save" @click.native="saveConfirm">确认</view>
+				<view class="text-center confirm-btn-row" style="display: flex;">
+					<view style="width: 50%; text-align: center;" class="confirm-btn" @click.native="closeConfirm">取消</view>
+					<view style="width: 50%; text-align: center;" class="confirm-btn confirm-btn-save" @click.native="saveConfirm">确认</view>
 				</view>
 			</div>
 
@@ -195,6 +194,7 @@
 				},
 				showSwitchPatient: true,
 				deptId: "",
+				deptName: "",
 				isShowText: true, // 控制内容显示
 				keshiname: '', //科室名称
 			}
@@ -203,6 +203,7 @@
 		onLoad(e) {
 			//console.log(e);
 			this.deptId = e.id;
+			this.deptName = e.deptName;
 			//console.log(this.deptId)
 			this.jiazai()
 		},
@@ -337,6 +338,13 @@
 				//this.$message.warning('暂不支持预约挂号');
 				//return false;
 				//}
+				
+				uni.showToast({
+					title: '不支持预约挂号哟！',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
 				if ((this.selectDay = this.today.getDay())) {
 					this.showSwitchPatient = true;
 				} else {
@@ -349,54 +357,30 @@
 				this.getDetDoctorInfo();
 			},
 			clickDoctor(doctor) {
-				//console.log(doctor)
-				this.doctor = doctor;
-				if (doctor.docName != null) {
-					this.goToPage(doctor);
-				} else {
-					this.openConfirm(doctor);
-				}
+				
+				this.openConfirm(doctor)
 			},
 			openConfirm(doctor) {
 				this.isShowConfirm = true;
-				//console.log(this.doctor);
-
-				const params = {
-					RegLevelID: doctor.regLevelID,
-				};
-				if (doctor.regLevelID != "1") {
-					this.$myRequest({
-						url: "/hospt/getDoctorFeeBill",
-						data: params
-					}).then(data => {
-						const feeBill = data.data;
-						this.feeBill = feeBill;
-						this.doctor.totalFee = this.feeBill.DigFee;
-						this.loading = false;
-					}).catch(err => {
-						this.loading = false;
-					})
-				}
 				this.feeBill.DigFee = this.deptbill.totalFee;
 			},
 			closeConfirm() {
 				this.isShowConfirm = false;
 			},
 			saveConfirm() {
-				this.$router.push({
-					path: "/registrationConfirmation",
-					query: {
-						doctorInfo: encodeURIComponent(JSON.stringify(this.doctor)),
-						date: this.today.getFullYear() +
-							"/" +
-							(this.today.getMonth() < 10 ?
-								"0" + (this.today.getMonth() + 1) :
-								this.today.getMonth() + 1) +
-							"/" +
-							(this.selectDay < 10 ? "0" + this.selectDay : this.selectDay),
-						noonName: "[" + (this.doctor.noonID == "1" ? "上午" : "下午") + "]",
-						noonID: this.doctor.noonID,
-					},
+				uni.navigateTo({
+					url: '/pages/registrationConfirmation/registrationConfirmation?deptName=' +
+						this.deptName +
+						'&noonName=' + '上午' +
+						'&deptId=' + this.deptId +
+						'&noonID=' + '1'+
+						'&date=' + this.selectDayInfo.year +
+						"/" +
+						(this.selectDayInfo.month < 10 ?
+							"0" + this.selectDayInfo.month :
+							this.selectDayInfo.month) +
+						"/" +
+						(this.selectDay < 10 ? "0" + this.selectDay : this.selectDay),
 				});
 				this.closeConfirm();
 			},
@@ -470,30 +454,6 @@
 						"/" +
 						(this.selectDay < 10 ? "0" + this.selectDay : this.selectDay)
 				});
-
-
-				// this.$router.push(
-				// 	"/doctorScheduling?regLevelID=" +
-				// 	item.regLevelID +
-				// 	"&doctorInfo=" +
-				// 	JSON.stringify(item) +
-				// 	"&testDay=" +
-				// 	this.testDay +
-				// 	"&selectDayIndex=" +
-				// 	this.weeks[this.selectDayIndex] +
-				// 	"&selectDay=" +
-				// 	this.selectDay +
-				// 	"&selectDayInfo=" +
-				// 	JSON.stringify(this.selectDayInfo) +
-				// 	"&date=" +
-				// 	this.selectDayInfo.year +
-				// 	"/" +
-				// 	(this.selectDayInfo.month < 10 ?
-				// 		"0" + this.selectDayInfo.month :
-				// 		this.selectDayInfo.month) +
-				// 	"/" +
-				// 	(this.selectDay < 10 ? "0" + this.selectDay : this.selectDay)
-				// );
 			},
 		},
 		// 这是uni的生命周期

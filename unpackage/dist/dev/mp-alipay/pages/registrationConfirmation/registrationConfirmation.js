@@ -1,9 +1,9 @@
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([["pages/registrationConfirmation/registrationConfirmation"],{
 
 /***/ 256:
-/*!**********************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/main.js?{"page":"pages%2FregistrationConfirmation%2FregistrationConfirmation"} ***!
-  \**********************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2FregistrationConfirmation%2FregistrationConfirmation"} ***!
+  \*************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19,9 +19,9 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_registrat
 /***/ }),
 
 /***/ 257:
-/*!***************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue ***!
-  \***************************************************************************************************************************/
+/*!******************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue ***!
+  \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60,9 +60,9 @@ component.options.__file = "pages/registrationConfirmation/registrationConfirmat
 /***/ }),
 
 /***/ 258:
-/*!**********************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=template&id=52327846&scoped=true& ***!
-  \**********************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=template&id=52327846&scoped=true& ***!
+  \*************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -82,9 +82,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 259:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=template&id=52327846&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=template&id=52327846&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -146,9 +146,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 260:
-/*!****************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -162,14 +162,50 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 261:
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -448,6 +484,42 @@ var _store = _interopRequireDefault(__webpack_require__(/*! ../../store */ 13));
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // 引入导航栏组件
 // import header from '@/components/header/header.vue'
 var pop = function pop() {__webpack_require__.e(/*! require.ensure | components/ming-pop/ming-pop */ "components/ming-pop/ming-pop").then((function () {return resolve(__webpack_require__(/*! @/components/ming-pop/ming-pop.vue */ 491));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { // 调用头部组件
@@ -457,9 +529,10 @@ var pop = function pop() {__webpack_require__.e(/*! require.ensure | components/
       loading: true, isShowText: true, // 控制内容显示
       // 这里是控制点击速度的变量
       lastTime: 0, //默认上一次点击时间为0
-      doctorInfo: {}, registrationDate: '', patients: [], selectPatient: {}, showOtherPatient: true, centerDialogVisible: false, noonID: '', noonName: '', seeDateInfo: {}, schemaId: '', keshiname: '' //获取vuex中的科室名称
-    };}, methods: { // 开启弹窗的方法
-    dialog: function dialog() {this.$refs.popo.show();}, // 控制动画的方法
+      doctorInfo: {}, registrationDate: '', patients: [], selectPatient: {}, showOtherPatient: true, centerDialogVisible: false, noonID: '', noonName: '', seeDateInfo: {}, schemaId: '', keshiname: '', //获取vuex中的科室名称
+      deptName: '', date: '' };}, methods: { // 开启弹窗的方法
+    dialog: function dialog() {this.$refs.popo.show();}, energy: function energy() {this.$refs.nengliang.show();}, energyfalse: function energyfalse() {// 关闭弹窗
+      this.$refs.nengliang.close();}, // 控制动画的方法
     showMore: function showMore() {var _this = this; //获取当前时间的时间戳
       var now = new Date().valueOf(); //第一次点击
       // 控制两秒内点击多次只触发一次方法
@@ -472,59 +545,21 @@ var pop = function pop() {__webpack_require__.e(/*! require.ensure | components/
         } else {uni.showToast({ title: '点的太快啦！QAQ', icon: 'none', duration: 2000 });console.log('不触发');}}}, // 加载框
     jiazai: function jiazai() {var _this2 = this;this.loading = true; // 定时器，setTimeout只执行一次，setInterval执行多次
       setTimeout(function () {_this2.loading = false;console.log(_this2.loading);}, 500);}, //获取就诊人
-    getPatientInfo: function getPatientInfo() {var _this3 = this;this.$myRequest({ url: "/wechat/user/patientcard/info" }).then(function (data) {_this3.patients = data.data;_this3.selectPatient = data.data[0];_this3.loading = false;}).catch(function (err) {_this3.loading = false;});}, payRegister: function payRegister() {var _this4 = this;var params = { schemaId: this.schemaId, dateBegin: this.seeDateInfo.seeTime, dateEnd: this.seeDateInfo.seeTime, deptId: this.doctorInfo.deptID, deptName: this.doctorInfo.deptName, doctorName: this.doctorInfo.docName, doctorId: this.doctorInfo.docID, doctorTitle: this.doctorInfo.regLevelName, doctorTitleId: this.doctorInfo.regLevelID, idEnNo: this.selectPatient.patientCardId, iPhone: this.selectPatient.patientPhone, patientName: this.selectPatient.patientName, patientNo: this.selectPatient.cardNumber, payMount: this.doctorInfo.totalFee, noonId: this.doctorInfo.noonID, regPeriod: this.noonName, 'regSeeData.ID': this.seeDateInfo.iD, 'regSeeData.queue': this.seeDateInfo.queue, 'regSeeData.seeTime': this.seeDateInfo.seeTime, 'regSeeData.state': this.seeDateInfo.state, pay_Type: 'AL' };this.$myRequest({ url: "/wechat/pay/reg", data: params }).then(function (data) {if (data.code == 0) {my.tradePay({ // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+    getPatientInfo: function getPatientInfo() {var _this3 = this;this.$myRequest({ url: "/wechat/user/patientcard/info" }).then(function (data) {_this3.patients = data.data;_this3.selectPatient = data.data[0];_this3.loading = false;}).catch(function (err) {_this3.loading = false;});}, payRegister: function payRegister() {var _this4 = this;var params = { deptId: this.deptId, deptName: this.deptName, doctorTitle: '普诊', doctorTitleId: '1', patientName: this.selectPatient.patientName, patientNo: this.selectPatient.cardNumber, payMount: '8', noonId: '1', regPeriod: ['上午'], pay_Type: 'AL' };this.$myRequest({ url: "/wechat/pay/reg", data: params }).then(function (data) {if (data.code == 0) {my.tradePay({ // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
             tradeNO: data.data.tradeNO, success: function success(res) {// 关闭弹窗
-              if (!res.resultCode == '9000') {_this4.$refs.popo.close();uni.navigateTo({ url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo });} else {uni.showToast({ title: '支付失败',
-                  icon: 'none',
-                  duration: 2000 });
-
-              }
-            },
-            fail: function fail(res) {
-              my.alert({
-                content: '已取消支付' });
-
-            } });
-
-        }
-      }).catch(function (err) {
-        _this4.loading = false;
-      });
-
-      // _this.$router.push('/paymentPage?orderNo=' + 1);
-
-    } },
-
-  // 这是uni的生命周期
+              if (!res.resultCode == '9000') {_this4.$refs.popo.close();uni.navigateTo({ url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo });} else {uni.showToast({ title: '支付失败', icon: 'none', duration: 2000 });}}, fail: function fail(res) {my.alert({ content: '已取消支付' });} });}}).catch(function (err) {_this4.loading = false;}); // _this.$router.push('/paymentPage?orderNo=' + 1);
+    } }, // 这是uni的生命周期
   // 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
-  onLoad: function onLoad(e) {
-    console.log(e);
-    var doctorInfo = decodeURIComponent(e.doctorInfo);
-    this.doctorInfo = JSON.parse(doctorInfo);
-    this.registrationDate = e.date;
-    this.noonName = e.noonName;
-    this.seeDateInfo = JSON.parse(decodeURIComponent(e.seeInfo));
-    this.schemaId = e.schemaId;
-    this.jiazai();
-  },
-  onShow: function onShow() {
-    this.jiazai();
-  },
-  mounted: function mounted() {
-    this.getPatientInfo();
-    //获取vuex中的科室名称
-    this.keshiname = _store.default.state.keshiname;
-    this.jiazai();
-    console.log(this.doctorInfo, this.registrationDate, this.noonName, this.seeDateInfo);
-  } };exports.default = _default;
+  onLoad: function onLoad(e) {console.log(e);this.deptName = e.deptName;this.deptId = e.deptId;this.date = e.date;this.jiazai();}, onShow: function onShow() {this.jiazai();}, mounted: function mounted() {this.getPatientInfo(); //获取vuex中的科室名称
+    this.keshiname = _store.default.state.keshiname;this.jiazai();console.log(this.doctorInfo, this.registrationDate, this.noonName, this.seeDateInfo);} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
 /***/ 263:
-/*!************************************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=style&index=0&id=52327846&scoped=true&lang=css& ***!
-  \************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=style&index=0&id=52327846&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -538,9 +573,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 264:
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=style&index=0&id=52327846&scoped=true&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/registrationConfirmation/registrationConfirmation.vue?vue&type=style&index=0&id=52327846&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

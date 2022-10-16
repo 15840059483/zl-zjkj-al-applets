@@ -1,9 +1,9 @@
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([["pages/register-success/register-success"],{
 
 /***/ 288:
-/*!******************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/main.js?{"page":"pages%2Fregister-success%2Fregister-success"} ***!
-  \******************************************************************************************************************************/
+/*!*********************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2Fregister-success%2Fregister-success"} ***!
+  \*********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19,9 +19,9 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_registerS
 /***/ }),
 
 /***/ 289:
-/*!***********************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.vue ***!
-  \***********************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/register-success/register-success.vue ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60,9 +60,9 @@ component.options.__file = "pages/register-success/register-success.vue"
 /***/ }),
 
 /***/ 290:
-/*!******************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.vue?vue&type=template&id=530736a6&scoped=true& ***!
-  \******************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/register-success/register-success.vue?vue&type=template&id=530736a6&scoped=true& ***!
+  \*********************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -82,9 +82,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 291:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.vue?vue&type=template&id=530736a6&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/register-success/register-success.vue?vue&type=template&id=530736a6&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -124,7 +124,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   var m0 = _vm.formatDate("YY-MM-DD hh:mm:ss")
   var m1 = _vm.formatDate("YY-MM-DD hh:mm:ss")
-  var l0 = !(_vm.orderDetail.description === "缴费正常")
+  var l0 = !(
+    !_vm.orderDetail.description || _vm.orderDetail.description === "缴费正常"
+  )
     ? JSON.parse(_vm.orderDetail.description)
     : null
   _vm.$mp.data = Object.assign(
@@ -147,9 +149,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 292:
-/*!************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/register-success/register-success.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -163,9 +165,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 293:
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/register-success/register-success.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -424,12 +426,12 @@ __webpack_require__(/*! ../payment-details/payment-details.scss */ 122); //
 //
 var _default = { filters: { dateStr: function dateStr(val) {if (!val) {return "-";}return val.slice(0, 10);}, description: function description(val) {var obj = JSON.parse(val);var str = "";for (var key in obj) {str += "、" + key;}return str ? str.slice(1) : "-";}, descriptionError: function descriptionError(val) {var obj = JSON.parse(val);var str = "";for (var key in obj) {str = obj[key];}return str || "-";} }, data: function data() {return { title: "订单详情 ", // 页面标题
       shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-      // backGo: this.$route.query.backGo ? Number(this.$route.query.backGo) : -2,
+      orderDetail: {}, // backGo: this.$route.query.backGo ? Number(this.$route.query.backGo) : -2,
       home: false // 底部返回主页栏的显示与隐藏
     };}, // 这是uni的生命周期
   // 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
-  onLoad: function onLoad(e) {var _this2 = this;console.log(e);clearTimeout(this.timer); //清除延迟执行
-    this.timer = setTimeout(function () {//设置延迟10秒执行弹出提示框
+  onLoad: function onLoad(e) {var _this2 = this;console.log(e, 'regiser-success');clearTimeout(this.timer); //清除延迟执行
+    this.orderDetail = JSON.parse(e.orderDetail);console.log(this.orderDetail);this.timer = setTimeout(function () {//设置延迟10秒执行弹出提示框
       _this2.open();}, 10000);}, onShow: function onShow() {var _this3 = this;clearTimeout(this.timer); //清除延迟执行
     this.timer = setTimeout(function () {//设置延迟10秒执行弹出提示框
       _this3.open();}, 10000);}, methods: { // 返回主页
@@ -461,9 +463,9 @@ var _default = { filters: { dateStr: function dateStr(val) {if (!val) {return "-
 /***/ }),
 
 /***/ 294:
-/*!********************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.vue?vue&type=style&index=0&id=530736a6&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/register-success/register-success.vue?vue&type=style&index=0&id=530736a6&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -477,9 +479,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 295:
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/register-success/register-success.vue?vue&type=style&index=0&id=530736a6&scoped=true&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/register-success/register-success.vue?vue&type=style&index=0&id=530736a6&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

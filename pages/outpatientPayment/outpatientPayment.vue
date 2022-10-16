@@ -173,7 +173,7 @@
 										总额：<span style="color: #ec6c25">￥{{ item.totalMoney }}</span>
 									</view>
 									<view style="width: 30%;" class="text-center" @click.native="goToPayment(item)">
-										<button style="width: 100%;border-radius: 20px 20px;" class="mini-btn"
+										<button style="width: 100%;border-radius: 20px 20px;height: .7rem;line-height: .7rem;" class="mini-btn"
 											type="primary">去缴费</button>
 									</view>
 								</view>
@@ -251,6 +251,7 @@
 				}).then(data => {
 					this.switchPatientList = data.data;
 					this.currentPatient = data.data[0];
+					this.getOutPayList()
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
@@ -272,9 +273,17 @@
 				this.getOutPayList();
 			},
 			// 添加就诊人
-			addPatient() {},
+			addPatient() {
+				uni.navigateTo({
+					url: '/pages/patient-management/add-patient/add-patient'
+				})
+			},
 			// 管理就诊人
-			managePatient() {},
+			managePatient() {
+				uni.navigateTo({
+					url: '/pages/patient-management/patient-management'
+				})
+			},
 
 			// 获取缴费信息列表
 			getOutPayList() {
@@ -285,7 +294,7 @@
 				this.$myRequest({
 					url: "/hospt/getOutPayList",
 					data: params,
-					contentType:'application/json;charset=UTF-8',
+					
 				}).then(data => {
 					if(data.data){
 						this.paymentList = data.data;
@@ -416,23 +425,33 @@
 				        patientNo: item.regInfos.cardNo,
 				        patientSeq: item.regInfos.regNo,
 				        payMount: item.totalMoney,
-				        recipeNos: this.selectPaymentMoOrderList
+				        recipeNos: this.selectPaymentMoOrderList,
+						pay_type:'Al'
 				      }
 				
 				this.$myRequest({
 					url: "/wechat/pay/out",
 					data: params
 				}).then(data => {
-					if(data.code==200){
+					if(data.code==0){
 						my.tradePay({
 						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
 						  tradeNO: data.data.tradeNO,
 						  success: (res) => {
 							  // 关闭弹窗
-							  this.$refs.popo.close();
-							  uni.navigateTo({
-							  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
-							  });
+							  if (!res.resultCode == '9000') {
+							  	//this.$refs.popo.close();
+							  	uni.navigateTo({
+							  		url: '/pages/paymentPage/paymentPage?orderNo=' + data
+							  			.data.orderNo
+							  	});
+							  } else {
+							  	uni.showToast({
+							  		title: '支付失败',
+							  		icon: 'none',
+							  		duration: 2000
+							  	});
+							  }
 						  },
 						  fail: (res) => {
 						    my.alert({

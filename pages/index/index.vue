@@ -10,7 +10,7 @@
 			<Header :title="title" :shouye="shouye"></Header>
 		</view> -->
 		<div style="padding: .2rem;">
-			<uni-card shadow="never" v-if="dfltPatientInfo.patientName">
+			<uni-card shadow="never" v-if="dfltPatientInfo.cardNumber">
 				<view class="jiuzhenren">
 					<view :span="12" class="patient-name">
 						<span>{{ dfltPatientInfo.patientName | processingName }}</span>
@@ -24,7 +24,8 @@
 					<view class="visit-number">就诊号：{{ dfltPatientInfo.cardNumber | processingcardNumber }}</view>
 				</uni-row>
 				<view class="card-row card-row-border">
-					<view :span="8" @click.native="goToPage('/pages/registration-record/registration-record')">挂号记录</view>
+					<view :span="8" @click.native="goToPage('/pages/registration-record/registration-record')">挂号记录
+					</view>
 					<view :span="8" class="border-l-r"
 						@click.native="goToPage('/pages/payment-record/payment-record', true)">
 						缴费记录</view>
@@ -38,7 +39,7 @@
 
 			<uni-card shadow="never" v-else>
 				<uni-row class="card-row">
-					<div v-if="isToken" class="patient-wrapper-button" @click="addCardNumber">初次使用，请添加就诊号</div>
+					<div v-if="isToken" class="patient-wrapper-button" @click="addCardNumber">请点击注册卡号</div>
 					<button v-if="!isToken" open-type="getAuthorize" scope="userInfo" @getAuthorize="onAuthBtn"
 						@error="onAuthError">
 						个人信息授权
@@ -60,11 +61,12 @@
 					style="border-bottom: 1px solid rgb(224, 224, 224);">
 					<view :span="4" style="position: relative;">
 						<image :src="item.imageUrl" class="menu-image">
-						<image v-if="item.energy" class="menu_icon" src="https://s1.ax1x.com/2022/10/11/xt5C6g.png"></image>
+							<image v-if="item.energy" class="menu_icon" src="https://s1.ax1x.com/2022/10/11/xt5C6g.png">
+							</image>
 					</view>
 					<view style="width: 78%;margin-left: 7%;height: 40px;">
 						<div class="menu-title">
-						{{ item.menuName }}
+							{{ item.menuName }}
 						</div>
 						<div class="menu-title2">{{ item.twoTitle }}</div>
 					</view>
@@ -175,7 +177,7 @@
 				}
 				return '*' + str.substr(1);
 			},
-			processingcardNumber(str){
+			processingcardNumber(str) {
 				if (!str) {
 					return '-';
 				}
@@ -207,11 +209,11 @@
 
 			addCardNumber() {
 				console.log(this.dfltPatientInfo)
-				if (this.dfltPatientInfo.cardNumber) {
+				if (this.dfltPatientInfo) {
 					const params = Object.assign(this.dfltPatientInfo, {
 						cardNo: ''
 					})
-
+					
 					this.$myRequest({
 						url: "/wechat/user/addPtCard/info",
 						contentType: 'application/json;charset=UTF-8',
@@ -229,9 +231,9 @@
 						this.loading = false;
 					})
 				} else {
-				uni.navigateTo({
-					url: '/pages/patient-management/add-patient/add-patient'
-				})
+					uni.navigateTo({
+						url: '/pages/patient-management/add-patient/add-patient'
+					})
 				}
 			},
 			addCard(value) {
@@ -244,11 +246,7 @@
 					return
 				}
 
-				const params = Object.assign(this.dfltPatientInfo, {
-					cardNo: value ? this.cardNo : ''
-				})
-
-
+				
 			},
 			switchPatient() {
 				// this.goToPage('/select-patient');
@@ -270,7 +268,7 @@
 					})
 					return;
 				}
-				if (this.dfltPatientInfo) {
+				if (this.dfltPatientInfo.cardNumber) {
 					if (!this.dfltPatientInfo.cardNumber) {
 						this.cardNo = ''
 						this.showAddPatient = true
@@ -281,9 +279,9 @@
 						})
 					}
 				} else {
-					this.$router.push({
-						name: 'addPatient'
-					})
+					// uni.navigateTo({
+					// 	url: 'addPatient'
+					// })
 				}
 			},
 			getHostMenu() {
@@ -311,10 +309,12 @@
 						const params = {
 							realname: '测试',
 							//mobile: userInfo.mobile,
-							mobile: '112',
+							mobile: '110',
 							userIdCard: '208831298288742022',
 							/* 两个userid 从缓存中取 */
-							aliUserId: '2088612402035373',
+							aliUserId: my.getStorageSync({
+								key: 'user_id'
+							}).data,
 							alipayUserId: '20880034933095029415612911016942',
 							/* M男 F女 */
 							gender: userInfo.gender === 'M' ? 1 : 2,
@@ -393,7 +393,7 @@
 										// _this.user_id = data.user_id;
 										my.setStorageSync({
 											key: 'user_id',
-											data: data.user_id
+											data: data.data.aliUserId
 										})
 										my.removeStorage({
 											key: 'token'
@@ -556,14 +556,14 @@
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsCct.png'),
 					routLink: '/pages/hesuanjiance/Zizhukaidan/zizhukaidan'
 				},
-				{
+				/*{
 					id: 15,
 					menuName: '预约信息',
 					twoTitle: '查看核酸检测挂号预约信息',
 					routerUrl: '',
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsp9A.jpg'),
 					routLink: '/pages/hesuanjiance/Shenhejieguo/shenhejieguo'
-				},
+				},*/
 				{
 					id: 16,
 					menuName: '流程图',
@@ -574,7 +574,8 @@
 				},
 			]
 
-			this.outpatientFunctionList = [{
+			this.outpatientFunctionList = [
+				/*{
 					id: 1,
 					menuName: '添加就诊人',
 					twoTitle: '',
@@ -592,7 +593,7 @@
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrLnK.jpg'),
 					routLink: '',
 					meta: true
-				},
+				},*/
 				{
 					id: 5,
 					menuName: '门诊缴费记录',
@@ -787,7 +788,7 @@
 		margin-left: 50%;
 		transform: translate(-50%, 0);
 	}
-	
+
 	.menu_icon {
 		position: absolute;
 		top: -.2rem;

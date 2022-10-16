@@ -1,9 +1,9 @@
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([["pages/report-query/report-query3/report-query3"],{
 
 /***/ 421:
-/*!***************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/main.js?{"page":"pages%2Freport-query%2Freport-query3%2Freport-query3"} ***!
-  \***************************************************************************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2Freport-query%2Freport-query3%2Freport-query3"} ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19,9 +19,9 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_reportQue
 /***/ }),
 
 /***/ 422:
-/*!******************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query3/report-query3.vue ***!
-  \******************************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/report-query/report-query3/report-query3.vue ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/report-query/report-query3/report-query3.vue"
 /***/ }),
 
 /***/ 423:
-/*!*************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=template&id=1e922952&scoped=true& ***!
-  \*************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=template&id=1e922952&scoped=true& ***!
+  \****************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 424:
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=template&id=1e922952&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=template&id=1e922952&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -136,9 +136,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 425:
-/*!*******************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -152,14 +152,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 426:
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/report-query/report-query3/report-query3.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
 
 
 
@@ -424,13 +426,16 @@ __webpack_require__(/*! ./report-query3.css */ 427); //
 //
 //
 //
+//
+//
 var _default = { // 调用头部组件
   components: {}, data: function data() {return { title: "挂号确认", // 页面标题
       shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
       list: {}, sampleList: {}, resultList: [] };}, methods: { jiazai: function jiazai() {var _this = this;this.loading = true; // 定时器，setTimeout只执行一次，setInterval执行多次
       setTimeout(function () {_this.loading = false;console.log(_this.loading);}, 500);}, getSample: function getSample() {var _this2 = this;var parans = { sampleId: this.sampleList.sampleId, machineId: this.sampleList.machineId, testDate: this.sampleList.testDate };this.$myRequest({ url: "/zjkj/itemResult", method: "GET", data: parans }).then(function (res) {console.log(res.data);_this2.jiazai();if (res && res.data && res.data.length > 0) {_this2.resultList = res.data;console.log(_this2.list);}}).catch(function (err) {_this2.loading = true;});} }, // 这是uni的生命周期
   // 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
-  onLoad: function onLoad(e) {console.log(e);this.sampleList = JSON.parse(decodeURIComponent(e.sampleList));this.resultList = JSON.parse(decodeURIComponent(e.resultList));console.log(this.sampleList, this.resultList);}, mounted: function mounted() {this.getSample();} };exports.default = _default;
+  onLoad: function onLoad(e) {console.log('eeeeeeee', e);this.sampleList = JSON.parse(decodeURIComponent(e.sampleList));this.resultList = JSON.parse(decodeURIComponent(e.resultList));console.log(this.sampleList, this.resultList);}, mounted: function mounted() {//this.getSample()
+  } };exports.default = _default;
 
 /***/ })
 

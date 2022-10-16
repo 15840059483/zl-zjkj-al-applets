@@ -22,8 +22,8 @@
     </div>
 
     <div class="payment-list-item bg-white">
-      <div>就诊时间</div>
-      <div class="text-right">{{ orderDetail.regDate | dateStr }}{{'['+orderDetail.scheduleName+']'}}</div>
+      <div>就诊时间</div>												<!-- orderDetail.scheduleName -->
+      <div class="text-right">{{ orderDetail.regDate | dateStr }}{{'[全天]'}}</div>
     </div>
     <div class="payment-list-item bg-white margin-top">
       <div :span="12">费用类型</div>

@@ -11,7 +11,7 @@
 			</div>
 			<div>
 				<view v-if="deptList.length>0" v-for="item in deptList" v-bind:key="item.deptId" class="list-item"
-					@click.native="goToPage(item.deptId)" style="display: flex;">
+					@click.native="goToPage(item.deptId,item.deptName)" style="display: flex;">
 					<view style="width: 80%;">{{item.deptName}}</view>
 					<view style="width: 20%;text-align: right;" class="text-right">
 						<text class="iconfont icon-youjiantou" style="color: #b7b7b7;font-size: 22px;"></text>
@@ -88,9 +88,9 @@ export default {
 			})
 
 		},
-		goToPage(id) {
+		goToPage(id,name) {
 			uni.navigateTo({
-				url: '/pages/makeAppointmentRegister/makeAppointmentRegister?id=' + id,
+				url: '/pages/makeAppointmentRegister/makeAppointmentRegister?id=' + id+'&deptName='+name,
 			});
 		}
 	},

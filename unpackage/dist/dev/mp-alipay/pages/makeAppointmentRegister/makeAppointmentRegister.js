@@ -1,9 +1,9 @@
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([["pages/makeAppointmentRegister/makeAppointmentRegister"],{
 
 /***/ 237:
-/*!********************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/main.js?{"page":"pages%2FmakeAppointmentRegister%2FmakeAppointmentRegister"} ***!
-  \********************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2FmakeAppointmentRegister%2FmakeAppointmentRegister"} ***!
+  \***********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19,9 +19,9 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_makeAppoi
 /***/ }),
 
 /***/ 238:
-/*!*************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue ***!
-  \*************************************************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60,9 +60,9 @@ component.options.__file = "pages/makeAppointmentRegister/makeAppointmentRegiste
 /***/ }),
 
 /***/ 239:
-/*!********************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=template&id=32631430&scoped=true& ***!
-  \********************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=template&id=32631430&scoped=true& ***!
+  \***********************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -82,9 +82,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 240:
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=template&id=32631430&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=template&id=32631430&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -153,9 +153,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 241:
-/*!**************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -169,15 +169,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 242:
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-
 
 
 
@@ -477,7 +476,6 @@ var _store = _interopRequireDefault(__webpack_require__(/*! ../../store */ 13));
 //
 //
 //
-//
 // 引入scss文件
 var _default = { // 调用头部组件
   components: {// header
@@ -485,11 +483,11 @@ var _default = { // 调用头部组件
       shouye: "no", // 是否是首页，不是首页显示返回上一层箭头  
       loading: true, // 这里是控制点击速度的变量
       lastTime: 0, //默认上一次点击时间为0
-      checkday: "", baseUrl: _base.default.base.sq, deptInfo: {}, isShowDate: true, today: new Date(), weeks: [], days: [], selectDay: 0, selectDayInfo: {}, selectDayIndex: 0, doctors: [], doctor: {}, isShowConfirm: false, feeBill: {}, deptbill: { begin: "2021/11/25 8:00:00", deptID: "0008", deptName: "眼门", docID: "200328", docName: "曲建军", end: "2021/11/25 10:50:00", iD: "216608", noonID: new Date().getHours() < 12 ? "1" : "2", regLevelID: "1", regLevelName: "普诊", seeNO: "0", totalFee: "8", testDay: "" }, showSwitchPatient: true, deptId: "", isShowText: true, // 控制内容显示
+      checkday: "", baseUrl: _base.default.base.sq, deptInfo: {}, isShowDate: true, today: new Date(), weeks: [], days: [], selectDay: 0, selectDayInfo: {}, selectDayIndex: 0, doctors: [], doctor: {}, isShowConfirm: false, feeBill: {}, deptbill: { begin: "2021/11/25 8:00:00", deptID: "0008", deptName: "眼门", docID: "200328", docName: "曲建军", end: "2021/11/25 10:50:00", iD: "216608", noonID: new Date().getHours() < 12 ? "1" : "2", regLevelID: "1", regLevelName: "普诊", seeNO: "0", totalFee: "8", testDay: "" }, showSwitchPatient: true, deptId: "", deptName: "", isShowText: true, // 控制内容显示
       keshiname: '' //科室名称
     };}, // 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
   onLoad: function onLoad(e) {//console.log(e);
-    this.deptId = e.id; //console.log(this.deptId)
+    this.deptId = e.id;this.deptName = e.deptName; //console.log(this.deptId)
     this.jiazai();}, methods: { // 加载框
     jiazai: function jiazai() {var _this = this;this.loading = true; // 定时器，setTimeout只执行一次，setInterval执行多次
       setTimeout(function () {_this.loading = false; //console.log(this.loading);
@@ -528,53 +526,39 @@ var _default = { // 调用头部组件
       //this.$message.warning('暂不支持预约挂号');
       //return false;
       //}
-      if (this.selectDay = this.today.getDay()) {this.showSwitchPatient = true;} else {false;}this.selectDay = day.day;this.selectDayInfo = day; //console.log(this.selectDayInfo);
-      this.selectDayIndex = index;this.getDetDoctorInfo();}, clickDoctor: function clickDoctor(doctor) {//console.log(doctor)
-      this.doctor = doctor;if (doctor.docName != null) {this.goToPage(doctor);
-      } else {
-        this.openConfirm(doctor);
+      uni.showToast({ title: '不支持预约挂号哟！', icon: 'none', duration: 2000 });return;if (this.selectDay = this.today.getDay()) {this.showSwitchPatient = true;} else {false;
       }
+      this.selectDay = day.day;
+      this.selectDayInfo = day;
+      //console.log(this.selectDayInfo);
+      this.selectDayIndex = index;
+      this.getDetDoctorInfo();
     },
-    openConfirm: function openConfirm(doctor) {var _this4 = this;
+    clickDoctor: function clickDoctor(doctor) {
+
+      this.openConfirm(doctor);
+    },
+    openConfirm: function openConfirm(doctor) {
       this.isShowConfirm = true;
-      //console.log(this.doctor);
-
-      var params = {
-        RegLevelID: doctor.regLevelID };
-
-      if (doctor.regLevelID != "1") {
-        this.$myRequest({
-          url: "/hospt/getDoctorFeeBill",
-          data: params }).
-        then(function (data) {
-          var feeBill = data.data;
-          _this4.feeBill = feeBill;
-          _this4.doctor.totalFee = _this4.feeBill.DigFee;
-          _this4.loading = false;
-        }).catch(function (err) {
-          _this4.loading = false;
-        });
-      }
       this.feeBill.DigFee = this.deptbill.totalFee;
     },
     closeConfirm: function closeConfirm() {
       this.isShowConfirm = false;
     },
     saveConfirm: function saveConfirm() {
-      this.$router.push({
-        path: "/registrationConfirmation",
-        query: {
-          doctorInfo: encodeURIComponent(JSON.stringify(this.doctor)),
-          date: this.today.getFullYear() +
-          "/" + (
-          this.today.getMonth() < 10 ?
-          "0" + (this.today.getMonth() + 1) :
-          this.today.getMonth() + 1) +
-          "/" + (
-          this.selectDay < 10 ? "0" + this.selectDay : this.selectDay),
-          noonName: "[" + (this.doctor.noonID == "1" ? "上午" : "下午") + "]",
-          noonID: this.doctor.noonID } });
-
+      uni.navigateTo({
+        url: '/pages/registrationConfirmation/registrationConfirmation?deptName=' +
+        this.deptName +
+        '&noonName=' + '上午' +
+        '&deptId=' + this.deptId +
+        '&noonID=' + '1' +
+        '&date=' + this.selectDayInfo.year +
+        "/" + (
+        this.selectDayInfo.month < 10 ?
+        "0" + this.selectDayInfo.month :
+        this.selectDayInfo.month) +
+        "/" + (
+        this.selectDay < 10 ? "0" + this.selectDay : this.selectDay) });
 
       this.closeConfirm();
     },
@@ -648,30 +632,6 @@ var _default = { // 调用头部组件
         "/" + (
         this.selectDay < 10 ? "0" + this.selectDay : this.selectDay) });
 
-
-
-      // this.$router.push(
-      // 	"/doctorScheduling?regLevelID=" +
-      // 	item.regLevelID +
-      // 	"&doctorInfo=" +
-      // 	JSON.stringify(item) +
-      // 	"&testDay=" +
-      // 	this.testDay +
-      // 	"&selectDayIndex=" +
-      // 	this.weeks[this.selectDayIndex] +
-      // 	"&selectDay=" +
-      // 	this.selectDay +
-      // 	"&selectDayInfo=" +
-      // 	JSON.stringify(this.selectDayInfo) +
-      // 	"&date=" +
-      // 	this.selectDayInfo.year +
-      // 	"/" +
-      // 	(this.selectDayInfo.month < 10 ?
-      // 		"0" + this.selectDayInfo.month :
-      // 		this.selectDayInfo.month) +
-      // 	"/" +
-      // 	(this.selectDay < 10 ? "0" + this.selectDay : this.selectDay)
-      // );
     } },
 
   // 这是uni的生命周期
@@ -697,9 +657,9 @@ var _default = { // 调用头部组件
 /***/ }),
 
 /***/ 244:
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=style&index=0&id=32631430&scoped=true&lang=css& ***!
-  \**********************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=style&index=0&id=32631430&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -713,9 +673,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 245:
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=style&index=0&id=32631430&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/makeAppointmentRegister/makeAppointmentRegister.vue?vue&type=style&index=0&id=32631430&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

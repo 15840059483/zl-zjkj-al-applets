@@ -1,7 +1,7 @@
 <zero-loading v-if="loading" type="pulse" mask></zero-loading>
 <template>
-	
-	<!-- <view>
+
+	<view>
 		<view class="zhuti">
 			<template v-for="item in resultList">
 				<div class="query3-infocon">
@@ -48,22 +48,24 @@
 						<uni-td>结果</uni-td>
 						<uni-td>参考值</uni-td>
 					</uni-tr>
-					<uni-tr v-for="(item,index) in resultList" :key="index">
+					<uni-tr v-for="(item,index) in sampleList" :key="index">
 						<uni-td>{{item.itemname}}</uni-td>
 						<uni-td>{{item.rangeinfo}}</uni-td>
-						<uni-td v-if="item.Color=='blue'" style="color: rgb(0,142,254)">
-							{{item.reportvalue}}&nbsp{{item.resultflag}}
+						<uni-td v-if="item.Color=='blue'" >
+							<span style="color: rgb(0,142,254)">{{item.reportvalue}}&nbsp{{item.resultflag}}</span>
 						</uni-td>
-						<uni-td v-if="item.Color=='red'" :class="item.Color=='red'?red:black" style="color: red">{{item.reportvalue}}&nbsp{{item.resultflag}}</uni-td>
+						<uni-td v-if="item.Color=='red'">
+							<span style="color: red">{{item.reportvalue}}&nbsp{{item.resultflag}}</span>
+						</uni-td>
 						<uni-td v-if="item.Color=='black'">{{item.reportvalue}}</uni-td>
 					</uni-tr>
-				
+
 				</uni-table>
 			</view>
-			
+
 		</view>
-	</view> -->
-	<view>
+	</view>
+	<!-- <view>
 		<view class="zhuti">
 			<template>
 				<div class="query3-infocon">
@@ -127,7 +129,7 @@
 			</view>
 			
 		</view>
-	</view>
+	</view> -->
 </template>
 
 <script>
@@ -135,13 +137,13 @@
 	export default {
 		// 调用头部组件
 		components: {
-			
+
 		},
 		data() {
 			return {
 				title: "挂号确认", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-				list:{},
+				list: {},
 				sampleList: {},
 				resultList: [],
 			}
@@ -155,12 +157,12 @@
 					console.log(this.loading);
 				}, 500)
 			},
-			getSample(){
+			getSample() {
 				let parans = {
-					sampleId:this.sampleList.sampleId,
-					machineId:this.sampleList.machineId,
-					testDate:this.sampleList.testDate
-					};
+					sampleId: this.sampleList.sampleId,
+					machineId: this.sampleList.machineId,
+					testDate: this.sampleList.testDate
+				};
 				this.$myRequest({
 					url: "/zjkj/itemResult",
 					method: "GET",
@@ -180,13 +182,13 @@
 		// 这是uni的生命周期
 		// 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
 		onLoad(e) {
-			console.log(e);
+			console.log('eeeeeeee', e);
 			this.sampleList = JSON.parse(decodeURIComponent(e.sampleList));
-			this.resultList=JSON.parse(decodeURIComponent(e.resultList));
-			console.log(this.sampleList,this.resultList);
+			this.resultList = JSON.parse(decodeURIComponent(e.resultList));
+			console.log(this.sampleList, this.resultList);
 		},
 		mounted() {
-			this.getSample()
+			//this.getSample()
 		},
 	};
 </script>

@@ -36,7 +36,7 @@
   word-break: break-all;
 }
 .payment-list-item ._div:first-child {
-  min-width: 2.4rem;
+  min-width: 2.2rem;
 }
 .payment-list-item .register-yellow {
   font-size: 14px;
@@ -188,6 +188,25 @@
   color: #c6c6c6;
   font-weight: 400;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

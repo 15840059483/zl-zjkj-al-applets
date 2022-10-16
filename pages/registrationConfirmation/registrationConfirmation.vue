@@ -11,7 +11,7 @@
 				<div class="bg-white patient-container" style="margin-bottom:0;">
 					<view style="display: flex;padding:10px .3rem 10px .3rem;" class="patient-container-row">
 						<view style="width: 40%;text-align: left;">挂号类别</view>
-						<view style="width: 60%;text-align: right;" class="text-right">{{doctorInfo.regLevelName}}
+						<view style="width: 60%;text-align: right;" class="text-right">{{'普诊'}}
 						</view>
 					</view>
 					<view style="display: flex;padding:10px .3rem 10px .3rem;" class="patient-container-row">
@@ -21,17 +21,17 @@
 							{{keshiname}}
 						</view>
 						<!-- 原有的，如果需要改回原有的将v-eles与上面v-if中所有内容删掉 -->
-						<view style="width: 60%;text-align: right;" class="text-right" v-else>{{doctorInfo.deptName}}
+						<view style="width: 60%;text-align: right;" class="text-right" v-else>{{deptName}}
 						</view>
 					</view>
-					<view style="display: flex;padding:10px .3rem 10px .3rem;" class="patient-container-row"
-						v-if="doctorInfo.docName&&doctorInfo.regLevelID!='1'">
+					<!-- <view style="display: flex;padding:10px .3rem 10px .3rem;" class="patient-container-row"
+						v-if="docName&&doctorInfo.regLevelID!='1'">
 						<view style="width: 40%;text-align: left;">就诊医生</view>
 						<view style="width: 60%;text-align: right;" class="text-right">{{doctorInfo.docName}}</view>
-					</view>
+					</view> -->
 					<view style="display: flex;padding:10px .3rem 10px .3rem;" class="patient-container-row">
 						<view style="width: 40%;text-align: left;">就诊时间</view>
-						<view style="width: 60%;text-align: right;" class="text-right red-font">{{seeDateInfo.seeTime}}
+						<view style="width: 60%;text-align: right;" class="text-right red-font">{{date}}
 						</view>
 					</view>
 				</div>
@@ -40,7 +40,7 @@
 				<div class="bg-white patient-container" style="margin-bottom:0;">
 					<view style="display: flex;padding: 0 0.3rem;" class="patient-container-row">
 						<view style="width: 40%;text-align: left;">诊查费</view>
-						<view style="width: 60%;text-align: right;" class="text-right red-font">￥{{doctorInfo.totalFee}}
+						<view style="width: 60%;text-align: right;" class="text-right red-font">￥{{'8'}}
 						</view>
 					</view>
 					<!--      <view class="patient-container-row">-->
@@ -72,8 +72,7 @@
 
 						<view v-show="isShowText">
 							<div v-if="showOtherPatient" class="zoom-patient-container">
-								<view style="display: flex;padding:10px .3rem 10px .3rem;"
-									class="patient-container-row"
+								<view style="display: flex;padding:10px .3rem 10px .3rem;" class="patient-container-row"
 									:class="item.patientId === selectPatient.patientId ? 'select-bg' : ''"
 									v-for="(item,index) in patients" v-bind:key="index"
 									@click.native="selectPatient = item">
@@ -98,10 +97,16 @@
 							如需退号请在挂号时间点前半个小时进行退号，过期不退！
 						</view>
 					</view>
+					<view class="energy" @click="energy">
+						<view class="energy-img"></view>
+						<text>预约挂号预计得蚂蚁能量</text>
+						<text class="energy-text">277g</text>
+						<view class="energy-icon"></view>
+					</view>
 				</div>
 			</uni-card>
 			<div class="anniu">
-				<button type="primary" style="width: 100%;height: 60%;" @click="dialog()">提 交</button>
+				<button type="primary" style="width: 100%;height: 60%;" @click="payRegister()">提 交</button>
 				<!-- <zg-button type="primary" @click="dialog()" class="tijiaoanniu" block size="base">
 					提 交
 				</zg-button> -->
@@ -121,6 +126,37 @@
 				<view class="zizhuanniu">
 					<view @click="payRegister()">确 定</view>
 				</view>
+			</pop>
+
+			<!-- 能量提示书弹出框，设置点击空白不会退出 is_mask="true" maskFun="false"，无关闭按钮 is_close="false"-->
+			<pop ref="nengliang" direction="center" :width="80" height="fit-content">
+				<view style="width: 100%;height: 130px;">
+					<image src="https://s1.ax1x.com/2022/10/13/xaDIvn.png" mode=""
+						style="display: block;background-size: 100%;margin-top:-80px"></image>
+				</view>
+
+				<view class="biaoti">
+					预约挂号、查询报告得绿色能量
+				</view>
+				<view class="neirong-wai">
+					<view class="neirong">
+						<text class="point">·</text>
+						<text>完成预约挂号,得绿色能量 227g/笔,每月上限5笔</text>
+					</view>
+					<view class="neirong">
+						<text class="point">·</text>
+						<text>完成报告查询,得绿色能量 2g/次,每月上限10次</text>
+					</view>
+					<view class="neirong">
+						<text class="point">·</text>
+						<text>得到的绿色能量可以前往【蚂蚁森林】用来种树,改变我们的环境</text>
+					</view>
+				</view>
+				<view class="zizhuanniu">
+					<view @click="energyfalse()">知道了</view>
+				</view>
+
+
 			</pop>
 
 
@@ -157,7 +193,6 @@
 				isShowText: true, // 控制内容显示
 				// 这里是控制点击速度的变量
 				lastTime: 0, //默认上一次点击时间为0
-
 				doctorInfo: {},
 				registrationDate: '',
 				patients: [],
@@ -167,14 +202,25 @@
 				noonID: '',
 				noonName: '',
 				seeDateInfo: {},
-				schemaId:'',
+				schemaId: '',
 				keshiname: '', //获取vuex中的科室名称
+				deptName: '',
+				date: '',
 			}
 		},
 		methods: {
 			// 开启弹窗的方法
 			dialog() {
 				this.$refs.popo.show();
+			},
+
+			energy() {
+				this.$refs.nengliang.show();
+			},
+
+			energyfalse() {
+				// 关闭弹窗
+				this.$refs.nengliang.close();
 			},
 
 			// 控制动画的方法
@@ -263,63 +309,53 @@
 			},
 			payRegister() {
 				const params = {
-				  schemaId: this.schemaId,
-				  dateBegin: this.seeDateInfo.seeTime,
-				  dateEnd: this.seeDateInfo.seeTime,
-				  deptId: this.doctorInfo.deptID,
-				  deptName: this.doctorInfo.deptName,
-				  doctorName: this.doctorInfo.docName,
-				  doctorId: this.doctorInfo.docID,
-				  doctorTitle: this.doctorInfo.regLevelName,
-				  doctorTitleId: this.doctorInfo.regLevelID,
-				  idEnNo:this.selectPatient.patientCardId,
-				  iPhone:this.selectPatient.patientPhone,
-				  patientName: this.selectPatient.patientName,
-				  patientNo: this.selectPatient.cardNumber,
-				  payMount: this.doctorInfo.totalFee,
-				  noonId:this.doctorInfo.noonID,
-				  regPeriod:this.noonName,
-				  'regSeeData.ID':this.seeDateInfo.iD,
-				  'regSeeData.queue':this.seeDateInfo.queue,
-				 'regSeeData.seeTime':this.seeDateInfo.seeTime,
-				  'regSeeData.state':this.seeDateInfo.state,
-				  pay_Type:'AL'
+					deptId: this.deptId,
+					deptName: this.deptName,
+					doctorTitle: '普诊',
+					doctorTitleId: '1',
+					patientName: this.selectPatient.patientName,
+					patientNo: this.selectPatient.cardNumber,
+					payMount: '8',
+					noonId: '1',
+					regPeriod: ['上午'],
+					pay_Type: 'AL'
 				}
-				
+
 				this.$myRequest({
 					url: "/wechat/pay/reg",
 					data: params
 				}).then(data => {
-					if(data.code==0){
+					if (data.code == 0) {
 						my.tradePay({
-						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
-						  tradeNO: data.data.tradeNO,
-						  success: (res) => {
-							  // 关闭弹窗
-							  if(!res.resultCode=='9000'){
-								  this.$refs.popo.close();
-								  uni.navigateTo({
-								  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
-								  });
-							  }else{
-								  uni.showToast({
-								  	title: '支付失败',
-								  	icon: 'none',
-								  	duration: 2000
-								  });
-							  }
-						  },
-						  fail: (res) => {
-						    my.alert({
-						      content: '已取消支付',
-						    });
-						  }
+							// 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+							tradeNO: data.data.tradeNO,
+							success: (res) => {
+								// 关闭弹窗
+								if (!res.resultCode == '9000') {
+									this.$refs.popo.close();
+									uni.navigateTo({
+										url: '/pages/paymentPage/paymentPage?orderNo=' + data
+											.data.orderNo
+									});
+								} else {
+									uni.showToast({
+										title: '支付失败',
+										icon: 'none',
+										duration: 2000
+									});
+								}
+							},
+							fail: (res) => {
+								my.alert({
+									content: '已取消支付',
+								});
+							}
 						});
 					}
 				}).catch(err => {
 					this.loading = false;
 				})
-				
+
 				// _this.$router.push('/paymentPage?orderNo=' + 1);
 
 			}
@@ -328,12 +364,9 @@
 		// 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
 		onLoad(e) {
 			console.log(e);
-			let doctorInfo = decodeURIComponent(e.doctorInfo);
-			this.doctorInfo = JSON.parse(doctorInfo);
-			this.registrationDate = e.date;
-			this.noonName = e.noonName;
-			this.seeDateInfo = JSON.parse(decodeURIComponent(e.seeInfo));
-			this.schemaId = e.schemaId;
+			this.deptName = e.deptName;
+			this.deptId = e.deptId;
+			this.date = e.date;
 			this.jiazai()
 		},
 		onShow() {
@@ -411,5 +444,41 @@
 		height: 80px;
 		margin: 0 auto;
 		display: flex;
+	}
+
+	.energy {
+		display: flex;
+		width: 100%;
+		height: 50rpx;
+		line-height: 50rpx;
+		padding: .2rem;
+	}
+
+	.energy-img {
+		width: 50rpx;
+		height: 50rpx;
+		background-image: url(https://s1.ax1x.com/2022/10/13/xa5TWq.png);
+		background-size: 100%, 100%;
+		margin-right: .2rem;
+	}
+
+	.energy>text {
+		font-weight: 600;
+	}
+
+	.energy-text {
+		color: rgb(78, 117, 55);
+	}
+
+	.energy-icon {
+		width: 30rpx;
+		height: 30rpx;
+		margin: 5px auto;
+		background-image: url(https://s1.ax1x.com/2022/10/13/xa5oYn.png);
+		background-size: 100%, 100%;
+		margin-left: .2rem;
+	}
+	.neirong{
+		padding: .2rem;
 	}
 </style>

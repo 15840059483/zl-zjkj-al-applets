@@ -9,9 +9,18 @@
 		<view class="zhuti">
 			<uni-card class="payment-ma-wrapper bg-white text-center">
 				<view class="payment-ma-ping" style="text-align: center;">就诊凭条（凭以下凭条进行就诊）</view>
-				<image style="width: 100%;height: 240rpx;margin-top:10px;background-color: red;"
+				<image style="width: 100%;height: 240rpx;margin-top:10px;"
 					:src="baseUrl + '/hospt/getBarCode?body=' + dfltPatientInfo.cardNumber" class="doctor8-ma-img" />
-				<view class="payment-ma-num">{{ dfltPatientInfo.cardNumber }}</view>
+				<view class="payment-ma-num" style="display: flex;justify-content: center;align-items: center;">
+					<view v-if="isShowCardNumber">{{ dfltPatientInfo.cardNumber }}</view>
+					<view v-else>{{ dfltPatientInfo.cardNumber | processingcardNumber }}</view>
+					<view style="width: 10%;text-align: right;">
+						<text class="iconfont icon-biyanjing" v-if="!isShowCardNumber" style="color: #008cfe"
+							@click="isShowCardNumber = true"></text>
+						<text class="iconfont icon-icon-eye-open" v-if="isShowCardNumber"
+							style="color: #008cfe" @click="isShowCardNumber = false"></text>
+					</view>
+				</view>
 			</uni-card>
 		</view>
 	</view>
@@ -20,7 +29,9 @@
 <script>
 	// 引入导航栏组件
 	// import header from '@/components/header/header.vue'
-	import base from "../../request/base";
+	import {
+		BASE_URL
+	} from "../../http/api.js";
 	import '../register-success/register-success.scss'
 	import '../payment-details/payment-details.scss'
 	export default {
@@ -28,14 +39,22 @@
 		components: {
 			// header,
 		},
+		filters: {
+			processingcardNumber(val) {
+				if (!val) return '-'
+				return val.substr(0, 2) + '******' + val.substr(val.length - 2)
+			}
+		},
 		data() {
 			return {
 				title: "就诊码", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
 
 				dfltPatientInfo: {},
-				baseUrl: base.sq,
+				baseUrl: BASE_URL,
 				loading: true, // 加载动画
+				
+				isShowCardNumber: false
 			}
 		},
 		methods: {

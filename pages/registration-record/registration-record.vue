@@ -125,8 +125,8 @@
 			},
 			getList() {
 				const params = {
-					// patientNo: this.currentPatient.cardNumber
-					patientNo: '0000000001'
+					patientNo: this.currentPatient.cardNumber
+					//patientNo: '0000000001'
 				}
 				this.loading = true
 				this.$myRequest({

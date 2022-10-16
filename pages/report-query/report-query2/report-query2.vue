@@ -26,7 +26,7 @@
 					</view>
 				</div>
 			</uni-card>
-			<!-- <div class="payment3-center">
+			<div class="payment3-center">
 				<div class="payment3-option" v-for="item1 in list"
 					@click="goToInspectionReport(item1.resultList,item1.sampleList)">
 					<template v-for="item2 in item1.sampleList" >
@@ -43,14 +43,14 @@
 							<text class="iconfont icon-youjiantou"></text>
 						</div>
 						<div class="query2-right" v-if="!item2.reportState" style="width: 20%;">
-							<div style="color: color: rgb(0,142,254)">已发布</div>
+							<div style="color: rgb(0,142,254)">已发布</div>
 							<text class="iconfont icon-youjiantou"></text>
 						</div>
 					</template>
 
 				</div>
-			</div> -->
-			<div class="payment3-center">
+			</div>
+			<!-- <div class="payment3-center">
 				<div class="payment3-option" v-for="item1 in list"
 					@click="goToInspectionReport(item1,item1)">
 						<div class="payment3-option-font" style="width: 80%;">
@@ -62,7 +62,7 @@
 							<text class="iconfont icon-youjiantou"></text>
 						</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="no-list" v-if="list.length === 0">
 				<div>
 					<img src="https://s1.ax1x.com/2022/09/28/xe6wLV.png">
@@ -221,8 +221,10 @@
 			openAddPatient() {
 				this.showAddPatient = true;
 				this.patient = {
-					name: '',
-					admissionNumber: undefined
+					// name: '',
+					// admissionNumber: undefined
+					name: '张玉春',
+					admissionNumber: '0800039764'
 				};
 			},
 			// 添加就诊人
@@ -232,7 +234,7 @@
 			goToInspectionReport(list1, list2) {
 				uni.navigateTo({
 					url: '/pages/report-query/report-query3/report-query3?sampleList=' + encodeURIComponent(JSON
-						.stringify(list2)) + '&resultList=' + encodeURIComponent(JSON.stringify(list1))
+						.stringify(list1).replace(/%/g, '%25')) + '&resultList=' + encodeURIComponent(JSON.stringify(list2).replace(/%/g, '%25'))
 				});
 
 				// this.$router.push({
@@ -272,12 +274,13 @@
 			},
 			getZjkjList(item) {
 				let parans = {
+					name: this.patient.name,
 					patientId: this.patient.admissionNumber
 				}
 				this.jiazai();
 
 				this.$myRequest({
-					url: "/zjkj/itemInfo",
+					url: "/zjkj/list",
 					method: "POST",
 					data: parans,
 				}).then(res => {
@@ -285,6 +288,15 @@
 					this.jiazai();
 					if (res && res.data && res.data.length > 0) {
 						this.list = res.data;
+						
+						my.getAuthCode({
+						  scopes: 'mfrstre',
+						  success: res => {
+						    my.alert({
+						      content: '能量授权了哟！',
+						    });
+						  },
+						});
 						console.log(this.list)
 					}
 					this.showAddPatient = false;

@@ -42,22 +42,9 @@
 				})
 			},
 			goToDetail(item) {
-				const params = {
-					orderNo: item.orderNo
-				}
-				this.$myRequest({
-					url: '/hospt/getWechatOrderList',
-					data: params
-				}).then(data => {
-					this.listData = data.data
-					this.loading = false;
-				}).catch(err => {
-					this.loading = false;
-				})
-				this.$api.outpatientDepartmentService.getOrderInfo(params).then(res => {
-					uni.navigateTo({
-						url: '/pages/register-success/register-success?orderDetail=' + JSON.stringify(res.data[0]) + '&backGo=-1'
-					})
+				uni.navigateTo({
+					url: '/pages/register-success/register-success?orderDetail=' + JSON.stringify(item) +
+						'&backGo=-1'
 				})
 			}
 		}

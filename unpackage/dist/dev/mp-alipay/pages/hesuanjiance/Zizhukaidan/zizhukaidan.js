@@ -1,9 +1,9 @@
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([["pages/hesuanjiance/Zizhukaidan/zizhukaidan"],{
 
 /***/ 133:
-/*!***********************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/main.js?{"page":"pages%2Fhesuanjiance%2FZizhukaidan%2Fzizhukaidan"} ***!
-  \***********************************************************************************************************************************/
+/*!**************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2Fhesuanjiance%2FZizhukaidan%2Fzizhukaidan"} ***!
+  \**************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19,9 +19,9 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_zizhukaid
 /***/ }),
 
 /***/ 134:
-/*!**************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue ***!
-  \**************************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60,9 +60,9 @@ component.options.__file = "pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue"
 /***/ }),
 
 /***/ 135:
-/*!*********************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=template&id=712a14fe&scoped=true& ***!
-  \*********************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=template&id=712a14fe&scoped=true& ***!
+  \************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -82,9 +82,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 136:
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=template&id=712a14fe&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=template&id=712a14fe&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -160,9 +160,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 137:
-/*!***************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -176,9 +176,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 138:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -395,24 +395,19 @@ __webpack_require__(/*! ./zizhukaidan.scss */ 139);function ownKeys(object, enum
 
       //检验项目的信息
       jianyanxiangmu: [{
-        name: "新型冠状病毒核酸检测（单人）",
-        jiner: 80.00 },
+        name: "新型冠状病毒核酸检测（单检）",
+        jiner: 16.00,
+        type: 1 },
 
       {
-        name: "新型冠状病毒核酸检测（团体）",
-        jiner: 80.00 },
-
-      {
-        name: "测试123",
-        jiner: 80.78 },
-
-      {
-        name: "测试231",
-        jiner: 80.00 }] };
+        name: "新型冠状病毒核酸检测（混检）",
+        jiner: 3.20,
+        type: 2 }] };
 
 
 
   },
+
   methods: _objectSpread(_objectSpread({},
 
 
@@ -444,12 +439,15 @@ __webpack_require__(/*! ./zizhukaidan.scss */ 139);function ownKeys(object, enum
     guanbi2: function guanbi2() {
       this.$refs.popo.close();
     },
-    // // 加载动画的方法
-    // jiazai() {
-    // 	let loadingInstance = Loading.service({});
-    // 	loadingInstance.close();
-    //  this.dialogVisible2 = false
-    // },
+
+    /* 
+       	//加载动画的方法
+       	jiazai() {
+       		let loadingInstance = Loading.service({});
+       		loadingInstance.close();
+       	 this.dialogVisible2 = false
+       	},
+       */
     // 取消的方法，触发就会返回首页
     quxiao: function quxiao() {
       this.$refs.popo.close();
@@ -460,25 +458,28 @@ __webpack_require__(/*! ./zizhukaidan.scss */ 139);function ownKeys(object, enum
     },
     // 确定挂号的方法，触发会跳转到/tijiaoshenhe页面
     tiaozhuan: function tiaozhuan() {
+      this.Add_xiangmuxinxi(this.choose_a);
       // this.$router.push("/tijiaoshenhe");
+      // setTimeout(() => {
       uni.navigateTo({
         url: '/pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing' });
 
+      // }, 500)
       // 通过vuex中的xiangmuxinxi方法，将choose_a中的值传到vuex中，这个值中包含项目信息
       // store.commit("xiangmuxinxi", this.choose_a);
-      this.Add_xiangmuxinxi(this.choose_a);
+
     },
     //切换就诊项目的方法，这参数包含切换的项目信息
     ceshi: function ceshi(name) {
       //  让choose_a的值等于参数name
       this.choose_a = name;
-      console.log(this.choose_a);
+      //console.log(this.choose_a);
     },
     //选择预约项目的首选项
     shouxuan: function shouxuan() {
       //  让choose_a的值等于jianyanxiangmu数组索引位置0中的项目信息
       this.choose_a = this.jianyanxiangmu[0];
-      console.log(this.choose_a);
+      //console.log(this.choose_a);
     },
     // 切换弹出框的方法，触发此方法线上（手机）开单告知书的弹窗会关闭，预约检查的弹出会开启
     qiehuan: function qiehuan() {
@@ -492,6 +493,12 @@ __webpack_require__(/*! ./zizhukaidan.scss */ 139);function ownKeys(object, enum
     },
     //改变选择检验还是检查的状态
     gai2: function gai2() {
+      uni.showToast({
+        title: '暂不可以预约检查哟！QAQ',
+        icon: 'none',
+        duration: 2000 });
+
+      return;
       this.gaibian = false;
       // this.jiazai()
     },
@@ -522,6 +529,12 @@ __webpack_require__(/*! ./zizhukaidan.scss */ 139);function ownKeys(object, enum
       console.log(params);
     },
     onSelectDayBtn: function onSelectDayBtn(day, index) {
+      uni.showToast({
+        title: '暂不可预约哟！QAQ',
+        icon: 'none',
+        duration: 2000 });
+
+      return;
       if (this.selectDay = this.today.getDay()) {
         this.showSwitchPatient = true;
       } else {
@@ -603,9 +616,9 @@ __webpack_require__(/*! ./zizhukaidan.scss */ 139);function ownKeys(object, enum
 /***/ }),
 
 /***/ 140:
-/*!***********************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=style&index=0&id=712a14fe&scoped=true&lang=css& ***!
-  \***********************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=style&index=0&id=712a14fe&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -619,9 +632,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 141:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=style&index=0&id=712a14fe&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zizhukaidan/zizhukaidan.vue?vue&type=style&index=0&id=712a14fe&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

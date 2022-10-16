@@ -305,16 +305,6 @@
 						'&schemaId=' + this.doctor.iD +
 						'&noonID=' + this.doctor.noonID,
 				});
-				// this.$router.push({
-				// 	path: '/registrationConfirmation',
-				// 	query: {
-				// 		doctorInfo: encodeURIComponent(JSON.stringify(this.doctor)),
-				// 		seeInfo: encodeURIComponent(JSON.stringify(this.seeDateInfo)),
-				// 		date: this.date,
-				// 		noonName: '[' + (this.doctor.noonID == '1' ? '上午' : '下午') + ']',
-				// 		noonID: this.doctor.noonID
-				// 	}
-				// });
 				this.closeConfirm();
 			}
 		},

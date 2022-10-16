@@ -1,9 +1,9 @@
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([["pages/barCodeAndQrCode/barCodeAndQrCode"],{
 
 /***/ 115:
-/*!******************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/main.js?{"page":"pages%2FbarCodeAndQrCode%2FbarCodeAndQrCode"} ***!
-  \******************************************************************************************************************************/
+/*!*********************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2FbarCodeAndQrCode%2FbarCodeAndQrCode"} ***!
+  \*********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19,9 +19,9 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_barCodeAn
 /***/ }),
 
 /***/ 116:
-/*!***********************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue ***!
-  \***********************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60,9 +60,9 @@ component.options.__file = "pages/barCodeAndQrCode/barCodeAndQrCode.vue"
 /***/ }),
 
 /***/ 117:
-/*!******************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=template&id=d014afb4&scoped=true& ***!
-  \******************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=template&id=d014afb4&scoped=true& ***!
+  \*********************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -82,9 +82,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 118:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=template&id=d014afb4&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=template&id=d014afb4&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -125,6 +125,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var f0 = !_vm.isShowCardNumber
+    ? _vm._f("processingcardNumber")(_vm.dfltPatientInfo.cardNumber)
+    : null
+
+  if (!_vm._isMounted) {
+    _vm.e0 = function($event) {
+      _vm.isShowCardNumber = true
+    }
+
+    _vm.e1 = function($event) {
+      _vm.isShowCardNumber = false
+    }
+  }
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        f0: f0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -135,9 +157,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 119:
-/*!************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -151,9 +173,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 120:
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -180,9 +202,29 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _base = _interopRequireDefault(__webpack_require__(/*! ../../request/base */ 56));
+
+
+
+
+
+
+
+
+
+var _api = __webpack_require__(/*! ../../http/api.js */ 62);
+
+
 __webpack_require__(/*! ../register-success/register-success.scss */ 121);
-__webpack_require__(/*! ../payment-details/payment-details.scss */ 122);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+__webpack_require__(/*! ../payment-details/payment-details.scss */ 122); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -205,11 +247,10 @@ __webpack_require__(/*! ../payment-details/payment-details.scss */ 122);function
 // import header from '@/components/header/header.vue'
 var _default = { // 注册使用导航栏组件
   components: {// header,
-  }, data: function data() {return { title: "就诊码", // 页面标题
+  }, filters: { processingcardNumber: function processingcardNumber(val) {if (!val) return '-';return val.substr(0, 2) + '******' + val.substr(val.length - 2);} }, data: function data() {return { title: "就诊码", // 页面标题
       shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-      dfltPatientInfo: {}, baseUrl: _base.default.sq, loading: true // 加载动画
-    };}, methods: { getDfltPtCardInfo: function getDfltPtCardInfo() {var _this = this;this.$myRequest({ url: "/wechat/user/dfltPtCard/info" }).then(function (data) {_this.dfltPatientInfo = data.data || null;_this.loading = false;}).catch(function (err) {_this.loading = false;});} },
-
+      dfltPatientInfo: {}, baseUrl: _api.BASE_URL, loading: true, // 加载动画
+      isShowCardNumber: false };}, methods: { getDfltPtCardInfo: function getDfltPtCardInfo() {var _this = this;this.$myRequest({ url: "/wechat/user/dfltPtCard/info" }).then(function (data) {_this.dfltPatientInfo = data.data || null;_this.loading = false;}).catch(function (err) {_this.loading = false;});} },
   mounted: function mounted() {
     this.getDfltPtCardInfo();
   } };exports.default = _default;
@@ -217,9 +258,9 @@ var _default = { // 注册使用导航栏组件
 /***/ }),
 
 /***/ 123:
-/*!********************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=style&index=0&id=d014afb4&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************!*\
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=style&index=0&id=d014afb4&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -233,9 +274,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 124:
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/yb/zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=style&index=0&id=d014afb4&scoped=true&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/barCodeAndQrCode/barCodeAndQrCode.vue?vue&type=style&index=0&id=d014afb4&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

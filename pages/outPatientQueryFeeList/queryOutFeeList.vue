@@ -288,27 +288,17 @@
 			},
 			//就诊人信息的数据
 			getPatientInfo() {
-				let _this = this;
-				let data = [{
-						patientName: "冷夜",
-						patientId: 1,
-						cardNumber: "124151231"
-					},
-					{
-						patientName: "小狐狸",
-						patientId: 2,
-						cardNumber: "124124121"
-					},
-					{
-						patientName: "张力",
-						patientId: 3,
-						cardNumber: "124146554"
-					},
-				];
-				_this.switchPatientList = data;
-				// 让currentPatient等于数组data中索引位置为0的信息
-				_this.currentPatient = data[0];
-				this.getOutPayList();
+				this.$myRequest({
+					url: "/wechat/user/patientcard/info",
+				}).then(data => {
+					this.switchPatientList = data.data;
+					this.currentPatient = data.data[0];
+					this.getOutPayList()
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
+				
 			},
 			//切换就诊人，这个参数中包含就诊人信息
 			// onSwitchPatientBtn(item) {
@@ -326,9 +316,17 @@
 				this.getOutPayList();
 			},
 			// 添加就诊人
-			addPatient() {},
+			addPatient() {
+				uni.navigateTo({
+					url: '/pages/patient-management/add-patient/add-patient'
+				})
+			},
 			// 管理就诊人
-			managePatient() {},
+			managePatient() {
+				uni.navigateTo({
+					url: '/pages/patient-management/patient-management'
+				})
+			},
 			// 获取缴费信息列表
 			getOutPayList() {
 				const params = {

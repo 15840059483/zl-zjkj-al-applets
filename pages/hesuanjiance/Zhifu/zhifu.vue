@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
 		<!-- <view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
@@ -10,7 +10,7 @@
 			<uni-card class="xianzhi">
 				<!-- 就诊人信息，如果huanzhexinxi中的患者姓名为空渲染这个div -->
 				<div class="bg-white card-container" v-if="huanzhexinxi.name == null">
-					<div style="display: flex; width: 100%;">
+					<!-- <div style="display: flex; width: 100%;">
 						<div class="shangceng">
 							<div class="xingming">
 								<span>{{ processingName(currentPatient.name) }}</span>
@@ -24,14 +24,14 @@
 								style="transform: scale(1.0);border-radius: 20px 20px;"
 								@click="switchPatient">切换就诊人</button>
 						</view>
-					</div>
+					</div> -->
 
 					<div style="width: 100%;">
 						<div class="xiaceng">
-							<text>{{ currentPatient.sex }}</text>
+							<text>{{ huanzhexinxi.patientName }}</text>
 							<text style="margin-left:5px;">/</text>
-							<text style="margin-left:5px;">{{ currentPatient.age }}岁</text>
-							<text style="margin-left:5px;">身份证：{{ processingcardNumber(currentPatient.shenfenID) }}</text>
+							<text style="margin-left:5px;">{{ huanzhexinxi.patientSex }}岁</text>
+							<text style="margin-left:5px;">病历号：{{ processingcardNumber(huanzhexinxi.cardNumber) }}</text>
 						</div>
 					</div>
 					<!-- <div class="qiehuananniu">
@@ -59,10 +59,10 @@
 					</div>
 					<div style="width: 100%;">
 						<div class="xiaceng">
-							<text>{{ huanzhexinxi.sex }}</text>
+							<text>{{ huanzhexinxi.patientName }}</text>
 							<text style="margin-left:5px;">/</text>
-							<text style="margin-left:5px;">{{ huanzhexinxi.age }}岁</text>
-							<text style="margin-left:5px;">身份证：{{ processingcardNumber(huanzhexinxi.shenfenID) }}</text>
+							<text style="margin-left:5px;">{{ huanzhexinxi.patientSex }}岁</text>
+							<text style="margin-left:5px;">病历号：{{ processingcardNumber(huanzhexinxi.cardNumber) }}</text>
 						</div>
 					</div>
 					<!-- <div class="qiehuananniu">
@@ -133,23 +133,23 @@
 						<div class="guahaoliushuihao" @click="isChecked">
 							<checkbox :checked="checkAll" color="#007aff"
 								style="margin-top: 6px;transform: scale(0.7);" />
-							挂号流水号：{{ xiangmuxinxi.jiner }}
+							挂号流水号：{{ xiangmuxinxi.regNo }}
 						</div>
 						<div class="chufanghao">
 							<div class="chufanghaonei">
-								<div class="chufanghao1"><span>处方号：{{}}</span></div>
+								<div class="chufanghao1"><span>处方号：{{xiangmuxinxi.recipeNo}}</span></div>
 								<div class="xiangmuming">
 									<!-- 通过循环allmodelType数组渲染列表，这个数组中包含的是项目名称， -->
 									<view class="duoxuan" v-for="model in allmodelType" :key="model" @click="isChecked"
 										style="font-size: 13px;font-weight: 600;">
 										<checkbox style="margin-top: 6px;transform: scale(0.7);" color="#007aff"
 											:checked="checkAll" />
-										{{model}}
+										{{model.itemName}}
 									</view>
 								</div>
 							</div>
 							<div class="xiangmujiner">
-								<span>￥{{ xiangmuxinxi.jiner|numFilter }}</span>
+								<span>￥{{ xiangmuxinxi.totalCost|numFilter }}</span>
 							</div>
 						</div>
 						<div class="hejijiner">
@@ -158,7 +158,7 @@
 								<span>合计：</span>
 								<!-- 判断多选框是否被选择，如果被选择就进行渲染这个span -->
 								<span v-if="checkAll==true"
-									style="color: #ffa500">￥{{ xiangmuxinxi.jiner|numFilter }}</span>
+									style="color: #ffa500">￥{{ xiangmuxinxi.totalCost|numFilter }}</span>
 							</div>
 						</div>
 					</view>
@@ -268,42 +268,11 @@
 			},
 			//就诊人信息的数据
 			getPatientInfo() {
-				let _this = this;
-				let data = [{
-						name: "张春花",
-						shouji: '11111111111',
-						sex: "女",
-						age: 28,
-						shenfenID: "11111111111111111X",
-					},
-					{
-						name: "胡尔西代姆·阿卜拉",
-						shouji: '17614245415',
-						sex: "女",
-						age: 22,
-						shenfenID: "22222222222222222X",
-					},
-					{
-						name: "测试同学2",
-						shouji: '33333333333',
-						sex: "女",
-						age: 20,
-						shenfenID: "210111111111",
-					},
-				];
-				_this.switchPatientList = data;
-				// 让currentPatient等于数组data中索引位置为0的信息
-				_this.currentPatient = data[0];
+				
 			},
 			//切换就诊人，这个参数中包含就诊人信息
 			onSwitchPatientBtn(item) {
-				this.currentPatient = item;
-				// 通过vuex中的huanzhejibenxinxi方法，将参数item中的值传到vuex中，这个值中包含就诊人信息
-				// store.commit("huanzhejibenxinxi", item);
-				this.Add_huanzhejibenxinxi(item);
-				// 让huanzhexinxi等于就诊人信息
-				this.huanzhexinxi = item;
-				console.log(this.huanzhejibenxinxi);
+
 			},
 			// 添加就诊人
 			addPatient() {},
@@ -312,10 +281,55 @@
 
 			// 跳转支付的方法
 			zhifu() {
+				let params = {
+					deptId: '1009',
+					deptName: '核酸检测门诊',
+					doctorName: '',
+					regLevelName: '简易门诊',
+					doctorTitleId: '',
+					patientName: this.huanzhexinxi.patientName,
+					patientNo: this.huanzhexinxi.cardNumber,
+					patientSeq: this.xiangmuxinxi.regNo,
+					payMount: this.xiangmuxinxi.totalCost,
+					recipeNos: [this.xiangmuxinxi.recipeNo],
+					type: this.xiangmu.type,
+					pay_type:'AL'
+				}
 				if (this.checkAll === true) {
-					uni.navigateTo({
-						url: '/pages/hesuanjiance/fukuan/fukuan'
-					});
+					this.$myRequest({
+						url: "/wechat/pay/out",
+						data: params
+					}).then(data => {
+						if(data.code==0){
+							my.tradePay({
+							  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+							  tradeNO: data.data.tradeNO,
+							  success: (res) => {
+								  if (!res.resultCode == '9000') {
+								  	// this.$refs.popo.close();
+								  	uni.navigateTo({
+								  		url: '/pages/paymentPage/paymentPage?orderNo=' + data
+								  			.data.orderNo
+								  	});
+								  } else {
+								  	uni.showToast({
+								  		title: '支付失败',
+								  		icon: 'none',
+								  		duration: 2000
+								  	});
+								  }
+							  },
+							  fail: (res) => {
+							    my.alert({
+							      content: JSON.stringify(res),
+							    });
+							  }
+							});
+						}
+					}).catch(err => {
+						this.loading = false;
+					})
+					
 				} else {
 					uni.showToast({
 						title: '请选择支付的项目！',
@@ -335,7 +349,8 @@
 			},
 		},
 		// 这是uni的生命周期
-		onLoad() {
+		onLoad(e) {
+			this.data = JSON.parse(e.data);
 			this.jiazai()
 		},
 		onShow() {
@@ -344,9 +359,9 @@
 		mounted() {
 			this.getPatientInfo();
 			this.huanzhexinxi = this.huanzhejibenxinxi;
-			this.xiangmuxinxi = this.xiangmu;
-			this.allmodelType.push(this.xiangmuxinxi.name);
-			console.log(this.allmodelType)
+			this.xiangmuxinxi = this.data;
+			this.allmodelType.push(this.data);
+			console.log(this.huanzhexinxi)
 			this.jiazai()
 		},
 	};

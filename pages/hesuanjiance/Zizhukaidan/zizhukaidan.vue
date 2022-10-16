@@ -1,19 +1,19 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-				<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
 		<!-- <view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
 		</view> -->
 		<view class="zhuti">
 			<!-- 搜索框 -->
-			<view class="input-view">
-				<!-- 搜索框 -->
-				<div class="sousuo">
+			<!-- <view class="input-view"> -->
+			<!-- 搜索框 -->
+			<!-- <div class="sousuo">
 					<mSearch @search="search($event,0)" button="inside"></mSearch>
-				</div>
-			</view>
+				</div> -->
+			<!-- </view> -->
 
 			<!-- 预约检查时间的弹出框，设置点击空白不会退出 is_mask="true" maskFun="false"，无关闭按钮 is_close="false" -->
 			<pop ref="popo" direction="center" :is_close="false" :is_mask="true" :width="80" height="fit-content"
@@ -39,32 +39,32 @@
 							</view>
 						</uni-row>
 						<!-- 日历内部框 -->
-						
-							<view v-show="isShowDate" class="bg-white">
-								<!-- 星期，展示当前日期是星期几以及今天后的6天 -->
-								<uni-row type="flex" justify="space-around">
-									<view v-for="week in weeks" v-bind:key="week" class="text-center date-week">
-										{{ week }}
+
+						<view v-show="isShowDate" class="bg-white">
+							<!-- 星期，展示当前日期是星期几以及今天后的6天 -->
+							<uni-row type="flex" justify="space-around">
+								<view v-for="week in weeks" v-bind:key="week" class="text-center date-week">
+									{{ week }}
+								</view>
+							</uni-row>
+							<uni-row type="flex" justify="space-around">
+								<view v-for="(day, index) in days" v-bind:key="day.day" class="text-center"
+									style=" width: 14.2%;height: 100%;">
+									<view :class="selectDay == day.day ? 'select-date' : ''" class="date-day"
+										@click="onSelectDayBtn(day, index)">
+										<view style="line-height: 70rpx;">{{ day.day }}</view>
 									</view>
-								</uni-row>
-								<uni-row type="flex" justify="space-around">
-									<view v-for="(day, index) in days" v-bind:key="day.day" class="text-center"
-										style=" width: 14.2%;height: 100%;">
-										<view :class="selectDay == day.day ? 'select-date' : ''" class="date-day"
-											@click="onSelectDayBtn(day, index)">
-											<view style="line-height: 70rpx;">{{ day.day }}</view>
-										</view>
-									</view>
-								</uni-row>
-							</view>
-						
+								</view>
+							</uni-row>
+						</view>
+
 					</view>
 				</view>
 
 				<!-- 剩余号数 -->
 				<view class="yuhao">
 					<view class="yuehaoshijian"><span>全天</span></view>
-					<view class="shengyuhao"><span>余号：50</span></view>
+					<view class="shengyuhao"><span></span></view>
 					<view class="yuhaoanniu">
 						<radio checked color="#409EFF" style="transform: scale(0.7);"></radio>
 					</view>
@@ -130,7 +130,7 @@
 							<view class="jianyan-xia-1-2">
 								<!-- checked 默认选项，这里用了三目运算，如果choose_a中的name等于item（循环数据）中的name就让其为默认选中 -->
 								<radio :checked="choose_a.name===item.name?true:false" value="item" @click="ceshi(item)"
-									color="#409EFF" style="transform: scale(0.7);"/>
+									color="#409EFF" style="transform: scale(0.7);" />
 							</view>
 						</view>
 					</view>
@@ -210,30 +210,25 @@
 
 				//检验项目的信息
 				jianyanxiangmu: [{
-						name: "新型冠状病毒核酸检测（单人）",
-						jiner: 80.00
+						name: "新型冠状病毒核酸检测（单检）",
+						jiner: 16.00,
+						type: 1
 					},
 					{
-						name: "新型冠状病毒核酸检测（团体）",
-						jiner: 80.00
-					},
-					{
-						name: "测试123",
-						jiner: 80.78
-					},
-					{
-						name: "测试231",
-						jiner: 80.00
+						name: "新型冠状病毒核酸检测（混检）",
+						jiner: 3.20,
+						type: 2
 					},
 				],
 			}
 		},
+
 		methods: {
 			// 使用辅助函数，辅助函数mapMutations与mapActions必须在methods中定义，因为他们是方法
 			// 括号内必须是数组
 			...mapMutations(["Add_xiangmuxinxi", "Add_yuyueriqi"]),
 
-// 加载框
+			// 加载框
 			jiazai() {
 				this.loading = true;
 				// 定时器，setTimeout只执行一次，setInterval执行多次
@@ -259,12 +254,15 @@
 			guanbi2() {
 				this.$refs.popo.close();
 			},
-			// // 加载动画的方法
-			// jiazai() {
-			// 	let loadingInstance = Loading.service({});
-			// 	loadingInstance.close();
-			//  this.dialogVisible2 = false
-			// },
+
+			/* 
+				//加载动画的方法
+				jiazai() {
+					let loadingInstance = Loading.service({});
+					loadingInstance.close();
+				 this.dialogVisible2 = false
+				},
+			*/
 			// 取消的方法，触发就会返回首页
 			quxiao() {
 				this.$refs.popo.close();
@@ -275,25 +273,28 @@
 			},
 			// 确定挂号的方法，触发会跳转到/tijiaoshenhe页面
 			tiaozhuan() {
+				this.Add_xiangmuxinxi(this.choose_a)
 				// this.$router.push("/tijiaoshenhe");
-				uni.navigateTo({
-					url: '/pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing'
-				});
+				// setTimeout(() => {
+					uni.navigateTo({
+						url: '/pages/hesuanjiance/Tijiaoshenqing/tijiaoshenqing'
+					});
+				// }, 500)
 				// 通过vuex中的xiangmuxinxi方法，将choose_a中的值传到vuex中，这个值中包含项目信息
 				// store.commit("xiangmuxinxi", this.choose_a);
-				this.Add_xiangmuxinxi(this.choose_a)
+
 			},
 			//切换就诊项目的方法，这参数包含切换的项目信息
 			ceshi(name) {
 				//  让choose_a的值等于参数name
 				this.choose_a = name;
-				console.log(this.choose_a);
+				//console.log(this.choose_a);
 			},
 			//选择预约项目的首选项
 			shouxuan() {
 				//  让choose_a的值等于jianyanxiangmu数组索引位置0中的项目信息
 				this.choose_a = this.jianyanxiangmu[0];
-				console.log(this.choose_a);
+				//console.log(this.choose_a);
 			},
 			// 切换弹出框的方法，触发此方法线上（手机）开单告知书的弹窗会关闭，预约检查的弹出会开启
 			qiehuan() {
@@ -307,6 +308,12 @@
 			},
 			//改变选择检验还是检查的状态
 			gai2() {
+				uni.showToast({
+					title: '暂不可以预约检查哟！QAQ',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
 				this.gaibian = false;
 				// this.jiazai()
 			},
@@ -337,6 +344,12 @@
 				console.log(params);
 			},
 			onSelectDayBtn(day, index) {
+				uni.showToast({
+					title: '暂不可预约哟！QAQ',
+					icon: 'none',
+					duration: 2000
+				});
+				return
 				if ((this.selectDay = this.today.getDay())) {
 					this.showSwitchPatient = true;
 				} else {

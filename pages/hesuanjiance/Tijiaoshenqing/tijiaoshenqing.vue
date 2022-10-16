@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- loading加载动画，type默认值是原子，love爱心，mask属性是遮罩 -->
-		<zero-loading v-if="loading" type="pulse" mask=true></zero-loading>
+		<zero-loading v-if="loading" type="pulse" mask></zero-loading>
 		<!-- 使用组件的时候首字母要大写！！！！ -->
 		<!-- <view class="header" style="width: 100%;height: 150rpx;">
 			<Header :title="title" :shouye="shouye"></Header>
@@ -13,10 +13,10 @@
 					<div style="display: flex; width: 100%;">
 						<div class="shangceng">
 							<div class="xingming">
-								<span>{{ processingName(currentPatient.name) }}</span>
+								<span>{{ processingName(currentPatient.patientName) }}</span>
 							</div>
 							<div class="shouji">
-								<span>{{ processingcardNumber(currentPatient.shouji) }}</span>
+								<span>{{ processingcardNumber(currentPatient.cardNumber) }}</span>
 							</div>
 						</div>
 						<view :span="12" class="change-patient-name">
@@ -28,10 +28,10 @@
 
 					<div style="width: 100%;">
 						<div class="xiaceng">
-							<text>{{ currentPatient.sex }}</text>
+							<text>{{ currentPatient.patientSex }}</text>
 							<text style="margin-left:5px;">/</text>
-							<text style="margin-left:5px;">{{ currentPatient.age }}岁</text>
-							<text style="margin-left:5px;">身份证：{{ processingcardNumber(currentPatient.shenfenID) }}</text>
+							<!-- <text style="margin-left:5px;">{{ currentPatient.age }}岁</text> -->
+							<text style="margin-left:5px;">身份证：{{ processingcardNumber(currentPatient.patientCardId) }}</text>
 						</div>
 					</div>
 					<!-- <div class="qiehuananniu">
@@ -81,14 +81,14 @@
 						<!-- <i class="el-icon-error" @click="showSwitchPatient = false"></i> -->
 						<text class="iconfont icon-guanbi" @click="showSwitchPatient = false"></text>
 					</div>
-					<div class="border-bottom switch-patient-list" v-for="item in switchPatientList"
-						v-bind:key="item.shenfenID" @click="onSwitchPatientBtn(item)">
-						<div class="patient-name">*{{ item.name }}</div>
+					<div class="border-bottom switch-patient-list" v-for="(item, index) in switchPatientList"
+						v-bind:key="index" @click="onSwitchPatientBtn(item)">
+						<div class="patient-name">*{{ item.patientName }}</div>
 						<div class="visit-number" style="font-size: 14px;color: rgb(146, 146, 146);">
-							身份证：{{ processingcardNumber(item.shenfenID )}}</div>
+							身份证：{{ processingcardNumber(item.patientCardId )}}</div>
 						<!-- <i class="el-icon-check" v-if="currentPatient.shenfenID === item.shenfenID"
 							style="color: #008cfe"></i> -->
-						<text class="iconfont icon-duihao" v-if="currentPatient.shenfenID === item.shenfenID"
+						<text class="iconfont icon-duihao" v-if="currentPatient.patientCardId === item.patientCardId"
 							style="color: #008cfe"></text>
 					</div>
 
@@ -108,8 +108,8 @@
 						<text class="iconfont icon-guanbi" @click="showSwitchPatient = false"></text>
 					</div>
 					<div class="border-bottom switch-patient-list" v-for="item in switchPatientList"
-						v-bind:key="item.shenfenID" @click="onSwitchPatientBtn(item)">
-						<div class="patient-name">*{{ item.name }}</div>
+						v-bind:key="item.cardId" @click="onSwitchPatientBtn(item)">
+						<div class="patient-name">*{{ item.patientName }}</div>
 						<div class="visit-number" style="font-size: 14px;color: rgb(146, 146, 146);">
 							身份证：{{ processingcardNumber(item.shenfenID) }}</div>
 						<!-- <i class="el-icon-check" v-if="ceshi.shenfenID === item.shenfenID" style="color: #008cfe"></i> -->
@@ -170,10 +170,13 @@
 				</div> -->
 				<view class="anniu">
 					<button type="primary" style="width: 100%;height: 100%;" @click="tijiao()">确认提交</button>
-					<!-- <zg-button type="primary" @click="tijiao()" class="weixin" block
+					<!-- 
+						# 该样式以作废 预留
+						<zg-button type="primary" @click="tijiao()" class="weixin" block
 						style="width: 100%;height: 100%;font-size: 18px;font-weight: 600;">
 						确认提交
-					</zg-button> -->
+						</zg-button> 
+					-->
 				</view>
 			</div>
 		</view>
@@ -251,26 +254,20 @@
 			...mapMutations(["Add_huanzhejibenxinxi"]),
 			// 确认项目信息与就诊人的信息后触发方法跳转到支付页面
 			tijiao() {
+				let params = {
+					patientNo:this.currentPatient.cardNumber,
+					patientName:this.currentPatient.patientName,
+					dateBegin:this.yuyueriqi.beginDay + ' 00:00:00',
+					dateEnd:this.yuyueriqi1.beginDay + ' 23:59:59',
+					type: this.xiangmu.type,
+				};
 				this.$myRequest({
-					url: "/wechat/pay/reg",
+					url: "/nat/reg",
 					data: params
 				}).then(data => {
 					if(data.code==200){
-						my.tradePay({
-						  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
-						  tradeNO: data.data.tradeNO,
-						  success: (res) => {
-							  // 关闭弹窗
-							  this.$refs.popo.close();
-							  uni.navigateTo({
-							  	url: '/pages/paymentPage/paymentPage?orderNo=' + data.data.orderNo
-							  });
-						  },
-						  fail: (res) => {
-						    my.alert({
-						      content: '已取消支付',
-						    });
-						  }
+						uni.navigateTo({
+							url: '/pages/hesuanjiance/Zhifu/zhifu?data='+encodeURIComponent(JSON.stringify(data.data))
 						});
 					}
 				}).catch(err => {
@@ -297,34 +294,23 @@
 			//就诊人信息的数据
 			getPatientInfo() {
 				let _this = this;
-				let data = [{
-						name: "张春花",
-						shouji: '11111111111',
-						sex: "女",
-						age: 28,
-						shenfenID: "11111111111111111X",
-					},
-					{
-						name: "胡尔西代姆·阿卜拉",
-						shouji: '17614245415',
-						sex: "女",
-						age: 22,
-						shenfenID: "22222222222222222X",
-					},
-					{
-						name: "测试同学2",
-						shouji: '33333333333',
-						sex: "女",
-						age: 20,
-						shenfenID: "210111111111",
-					},
-				];
-				_this.switchPatientList = data;
-				// 让currentPatient等于数组data中索引位置为0的信息
-				_this.currentPatient = data[0];
+				this.$myRequest({
+					url: "/wechat/user/patientcard/info",
+				}).then(data => {
+					_this.switchPatientList = data.data;
+					// 让currentPatient等于数组data中索引位置为0的信息
+					_this.currentPatient = data.data[0];
+					this.Add_huanzhejibenxinxi(_this.currentPatient);
+					this.loading = false;
+				}).catch(err => {
+					this.loading = false;
+				})
 			},
 			//切换就诊人，这个参数中包含就诊人信息
 			onSwitchPatientBtn(item) {
+				console.log('this.currentPatient', this.currentPatient)
+				console.log('item', item)
+				if (this.currentPatient.cardNumber === item.cardNumber) return
 				this.currentPatient = item;
 				// 通过vuex中的huanzhejibenxinxi方法，将参数item中的值传到vuex中，这个值中包含就诊人信息
 				// store.commit("huanzhejibenxinxi", item);
@@ -334,9 +320,17 @@
 				console.log(item);
 			},
 			// 添加就诊人
-			addPatient() {},
+			addPatient() {
+				uni.navigateTo({
+					url: '/pages/patient-management/add-patient/add-patient'
+				})
+			},
 			// 管理就诊人
-			managePatient() {},
+			managePatient() {
+				uni.navigateTo({
+					url: '/pages/patient-management/patient-management'
+				})
+			},
 		},
 		onLoad() {
 			// 页面进行渲染后将vuex中xiangmu赋给xiangmuxinxi
