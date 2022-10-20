@@ -91,31 +91,32 @@
 			</view>
 
 			<div class="bg-white">
-				<view class="doc-row" @click="clickDoctor(null)"
+				<view v-for="(item,index) in doctors" v-bind:key="index" class="doc-row" @click="clickDoctor(item)"
+					v-if="item.regLevelId=='1'"
 					style="display: flex;">
 					<view style="width: 25%;">
 						<div class="doc-img">
-							<img src="https://s1.ax1x.com/2022/10/13/xaGuDJ.jpg" />
+							<img v-if="item.docID" :src="baseUrl + '/hospt/doctorsImg/' + item.docID" />
+							<img v-if="!item.docID" :src="baseUrl + '/hospt/doctorsImg/' + '0'" />
 						</div>
 					</view>
 					<view style="width: 60%;padding: .1rem .2rem .1rem .2rem;">
 						<view>
 							<view class="doc-name">{{
-			              deptName
+			              item.docName ? item.docName : item.deptName
 			            }}</view>
-							<view class="doc-position" style="margin-top: 40px;">{{ '普诊' }}</view>
+							<view class="doc-position" style="margin-top: 40px;">{{ item.regLevelName }}</view>
 						</view>
 					</view>
 					<!--          <view :span="7" class="text-right doc-money">￥{{item.totalFee}}</view>-->
 					<view style="width: 15%;" class="text-right doc-money">{{
-			          "全天"
+			         '全天'
 			        }}</view>
 					<view :span="5" class="text-center">
 						<!--            <span class="doc-remainder">余号：{{item.remainingNum}}</span>-->
 					</view>
 				</view>
 			</div>
-
 
 			<div class="confirm-div" v-if="isShowConfirm"></div>
 
@@ -270,7 +271,7 @@
 
 					} else {
 						uni.showToast({
-							title: '点的太快啦！QAQ',
+							title: '点的太快啦！',
 							icon: 'none',
 							duration: 2000
 						});

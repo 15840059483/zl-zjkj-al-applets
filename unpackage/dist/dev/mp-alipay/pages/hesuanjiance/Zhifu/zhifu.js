@@ -2,7 +2,7 @@
 
 /***/ 142:
 /*!**************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2Fhesuanjiance%2FZhifu%2Fzhifu"} ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/main.js?{"page":"pages%2Fhesuanjiance%2FZhifu%2Fzhifu"} ***!
   \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -20,7 +20,7 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_zhifu.def
 
 /***/ 143:
 /*!*****************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue ***!
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -61,7 +61,7 @@ component.options.__file = "pages/hesuanjiance/Zhifu/zhifu.vue"
 
 /***/ 144:
 /*!************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=template&id=2c2f31ae&scoped=true& ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=template&id=2c2f31ae&scoped=true& ***!
   \************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -83,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 145:
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=template&id=2c2f31ae&scoped=true& ***!
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=template&id=2c2f31ae&scoped=true& ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -127,15 +127,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   var m0 =
     _vm.huanzhexinxi.name == null
+      ? _vm.processingName(_vm.huanzhexinxi.patientName)
+      : null
+  var m1 =
+    _vm.huanzhexinxi.name == null
       ? _vm.processingcardNumber(_vm.huanzhexinxi.cardNumber)
       : null
-  var m1 = !(_vm.huanzhexinxi.name == null)
+  var m2 = !(_vm.huanzhexinxi.name == null)
     ? _vm.processingName(_vm.huanzhexinxi.name)
     : null
-  var m2 = !(_vm.huanzhexinxi.name == null)
+  var m3 = !(_vm.huanzhexinxi.name == null)
     ? _vm.processingcardNumber(_vm.huanzhexinxi.shouji)
     : null
-  var m3 = !(_vm.huanzhexinxi.name == null)
+  var m4 = !(_vm.huanzhexinxi.name == null)
+    ? _vm.processingName(_vm.huanzhexinxi.patientName)
+    : null
+  var m5 = !(_vm.huanzhexinxi.name == null)
     ? _vm.processingcardNumber(_vm.huanzhexinxi.cardNumber)
     : null
   var l0 =
@@ -143,10 +150,10 @@ var render = function() {
       ? _vm.__map(_vm.switchPatientList, function(item, __i0__) {
           var $orig = _vm.__get_orig(item)
 
-          var m4 = _vm.processingcardNumber(item.shenfenID)
+          var m6 = _vm.processingcardNumber(item.shenfenID)
           return {
             $orig: $orig,
-            m4: m4
+            m6: m6
           }
         })
       : null
@@ -155,10 +162,10 @@ var render = function() {
       ? _vm.__map(_vm.switchPatientList, function(item, __i1__) {
           var $orig = _vm.__get_orig(item)
 
-          var m5 = _vm.processingcardNumber(item.shenfenID)
+          var m7 = _vm.processingcardNumber(item.shenfenID)
           return {
             $orig: $orig,
-            m5: m5
+            m7: m7
           }
         })
       : null
@@ -188,6 +195,8 @@ var render = function() {
         m1: m1,
         m2: m2,
         m3: m3,
+        m4: m4,
+        m5: m5,
         l0: l0,
         l1: l1,
         f0: f0,
@@ -206,7 +215,7 @@ render._withStripped = true
 
 /***/ 146:
 /*!******************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=script&lang=js& ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -222,7 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 147:
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -428,19 +437,38 @@ var _vuex = __webpack_require__(/*! vuex */ 14);function _interopRequireDefault(
 
   (0, _vuex.mapState)(["xiangmu", "yuyueriqi", "huanzhejibenxinxi"])), {}, {
     processingName: function processingName() {
-      return function (val) {
-        if (!val) {
+      return function (str) {
+        if (!str) {
           return '-';
         }
-        return '*' + val.substr(1);
+        if (null != str && str != undefined) {
+          var star = ''; //存放名字中间的*
+          //名字是两位的就取姓名首位+*
+          if (str.length <= 2) {
+            return str.substring(0, 1) + "*";
+          } else {
+            // 长度减1是因为后面要保留1位
+            for (var i = 0; i < str.length - 1; i++) {
+              star = star + '*';
+            }
+            // substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
+            return str.substring(0, 0) + star + str.substring(str.length - 1, str.length);
+          }
+        }
       };
     },
     processingcardNumber: function processingcardNumber() {
-      return function (val) {
-        if (!val) {
+      return function (str) {
+        if (!str) {
           return '-';
         }
-        return '*****' + val.substr(5);
+        var star = ''; //存放就诊号中间的*
+        // 长度减2是因为后面要保留两位
+        for (var i = 0; i < str.length - 2; i++) {
+          star = star + '*';
+        }
+        // substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
+        return str.substring(0, 3) + star + str.substring(str.length - 2, str.length);
       };
     } }),
 
@@ -600,7 +628,7 @@ var _vuex = __webpack_require__(/*! vuex */ 14);function _interopRequireDefault(
 
 /***/ 149:
 /*!**************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=style&index=0&id=2c2f31ae&scoped=true&lang=css& ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=style&index=0&id=2c2f31ae&scoped=true&lang=css& ***!
   \**************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -616,7 +644,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 150:
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=style&index=0&id=2c2f31ae&scoped=true&lang=css& ***!
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/hesuanjiance/Zhifu/zhifu.vue?vue&type=style&index=0&id=2c2f31ae&scoped=true&lang=css& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

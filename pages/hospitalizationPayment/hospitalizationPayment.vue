@@ -261,7 +261,23 @@
 					url: "/hospt/getHosptList",
 					data: params,
 				}).then(data => {
-					this.patientInfo = data && data.data ? data.data[0] : {};
+					
+					if(data && data.data){
+						let json = data.data.filter((item) => {
+							return item.inState == 'I'
+						})
+						if(json){
+							my.alert({
+							  content: '该患者已结算了哟！',
+							});
+						}
+						this.patientInfo =  json;
+					}else{
+						my.alert({
+						  content: '该患者已结算了哟！',
+						});
+					}
+					
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;

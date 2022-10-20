@@ -2,7 +2,7 @@
 
 /***/ 106:
 /*!********************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/main.js?{"page":"pages%2Fpatient-management%2Fadd-patient%2Fadd-patient"} ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/main.js?{"page":"pages%2Fpatient-management%2Fadd-patient%2Fadd-patient"} ***!
   \********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -20,7 +20,7 @@ my.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_addPatien
 
 /***/ 107:
 /*!***********************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue ***!
   \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -61,7 +61,7 @@ component.options.__file = "pages/patient-management/add-patient/add-patient.vue
 
 /***/ 108:
 /*!******************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=template&id=38d31350&scoped=true& ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=template&id=38d31350&scoped=true& ***!
   \******************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -83,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 109:
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=template&id=38d31350&scoped=true& ***!
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=template&id=38d31350&scoped=true& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -128,14 +128,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var f0 = _vm.formData.patientRelationship
-    ? _vm._f("patientRelationship")(_vm.formData.patientRelationship)
-    : null
+  var f0 =
+    _vm.formData.patientRelationship === "1030"
+      ? _vm._f("processingName")(_vm.val.userName)
+      : null
+  var f1 =
+    _vm.formData.patientRelationship === "1030"
+      ? _vm._f("processingcardID")(_vm.val.certNo)
+      : null
+  var f2 =
+    _vm.formData.patientRelationship === "1030" &&
+    _vm.formData.patientRelationship
+      ? _vm._f("patientRelationship")(_vm.formData.patientRelationship)
+      : null
+  var f3 =
+    _vm.formData.patientRelationship === "1030"
+      ? _vm._f("processingcardNumber")(_vm.val.mobile)
+      : null
+  var f4 =
+    !(_vm.formData.patientRelationship === "1030") &&
+    _vm.formData.patientRelationship
+      ? _vm._f("patientRelationship")(_vm.formData.patientRelationship)
+      : null
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        f0: f0
+        f0: f0,
+        f1: f1,
+        f2: f2,
+        f3: f3,
+        f4: f4
       }
     }
   )
@@ -150,7 +173,7 @@ render._withStripped = true
 
 /***/ 110:
 /*!************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=script&lang=js& ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -166,13 +189,41 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 111:
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -345,6 +396,34 @@ __webpack_require__(/*! ./add-patient.scss */ 112); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // 引入导航栏组件
 // import header from '@/components/header/header.vue'
 // 引入scss样式
@@ -352,13 +431,60 @@ var _default = { // 注册使用导航栏组件
   components: {// header,
   }, data: function data() {return { title: "添加就诊人", // 页面标题
       shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-      loading: false, patientRelationshipList: [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }], formData: { patientName: '', patientCardId: '', patientBirthday: '', patientRelationship: '1030', patientPhone: '', cardNo: '' } };}, filters: { patientRelationship: function patientRelationship(val) {if (!val) return '';var arr = [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }];var obj = arr.filter(function (item) {return item.value === val;});return obj[0].label;} }, methods: { // Picker选择器的方法
-    listPicker: function listPicker(e) {this.formData.patientRelationship = this.patientRelationshipList[e.target.value].value;}, idCardBlur: function idCardBlur() {var _IDRe18 = /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;if (_IDRe18.test(this.formData.patientCardId)) {this.formData.patientBirthday = this.formData.patientCardId.slice(6, 10) + '-' + this.formData.patientCardId.slice(10, 12) + '-' + this.formData.patientCardId.slice(12, 14);} else {uni.showToast({ title: '请输入正确的身份证号！', icon: 'none', duration: 2000 });}}, submitBtn: function submitBtn() {if (!this.formData.patientName) {uni.showToast({ title: '请输入就诊人姓名！', icon: 'none', duration: 2000 });
+      loading: false, patientRelationshipList: [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }], formData: { patientName: '', patientCardId: '', patientBirthday: '', patientRelationship: '1030', patientPhone: '', cardNo: '' }, val: {} };}, filters: { patientRelationship: function patientRelationship(val) {if (!val) return '';var arr = [{ label: '本人', value: '1030' }, { label: '家属', value: '1031' }, { label: '同事', value: '1032' }, { label: '其他', value: '1033' }];var obj = arr.filter(function (item) {return item.value === val;});return obj[0].label;}, processingName: function processingName(str) {if (!str) {return '-';}if (null != str && str != undefined) {var star = ''; //存放名字中间的*
+        //名字是两位的就取姓名首位+*
+        if (str.length <= 2) {return str.substring(0, 1) + "*";} else {// 长度减1是因为后面要保留1位
+          for (var i = 0; i < str.length - 1; i++) {star = star + '*';} // substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
+          return str.substring(0, 0) + star + str.substring(str.length - 1, str.length);}}}, processingcardNumber: function processingcardNumber(str) {if (!str) {return '-';}var star = ''; //存放就诊号中间的*
+      // 长度减2是因为后面要保留两位
+      for (var i = 0; i < str.length - 2; i++) {star = star + '*';} // substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
+      return str.substring(0, 3) + star + str.substring(str.length - 2, str.length);}, processingcardID: function processingcardID(str) {if (!str) {return '-';}var star = ''; //存放身份证中间的*
+      // 长度减1是因为后面要保留1位
+      for (var i = 0; i < str.length - 1; i++) {star = star + '*';} // substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
+      return str.substring(0, 1) + star + str.substring(str.length - 1, str.length);} }, mounted: function mounted() {var _this = this;my.getAuthCode({ scopes: 'auth_user', success: function success(res) {console.log(res);_this.$myRequest({ // url: `/al/auth/login?code=${res.code}`,
+          url: "/al/auth/user?code=".concat(res.authCode), method: 'get' }).then(function (data) {_this.val = data.data;});} });this.getAlUserInfo();}, methods: {
+    getAlUserInfo: function getAlUserInfo() {
+      my.getOpenUserInfo({
+        fail: function fail(res) {
+        },
+        success: function success(res) {
+          var userInfo = JSON.parse(res.response).response; // 以下方的报文格式解析两层 response
+          console.log(userInfo);
+        } });
+
+    },
+    // Picker选择器的方法
+    listPicker: function listPicker(e) {
+      this.formData.patientRelationship = this.patientRelationshipList[e.target.value].value;
+    },
+
+    idCardBlur: function idCardBlur() {
+      var _IDRe18 =
+      /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+      if (_IDRe18.test(this.formData.patientCardId)) {
+        this.formData.patientBirthday = this.formData.patientCardId.slice(6, 10) + '-' + this.formData.
+        patientCardId.slice(10, 12) + '-' + this.formData.patientCardId.slice(12, 14);
+      } else {
+        uni.showToast({
+          title: '请输入正确的身份证号！',
+          icon: 'none',
+          duration: 2000 });
+
+
+      }
+    },
+
+    submitBtn: function submitBtn() {
+      if (!this.formData.patientName && this.formData.patientRelationship != '1030') {
+        uni.showToast({
+          title: '请输入就诊人姓名！',
+          icon: 'none',
+          duration: 2000 });
 
 
         return;
       }
-      if (!this.formData.patientCardId) {
+      if (!this.formData.patientCardId && this.formData.patientRelationship != '1030') {
         uni.showToast({
           title: '请输入就诊人身份证号！',
           icon: 'none',
@@ -367,7 +493,7 @@ var _default = { // 注册使用导航栏组件
 
         return;
       }
-      if (!this.formData.patientRelationship) {
+      if (!this.formData.patientRelationship && this.formData.patientRelationship != '1030') {
         uni.showToast({
           title: '请选择与就诊人关系！',
           icon: 'none',
@@ -376,7 +502,7 @@ var _default = { // 注册使用导航栏组件
 
         return;
       }
-      if (!this.formData.patientPhone) {
+      if (!this.formData.patientPhone && this.formData.patientRelationship != '1030') {
         uni.showToast({
           title: '请输入就诊人手机号码！',
           icon: 'none',
@@ -391,7 +517,7 @@ var _default = { // 注册使用导航栏组件
       if (this.formData.cardNo == null || this.formData.cardNo == '') {
         uni.showModal({
           title: "提示",
-          content: "是否注册卡号?",
+          content: "是否添加就诊人?",
           success: function success(res) {
             if (res.confirm) {
               _this.$myRequest({
@@ -421,6 +547,7 @@ var _default = { // 注册使用导航栏组件
                 icon: 'none',
                 duration: 2000 });
 
+              _this.loading = false;
             }
           } });
 
@@ -452,7 +579,7 @@ var _default = { // 注册使用导航栏组件
 
 /***/ 113:
 /*!********************************************************************************************************************************************************************************!*\
-  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=style&index=0&id=38d31350&scoped=true&lang=css& ***!
+  !*** /Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=style&index=0&id=38d31350&scoped=true&lang=css& ***!
   \********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -468,7 +595,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 114:
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/cr/cr-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=style&index=0&id=38d31350&scoped=true&lang=css& ***!
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/fanyouyi/Downloads/智慧医院支付宝小程序/zl/zl-zjkj-al-applets/pages/patient-management/add-patient/add-patient.vue?vue&type=style&index=0&id=38d31350&scoped=true&lang=css& ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

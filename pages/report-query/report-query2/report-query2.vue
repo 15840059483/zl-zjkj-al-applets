@@ -178,13 +178,34 @@
 				if (!str) {
 					return '-';
 				}
-				return '*' + str.substr(1);
+				if (null != str && str != undefined) {
+					let star = '' //存放名字中间的*
+					//名字是两位的就取姓名首位+*
+					if (str.length <= 2) {
+						return str.substring(0, 1) + "*";
+					} else {
+						// 长度减1是因为后面要保留1位
+						for (var i = 0; i < str.length - 1; i++) {
+							star = star + '*'
+						}
+						// substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
+						return str.substring(0, 0) + star + str.substring(str.length - 1, str.length);
+					}
+				}
+			
 			},
-			processingcardNumber(str){
+			processingcardNumber(str) {
 				if (!str) {
 					return '-';
 				}
-				return '****' + str.substr(4);
+				let star = '' //存放就诊号中间的*
+				// 长度减2是因为后面要保留两位
+				for (var i = 0; i < str.length - 2; i++) {
+					star = star + '*'
+				}
+				// substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
+				return str.substring(0, 3) + star + str.substring(str.length - 2, str.length)
+			
 			},
 		},
 		data() {
@@ -224,7 +245,7 @@
 					// name: '',
 					// admissionNumber: undefined
 					name: '张玉春',
-					admissionNumber: '0800039764'
+					admissionNumber: '0000172987'
 				};
 			},
 			// 添加就诊人
@@ -236,14 +257,6 @@
 					url: '/pages/report-query/report-query3/report-query3?sampleList=' + encodeURIComponent(JSON
 						.stringify(list1).replace(/%/g, '%25')) + '&resultList=' + encodeURIComponent(JSON.stringify(list2).replace(/%/g, '%25'))
 				});
-
-				// this.$router.push({
-				// 	name: 'reportQuery3',
-				// 	query: {
-				// 		sampleList: encodeURIComponent(JSON.stringify(list2)),
-				// 		resultList: encodeURIComponent(JSON.stringify(list1))
-				// 	}
-				// })
 			},
 			switchPatient() {
 				this.showSwitchPatient = true;
@@ -286,7 +299,7 @@
 				}).then(res => {
 					console.log(res.data)
 					this.jiazai();
-					if (res && res.data && res.data.length > 0) {
+					if (res && res.data && res.data[0].resultList.length > 0) {
 						this.list = res.data;
 						
 						my.getAuthCode({
@@ -301,7 +314,7 @@
 					}
 					this.showAddPatient = false;
 				}).catch(err => {
-					this.loading = true;
+					this.loading = false;
 				})
 
 				// this.$api.outpatientDepartmentService.getZjkjList(parans)

@@ -158,16 +158,12 @@
 .patient-container .patient-container-row:last-child {
   border-bottom: none;
 }
-.patient-container .zoom-patient-container .patient-container-row:last-child {
-  border-bottom: 1px solid #e1e1e1;
-}
 .patient-container .select-bg {
   background-color: rgba(0, 140, 254, 0.1);
 }
 .select-patient-show {
   width: 1.5rem;
   float: right;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -574,6 +570,65 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 	.header {
 	position: fixed;
 	top: 0;
@@ -585,23 +640,6 @@
 } */
 .zhuti.data-v-52327846 .uni-card {
 	padding: 0 !important;
-}
-/* 动画样式 */
-/* 点击更多的样式 */
-.show-more.data-v-52327846 {
-	width: 100%;
-	height: 1px;
-	transition: height 1s;
-	-moz-transition: height 1s;
-	/* Firefox 4 */
-	-webkit-transition: height 1s;
-	/* Safari and Chrome */
-	-o-transition: height 1s;
-	/* Opera */
-}
-/* 动画样式 */
-.show-more-click.data-v-52327846 {
-	height: 2.5rem;
 }
 .biaoti.data-v-52327846 {
 	font-size: 18px;
@@ -656,7 +694,10 @@
 	background-size: 100%, 100%;
 	margin-left: .2rem;
 }
-.neirong.data-v-52327846{
+.neirong.data-v-52327846 {
 	padding: .2rem;
+}
+.patient-container.data-v-52327846 .uni-collapse-item {
+	border-bottom: 1px solid #e1e1e1;
 }
 
