@@ -5,7 +5,7 @@
 				<!-- <contact-button tnt-inst-id="v3J_3KJ7" scene="SCE01229090"/>
 				<image src="https://s1.ax1x.com/2022/09/27/xZ4AJO.png"></image> -->
 				<view class="btn">
-					<contact-button tnt-inst-id="v3J_3KJ7" scene="SCE01229090"
+					<contact-button tnt-inst-id="ThU_Jr9e" scene="SCE01230424"
 						icon="https://s1.ax1x.com/2022/09/27/xZ4AJO.png" size="50" />
 				</view>
 			</movable-view>

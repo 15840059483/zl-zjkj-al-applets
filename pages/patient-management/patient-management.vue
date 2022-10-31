@@ -506,8 +506,6 @@
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
-				}).final(_ => {
-					this.loading = false;
 				})
 			},
 			confirmDel() {

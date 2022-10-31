@@ -20,7 +20,7 @@
 					<div>费用总额</div>
 					<div>{{ hosptInfo.totCost }}元</div>
 				</div>
-				<div class="people-item display-flex">
+				<div class="people-item display-flex"> 
 					<div>缴费状态</div>
 					<div v-bind:class="classObject" @click="paymentType">
 						<!-- {{(hosptInfo.freeCost>=0||hosptInfo.inState=='O') ? '已缴清' : '未缴清'}} -->

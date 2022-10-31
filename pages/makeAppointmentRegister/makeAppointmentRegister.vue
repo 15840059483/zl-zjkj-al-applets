@@ -91,32 +91,31 @@
 			</view>
 
 			<div class="bg-white">
-				<view v-for="(item,index) in doctors" v-bind:key="index" class="doc-row" @click="clickDoctor(item)"
-					v-if="item.regLevelId=='1'"
+				<view class="doc-row" @click="clickDoctor(null)"
 					style="display: flex;">
 					<view style="width: 25%;">
 						<div class="doc-img">
-							<img v-if="item.docID" :src="baseUrl + '/hospt/doctorsImg/' + item.docID" />
-							<img v-if="!item.docID" :src="baseUrl + '/hospt/doctorsImg/' + '0'" />
+							<img src="https://s1.ax1x.com/2022/10/13/xaGuDJ.jpg" />
 						</div>
 					</view>
 					<view style="width: 60%;padding: .1rem .2rem .1rem .2rem;">
 						<view>
 							<view class="doc-name">{{
-			              item.docName ? item.docName : item.deptName
+			              deptName
 			            }}</view>
-							<view class="doc-position" style="margin-top: 40px;">{{ item.regLevelName }}</view>
+							<view class="doc-position" style="margin-top: 40px;">{{ '普诊' }}</view>
 						</view>
 					</view>
 					<!--          <view :span="7" class="text-right doc-money">￥{{item.totalFee}}</view>-->
 					<view style="width: 15%;" class="text-right doc-money">{{
-			         '全天'
+			          "全天"
 			        }}</view>
 					<view :span="5" class="text-center">
 						<!--            <span class="doc-remainder">余号：{{item.remainingNum}}</span>-->
 					</view>
 				</view>
 			</div>
+
 
 			<div class="confirm-div" v-if="isShowConfirm"></div>
 
@@ -149,6 +148,7 @@
 
 <script>
 	// 引入scss文件
+	import { reportCmPV } from '../../utils/cloudMonitorHelper';
 	import './makeAppointmentRegister.scss'
 	import base from "../../request/base";
 	import store from "../../store";
@@ -178,6 +178,7 @@
 				doctor: {},
 				isShowConfirm: false,
 				feeBill: {},
+				selectDoctor:{},
 				deptbill: {
 					begin: "2021/11/25 8:00:00",
 					deptID: "0008",
@@ -202,10 +203,29 @@
 		},
 		// 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
 		onLoad(e) {
-			//console.log(e);
-			this.deptId = e.id;
-			this.deptName = e.deptName;
-			//console.log(this.deptId)
+			reportCmPV({ title: '预约挂号', e });
+			let deptId = my.getStorageSync({
+				key: 'deptId'
+			}).data
+			
+			let deptName = my.getStorageSync({
+				key: 'deptName'
+			}).data
+			
+			console.log(deptId,'deptId')
+			console.log(deptName,'deptName')
+			
+			if (deptId&&deptName) {
+				this.deptId = deptId;
+				this.deptName = deptName;
+				my.removeStorageSync({key: 'deptId'})
+				my.removeStorageSync({key: 'deptName'})
+			} else {
+				this.deptId = e.id;
+				this.deptName = e.deptName;
+			}
+			console.log(this.deptName,this.deptId)
+			//reportCmPV({ title: '预约挂号', e });
 			this.jiazai()
 		},
 		methods: {
@@ -216,7 +236,7 @@
 				setTimeout(() => {
 					this.loading = false;
 					//console.log(this.loading);
-				}, 500)
+				}, 2000)
 			},
 
 			// 控制动画的方法
@@ -271,7 +291,7 @@
 
 					} else {
 						uni.showToast({
-							title: '点的太快啦！',
+							title: '点的太快啦！QAQ',
 							icon: 'none',
 							duration: 2000
 						});
@@ -324,8 +344,11 @@
 					url: "/hospt/getDetDoctorInfo",
 					data: params,
 				}).then(data => {
+					const doctorInfo = data.data.doctorInfo
 					this.deptInfo = data.data.deptInfo;
 					this.doctors = data.data.doctorInfo;
+					this.selectDoctor = doctorInfo.filter((e)=>{return e.regLevelId=='1'})
+					console.log(this.selectDoctor)
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
@@ -374,6 +397,7 @@
 						this.deptName +
 						'&noonName=' + '上午' +
 						'&deptId=' + this.deptId +
+						'&selectDoctor='+JSON.stringify( this.selectDoctor[0] )+
 						'&noonID=' + '1'+
 						'&date=' + this.selectDayInfo.year +
 						"/" +
@@ -458,15 +482,16 @@
 			},
 		},
 		// 这是uni的生命周期
-		onShow() {
-			this.jiazai()
+		async onShow() {
+			await this.$onLaunched
+			this.getDetDoctorInfo();
 		},
 		mounted() {
 			console.log(this.baseUrl)
 			console.log(base)
 			this.getDays(this.today.getDate(), this.today.getMonth());
 			this.getWeeks(this.today.getDay());
-			this.getDetDoctorInfo();
+			
 			let a = "12:00:00".replace(/-/g, "/");
 			let b = new Date(a);
 			//console.log(new Date().getHours());

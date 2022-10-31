@@ -39,7 +39,7 @@
 			return {
 				title: "缴费页面", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-				authCode:'',
+				authCode: '',
 				orderNo: "",
 				second: 10,
 				isSuccess: true,
@@ -56,48 +56,71 @@
 			getOrderDetail() {
 				this.isShowResult = false;
 				this.isSuccess = false;
-				clearInterval(this.time);
+				
 				const params = {
-						  orderNo: this.orderNo
-						}
+					orderNo: this.orderNo
+				}
 				this.$myRequest({
 					url: "/hospt/getWechatOrderList",
 					data: params,
 				}).then(res => {
 					if (res.data.length === 0) {
-						this.isShowResult = false;
+						this.isShowResult = true;
 						this.isSuccess = false
 						clearInterval(this.time);
+						setTimeout(() => {
+							uni.navigateBack()
+						}, 2000)
 					} else {
 						const paymentstatusId = res.data[0].paymentstatusId
 						if (paymentstatusId == 3010) {
 							this.isShowResult = true;
 							this.isSuccess = true
 							clearInterval(this.time);
-							console.log(this.authCode,"判断缴费")
-							if(this.authCode){
+							console.log(this.authCode, "判断缴费")
+							if (this.authCode) {
 								setTimeout(() => {
-									uni.navigateTo({url: '/pages/register-success/register-success?type=门诊' + '&orderDetail='+JSON.stringify(
-										res.data[0])+'&authCode='+'1'})
+									uni.navigateTo({
+										url: '/pages/register-success/register-success?type=门诊' +
+											'&orderDetail=' + JSON.stringify(
+												res.data[0]) + '&authCode=' + '1'
+									})
 								}, 1000)
 								return
 							}
 							setTimeout(() => {
-								uni.navigateTo({url: '/pages/register-success/register-success?type=门诊' + '&orderDetail='+JSON.stringify(
-									res.data[0])})
+								uni.navigateTo({
+									url: '/pages/register-success/register-success?type=门诊' +
+										'&orderDetail=' + encodeURIComponent(JSON.stringify(
+											res.data[0]))
+								})
 							}, 1000)
-							
-						} else if (paymentstatusId == 3011 && !this.isTime) {
-							this.isShowResult = true;
-							this.isSuccess = false
-						} else if (paymentstatusId == 3011) {
-							setTimeout(() => {
-								this.getOrderDetail();
-							}, 1000)
-						} else if (paymentstatusId == 3014) {
+						} else if (!this.isTime) {
 							this.isShowResult = true;
 							this.isSuccess = false
 							clearInterval(this.time);
+							const orderResult = res.data;
+							console.log(orderResult)
+							uni.showModal({
+								title: "提示",
+								content: "缴费失败，是否饭后继续支付?",
+								success: function(res) {
+									if (res.confirm) {
+										uni.navigateBack()
+									} else {
+										uni.navigateTo({
+											url: '/pages/register-success/register-success?type=门诊' +
+												'&orderDetail=' + encodeURIComponent(JSON.stringify(
+													orderResult[0]))
+										})
+									}
+								}
+							}); 
+							return
+						} else {
+							setTimeout(() => {
+								this.getOrderDetail();
+							}, 1000)
 						}
 					}
 				}).catch(err => {
@@ -117,7 +140,7 @@
 				this.second--;
 				if (this.second === 0) {
 					this.isTime = false;
-					this.getOrderDetail();
+					//this.getOrderDetail();
 					clearInterval(this.time);
 				}
 			}, 1000);

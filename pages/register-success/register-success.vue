@@ -9,17 +9,19 @@
 				<view class="payment-success-wrapper bg-white" style="padding: 10px 0.5rem;">
 					<view style="width: 100%; display: flex;">
 						<view style="width: 25%;text-align: center;">
-							<img style="width: 70px;height: 70px;" src="https://s1.ax1x.com/2022/09/23/xkliHH.png" />
+							<img v-if="orderDetail.paymentstatusId=='3010'" style="width: 70px;height: 70px;" src="https://s1.ax1x.com/2022/09/23/xkliHH.png" />
+							<img class="icon-success" style="width: 70px;height: 70px;" v-else src="../../static/yes-yi.png">
 						</view>
 						<view style="width: 75%;padding: 9px .3rem 9px .3rem;">
-							<div style="font-size: 16px;" class="payment-success">{{ "缴费成功" }}</div>
+							<div style="font-size: 16px;" class="payment-success">{{ orderDetail.paymentstatusName }}</div>
 							<div>{{ formatDate("YY-MM-DD hh:mm:ss") }}</div>
 						</view>
 					</view>
 
 					<view style="width: 100%;text-align: left;font-size: 14px;line-height: 1rem;margin-top: 10px;"
 						class="payment-tip">
-						<span>缴费成功，请在当天提前15分钟前往医院候诊</span>
+						<span v-if="orderDetail.paymentstatusId=='3010'">缴费成功，请在当天提前15分钟前往医院候诊</span>
+						<span v-else>很抱歉您的订单并未支付</span>
 					</view>
 				</view>
 				<div class="payment-list-item bg-white">
@@ -99,8 +101,9 @@
 					<!--        {{ orderDetail.description | description }}-->
 					<!--      </div>-->
 					<!--      <div class="text-right" style="color: red;font-size: .4rem">{{ orderDetail.description | descriptionError }}</div>-->
-					
-					<div v-if="!orderDetail.description || orderDetail.description === '缴费正常'" style="color: green">{{ orderDetail.description || '-' }}
+
+					<div v-if="!orderDetail.description || orderDetail.description === '缴费正常'" style="color: green">
+						{{ orderDetail.description || '-' }}
 					</div>
 					<div v-else v-for="(value, key) in JSON.parse(orderDetail.description)"
 						style="width: 100%;display: flex;justify-content: space-between;margin-top: .2rem;">
@@ -112,7 +115,7 @@
 
 		</view>
 
-		<view class="nav_tab" v-if="home===true">
+		<view class="nav_tab">
 			<view class="buttom_height"></view>
 			<view class="tab_button" @click="zhuye()">
 				<view style="width: 100%;text-align: center;line-height: 110rpx;font-size: 20px;">
@@ -120,6 +123,8 @@
 				</view>
 			</view>
 		</view>
+
+		<energy-success v-if="showToast" :message="toastMessage" :energy-num="energyNum"></energy-success>
 	</view>
 </template>
 
@@ -155,57 +160,78 @@
 			return {
 				title: "订单详情 ", // 页面标题
 				shouye: "no", // 是否是首页，不是首页显示返回上一层箭头
-				orderDetail:{},
+				orderDetail: {},
 				// backGo: this.$route.query.backGo ? Number(this.$route.query.backGo) : -2,
 				home: false, // 底部返回主页栏的显示与隐藏
+
+				showToast: false, // 能量提示成功弹窗
+				toastMessage: '',
+				energyNum: 0
 			}
 		},
 		// 这是uni的生命周期
 		// 在uniapp中如果要使用路由传参必须使用onload(路由传参中的参数值)
 		onLoad(e) {
-			console.log(e, 'regiser-success');
+			let orderDetail = my.getStorageSync({
+				key: 'orderDetail'
+			}).data
 			clearTimeout(this.timer); //清除延迟执行
-			this.orderDetail = JSON.parse(e.orderDetail)
+
+			if (orderDetail) {
+				this.orderDetail = JSON.parse(orderDetail)
+				my.removeStorageSync({key: 'orderDetail'})
+			} else {
+				this.orderDetail = JSON.parse(decodeURIComponent(e.orderDetail))
+			}
 			console.log(this.orderDetail)
-			console.log(e.authCode,"regiser-success")
-			if(e.authCode){
+
+			if (e.authCode && this.orderDetail.paymentstatusId == '3010') {
+
+				console.log("发放能量结束");
 				my.getAuthCode({
-				  scopes: 'mfrstre',
-				  success: item => {
-					  if(item.authCode){
-						  let datas = {
-						  	code: item.authCode,
-						  	scene: 'horegister'
-						    }
-						    
-						  this.$myRequest({
-						  	url: "/al/auth/al/sendCity",
-						  	method: "GET",
-						  	data: datas,
-						  }).then(data => {
-						  	console.log(data)
-						  	my.alert({
-						  	  content: '本次挂号得到能量为'+data.data.totalEnergy,
-						  	});
-						  });
-					  }
-				    
-				  },
+					scopes: ['auth_user', 'hospital_order',
+					'mfrstre'], // 主动授权：auth_user，静默授权：auth_base。或者其它scope  success: (res) => {
+					success: res => {
+						if (res.authCode) {
+							let datas = {
+								code: res.authCode,
+								orderNo: this.orderDetail.orderNo,
+								scene: 'horegister'
+							}
+							console.log("发送模版消息");
+							// 认证成功      // 调用自己的服务端接口，让服务端进行后端的授权认证，并且利用session，需要解决跨域问题      my.request({
+							this.$myRequest({
+								url: "/al/auth/send",
+								method: "GET",
+								data: datas,
+							}).then(data => {
+								if (data.data.totalEnergy) {
+									this.toastMessage = '本次挂号得到能量为'
+									this.energyNum = Number(data.data.totalEnergy)
+									this.showToast = true
+
+									setTimeout(() => {
+										this.showToast = false
+									}, 3000)
+								}
+							});
+						}
+					},
 				});
 			}
-			this.timer = setTimeout(() => {
-				//设置延迟10秒执行弹出提示框
-				this.open();
-			}, 10000);
+			// this.timer = setTimeout(() => {
+			// 	//设置延迟10秒执行弹出提示框
+			// 	this.open();
+			// }, 10000);
 		},
 		onShow() {
 			clearTimeout(this.timer); //清除延迟执行
-			
 
-			this.timer = setTimeout(() => {
-				//设置延迟10秒执行弹出提示框
-				this.open();
-			}, 10000);
+
+			// this.timer = setTimeout(() => {
+			// 	//设置延迟10秒执行弹出提示框
+			// 	this.open();
+			// }, 10000);
 		},
 		methods: {
 			// 返回主页

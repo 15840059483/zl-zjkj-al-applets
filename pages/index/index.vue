@@ -10,6 +10,7 @@
 			<Header :title="title" :shouye="shouye"></Header>
 		</view> -->
 		<div style="padding: .2rem;">
+
 			<uni-card shadow="never" v-if="dfltPatientInfo.cardNumber">
 				<view class="jiuzhenren">
 					<view :span="12" class="patient-name">
@@ -36,14 +37,10 @@
 					</view>
 				</view>
 			</uni-card>
-
 			<uni-card shadow="never" v-else>
 				<uni-row class="card-row">
 					<div v-if="isToken" class="patient-wrapper-button" @click="addCardNumber">请点击注册卡号</div>
-					<button v-if="!isToken" open-type="getAuthorize" scope="userInfo" @getAuthorize="onAuthBtn"
-						@error="onAuthError">
-						个人信息授权
-					</button>
+					<div v-if="!isToken" class="patient-wrapper-button" @click="goToPage('/pages/patient-management/add-patient/add-patient')">请点击添加就诊人</div>
 					<!-- <div v-if="!isToken" class="patient-wrapper-button" @click="onAuthBtn">点击授权</div> -->
 				</uni-row>
 			</uni-card>
@@ -166,7 +163,7 @@
 				showAddPatient: false,
 				cardNo: '',
 				loading: false, // 加载动画
-
+				alUserInfo: {},
 				isToken: true,
 			}
 		},
@@ -189,7 +186,7 @@
 						return str.substring(0, 0) + star + str.substring(str.length - 1, str.length);
 					}
 				}
-			
+
 			},
 			processingcardNumber(str) {
 				if (!str) {
@@ -202,7 +199,7 @@
 				}
 				// substring()截取字符串， 第一个参数是开始截取的下标，第二个是结束的下标，第二个参数不填就从下标开始截取到最后一位
 				return str.substring(0, 3) + star + str.substring(str.length - 2, str.length)
-			
+
 			},
 		},
 		methods: {
@@ -221,6 +218,9 @@
 					url: "/wechat/user/dfltPtCard/info",
 				}).then(data => {
 					this.dfltPatientInfo = data.data || {};
+					if(!data.data){
+						this.isToken = false;
+					}
 					this.loading = false;
 				}).catch(err => {
 					this.loading = false;
@@ -234,7 +234,7 @@
 					const params = Object.assign(this.dfltPatientInfo, {
 						cardNo: ''
 					})
-					
+
 					this.$myRequest({
 						url: "/wechat/user/addPtCard/info",
 						contentType: 'application/json;charset=UTF-8',
@@ -267,7 +267,7 @@
 					return
 				}
 
-				
+
 			},
 			switchPatient() {
 				// this.goToPage('/select-patient');
@@ -283,7 +283,7 @@
 					return;
 				}
 				//console.log(meta)
-				if (!meta) {
+				if (true) {
 					uni.navigateTo({
 						url: url
 					})
@@ -323,65 +323,7 @@
 					})
 			},
 			onAuthBtn() {
-				my.getOpenUserInfo({
-					success: (res) => {
-						let userInfo = JSON.parse(res.response).response // 以下方的报文格式解析两层 response
 
-						const params = {
-							realname: '测试',
-							//mobile: userInfo.mobile,
-							mobile: '110',
-							userIdCard: '208831298288742022',
-							/* 两个userid 从缓存中取 */
-							aliUserId: my.getStorageSync({
-								key: 'user_id'
-							}).data,
-							alipayUserId: '20880034933095029415612911016942',
-							/* M男 F女 */
-							gender: userInfo.gender === 'M' ? 1 : 2,
-							birthday: '2022-02-03',
-						}
-						const _this = this;
-
-						this.$myRequest({
-							url: "/wechat/register/normal",
-							data: params,
-						}).then(data => {
-
-							console.log(data)
-
-							if (data.code !== 200) {
-								uni.showToast({
-									title: data.msg,
-									icon: 'none',
-									duration: 2000
-								});
-								// this.$message.warning(data.msg);
-							} else {
-								uni.showToast({
-									title: '注册成功',
-									icon: 'none',
-									duration: 2000
-								});
-								my.setStorageSync({
-									key: 'token',
-									data: data.data
-								})
-
-								_this.isToken = true;
-
-								_this.getDfltPtCardInfo();
-							}
-							this.loading = false;
-						}).catch(err => {
-							this.loading = false;
-						})
-						console.log('userInfo', userInfo)
-					},
-					fail: (res) => {
-						console.log('fail', res)
-					}
-				});
 			},
 		},
 		created() {
@@ -391,60 +333,41 @@
 		onLoad() {
 			// this.jiazai()
 		},
-		onShow() {
+		async onShow() {
+			await this.$onLaunched
 			// this.jiazai()
-			let _this = this
-			my.getStorage({
-				key: 'token',
-				success: function(res) {
-					console.log(res)
-					if (!res.data) {
-						_this.isToken = false
-						my.getAuthCode({
-							scopes: 'auth_user',
-							success: res => {
-								console.log(res)
-								_this.$myRequest({
-										// url: `/al/auth/login?code=${res.code}`,
-										url: `/al/auth/login?code=${res.authCode}`,
-										method: 'get'
-									})
-									.then((data) => {
-										console.log(data.data)
-										// _this.user_id = data.user_id;
-										my.setStorageSync({
-											key: 'user_id',
-											data: data.data.aliUserId
-										})
-										my.removeStorage({
-											key: 'token'
-										})
-										console.log(data.data.reg)
-
-
-										if (!data.data.reg) {
-											// _this.$router.push('/register')
-											uni.showToast({
-												title: '还没有注册哟~',
-												icon: 'none',
-												duration: 2000
-											});
-										} else {
-											my.setStorageSync({
-												key: 'token',
-												data: data.data.token
-											})
-											_this.getDfltPtCardInfo();
-											_this.isToken = true;
-										}
-									})
-							},
-						});
-					} else {
-						_this.getDfltPtCardInfo();
-					}
-				}
-			})
+			this.getDfltPtCardInfo();
+			
+			// my.getAuthCode({
+			// 	scopes: ['auth_user', 'hospital_order',
+			// 	'mfrstre'], // 主动授权：auth_user，静默授权：auth_base。或者其它scope  success: (res) => {
+			// 	success: res => {
+			// 		if (res.authCode) {
+			// 			let datas = {
+			// 				code: res.authCode,
+			// 				orderNo: '202210220932551261060',
+			// 				scene: 'horegister'
+			// 			}
+			// 			console.log("发送模版消息");
+			// 			// 认证成功      // 调用自己的服务端接口，让服务端进行后端的授权认证，并且利用session，需要解决跨域问题      my.request({
+			// 			this.$myRequest({
+			// 				url: "/al/auth/send",
+			// 				method: "GET",
+			// 				data: datas,
+			// 			}).then(data => {
+			// 				if (data.data.totalEnergy) {
+			// 					this.toastMessage = '本次挂号得到能量为'
+			// 					this.energyNum = Number(data.data.totalEnergy)
+			// 					this.showToast = true
+			
+			// 					setTimeout(() => {
+			// 						this.showToast = false
+			// 					}, 3000)
+			// 				}
+			// 			});
+			// 		}
+			// 	},
+			// });
 		},
 		mounted() {
 			// const item = JSON.parse(JSON.stringify(localStorage.getItem('selectPatient')));
@@ -569,14 +492,14 @@
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsAHS.png'),
 					routLink: '/pages/survey-new-coupons/survey-new-coupons'
 				},*/
-				{
-					id: 14,
-					menuName: '核酸检测',
-					twoTitle: '自助快速的挂号核酸检测',
-					routerUrl: '',
-					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsCct.png'),
-					routLink: '/pages/hesuanjiance/Zizhukaidan/zizhukaidan'
-				},
+				// {
+				// 	id: 14,
+				// 	menuName: '核酸检测',
+				// 	twoTitle: '自助快速的挂号核酸检测',
+				// 	routerUrl: '',
+				// 	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsCct.png'),
+				// 	routLink: '/pages/hesuanjiance/Zizhukaidan/zizhukaidan'
+				// },
 				/*{
 					id: 15,
 					menuName: '预约信息',
@@ -585,14 +508,14 @@
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsp9A.jpg'),
 					routLink: '/pages/hesuanjiance/Shenhejieguo/shenhejieguo'
 				},*/
-				{
-					id: 16,
-					menuName: '流程图',
-					twoTitle: '查看流程图',
-					routerUrl: '',
-					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsp9A.jpg'),
-					routLink: '/pages/liuchengtu/liuchengtu'
-				},
+				// {
+				// 	id: 16,
+				// 	menuName: '流程图',
+				// 	twoTitle: '查看流程图',
+				// 	routerUrl: '',
+				// 	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIsp9A.jpg'),
+				// 	routLink: '/pages/liuchengtu/liuchengtu'
+				// },
 			]
 
 			this.outpatientFunctionList = [
@@ -605,16 +528,16 @@
 					//routLink: '/addPatient',
 					routLink: '',
 					meta: true
-				},
+				},*/
 				{
 					id: 2,
 					menuName: '挂号记录',
 					twoTitle: '快速缴费不排队',
 					routerUrl: '',
 					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrLnK.jpg'),
-					routLink: '',
+					routLink: '/pages/registration-record/registration-record',
 					meta: true
-				},*/
+				},
 				{
 					id: 5,
 					menuName: '门诊缴费记录',
@@ -626,16 +549,17 @@
 				},
 			]
 
-			this.inpatientFunctionList = [{
-					id: 3,
-					menuName: '住院缴费',
-					twoTitle: '快速查询不排队',
-					routerUrl: '',
-					imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrzhd.jpg'),
-					//routLink: '/hospitalizationPayment',
-					routLink: '',
-					meta: false
-				},
+			this.inpatientFunctionList = [
+				// {
+				// 	id: 3,
+				// 	menuName: '住院缴费',
+				// 	twoTitle: '快速查询不排队',
+				// 	routerUrl: '',
+				// 	imageUrl: ('https://s1.ax1x.com/2022/09/02/vIrzhd.jpg'),
+				// 	//routLink: '/hospitalizationPayment',
+				// 	routLink: '',
+				// 	meta: false
+				// },
 				/*{
 					id: 4,
 					menuName: '预约住院',
